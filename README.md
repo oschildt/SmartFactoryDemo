@@ -28,26 +28,55 @@ Demo application to demonstrate how to use the library [SmartFactory](https://gi
 ## Directory Structure 
 
 ```
-docs
-src
-  SmartFactory
-    Interfaces
-    DatabaseWorkers
+application
+  api
+  config
+  css
+  localization
+  logs
+  resources
+  src
+  tests
+  xmlapi
+database
 ```
 
 ## Detailed description
 
-### docs
-This directory contains the documentation about classes, interfaces and functions of the framework SmartFactory.
+### application
+This is the root directory of the application.
 
-### src
-This is the root directory for all classes and interfaces. The class loader is implemented based on PSR4 approach. You have no need to add additional class loader function for your classes.
+### application/api
+This directory contains the processor index.php of the JSON API requests.
 
-### src/SmartFactory
-This directory contains the core classes and interfaces of the framework SmartFactory.
+### application/config
+This directory contains the configuration files.
 
-### src/SmartFactory/Interfaces
-This directory contains the core interfaces of the framework SmartFactory.
+### application/css
+This directory contains the css files for the application.
 
-### src/SmartFactory/DatabaseWorkers
-This directory contains the core classes of the framework SmartFactory for working with databases.
+### application/localization
+This directory contains the translation file texts.xml and the editor edit.php for user friendly editing of the translation texts.
+
+### application/logs
+This directory is used for logging, debugging and tracing.
+
+### application/resources
+This directory contains the resource files for the application.
+
+### application/src
+This is the root directory for all code sources. 
+
+### application/tests
+This directory contains the test scripts for checking the your classes for correct syntax and for checking your translations for duplicates and missing translations.
+
+### application/xmlapi
+This directory contains the processor index.php of the XML API requests.
+
+### database
+This directory contains the SQL scripts for creation of the database for the demo application.
+
+
+
+
+
