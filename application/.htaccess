@@ -1,0 +1,27 @@
+# Force charset utf-8 for all files of the CMS
+
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html
+
+AddType 'text/html; charset=UTF-8' html
+
+<IfModule rewrite_module>
+
+RewriteEngine on
+
+# If the application resides in the root like http://my_app/
+# RewriteBase /
+#
+# If the application resides in a subfolder like http://server/my_app/
+# RewriteBase /my_app/
+#
+# If the application resides in a subfolder like http://server/apps/my_app/
+# RewriteBase /apps/my_app/
+
+RewriteBase /
+
+RewriteRule ^api/([^\\/]*)/?  api/index.php   [L,QSA]
+
+RewriteRule ^xmlapi/([^\\/]*)/?  xmlapi/index.php   [L,QSA]
+
+</IfModule>

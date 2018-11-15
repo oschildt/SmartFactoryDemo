@@ -1,0 +1,1674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <interface_languages>
+    <language id="en"/>
+    <language id="de"/>
+    <language id="ru"/>
+  </interface_languages>
+  <languages>
+    <language id="ab">
+      <en>Abkhazian</en>
+      <de>Abchasisch</de>
+      <ru>Абхазкий</ru>
+    </language>
+    <language id="af">
+      <en>Afrikaans</en>
+      <de>Afrikanisch</de>
+      <ru>Африканский</ru>
+    </language>
+    <language id="sq">
+      <en>Albanian</en>
+      <de>Albanisch</de>
+      <ru>Албанский</ru>
+    </language>
+    <language id="ar">
+      <en>Arabic</en>
+      <de>Arabisch</de>
+      <ru>Арабский</ru>
+    </language>
+    <language id="hy">
+      <en>Armenian</en>
+      <de>Armenisch</de>
+      <ru>Армянский</ru>
+    </language>
+    <language id="az">
+      <en>Azerbaijani</en>
+      <de>Aserbaidschanisch</de>
+      <ru>Азербайджанский</ru>
+    </language>
+    <language id="ba">
+      <en>Bashkir</en>
+      <de>Baschkirisch</de>
+      <ru>Башкирский</ru>
+    </language>
+    <language id="eu">
+      <en>Basque</en>
+      <de>Baskisch</de>
+      <ru>Баскский</ru>
+    </language>
+    <language id="be">
+      <en>Belarusian</en>
+      <de>Weißrussisch</de>
+      <ru>Беларусский</ru>
+    </language>
+    <language id="bs">
+      <en>Bosnian</en>
+      <de>Bosnisch</de>
+      <ru>Боснийский</ru>
+    </language>
+    <language id="bg">
+      <en>Bulgarian</en>
+      <de>Bulgarisch</de>
+      <ru>Болгарский</ru>
+    </language>
+    <language id="ca">
+      <en>Catalan</en>
+      <de>Catalan</de>
+      <ru>Каталанский</ru>
+    </language>
+    <language id="ce">
+      <en>Chechen</en>
+      <de>Tschetschenisch</de>
+      <ru>Чеченский</ru>
+    </language>
+    <language id="zh">
+      <en>Chinese</en>
+      <de>Chinesisch</de>
+      <ru>Китайский</ru>
+    </language>
+    <language id="cv">
+      <en>Chuvash</en>
+      <de>Tschuwaschisch</de>
+      <ru>Чувашский</ru>
+    </language>
+    <language id="hr">
+      <en>Croatian</en>
+      <de>Kroatisch</de>
+      <ru>Хорватский</ru>
+    </language>
+    <language id="cs">
+      <en>Czech</en>
+      <de>Tschechisch</de>
+      <ru>Чешский</ru>
+    </language>
+    <language id="da">
+      <en>Danish</en>
+      <de>Dänisch</de>
+      <ru>Датский</ru>
+    </language>
+    <language id="nl">
+      <en>Dutch</en>
+      <de>Niederländisch</de>
+      <ru>Голландский</ru>
+    </language>
+    <language id="en">
+      <en>English</en>
+      <de>Englisch</de>
+      <ru>Английский</ru>
+    </language>
+    <language id="eo">
+      <en>Esperanto</en>
+      <de>Esperanto</de>
+      <ru>Эсперанто</ru>
+    </language>
+    <language id="et">
+      <en>Estonian</en>
+      <de>Estnisch</de>
+      <ru>Эстонский</ru>
+    </language>
+    <language id="fi">
+      <en>Finnish</en>
+      <de>Finnisch</de>
+      <ru>Финский</ru>
+    </language>
+    <language id="fr">
+      <en>French</en>
+      <de>Französisch</de>
+      <ru>Французкий</ru>
+    </language>
+    <language id="ka">
+      <en>Georgian</en>
+      <de>Georgisch</de>
+      <ru>Грузинский</ru>
+    </language>
+    <language id="de">
+      <en>German</en>
+      <de>Deutsch</de>
+      <ru>Немецкий</ru>
+    </language>
+    <language id="el">
+      <en>Greek</en>
+      <de>Greek</de>
+      <ru>Греческий</ru>
+    </language>
+    <language id="he">
+      <en>Hebrew</en>
+      <de>Jüdisch</de>
+      <ru>Еврейский</ru>
+    </language>
+    <language id="hi">
+      <en>Hindi</en>
+      <de>Hindi</de>
+      <ru>Хинди</ru>
+    </language>
+    <language id="hu">
+      <en>Hungarian</en>
+      <de>Ungarisch</de>
+      <ru>Венгерский</ru>
+    </language>
+    <language id="is">
+      <en>Icelandic</en>
+      <de>Isländisch</de>
+      <ru>Исландский</ru>
+    </language>
+    <language id="id">
+      <en>Indonesian</en>
+      <de>Indonesisch</de>
+      <ru>Индонезийский</ru>
+    </language>
+    <language id="ia">
+      <en>Interlingua</en>
+      <de>Interlingua</de>
+      <ru>Интерлингва</ru>
+    </language>
+    <language id="ga">
+      <en>Irish</en>
+      <de>Irisch</de>
+      <ru>Ирландский</ru>
+    </language>
+    <language id="it">
+      <en>Italian</en>
+      <de>Italienisch</de>
+      <ru>Итальянский</ru>
+    </language>
+    <language id="ja">
+      <en>Japanese</en>
+      <de>Japanisch</de>
+      <ru>Японский</ru>
+    </language>
+    <language id="kk">
+      <en>Kazakh</en>
+      <de>Kasachisch</de>
+      <ru>Казахский</ru>
+    </language>
+    <language id="ky">
+      <en>Kirghiz</en>
+      <de>Kirgisisch</de>
+      <ru>Киргизский</ru>
+    </language>
+    <language id="kv">
+      <en>Komi</en>
+      <de>Komi</de>
+      <ru>Коми</ru>
+    </language>
+    <language id="kg">
+      <en>Kongo</en>
+      <de>Kongo</de>
+      <ru>Конго</ru>
+    </language>
+    <language id="ko">
+      <en>Korean</en>
+      <de>Koreanisch</de>
+      <ru>Корейский</ru>
+    </language>
+    <language id="ku">
+      <en>Kurdish</en>
+      <de>Kurdisch</de>
+      <ru>Курдский</ru>
+    </language>
+    <language id="lv">
+      <en>Latvian</en>
+      <de>Lettisch</de>
+      <ru>Латвиский</ru>
+    </language>
+    <language id="lt">
+      <en>Lithuanian</en>
+      <de>Litauisch</de>
+      <ru>Литовский</ru>
+    </language>
+    <language id="lb">
+      <en>Luxembourgish</en>
+      <de>Luxemburgisch</de>
+      <ru>Люксембургский</ru>
+    </language>
+    <language id="mk">
+      <en>Macedonian</en>
+      <de>Mazedonisch</de>
+      <ru>Македонский</ru>
+    </language>
+    <language id="ms">
+      <en>Malay</en>
+      <de>Malaiisch</de>
+      <ru>Малайский</ru>
+    </language>
+    <language id="mt">
+      <en>Maltese</en>
+      <de>Maltesisch</de>
+      <ru>Мальтийский</ru>
+    </language>
+    <language id="mi">
+      <en>Maori</en>
+      <de>Maorisch</de>
+      <ru>Маори</ru>
+    </language>
+    <language id="mo">
+      <en>Moldavian</en>
+      <de>Moldawisch</de>
+      <ru>Молдавский</ru>
+    </language>
+    <language id="mn">
+      <en>Mongolian</en>
+      <de>Mongolisch</de>
+      <ru>Монгольский</ru>
+    </language>
+    <language id="ne">
+      <en>Nepali</en>
+      <de>Nepalisch</de>
+      <ru>Непальский</ru>
+    </language>
+    <language id="no">
+      <en>Norwegian</en>
+      <de>Norwegisch</de>
+      <ru>Норвежский</ru>
+    </language>
+    <language id="os">
+      <en>Ossetian</en>
+      <de>Ossetisch</de>
+      <ru>Осетинский</ru>
+    </language>
+    <language id="fa">
+      <en>Persian</en>
+      <de>Persisch</de>
+      <ru>Персидский</ru>
+    </language>
+    <language id="pl">
+      <en>Polish</en>
+      <de>Polnisch</de>
+      <ru>Польский</ru>
+    </language>
+    <language id="pt">
+      <en>Portuguese</en>
+      <de>Portugiesisch</de>
+      <ru>Португальский</ru>
+    </language>
+    <language id="ro">
+      <en>Romanian</en>
+      <de>Rumänisch</de>
+      <ru>Румынский</ru>
+    </language>
+    <language id="ru">
+      <en>Russian</en>
+      <de>Russisch</de>
+      <ru>Русский</ru>
+    </language>
+    <language id="sr">
+      <en>Serbian</en>
+      <de>Serbisch</de>
+      <ru>Сербский</ru>
+    </language>
+    <language id="sk">
+      <en>Slovak</en>
+      <de>Slowakisch</de>
+      <ru>Словацкий</ru>
+    </language>
+    <language id="sl">
+      <en>Slovenian</en>
+      <de>Slowenisch</de>
+      <ru>Словенский</ru>
+    </language>
+    <language id="so">
+      <en>Somali</en>
+      <de>Somali</de>
+      <ru>Сомалийский</ru>
+    </language>
+    <language id="es">
+      <en>Spanish</en>
+      <de>Spanisch</de>
+      <ru>Испанский</ru>
+    </language>
+    <language id="su">
+      <en>Sudanese</en>
+      <de>Sudanisch</de>
+      <ru>Суданский</ru>
+    </language>
+    <language id="sv">
+      <en>Swedish</en>
+      <de>Schwedisch</de>
+      <ru>Шведский</ru>
+    </language>
+    <language id="ty">
+      <en>Tahitian</en>
+      <de>Tahitisch</de>
+      <ru>Таитянский</ru>
+    </language>
+    <language id="tg">
+      <en>Tajik</en>
+      <de>Tadschikisch</de>
+      <ru>Таджикский</ru>
+    </language>
+    <language id="tt">
+      <en>Tatar</en>
+      <de>Tatarisch</de>
+      <ru>Татарский</ru>
+    </language>
+    <language id="th">
+      <en>Thai</en>
+      <de>Thai</de>
+      <ru>Тайский</ru>
+    </language>
+    <language id="bo">
+      <en>Tibetan</en>
+      <de>Tibetisch</de>
+      <ru>Тибетский</ru>
+    </language>
+    <language id="tr">
+      <en>Turkish</en>
+      <de>Türkisch</de>
+      <ru>Турецкий</ru>
+    </language>
+    <language id="tk">
+      <en>Turkmen</en>
+      <de>Turkmenisch</de>
+      <ru>Туркменский</ru>
+    </language>
+    <language id="uk">
+      <en>Ukrainian</en>
+      <de>Ukrainisch</de>
+      <ru>Украинский</ru>
+    </language>
+    <language id="uz">
+      <en>Uzbek</en>
+      <de>Usbekisch</de>
+      <ru>Узбекский</ru>
+    </language>
+    <language id="vi">
+      <en>Vietnamese</en>
+      <de>Vietnamesisch</de>
+      <ru>Вьетнамский</ru>
+    </language>
+    <language id="cy">
+      <en>Welsh</en>
+      <de>Walisisch</de>
+      <ru>Уэльский</ru>
+    </language>
+    <language id="yi">
+      <en>Yiddish</en>
+      <de>Jiddisch</de>
+      <ru>Идиш</ru>
+    </language>
+    <language id="zu">
+      <en>Zulu</en>
+      <de>Zulu</de>
+      <ru>Зулуский</ru>
+    </language>
+  </languages>
+  <countries>
+    <country id="AF">
+      <en>Afghanistan</en>
+      <de>Afghanistan</de>
+      <ru>Афганистан</ru>
+    </country>
+    <country id="AL">
+      <en>Albania</en>
+      <de>Albanien</de>
+      <ru>Албания</ru>
+    </country>
+    <country id="DZ">
+      <en>Algeria</en>
+      <de>Algerien</de>
+      <ru>Алжир</ru>
+    </country>
+    <country id="AS">
+      <en>American Samoa</en>
+      <de>Amerikanisches Samoa</de>
+      <ru>Американское Самоа</ru>
+    </country>
+    <country id="AD">
+      <en>Andorra</en>
+      <de>Andorra</de>
+      <ru>Андорра</ru>
+    </country>
+    <country id="AO">
+      <en>Angola</en>
+      <de>Angola</de>
+      <ru>Ангола</ru>
+    </country>
+    <country id="AI">
+      <en>Anguilla</en>
+      <de>Anguilla</de>
+      <ru>Ангилла</ru>
+    </country>
+    <country id="AG">
+      <en>Antigua And Barbuda</en>
+      <de>Antigua und Barbuda</de>
+      <ru>Антигуа и Барбуда</ru>
+    </country>
+    <country id="AR">
+      <en>Argentina</en>
+      <de>Argentinien</de>
+      <ru>Аргентина</ru>
+    </country>
+    <country id="AM">
+      <en>Armenia</en>
+      <de>Armenien</de>
+      <ru>Армения</ru>
+    </country>
+    <country id="AW">
+      <en>Aruba</en>
+      <de>Aruba</de>
+      <ru>Аруба</ru>
+    </country>
+    <country id="AU">
+      <en>Australia</en>
+      <de>Australien</de>
+      <ru>Австралия</ru>
+    </country>
+    <country id="AT">
+      <en>Austria</en>
+      <de>Österreich</de>
+      <ru>Австрия</ru>
+    </country>
+    <country id="AZ">
+      <en>Azerbaijan</en>
+      <de>Aserbaidschan</de>
+      <ru>Азербайджан</ru>
+    </country>
+    <country id="BS">
+      <en>Bahamas</en>
+      <de>Bahamas</de>
+      <ru>Багамы</ru>
+    </country>
+    <country id="BH">
+      <en>Bahrain</en>
+      <de>Bahrain</de>
+      <ru>Бахрейн</ru>
+    </country>
+    <country id="BD">
+      <en>Bangladesh</en>
+      <de>Bangladesch</de>
+      <ru>Бангладеш</ru>
+    </country>
+    <country id="BB">
+      <en>Barbados</en>
+      <de>Barbados</de>
+      <ru>Барбадос</ru>
+    </country>
+    <country id="BY">
+      <en>Belarus</en>
+      <de>Weißrussland</de>
+      <ru>Белоруссия</ru>
+    </country>
+    <country id="BE">
+      <en>Belgium</en>
+      <de>Belgien</de>
+      <ru>Бельгия</ru>
+    </country>
+    <country id="BZ">
+      <en>Belize</en>
+      <de>Belize</de>
+      <ru>Белиз</ru>
+    </country>
+    <country id="BJ">
+      <en>Benin</en>
+      <de>Benin</de>
+      <ru>Бенин</ru>
+    </country>
+    <country id="BM">
+      <en>Bermuda</en>
+      <de>Bermudas</de>
+      <ru>Бермуды</ru>
+    </country>
+    <country id="BT">
+      <en>Bhutan</en>
+      <de>Bhutan</de>
+      <ru>Бутан</ru>
+    </country>
+    <country id="BO">
+      <en>Bolivia</en>
+      <de>Bolivien</de>
+      <ru>Боливия</ru>
+    </country>
+    <country id="BA">
+      <en>Bosnia And Herzegowina</en>
+      <de>Bosnien und Herzegowina</de>
+      <ru>Босния и Герцеговина</ru>
+    </country>
+    <country id="BW">
+      <en>Botswana</en>
+      <de>Botswana</de>
+      <ru>Ботсвана</ru>
+    </country>
+    <country id="BV">
+      <en>Bouvet Island</en>
+      <de>Bouvet Island</de>
+      <ru>Буветские острова</ru>
+    </country>
+    <country id="BR">
+      <en>Brazil</en>
+      <de>Brasilen</de>
+      <ru>Бразилия</ru>
+    </country>
+    <country id="BN">
+      <en>Brunei</en>
+      <de>Brunei</de>
+      <ru>Бруней</ru>
+    </country>
+    <country id="BG">
+      <en>Bulgaria</en>
+      <de>Bulgarien</de>
+      <ru>Болгария</ru>
+    </country>
+    <country id="BF">
+      <en>Burkina Faso</en>
+      <de>Burkina Faso</de>
+      <ru>Буркина-Фасо</ru>
+    </country>
+    <country id="BI">
+      <en>Burundi</en>
+      <de>Burundi</de>
+      <ru>Бурунди</ru>
+    </country>
+    <country id="KH">
+      <en>Cambodia</en>
+      <de>Kambodscha</de>
+      <ru>Камбоджа</ru>
+    </country>
+    <country id="CM">
+      <en>Cameroon</en>
+      <de>Kamerun</de>
+      <ru>Камерун</ru>
+    </country>
+    <country id="CA">
+      <en>Canada</en>
+      <de>Kanada</de>
+      <ru>Канада</ru>
+    </country>
+    <country id="CV">
+      <en>Cape Verde</en>
+      <de>Kap Verde</de>
+      <ru>Кабо-Верде</ru>
+    </country>
+    <country id="KY">
+      <en>Cayman Islands</en>
+      <de>Cayman Insel</de>
+      <ru>Каймановы острова</ru>
+    </country>
+    <country id="CF">
+      <en>Central African Republic</en>
+      <de>Zentralafrikanische Republik</de>
+      <ru>Центральноафриканская Республика</ru>
+    </country>
+    <country id="TD">
+      <en>Chad</en>
+      <de>Tschad</de>
+      <ru>Чад</ru>
+    </country>
+    <country id="CL">
+      <en>Chile</en>
+      <de>Chile</de>
+      <ru>Чили</ru>
+    </country>
+    <country id="CN">
+      <en>China</en>
+      <de>China</de>
+      <ru>Китай</ru>
+    </country>
+    <country id="CX">
+      <en>Christmas Island</en>
+      <de>Christmas-Insel</de>
+      <ru>Остров Кристмас</ru>
+    </country>
+    <country id="CC">
+      <en>Cocos (Keeling) Islands</en>
+      <de>Cocos Keeling Insel</de>
+      <ru>Кокосовые острова</ru>
+    </country>
+    <country id="CO">
+      <en>Colombia</en>
+      <de>Kolumbien</de>
+      <ru>Колумбия</ru>
+    </country>
+    <country id="KM">
+      <en>Comoros</en>
+      <de>Komoren</de>
+      <ru>Коморские Острова</ru>
+    </country>
+    <country id="CG">
+      <en>Congo</en>
+      <de>Kongo</de>
+      <ru>Конго</ru>
+    </country>
+    <country id="CK">
+      <en>Cook Islands</en>
+      <de>Cook-Insel</de>
+      <ru>Острова Кука</ru>
+    </country>
+    <country id="CR">
+      <en>Costa Rica</en>
+      <de>Kostarika</de>
+      <ru>Коста-Рика</ru>
+    </country>
+    <country id="CI">
+      <en>Cote d'Ivoire</en>
+      <de>Cote d'Ivoire</de>
+      <ru>Кот-Дивуар</ru>
+    </country>
+    <country id="HR">
+      <en>Croatia</en>
+      <de>Kroatien</de>
+      <ru>Хорватия</ru>
+    </country>
+    <country id="CU">
+      <en>Cuba</en>
+      <de>Kuba</de>
+      <ru>Куба</ru>
+    </country>
+    <country id="CY">
+      <en>Cyprus</en>
+      <de>Zypern</de>
+      <ru>Кипр</ru>
+    </country>
+    <country id="CZ">
+      <en>Czech Republic</en>
+      <de>Tschechien</de>
+      <ru>Чешская Республика</ru>
+    </country>
+    <country id="DK">
+      <en>Denmark</en>
+      <de>Dänemark</de>
+      <ru>Дания</ru>
+    </country>
+    <country id="DJ">
+      <en>Djibouti</en>
+      <de>Dschibuti</de>
+      <ru>Джибути</ru>
+    </country>
+    <country id="DM">
+      <en>Dominica</en>
+      <de>Dominica</de>
+      <ru>Доминика</ru>
+    </country>
+    <country id="DO">
+      <en>Dominican Republic</en>
+      <de>Dominikanische Republik</de>
+      <ru>Доминиканская Республика</ru>
+    </country>
+    <country id="TP">
+      <en>East Timor</en>
+      <de>Ost Timor</de>
+      <ru>Восточный Тимор</ru>
+    </country>
+    <country id="EC">
+      <en>Ecuador</en>
+      <de>Ekuador</de>
+      <ru>Эквадор</ru>
+    </country>
+    <country id="EG">
+      <en>Egypt</en>
+      <de>Ägypten</de>
+      <ru>Египет</ru>
+    </country>
+    <country id="SV">
+      <en>El Salvador</en>
+      <de>El Salvador</de>
+      <ru>Сальвадор</ru>
+    </country>
+    <country id="GQ">
+      <en>Äquatorialguinea</en>
+      <de>Equatorial Guinea</de>
+      <ru>Экваториальная Гвинея</ru>
+    </country>
+    <country id="ER">
+      <en>Eritrea</en>
+      <de>Eritrea</de>
+      <ru>Эритрея</ru>
+    </country>
+    <country id="EE">
+      <en>Estonia</en>
+      <de>Estland</de>
+      <ru>Эстония</ru>
+    </country>
+    <country id="ET">
+      <en>Ethiopia</en>
+      <de>Äthiopien</de>
+      <ru>Эфиопия</ru>
+    </country>
+    <country id="FK">
+      <en>Falkland Islands (Malvinas)</en>
+      <de>Falklandinseln (Malvinen)</de>
+      <ru>Фолклендские (Мальвинские) острова</ru>
+    </country>
+    <country id="FO">
+      <en>Faroe Islands</en>
+      <de>Färöer</de>
+      <ru>Фарерские острова</ru>
+    </country>
+    <country id="FJ">
+      <en>Fiji</en>
+      <de>Fidschi</de>
+      <ru>Фиджи</ru>
+    </country>
+    <country id="FI">
+      <en>Finland</en>
+      <de>Finnland</de>
+      <ru>Финляндия</ru>
+    </country>
+    <country id="FR">
+      <en>France</en>
+      <de>Frankreich</de>
+      <ru>Франция</ru>
+    </country>
+    <country id="GF">
+      <en>French Guiana</en>
+      <de>Französisch-Guyana</de>
+      <ru>Французская Гвиана</ru>
+    </country>
+    <country id="PF">
+      <en>French Polynesia</en>
+      <de>Französisch-Polynesien</de>
+      <ru>Французкая Полинезия</ru>
+    </country>
+    <country id="GA">
+      <en>Gabon</en>
+      <de>Gabun</de>
+      <ru>Габон</ru>
+    </country>
+    <country id="GM">
+      <en>Gambia</en>
+      <de>Gambia</de>
+      <ru>Гамбия</ru>
+    </country>
+    <country id="GE">
+      <en>Georgia</en>
+      <de>Georgien</de>
+      <ru>Грузия</ru>
+    </country>
+    <country id="DE">
+      <en>Germany</en>
+      <de>Deutschland</de>
+      <ru>Германия</ru>
+    </country>
+    <country id="GH">
+      <en>Ghana</en>
+      <de>Ghana</de>
+      <ru>Гана</ru>
+    </country>
+    <country id="GI">
+      <en>Gibraltar</en>
+      <de>Gibraltar</de>
+      <ru>Гибралтар</ru>
+    </country>
+    <country id="GR">
+      <en>Greece</en>
+      <de>Griechenland</de>
+      <ru>Греция</ru>
+    </country>
+    <country id="GL">
+      <en>Greenland</en>
+      <de>Grönland</de>
+      <ru>Гренландия</ru>
+    </country>
+    <country id="GD">
+      <en>Grenada</en>
+      <de>Grenada</de>
+      <ru>Гренада</ru>
+    </country>
+    <country id="GP">
+      <en>Guadeloupe</en>
+      <de>Guadeloupe</de>
+      <ru>Гваделупа</ru>
+    </country>
+    <country id="GU">
+      <en>Guam</en>
+      <de>Guam</de>
+      <ru>Гуам</ru>
+    </country>
+    <country id="GT">
+      <en>Guatemala</en>
+      <de>Guatemala</de>
+      <ru>Гватемала</ru>
+    </country>
+    <country id="GN">
+      <en>Guinea</en>
+      <de>Guinea</de>
+      <ru>Гвинея</ru>
+    </country>
+    <country id="GW">
+      <en>Guinea-Bissau</en>
+      <de>Guinea-Bissau</de>
+      <ru>Гвинея-Бисау</ru>
+    </country>
+    <country id="GY">
+      <en>Guyana</en>
+      <de>Guyana</de>
+      <ru>Гайана</ru>
+    </country>
+    <country id="HT">
+      <en>Haiti</en>
+      <de>Haiti</de>
+      <ru>Гаити</ru>
+    </country>
+    <country id="HN">
+      <en>Honduras</en>
+      <de>Honduras</de>
+      <ru>Гондурас</ru>
+    </country>
+    <country id="HK">
+      <en>Hong Kong</en>
+      <de>Hongkong</de>
+      <ru>Гонконг</ru>
+    </country>
+    <country id="HU">
+      <en>Hungary</en>
+      <de>Ungarn</de>
+      <ru>Венгрия</ru>
+    </country>
+    <country id="IS">
+      <en>Iceland</en>
+      <de>Island</de>
+      <ru>Исландия</ru>
+    </country>
+    <country id="IN">
+      <en>India</en>
+      <de>Indien</de>
+      <ru>Индия</ru>
+    </country>
+    <country id="ID">
+      <en>Indonesia</en>
+      <de>Indonesien</de>
+      <ru>Индонезия</ru>
+    </country>
+    <country id="IR">
+      <en>Iran</en>
+      <de>Iran</de>
+      <ru>Иран</ru>
+    </country>
+    <country id="IQ">
+      <en>Iraq</en>
+      <de>Irak</de>
+      <ru>Ирак</ru>
+    </country>
+    <country id="IE">
+      <en>Ireland</en>
+      <de>Irland</de>
+      <ru>Ирландия</ru>
+    </country>
+    <country id="IL">
+      <en>Israel</en>
+      <de>Israel</de>
+      <ru>Израиль</ru>
+    </country>
+    <country id="IT">
+      <en>Italy</en>
+      <de>Italien</de>
+      <ru>Италия</ru>
+    </country>
+    <country id="JM">
+      <en>Jamaica</en>
+      <de>Jamaika</de>
+      <ru>Ямайка</ru>
+    </country>
+    <country id="JP">
+      <en>Japan</en>
+      <de>Japan</de>
+      <ru>Япония</ru>
+    </country>
+    <country id="JO">
+      <en>Jordan</en>
+      <de>Jordanien</de>
+      <ru>Иордания</ru>
+    </country>
+    <country id="KZ">
+      <en>Kazakhstan</en>
+      <de>Kasachstan</de>
+      <ru>Казахстан</ru>
+    </country>
+    <country id="KE">
+      <en>Kenya</en>
+      <de>Kenia</de>
+      <ru>Кения</ru>
+    </country>
+    <country id="KI">
+      <en>Kiribati</en>
+      <de>Kiribati</de>
+      <ru>Кирибати</ru>
+    </country>
+    <country id="KW">
+      <en>Kuwait</en>
+      <de>Kuwait</de>
+      <ru>Кувейт</ru>
+    </country>
+    <country id="KG">
+      <en>Kyrgyzstan</en>
+      <de>Kirgistan</de>
+      <ru>Киргизстан</ru>
+    </country>
+    <country id="LA">
+      <en>Laos</en>
+      <de>Laos</de>
+      <ru>Лаос</ru>
+    </country>
+    <country id="LV">
+      <en>Latvia</en>
+      <de>Lettland</de>
+      <ru>Латвия</ru>
+    </country>
+    <country id="LB">
+      <en>Lebanon</en>
+      <de>Libanon</de>
+      <ru>Лебанон</ru>
+    </country>
+    <country id="LS">
+      <en>Lesotho</en>
+      <de>Lesotho</de>
+      <ru>Лесото</ru>
+    </country>
+    <country id="LR">
+      <en>Liberia</en>
+      <de>Liberia</de>
+      <ru>Либерия</ru>
+    </country>
+    <country id="LI">
+      <en>Liechtenstein</en>
+      <de>Liechtenstein</de>
+      <ru>Лихтенштейн</ru>
+    </country>
+    <country id="LT">
+      <en>Lithuania</en>
+      <de>Litauen</de>
+      <ru>Литва</ru>
+    </country>
+    <country id="LU">
+      <en>Luxembourg</en>
+      <de>Luxemburg</de>
+      <ru>Люксембург</ru>
+    </country>
+    <country id="LY">
+      <en>Libya</en>
+      <de>Libyen</de>
+      <ru>Ливия</ru>
+    </country>
+    <country id="MO">
+      <en>Macau</en>
+      <de>Macau</de>
+      <ru>Макао</ru>
+    </country>
+    <country id="MK">
+      <en>Macedonia</en>
+      <de>Mazedonien</de>
+      <ru>Македония</ru>
+    </country>
+    <country id="MG">
+      <en>Madagascar</en>
+      <de>Madagaskar</de>
+      <ru>Мадагаскар</ru>
+    </country>
+    <country id="MW">
+      <en>Malawi</en>
+      <de>Malawi</de>
+      <ru>Малави</ru>
+    </country>
+    <country id="MY">
+      <en>Malaysia</en>
+      <de>Malaysia</de>
+      <ru>Малайзия</ru>
+    </country>
+    <country id="MV">
+      <en>Maldives</en>
+      <de>Malediven</de>
+      <ru>Мальдивы</ru>
+    </country>
+    <country id="ML">
+      <en>Mali</en>
+      <de>Mali</de>
+      <ru>Мали</ru>
+    </country>
+    <country id="MT">
+      <en>Malta</en>
+      <de>Malta</de>
+      <ru>Мальта</ru>
+    </country>
+    <country id="MH">
+      <en>Marshall Islands</en>
+      <de>Marshallinseln</de>
+      <ru>Маршалловы Острова</ru>
+    </country>
+    <country id="MQ">
+      <en>Martinique</en>
+      <de>Martinique</de>
+      <ru>Мартиника</ru>
+    </country>
+    <country id="MR">
+      <en>Mauritania</en>
+      <de>Mauretanien</de>
+      <ru>Мавритания</ru>
+    </country>
+    <country id="MU">
+      <en>Mauritius</en>
+      <de>Mauritius</de>
+      <ru>Мавритиус</ru>
+    </country>
+    <country id="YT">
+      <en>Mayotte</en>
+      <de>Mayotte</de>
+      <ru>Майот</ru>
+    </country>
+    <country id="MX">
+      <en>Mexico</en>
+      <de>Mexiko</de>
+      <ru>Мексика</ru>
+    </country>
+    <country id="FM">
+      <en>Micronesia</en>
+      <de>Mikronesien</de>
+      <ru>Микронезия</ru>
+    </country>
+    <country id="MD">
+      <en>Moldova</en>
+      <de>Moldova</de>
+      <ru>Молдавия</ru>
+    </country>
+    <country id="MC">
+      <en>Monaco</en>
+      <de>Monaco</de>
+      <ru>Монако</ru>
+    </country>
+    <country id="MN">
+      <en>Mongolia</en>
+      <de>Mongolei</de>
+      <ru>Монголия</ru>
+    </country>
+    <country id="MS">
+      <en>Montserrat</en>
+      <de>Montserrat</de>
+      <ru>Монсерат</ru>
+    </country>
+    <country id="MA">
+      <en>Morocco</en>
+      <de>Marokko</de>
+      <ru>Марокко</ru>
+    </country>
+    <country id="MZ">
+      <en>Mozambique</en>
+      <de>Mozambick</de>
+      <ru>Мозамбик</ru>
+    </country>
+    <country id="MM">
+      <en>Myanmar</en>
+      <de>Myanmar</de>
+      <ru>Мьянма</ru>
+    </country>
+    <country id="NA">
+      <en>Namibia</en>
+      <de>Namibia</de>
+      <ru>Намибия</ru>
+    </country>
+    <country id="NR">
+      <en>Nauru</en>
+      <de>Nauru</de>
+      <ru>Науру</ru>
+    </country>
+    <country id="NP">
+      <en>Nepal</en>
+      <de>Nepal</de>
+      <ru>Непал</ru>
+    </country>
+    <country id="NL">
+      <en>Netherlands</en>
+      <de>Holland</de>
+      <ru>Голландия</ru>
+    </country>
+    <country id="NC">
+      <en>New Caledonia</en>
+      <de>Neukaledonien</de>
+      <ru>Новая Каледония</ru>
+    </country>
+    <country id="NZ">
+      <en>New Zealand</en>
+      <de>Neuseeland</de>
+      <ru>Новая Зеландия</ru>
+    </country>
+    <country id="NI">
+      <en>Nicaragua</en>
+      <de>Nikaragua</de>
+      <ru>Никарагуа</ru>
+    </country>
+    <country id="NE">
+      <en>Niger</en>
+      <de>Niger</de>
+      <ru>Нигер</ru>
+    </country>
+    <country id="NG">
+      <en>Nigeria</en>
+      <de>Nigeria</de>
+      <ru>Нигерия</ru>
+    </country>
+    <country id="KP">
+      <en>North Korea</en>
+      <de>Nordkorea</de>
+      <ru>Северная Корея</ru>
+    </country>
+    <country id="MP">
+      <en>Northern Mariana Islands</en>
+      <de>Nördliche Marianen-Inseln</de>
+      <ru>Северные Марианские острова</ru>
+    </country>
+    <country id="NO">
+      <en>Norway</en>
+      <de>Norwegen</de>
+      <ru>Норвегия</ru>
+    </country>
+    <country id="OM">
+      <en>Oman</en>
+      <de>Oman</de>
+      <ru>Оман</ru>
+    </country>
+    <country id="PK">
+      <en>Pakistan</en>
+      <de>Pakistan</de>
+      <ru>Пакистан</ru>
+    </country>
+    <country id="PW">
+      <en>Palau</en>
+      <de>Palau</de>
+      <ru>Палау</ru>
+    </country>
+    <country id="PA">
+      <en>Panama</en>
+      <de>Panama</de>
+      <ru>Панама</ru>
+    </country>
+    <country id="PG">
+      <en>Papua New Guinea</en>
+      <de>Papua-Neuguinea</de>
+      <ru>Папуа-Новая Гвинея</ru>
+    </country>
+    <country id="PY">
+      <en>Paraguay</en>
+      <de>Paraguay</de>
+      <ru>Парагвай</ru>
+    </country>
+    <country id="PE">
+      <en>Peru</en>
+      <de>Peru</de>
+      <ru>Перу</ru>
+    </country>
+    <country id="PH">
+      <en>Philippines</en>
+      <de>Philippinen</de>
+      <ru>Филиппины</ru>
+    </country>
+    <country id="PN">
+      <en>Pitcairn</en>
+      <de>Pitcairn</de>
+      <ru>Питкэрн</ru>
+    </country>
+    <country id="PL">
+      <en>Poland</en>
+      <de>Polen</de>
+      <ru>Польша</ru>
+    </country>
+    <country id="PT">
+      <en>Portugal</en>
+      <de>Portugal</de>
+      <ru>Португалия</ru>
+    </country>
+    <country id="PR">
+      <en>Puerto Rico</en>
+      <de>Puerto Rico</de>
+      <ru>Пуэрто-Рико</ru>
+    </country>
+    <country id="QA">
+      <en>Qatar</en>
+      <de>Katar</de>
+      <ru>Катар</ru>
+    </country>
+    <country id="RE">
+      <en>Reunion</en>
+      <de>Reunion</de>
+      <ru>Реюньон</ru>
+    </country>
+    <country id="RO">
+      <en>Romania</en>
+      <de>Rumänien</de>
+      <ru>Румыния</ru>
+    </country>
+    <country id="RU">
+      <en>Russian Federation</en>
+      <de>Russische Föderation</de>
+      <ru>Российская Федерация</ru>
+    </country>
+    <country id="RW">
+      <en>Rwanda</en>
+      <de>Ruanda</de>
+      <ru>Руанда</ru>
+    </country>
+    <country id="KN">
+      <en>Saint Kitts And Nevis</en>
+      <de>St. Kitts und Nevis</de>
+      <ru>Сент-Китс и Невис</ru>
+    </country>
+    <country id="LC">
+      <en>Saint Lucia</en>
+      <de>Saint Lucia</de>
+      <ru>Сент-Люсия</ru>
+    </country>
+    <country id="VC">
+      <en>Saint Vincent And The Grenadines</en>
+      <de>St. Vincent und die Grenadinen</de>
+      <ru>Сент-Винсент и Гренадины</ru>
+    </country>
+    <country id="WS">
+      <en>Samoa</en>
+      <de>Samoa</de>
+      <ru>Самоа</ru>
+    </country>
+    <country id="SM">
+      <en>San Marino</en>
+      <de>San Marino</de>
+      <ru>Сан-Марино</ru>
+    </country>
+    <country id="SA">
+      <en>Saudi Arabia</en>
+      <de>Saudi-Arabien</de>
+      <ru>Саудовская Аравия</ru>
+    </country>
+    <country id="SN">
+      <en>Senegal</en>
+      <de>Senegal</de>
+      <ru>Сенегал</ru>
+    </country>
+    <country id="SC">
+      <en>Seychelles</en>
+      <de>Seychellen</de>
+      <ru>Сейшельские острова</ru>
+    </country>
+    <country id="SL">
+      <en>Sierra Leone</en>
+      <de>Sierra Leone</de>
+      <ru>Сьерра-Леоне</ru>
+    </country>
+    <country id="SG">
+      <en>Singapore</en>
+      <de>Singapur</de>
+      <ru>Сингапур</ru>
+    </country>
+    <country id="SK">
+      <en>Slovakia</en>
+      <de>Slowakei</de>
+      <ru>Словакия</ru>
+    </country>
+    <country id="SI">
+      <en>Slovenia</en>
+      <de>Slowenien</de>
+      <ru>Словения</ru>
+    </country>
+    <country id="SB">
+      <en>Solomon Islands</en>
+      <de>Salomoninseln</de>
+      <ru>Соломоновы острова</ru>
+    </country>
+    <country id="SO">
+      <en>Somalia</en>
+      <de>Somalia</de>
+      <ru>Сомали</ru>
+    </country>
+    <country id="ZA">
+      <en>South Africa</en>
+      <de>Südafrika</de>
+      <ru>Южно-Африканская Республика</ru>
+    </country>
+    <country id="KR">
+      <en>South Korea</en>
+      <de>Südkorea</de>
+      <ru>Южная Корея</ru>
+    </country>
+    <country id="ES">
+      <en>Spain</en>
+      <de>Spanien</de>
+      <ru>Испания</ru>
+    </country>
+    <country id="LK">
+      <en>Sri Lanka</en>
+      <de>Sri Lanka</de>
+      <ru>Шри-Ланка</ru>
+    </country>
+    <country id="SD">
+      <en>Sudan</en>
+      <de>Sudan</de>
+      <ru>Судан</ru>
+    </country>
+    <country id="SR">
+      <en>Suriname</en>
+      <de>Suriname</de>
+      <ru>Суринам</ru>
+    </country>
+    <country id="SZ">
+      <en>Swaziland</en>
+      <de>Swasiland</de>
+      <ru>Свазиленд</ru>
+    </country>
+    <country id="SE">
+      <en>Sweden</en>
+      <de>Schweden</de>
+      <ru>Швеция</ru>
+    </country>
+    <country id="CH">
+      <en>Switzerland</en>
+      <de>Schweiz</de>
+      <ru>Швейцария</ru>
+    </country>
+    <country id="SY">
+      <en>Syrian Arab Republic</en>
+      <de>Syrien</de>
+      <ru>Сирийская Арабская Республика</ru>
+    </country>
+    <country id="TW">
+      <en>Taiwan</en>
+      <de>Taiwan</de>
+      <ru>Тайвань</ru>
+    </country>
+    <country id="TJ">
+      <en>Tajikistan</en>
+      <de>Tadschikistan</de>
+      <ru>Таджикистан</ru>
+    </country>
+    <country id="TZ">
+      <en>Tanzania</en>
+      <de>Tanzania</de>
+      <ru>Танзания</ru>
+    </country>
+    <country id="TH">
+      <en>Thailand</en>
+      <de>Thailand</de>
+      <ru>Таиланд</ru>
+    </country>
+    <country id="TG">
+      <en>Togo</en>
+      <de>Togo</de>
+      <ru>Того</ru>
+    </country>
+    <country id="TK">
+      <en>Tokelau</en>
+      <de>Tokelau</de>
+      <ru>Токелау</ru>
+    </country>
+    <country id="TO">
+      <en>Tonga</en>
+      <de>Tonga</de>
+      <ru>Тонга</ru>
+    </country>
+    <country id="TT">
+      <en>Trinidad And Tobago</en>
+      <de>Trinidad und Tobago</de>
+      <ru>Тринидад и Тобаго</ru>
+    </country>
+    <country id="TN">
+      <en>Tunisia</en>
+      <de>Tunesien</de>
+      <ru>Тунис</ru>
+    </country>
+    <country id="TR">
+      <en>Turkey</en>
+      <de>Türkei</de>
+      <ru>Турция</ru>
+    </country>
+    <country id="TM">
+      <en>Turkmenistan</en>
+      <de>Turkmenistan</de>
+      <ru>Туркменистан</ru>
+    </country>
+    <country id="TV">
+      <en>Tuvalu</en>
+      <de>Tuvalu</de>
+      <ru>Тувалу</ru>
+    </country>
+    <country id="UG">
+      <en>Uganda</en>
+      <de>Uganda</de>
+      <ru>Уганда</ru>
+    </country>
+    <country id="UA">
+      <en>Ukraine</en>
+      <de>Ukraine</de>
+      <ru>Украина</ru>
+    </country>
+    <country id="AE">
+      <en>United Arab Emirates</en>
+      <de>Vereinigten Arabischen Emirate</de>
+      <ru>Объединенные Арабские Эмираты</ru>
+    </country>
+    <country id="GB">
+      <en>United Kingdom (UK)</en>
+      <de>Vereinigte Königreich (UK)</de>
+      <ru>Соединённое Королевство (UK)</ru>
+    </country>
+    <country id="US">
+      <en>United States</en>
+      <de>USA</de>
+      <ru>США</ru>
+    </country>
+    <country id="UY">
+      <en>Uruguay</en>
+      <de>Uruguay</de>
+      <ru>Уругвай</ru>
+    </country>
+    <country id="UZ">
+      <en>Uzbekistan</en>
+      <de>Usbekistan</de>
+      <ru>Узбекистан</ru>
+    </country>
+    <country id="VU">
+      <en>Vanuatu</en>
+      <de>Vanuatu</de>
+      <ru>Вануату</ru>
+    </country>
+    <country id="VA">
+      <en>Vatican</en>
+      <de>Vatikan</de>
+      <ru>Ватикан</ru>
+    </country>
+    <country id="VE">
+      <en>Venezuela</en>
+      <de>Venezuela</de>
+      <ru>Венесуэлла</ru>
+    </country>
+    <country id="VN">
+      <en>Viet Nam</en>
+      <de>Vietnam</de>
+      <ru>Вьетнам</ru>
+    </country>
+    <country id="EH">
+      <en>Western Sahara</en>
+      <de>Westsahara</de>
+      <ru>Западная Сахара</ru>
+    </country>
+    <country id="YE">
+      <en>Yemen</en>
+      <de>Jemen</de>
+      <ru>Йемен</ru>
+    </country>
+    <country id="YU">
+      <en>Yugoslavia</en>
+      <de>Jugoslawien</de>
+      <ru>Югославия</ru>
+    </country>
+    <country id="ZR">
+      <en>Zaire</en>
+      <de>Zaire</de>
+      <ru>Заир</ru>
+    </country>
+    <country id="ZM">
+      <en>Zambia</en>
+      <de>Sambia</de>
+      <ru>Замбия</ru>
+    </country>
+    <country id="ZW">
+      <en>Zimbabwe</en>
+      <de>Simbabwe</de>
+      <ru>Зимбабве</ru>
+    </country>
+  </countries>
+  <texts>
+    <text id="DateTimeFormat">
+      <en>Y-m-d H:i888</en>
+      <de>d.m.Y H:i</de>
+      <ru>d.m.Y H:i</ru>
+    </text>
+    <text id="DateFormat">
+      <en>Y-m-d</en>
+      <de>d.m.Y</de>
+      <ru>d.m.Y</ru>
+    </text>
+    <text id="ErrDateTimeFormat">
+      <en>The date '%s' has a wrong format! The format '%s' is expected.</en>
+      <de>Das Datum '%s' hat ein falsches Format! Das Format '%s' wird erwartet!</de>
+      <ru>Неверный формат даты '%s'! Ожидаемый формат '%s'!</ru>
+    </text>
+    <text id="SmtpHost">
+      <en>SMTP host</en>
+      <de>SMTP Host</de>
+      <ru>SMTP хост</ru>
+    </text>
+    <text id="ErrSmtpHostEmpty">
+      <en>SMTP host is not specified!</en>
+      <de>SMTP Host ist nicht angegeben!</de>
+      <ru>Не задан SMTP хост!</ru>
+    </text>
+    <text id="EnableTracing">
+      <en>Enable tracing</en>
+      <de>Protokollierung (Trace) einschalten</de>
+      <ru>Включить трассировку</ru>
+    </text>
+    <text id="ShowErrorDetails">
+      <en>Show error details</en>
+      <de>Fehlerdetails anzeigen</de>
+      <ru>Показывать подробные сообщения об ошибках</ru>
+    </text>
+    <text id="ShowProgWarnings">
+      <en>Show program warnings</en>
+      <de>Programmierwarnungen anzeigen</de>
+      <ru>Показывать программные предупрждения</ru>
+    </text>
+    <text id="DatabaseType">
+      <en>Database type</en>
+      <de>Datenbanktyp</de>
+      <ru>Тип базы данных</ru>
+    </text>
+    <text id="ErrDatabaseTypeEmpty">
+      <en>Database type is not specified!</en>
+      <de>Datenbanktyp ist nicht angegeben!</de>
+      <ru>Не задан тип базы данных!</ru>
+    </text>
+    <text id="DatabaseServer">
+      <en>Server address</en>
+      <de>Server-Adresse</de>
+      <ru>Адрес сервера</ru>
+    </text>
+    <text id="ErrDatabaseServerEmpty">
+      <en>Server address is not specified!</en>
+      <de>Server-Adresse ist nicht angegeben!</de>
+      <ru>Не задан адрес сервера!</ru>
+    </text>
+    <text id="DatabaseName">
+      <en>Database name</en>
+      <de>Datenbankname</de>
+      <ru>Имя базы данных</ru>
+    </text>
+    <text id="ErrDatabaseNameEmpty">
+      <en>Database name is not specified!</en>
+      <de>Datenbankname ist nicht angegeben!</de>
+      <ru>Не задано имя базы данных!</ru>
+    </text>
+    <text id="DatabaseUser">
+      <en>User name</en>
+      <de>Benutzername</de>
+      <ru>Имя пользователя</ru>
+    </text>
+    <text id="ErrDatabaseUserEmpty">
+      <en>User name is not specified!</en>
+      <de>Benutzername ist nicht angegeben!</de>
+      <ru>Не задано имя пользователя базы данных!</ru>
+    </text>
+    <text id="DatabasePassword">
+      <en>Password</en>
+      <de>Kennwort</de>
+      <ru>Пароль</ru>
+    </text>
+    <text id="ErrDatabasePasswordEmpty">
+      <en>The password is not set yet and has to be specified!</en>
+      <de>Das Kennwort ist noch nicht gesetzt und muss angegeben werden!</de>
+      <ru>Пароль еще не был установлен, поэтому его нужно задать!</ru>
+    </text>
+    <text id="DatabaseTablePrefix">
+      <en>Prefix for tables</en>
+      <de>Präfix für Tabellen</de>
+      <ru>Префикс для таблиц</ru>
+    </text>
+    <text id="ErrDatabaseTablePrefixEmpty">
+      <en>Prefix for tables is not specified!</en>
+      <de>Präfix für Tabellen ist nicht angegeben!</de>
+      <ru>Не задан префикс для таблиц!</ru>
+    </text>
+    <text id="ErrSavingSettings">
+      <en>Unable to save settings!</en>
+      <de>Speichern der Einstellungen ist fehlgeschlagen!</de>
+      <ru>Не удалось сохранить настройки!</ru>
+    </text>
+    <text id="ErrLoadingSettings">
+      <en>Unable to load settings!</en>
+      <de>Laden der Einstellungen ist fehlgeschlagen!</de>
+      <ru>Не удалось загрузить настройки!</ru>
+    </text>
+    <text id="ErrWritingFile">
+      <en>The application was unable to write the file '%s'. Check the privileges of the application and the WEB server on this file and on the target directory!</en>
+      <de>Die Anwendung konnte die Datei '%s' nicht beschreiben. Bitte überprüfen Sie die Rechte der Anwendung und des WEB-Servers auf die Datei und auf das Zielverzeichnis!</de>
+      <ru>Запись файла '%s' не удалась. Проверьте права приложения и веб-сервера на данный файл и на целевой каталог!</ru>
+    </text>
+    <text id="ErrReadingFile">
+      <en>The application has no read access to the file '%s'. Check the privileges of the application and the WEB server on this file and on the target directory!</en>
+      <de>Die Anwendung hat keinen Lesezugriff auf die Datei '%s'. Bitte überprüfen Sie die Rechte der Anwendung und des WEB-Servers auf die Datei und auf das Zielverzeichnis!</de>
+      <ru>У приложения нет доступа на чтение к файлу '%s'. Проверьте права приложения и веб-сервера на данный файл и на целевой каталог!</ru>
+    </text>
+    <text id="MsgSettingsSaved">
+      <en>Settings have been saved!</en>
+      <de>Einstellungen wurden gespeichert!</de>
+      <ru>Настрйоки сохранены!</ru>
+    </text>
+    <text id="ErrCreatingClassInstance">
+      <en>The class '%s' could not be loaded. Some application files seem to be absent or contain programming errors, or the application does not support the current database type '%s'!</en>
+      <de>Die Klasse '%s' kann nicht geladen werden. Einige Anwendungsdateien scheinen abwesend zu sein oder sie beinhalten Programmierfehler, oder aber die Anwendung unterstützt den aktuellen Datenbanktyp '%s' nicht!</de>
+      <ru>Класс '%s' не может быть загружен. Возмоможно отсутствуют некоторые файлы приложения или они содержат ошибки программирования, или же приложение не поддерживает используемый тип базы данных '%s'!</ru>
+    </text>
+    <text id="ErrDbExtenstionNotInstalled">
+      <en>PHP extension '%s' is not installed or is too old. Work with the database '%s' is not possible!</en>
+      <de>PHP-Extension '%s' ist nicht installiert oder ist zu alt. Arbeit mit der Datenbank '%s' ist nicht möglich!</de>
+      <ru>PHP-расширение '%s' не установлено или слишком устаревшее. Работа с базой данных '%s' невозможна!</ru>
+    </text>
+    <text id="ErrNoDBConnectionData">
+      <en>No database connection information is available ot it is incomplete!</en>
+      <de>Keine Informationen zu der Datenbankverbindung vorhanden oder sind unvollständig!</de>
+      <ru>Отсутствует информация для соединения с базой данных или информация не полная!</ru>
+    </text>
+    <text id="ErrDbInaccessible">
+      <en>The database cannot be conected!</en>
+      <de>Die Datenbankverbindung kann nicht hergestellt werden!</de>
+      <ru>База данных недоступна!</ru>
+    </text>
+    <text id="ErrDbConnNoAccess">
+      <en>The server '%s' is unreachable or the user login '%s' or password are invalid!</en>
+      <de>Der Server '%s' ist nicht erreichbar bzw. der Benutzername '%s' oder Password sind ungültig!</de>
+      <ru>Сервер '%s' недоступен или неверное имя пользователя '%s' или пароль!</ru>
+    </text>
+    <text id="ErrDbConnNoDB">
+      <en>The database '%s' does not exist or is not accessible for this database user '%s'!</en>
+      <de>Die Datenbank '%s' existiert nicht bzw. ist nicht erreichbar für diesen Datenbankbenutzer '%s'!</de>
+      <ru>База даннных '%s' не существует или недоступна для данного пользователя '%s'!</ru>
+    </text>
+    <text id="ErrQueryFailed">
+      <en>SQL query error!</en>
+      <de>Fehler bei der SQL Abfrage!</de>
+      <ru>Ошибка в SQL запросе!</ru>
+    </text>
+  </texts>
+</document>

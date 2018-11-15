@@ -1,0 +1,21 @@
+2018-11-15 01:27:36
+----------------------------------------------------------
+D:\PROJECTS\php\SmartFactoryDev\application\04.error_handling.php
+line: 56
+Undefined variable: b
+----------------------------------------------------------
+
+
+2018-11-15 01:27:36
+----------------------------------------------------------
+D:\PROJECTS\php\SmartFactoryDev\application\04.error_handling.php
+line: 65
+Undefined variable: d
+
+Call stack:
+
+MyApplication\test_function() [04.error_handling.php, 72]  MyApplication\test_function(100, test, Closure)
+  MyApplication\do_action() [04.error_handling.php, 83]  MyApplication\do_action(save, [0=red, 1=green, 2=blue], [p1=John, p2=2000], MyApplication\SomeClass)
+----------------------------------------------------------
+
+

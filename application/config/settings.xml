@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<array>
+  <item name="smtp_server">127.0.0.12</item>
+  <item name="tracing_enabled">1</item>
+  <item name="show_message_details">1</item>
+  <item name="show_prog_warning">1</item>
+  <item name="db_type">MySQL</item>
+  <item name="db_server">localhost</item>
+  <item name="db_name">framework_demo</item>
+  <item name="db_user">root</item>
+  <item name="db_password">root</item>
+  <item name="db_prefix">V1</item>
+</array>

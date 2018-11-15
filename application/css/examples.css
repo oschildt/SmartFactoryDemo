@@ -1,0 +1,48 @@
+.code
+{
+  font-family: Courier New, serif;
+  font-size: 12px;
+  padding: 5px;
+  white-space: pre-wrap;
+  border: 1px solid #cccccc;
+  color: gray;
+  background-color: #eeeeee;
+  width: 650px;
+}
+
+.message_block
+{
+  width: 650px;
+  margin-bottom: 10px;
+}
+
+.message_header
+{
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  color: gray;
+  background-color: #eeeeee;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.message_body
+{
+  border: 1px solid #cccccc;
+  color: gray;
+  background-color: #eeeeee;
+  white-space: pre-wrap;
+  padding: 5px;
+}
+
+table
+{
+  border-collapse: collapse;
+}
+
+td, th
+{
+  border: 1px solid gray;
+  padding: 2px;
+}

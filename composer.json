@@ -1,0 +1,26 @@
+{
+  "description": "Demo application to demonstrate how to use the library SmartFactory.",
+  "keywords": ["factory", "library", "framework"],
+  
+  "license": "MIT",   "autoload": {
+    "psr-4": {
+      "MyApplication\\": "application/src/MyApplication/"
+    },
+    
+    "files": [ 
+       "application/src/application_root_inc.php",
+       "application/src/utf8_functions_inc.php",
+       "application/src/factory_init_inc.php",
+       "application/src/message_output_inc.php"
+    ]
+  },
+
+	"require": {
+		"php": ">=7.2",
+    "smartfactory/smartfactory": ">=1.1.0"
+	},
+  
+  "config": {
+    "optimize-autoloader": true
+  }  
+}
