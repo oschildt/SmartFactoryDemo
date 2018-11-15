@@ -15,10 +15,10 @@
     ]
   },
 
-	"require": {
-		"php": ">=7.2",
+  "require": {
+    "php": ">=7.2",
     "smartfactory/smartfactory": ">=1.1.0"
-	},
+  },
   
   "config": {
     "optimize-autoloader": true

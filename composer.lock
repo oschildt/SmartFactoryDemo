@@ -1,0 +1,70 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f8eb75ccb4c2b18c3be89301863460ac",
+    "packages": [
+        {
+            "name": "smartfactory/smartfactory",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oschildt/SmartFactory.git",
+                "reference": "42a3a3cf2fac3c368f2f6dd44a64aef288fae79a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oschildt/SmartFactory/zipball/42a3a3cf2fac3c368f2f6dd44a64aef288fae79a",
+                "reference": "42a3a3cf2fac3c368f2f6dd44a64aef288fae79a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SmartFactory\\": "src/SmartFactory"
+                },
+                "files": [
+                    "src/factory_functions_inc.php",
+                    "src/short_functions_inc.php",
+                    "src/utility_functions_inc.php",
+                    "src/html_utils_inc.php",
+                    "src/factory_init_inc.php",
+                    "src/error_handler_init_inc.php",
+                    "src/session_handler_init_inc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Schildt",
+                    "email": "oleg.schildt@gmail.com"
+                }
+            ],
+            "description": "Lightweight PHP library with many useful tools and functions.",
+            "keywords": [
+                "factory",
+                "framework",
+                "library"
+            ],
+            "time": "2018-11-15T01:47:07+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">7.2"
+    },
+    "platform-dev": []
+}
