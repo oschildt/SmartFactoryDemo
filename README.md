@@ -5,7 +5,7 @@ Demo application to demonstrate how to use the library [SmartFactory](https://gi
 ### To get familiar with the SmartFactory do the following
 
 - Git-clone the demo application and run 'composer update'.
-- Use the script database/restore_database.cmd (restore_database_mssql.cmd) to create a demo database necessary for some examples.
+- Use the script database/create_database_mysql.cmd (create_database_mysql.cmd) to create a demo database necessary for some examples.
 - View and study the API documentation in the folder docs or here [API documentation](http://php-smart-factory.org/docs/).
 - Study the core code of the library SmartFactory.
 
