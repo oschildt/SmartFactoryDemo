@@ -23,5 +23,5 @@ Demo application to demonstrate how to use the library [SmartFactory](https://gi
 
 7. Implement the API request handles for JSON or XML if necessary.
 
-8. Add translation texts for your application over the localization/edit.php or directly into the XML file localization/texts.xml.  Use the script tests/langtester.php to check your translations for duplicates and missing trnaslations.
+8. Add translation texts for your application over the localization/edit.php or directly into the XML file localization/texts.xml.  Use the script tests/langtester.php to check your translations for duplicates and missing translations.
 
