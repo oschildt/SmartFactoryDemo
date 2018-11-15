@@ -1677,7 +1677,7 @@
 		</text>
     
     <text id="ErrDbInaccessible">
-			<en>The database cannot be conected!</en>
+			<en>The database cannot be connected!</en>
 			<de>Die Datenbankverbindung kann nicht hergestellt werden!</de>
 			<ru>База данных недоступна!</ru>
 		</text>

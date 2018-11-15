@@ -158,7 +158,7 @@ $success = false;
 
 if(load_language_texts())
 {
-  $dir = "../";
+  $dir = "../../";
   if(process_dir($dir))
   {
     echo "Supported languages: " . implode(", ", $supported_languages) . "<br>";
