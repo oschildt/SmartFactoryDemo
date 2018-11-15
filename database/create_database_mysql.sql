@@ -1,3 +1,11 @@
+drop database if exists framework_demo;
+
+create database if not exists framework_demo;
+
+alter database framework_demo CHARACTER SET utf8 collate utf8_general_ci;
+
+use framework_demo;
+
 CREATE TABLE `department` (
   `ID` INTEGER(11) NOT NULL AUTO_INCREMENT,
   `NAME` VARCHAR(250) COLLATE utf8_general_ci NOT NULL,

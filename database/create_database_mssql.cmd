@@ -23,24 +23,14 @@ echo * Creating MSSQL database                           *
 echo *****************************************************
 
 echo -----------------------------------------------------
-echo Step 1: creating database                                  
+echo Creating database                                  
 echo -----------------------------------------------------
-
-%OSQL_PATH%sqlcmd -S %HOST% -E -b -Q "IF EXISTS (SELECT name FROM sys.databases WHERE name = N'framework_demo') DROP DATABASE [framework_demo]"
-if not %errorlevel%==0 goto err
 
 %OSQL_PATH%sqlcmd -S %HOST% -E -b -i create_database_mssql.sql
 if not %errorlevel%==0 goto err
 
 echo -----------------------------------------------------
-echo Step 2: creating tables                                   
-echo -----------------------------------------------------
-
-%OSQL_PATH%sqlcmd -S %HOST% -E -b -d framework_demo -i framework_demo_mssql.sql
-if not %errorlevel%==0 goto err
-
-echo -----------------------------------------------------
-echo Database successfully restored                     
+echo Database successfully created                     
 echo -----------------------------------------------------
 pause
 @echo on
