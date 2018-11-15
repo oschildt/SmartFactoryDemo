@@ -17,7 +17,7 @@
 
   "require": {
     "php": ">=7.2",
-    "smartfactory/smartfactory": ">=1.1.1"
+    "smartfactory/smartfactory": ">=1.1.2"
   },
   
   "config": {
