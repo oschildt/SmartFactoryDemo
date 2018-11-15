@@ -25,3 +25,29 @@ Demo application to demonstrate how to use the library [SmartFactory](https://gi
 
 8. Add translation texts for your application over the localization/edit.php or directly into the XML file localization/texts.xml.  Use the script tests/langtester.php to check your translations for duplicates and missing translations.
 
+## Directory Structure 
+
+```
+docs
+src
+  SmartFactory
+    Interfaces
+    DatabaseWorkers
+```
+
+## Detailed description
+
+### docs
+This directory contains the documentation about classes, interfaces and functions of the framework SmartFactory.
+
+### src
+This is the root directory for all classes and interfaces. The class loader is implemented based on PSR4 approach. You have no need to add additional class loader function for your classes.
+
+### src/SmartFactory
+This directory contains the core classes and interfaces of the framework SmartFactory.
+
+### src/SmartFactory/Interfaces
+This directory contains the core interfaces of the framework SmartFactory.
+
+### src/SmartFactory/DatabaseWorkers
+This directory contains the core classes of the framework SmartFactory for working with databases.
