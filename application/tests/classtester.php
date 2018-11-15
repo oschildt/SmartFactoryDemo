@@ -1,9 +1,5 @@
 <?php
-use function SmartFactory\approot;
-
-//-----------------------------------------------------------------
-require_once "../includes/SmartFactory/application_root_inc.php";
-//-----------------------------------------------------------------
+require "../../vendor/autoload.php";
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,9 +35,9 @@ function deep_include($dir)
   }  
 }
 
-deep_include(approot() . "classes/SmartFactory/Interfaces/");
+deep_include("../vendor/smartfactory/smartfactory/src/SmartFactory/");
 
-deep_include(approot() . "classes/SmartFactory/");
+deep_include("../src/MyApplication/");
 
 echo "<p>Passed!</p>";
 ?>
@@ -49,11 +45,15 @@ echo "<p>Passed!</p>";
 <h2>Function tester</h2>
 
 <?php
-require_once approot() . "includes/SmartFactory/utility_functions_inc.php";
+require_once "../../vendor/smartfactory/smartfactory/src/utility_functions_inc.php";
 
-require_once approot() . "includes/SmartFactory/short_functions_inc.php";
+require_once "../../vendor/smartfactory/smartfactory/src/short_functions_inc.php";
 
-require_once approot() . "includes/SmartFactory/html_utils_inc.php";
+require_once "../../vendor/smartfactory/smartfactory/src/html_utils_inc.php";
+
+require_once "../src/application_root_inc.php";
+
+require_once "../src/utf8_functions_inc.php";
 
 echo "<p>Passed!</p>";
 
