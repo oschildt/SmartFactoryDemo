@@ -22,7 +22,7 @@ function connect_mssql()
                    "db_server" => "localhost",
                    "db_name" => "framework_demo", 
                    "db_user" => "sa", 
-                   "db_password" => "Tr75mfr75",
+                   "db_password" => "*******",
                    "autoconnect" => true
                   ]);
   if(!$dbw) return false;
