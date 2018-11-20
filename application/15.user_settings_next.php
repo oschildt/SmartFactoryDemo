@@ -35,8 +35,8 @@ function process_form()
   user_settings()->setParameter("STATUS", checkempty($_REQUEST["user_settings"]["STATUS"]));
   user_settings()->setParameter("SIGNATURE", checkempty($_REQUEST["user_settings"]["SIGNATURE"]));
 
-  user_settings()->setParameter("HIDE_PICTURES", checkempty($_REQUEST["user_settings"]["HIDE_PICTURES"]));
-  user_settings()->setParameter("HIDE_SIGNATURES", checkempty($_REQUEST["user_settings"]["HIDE_SIGNATURES"]));
+  user_settings()->setParameter("HIDE_PICTURES", empty($_REQUEST["user_settings"]["HIDE_PICTURES"]) ? 0 : 1);
+  user_settings()->setParameter("HIDE_SIGNATURES", empty($_REQUEST["user_settings"]["HIDE_SIGNATURES"]) ? 0 : 1);
   
   if($_REQUEST["act"] == "Back") 
   {
