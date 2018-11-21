@@ -5,6 +5,7 @@ require "../vendor/autoload.php";
 
 use SmartFactory\Interfaces\IRecordsetManager;
 
+use function SmartFactory\config_settings;
 use function SmartFactory\singleton;
 use function SmartFactory\session;
 use function SmartFactory\dbworker;
@@ -86,6 +87,7 @@ function save_data()
   $rsmanager = singleton(IRecordsetManager::class);
       
   $dbw = $rsmanager->getDBWorker();
+  if(!$dbw) return false;
       
   if(!$dbw->start_transaction())
   {
@@ -159,6 +161,15 @@ else
 {
   load_page_data();
 }
+?>
+
+<?php
+if(config_settings()->getParameter("db_password") == "")
+{
+  echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.xml'!</h4>";
+}
+else
+{
 ?>
 
 <?php
@@ -246,6 +257,10 @@ ID: <?php echo_html($id); ?>
 <input type="submit" name="act" value="Save">
  
 </form>
+
+<?php
+}
+?>
 
 </body>
 </html>

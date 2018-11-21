@@ -5,6 +5,7 @@ require "../vendor/autoload.php";
 
 use SmartFactory\Interfaces\ILanguageManager;
 
+use function SmartFactory\config_settings;
 use function SmartFactory\singleton;
 use function SmartFactory\session;
 use function SmartFactory\user_settings;
@@ -25,6 +26,15 @@ session()->startSession();
 </head>
 <body>
 <h2>User Settings: Summary</h2>
+
+<?php
+if(config_settings()->getParameter("db_password") == "")
+{
+  echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.xml'!</h4>";
+}
+else
+{
+?>
 
 <?php
 report_messages();
@@ -70,6 +80,10 @@ report_messages();
 <br>
 
 <button onclick="document.location.href = '15.user_settings_next.php'">Back</button>
+
+<?php
+}
+?>
 
 </body>
 </html>

@@ -8,6 +8,6 @@
   <item name="db_server">localhost</item>
   <item name="db_name">framework_demo</item>
   <item name="db_user">root</item>
-  <item name="db_password">root</item>
+  <item name="db_password"></item>
   <item name="db_prefix">V1</item>
 </array>

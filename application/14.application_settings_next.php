@@ -3,6 +3,7 @@ namespace MyApplication;
 
 require "../vendor/autoload.php";
 
+use function SmartFactory\config_settings;
 use function SmartFactory\session;
 use function SmartFactory\application_settings;
 use function SmartFactory\checkempty;
@@ -54,6 +55,15 @@ process_form();
 ?>
 
 <?php
+if(config_settings()->getParameter("db_password") == "")
+{
+  echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.xml'!</h4>";
+}
+else
+{
+?>
+
+<?php
 report_messages();
 ?>
 
@@ -100,6 +110,10 @@ report_messages();
 <input type="submit" name="act" value="Back">
 
 </form>
+
+<?php
+}
+?>
 
 </body>
 </html>

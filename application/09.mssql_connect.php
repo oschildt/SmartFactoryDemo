@@ -22,7 +22,7 @@ function connect_mssql()
                    "db_server" => "localhost",
                    "db_name" => "framework_demo", 
                    "db_user" => "sa", 
-                   "db_password" => "*******",
+                   "db_password" => "",
                    "autoconnect" => true
                   ]);
   if(!$dbw) return false;
@@ -245,9 +245,14 @@ function connect_mssql()
   return true;
 } // connect_mssql
 
-connect_mssql();
-  
-report_messages();
+if(!connect_mssql())
+{
+  echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mssql.sql' and adjust the DB password and other connection data in line 21 of this file!</h4>";
+}
+else
+{
+  report_messages();
+}  
 ?>
 
 </body>

@@ -5,6 +5,7 @@ require "../vendor/autoload.php";
 
 use SmartFactory\Interfaces\IRecordsetManager;
 
+use function SmartFactory\config_settings;
 use function SmartFactory\singleton;
 use function SmartFactory\session;
 use function SmartFactory\echo_html;
@@ -30,6 +31,7 @@ function load_data()
   $rsmanager = singleton(IRecordsetManager::class);
 
   $dbw = $rsmanager->getDBWorker();
+  if(!$dbw) return false;
   
   $rsmanager->defineTableMapping("ROOM_PRICES", 
   
@@ -54,6 +56,7 @@ function save_data()
   $rsmanager = singleton(IRecordsetManager::class);
   
   $dbw = $rsmanager->getDBWorker();
+  if(!$dbw) return false;
 
   $rsmanager->defineTableMapping("ROOM_PRICES", 
   
@@ -86,6 +89,15 @@ else
 {
   load_data();
 }
+?>
+
+<?php
+if(config_settings()->getParameter("db_password") == "")
+{
+  echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.xml'!</h4>";
+}
+else
+{
 ?>
 
 <?php
@@ -135,6 +147,10 @@ $rooms = ["single_room", "double_room", "suite", "suite_delux"];
 <input type="submit" name="act" value="Save">
  
 </form>
+
+<?php
+}
+?>
 
 </body>
 </html>

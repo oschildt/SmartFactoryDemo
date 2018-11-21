@@ -3,6 +3,7 @@ namespace MyApplication;
 
 require "../vendor/autoload.php";
 
+use function SmartFactory\config_settings;
 use function SmartFactory\messenger;
 use function SmartFactory\singleton;
 use function SmartFactory\session;
@@ -35,8 +36,8 @@ function process_form()
   user_settings()->setParameter("STATUS", checkempty($_REQUEST["user_settings"]["STATUS"]));
   user_settings()->setParameter("SIGNATURE", checkempty($_REQUEST["user_settings"]["SIGNATURE"]));
 
-  user_settings()->setParameter("HIDE_PICTURES", empty($_REQUEST["user_settings"]["HIDE_PICTURES"]) ? 0 : 1);
-  user_settings()->setParameter("HIDE_SIGNATURES", empty($_REQUEST["user_settings"]["HIDE_SIGNATURES"]) ? 0 : 1);
+  user_settings()->setParameter("HIDE_PICTURES", checkempty($_REQUEST["user_settings"]["HIDE_PICTURES"]));
+  user_settings()->setParameter("HIDE_SIGNATURES", checkempty($_REQUEST["user_settings"]["HIDE_SIGNATURES"]));
   
   if($_REQUEST["act"] == "Back") 
   {
@@ -55,6 +56,15 @@ function process_form()
 } // process_form
 
 process_form();
+?>
+
+<?php
+if(config_settings()->getParameter("db_password") == "")
+{
+  echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.xml'!</h4>";
+}
+else
+{
 ?>
 
 <?php
@@ -113,6 +123,10 @@ report_messages();
 <input type="submit" name="act" value="Back">
 
 </form>
+
+<?php
+}
+?>
 
 </body>
 </html>
