@@ -1,5 +1,5 @@
 Deny From All
 
-<FilesMatch "^edit\.php$">
+<FilesMatch "^(edit|check)\.php$">
 Allow From All
 </FilesMatch>
