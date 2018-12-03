@@ -35,9 +35,9 @@ function load_data()
   
   $rsmanager->defineTableMapping("ROOM_PRICES", 
   
-                                 ["ROOM" => $dbw::db_string, 
-                                  "DT" => $dbw::db_date,
-                                  "PRICE" => $dbw::db_number
+                                 ["ROOM" => $dbw::DB_STRING,
+                                  "DT" => $dbw::DB_DATE,
+                                  "PRICE" => $dbw::DB_NUMBER
                                  ],
                                  
                                  ["ROOM", "DT"]);
@@ -60,9 +60,9 @@ function save_data()
 
   $rsmanager->defineTableMapping("ROOM_PRICES", 
   
-                                 ["ROOM" => $dbw::db_string, 
-                                  "DT" => $dbw::db_date,
-                                  "PRICE" => $dbw::db_number
+                                 ["ROOM" => $dbw::DB_STRING,
+                                  "DT" => $dbw::DB_DATE,
+                                  "PRICE" => $dbw::DB_NUMBER
                                  ],
                                  
                                  ["ROOM", "DT"]);

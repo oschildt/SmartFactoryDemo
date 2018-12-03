@@ -41,7 +41,7 @@ FactoryBuilder::bindClass(ILanguageManager::class, LanguageManager::class, funct
 });
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::class, function($instance) {
-  $instance->init(["save_path" => approot() . "config/settings.xml",
+  $instance->init(["save_path" => approot() . "../config/settings.xml",
                    "config_file_must_exist" => false
                    //"save_encrypted" => true,
                    //"salt_key" => "demotest"
@@ -65,13 +65,13 @@ FactoryBuilder::bindClass(UserSettingsManager::class, UserSettingsManager::class
   $instance->init(["dbworker" => dbworker(),
                    "user_table" => "USERS",
                    "settings_fields" => [
-                      "ID" => DBWorker::db_number,
-                      "SIGNATURE" => DBWorker::db_string,
-                      "STATUS" => DBWorker::db_string,
-                      "HIDE_PICTURES" => DBWorker::db_number,
-                      "HIDE_SIGNATURES" => DBWorker::db_number,
-                      "LANGUAGE" => DBWorker::db_string,
-                      "TIME_ZONE" => DBWorker::db_string
+                      "ID" => DBWorker::DB_NUMBER,
+                      "SIGNATURE" => DBWorker::DB_STRING,
+                      "STATUS" => DBWorker::DB_STRING,
+                      "HIDE_PICTURES" => DBWorker::DB_NUMBER,
+                      "HIDE_SIGNATURES" => DBWorker::DB_NUMBER,
+                      "LANGUAGE" => DBWorker::DB_STRING,
+                      "TIME_ZONE" => DBWorker::DB_STRING
                    ],
                    "user_id_field" => "ID",
                    "user_id_getter" => function() { return 1; }

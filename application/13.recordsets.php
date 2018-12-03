@@ -58,11 +58,11 @@ function load_page_data()
     
     $rsmanager->defineTableMapping("PAGES", 
     
-                                   ["ID" => $dbw::db_number, 
-                                    "PAGE_NAME" => $dbw::db_string, 
-                                    "PAGE_TYPE" => $dbw::db_string,
-                                    "PAGE_ORDER" => $dbw::db_number,
-                                    "PAGE_DATE" => $dbw::db_datetime
+                                   ["ID" => $dbw::DB_NUMBER,
+                                    "PAGE_NAME" => $dbw::DB_STRING,
+                                    "PAGE_TYPE" => $dbw::DB_STRING,
+                                    "PAGE_ORDER" => $dbw::DB_NUMBER,
+                                    "PAGE_DATE" => $dbw::DB_DATETIME
                                    ], 
                                     
                                    ["ID"]);
@@ -71,10 +71,10 @@ function load_page_data()
     
     $rsmanager->defineTableMapping("PAGE_CONTENT", 
     
-                                   ["PAGE_ID" => $dbw::db_number, 
-                                    "LANGUAGE_KEY" => $dbw::db_string, 
-                                    "TITLE" => $dbw::db_string, 
-                                    "CONTENT" => $dbw::db_string], 
+                                   ["PAGE_ID" => $dbw::DB_NUMBER,
+                                    "LANGUAGE_KEY" => $dbw::DB_STRING,
+                                    "TITLE" => $dbw::DB_STRING,
+                                    "CONTENT" => $dbw::DB_STRING],
                                     
                                    ["PAGE_ID", "LANGUAGE_KEY"]);
     
@@ -105,11 +105,11 @@ function save_data()
         
   $rsmanager->defineTableMapping("PAGES", 
   
-                                 ["ID" => $dbw::db_number, 
-                                  "PAGE_NAME" => $dbw::db_string, 
-                                  "PAGE_TYPE" => $dbw::db_string,
-                                  "PAGE_ORDER" => $dbw::db_number,
-                                  "PAGE_DATE" => $dbw::db_datetime
+                                 ["ID" => $dbw::DB_NUMBER,
+                                  "PAGE_NAME" => $dbw::DB_STRING,
+                                  "PAGE_TYPE" => $dbw::DB_STRING,
+                                  "PAGE_ORDER" => $dbw::DB_NUMBER,
+                                  "PAGE_DATE" => $dbw::DB_DATETIME
                                  ], 
                                   
                                  ["ID"]);
@@ -122,10 +122,10 @@ function save_data()
   
   $rsmanager->defineTableMapping("PAGE_CONTENT", 
   
-                                 ["PAGE_ID" => $dbw::db_string, 
-                                  "LANGUAGE_KEY" => $dbw::db_string, 
-                                  "TITLE" => $dbw::db_string,
-                                  "CONTENT" => $dbw::db_string
+                                 ["PAGE_ID" => $dbw::DB_STRING,
+                                  "LANGUAGE_KEY" => $dbw::DB_STRING,
+                                  "TITLE" => $dbw::DB_STRING,
+                                  "CONTENT" => $dbw::DB_STRING
                                  ], 
                                   
                                  ["PAGE_ID", "LANGUAGE_KEY"]);

@@ -28,13 +28,11 @@ Demo application to demonstrate how to use the library [SmartFactory](https://gi
 ## Directory Structure 
 
 ```
+config
 application
   api
-  config
-  css
   localization
   logs
-  resources
   src
   tests
   xmlapi
@@ -43,32 +41,26 @@ database
 
 ## Detailed description
 
+### config
+This directory contains the configuration files.
+
 ### application
 This is the root directory of the application.
 
 ### application/api
 This directory contains the processor index.php of the JSON API requests.
 
-### application/config
-This directory contains the configuration files.
-
-### application/css
-This directory contains the css files for the application.
-
 ### application/localization
-This directory contains the translation file texts.xml and the editor edit.php for user friendly editing of the translation texts.
+This directory contains the translation file texts.xml and the editor edit.php for user friendly editing of the translation texts, and the file check.php for checking the localization texts for duplicates and missing translations..
 
 ### application/logs
 This directory is used for logging, debugging and tracing.
-
-### application/resources
-This directory contains the resource files for the application.
 
 ### application/src
 This is the root directory for all code sources. 
 
 ### application/tests
-This directory contains the test scripts for checking the your classes for correct syntax and for checking your translations for duplicates and missing translations.
+This directory contains the test units.
 
 ### application/xmlapi
 This directory contains the processor index.php of the XML API requests.
