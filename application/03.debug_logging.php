@@ -28,7 +28,7 @@ debugger()->clearLogFiles();
 debugger()->logMessageToFile("some data 1 ...", "mylog.log");
 debugger()->logMessageToFile("some data 2 ...", "mylog.log");
 
-echo file_get_contents(approot() . "logs/mylog.log");
+echo file_get_contents(approot() . "../logs/mylog.log");
 ?></div>
 
 <h3>Logging a message to the debug file /logs/debug.log</h3>
@@ -43,7 +43,7 @@ debugger()->debugMessage("some debug data 2 ...");
 debugger()->debugMessage("some debug data 1 ...");
 debugger()->debugMessage("some debug data 2 ...");
 
-echo file_get_contents(approot() . "logs/debug.log");
+echo file_get_contents(approot() . "../logs/debug.log");
 ?></div>
 
 <h3>Profiling long operations and logging to the profile file /logs/profile.log</h3>
@@ -104,7 +104,7 @@ debugger()->fixProfilePoint("Long running operation #4 completed");
 <p>Listing: logs/profile.log</p>
 
 <div class="code"><?php
-echo file_get_contents(approot() . "logs/profile.log");
+echo file_get_contents(approot() . "../logs/profile.log");
 ?></div>
 
 <h3>Useful functions</h3>

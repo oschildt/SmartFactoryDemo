@@ -28,11 +28,11 @@ use MyApplication\MySessionManager;
 FactoryBuilder::bindClass(ISessionManager::class, MySessionManager::class);
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(IDebugProfiler::class, DebugProfiler::class, function ($instance) {
-    $instance->init(["log_path" => approot() . "logs/"]);
+    $instance->init(["log_path" => approot() . "../logs/"]);
 });
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(IErrorHandler::class, ErrorHandler::class, function ($instance) {
-    $instance->init(["app_root" => approot(), "log_path" => approot() . "logs/"]);
+    $instance->init(["app_root" => approot(), "log_path" => approot() . "../logs/"]);
 });
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(ILanguageManager::class, LanguageManager::class, function ($instance) {

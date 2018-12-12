@@ -29,10 +29,10 @@ Demo application to demonstrate how to use the library [SmartFactory](https://gi
 
 ```
 config
+logs
 application
   api
   localization
-  logs
   src
   tests
   xmlapi
@@ -42,7 +42,10 @@ database
 ## Detailed description
 
 ### config
-This directory contains the configuration files.
+This directory contains the configuration files. This folder is outside of the access per http(s).
+
+### logs
+This directory is used for logging, debugging and tracing. This folder is outside of the access per http(s).
 
 ### application
 This is the root directory of the application.
@@ -52,9 +55,6 @@ This directory contains the processor index.php of the JSON API requests.
 
 ### application/localization
 This directory contains the translation file texts.xml and the editor edit.php for user friendly editing of the translation texts, and the file check.php for checking the localization texts for duplicates and missing translations..
-
-### application/logs
-This directory is used for logging, debugging and tracing.
 
 ### application/src
 This is the root directory for all code sources. 
