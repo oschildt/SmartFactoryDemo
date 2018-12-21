@@ -1,12 +1,13 @@
 ## SmartFactory demo application
 
-Demo application to demonstrate how to use the library [SmartFactory](https://github.com/oschildt/SmartFactory).
+Demo application to demonstrate how to use the library [SmartFactory](https://github.com/oschildt/SmartFactory) and the [SmartFactory OAuth2 Server](https://github.com/oschildt/SmartFactoryOAuth2).
 
 ### To get familiar with the SmartFactory do the following
 
 - Git-clone the demo application and run 'composer update'.
 - Use the script database/create_database_mysql.sql (create_database_mysql.sql) to create a demo database necessary for some examples.
-- View and study the API documentation in the folder docs or here [API documentation](http://php-smart-factory.org/docs/).
+- View and study the API documentation in the folder docs or here [API documentation](http://php-smart-factory.org/smartfactory/) and
+[OAuth2 API documentation](http://php-smart-factory.org/oauth2/).
 - Study the core code of the library SmartFactory.
 
 ### To start writing own application using SmartFactory
@@ -21,7 +22,7 @@ Demo application to demonstrate how to use the library [SmartFactory](https://gi
 
 5. Implement you business logic in the root directory or any subdirectory. 
 
-7. Implement the API request handles for JSON or XML if necessary.
+7. Implement the API request handlers for JSON or XML requests if necessary.
 
 8. Add translation texts for your application over the localization/edit.php or directly into the XML file localization/texts.xml.  Use the script tests/langtester.php to check your translations for duplicates and missing translations.
 

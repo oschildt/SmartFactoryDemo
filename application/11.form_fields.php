@@ -4,7 +4,6 @@ namespace MyApplication;
 require "../vendor/autoload.php";
 
 use function SmartFactory\session;
-use function SmartFactory\singleton;
 use function SmartFactory\input_text;
 use function SmartFactory\input_password;
 use function SmartFactory\textarea;

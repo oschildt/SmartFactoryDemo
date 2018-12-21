@@ -16,7 +16,7 @@ use function SmartFactory\debugger;
 
 <p>Producing some warnings and calling function with warnings.</p>
 
-<p>Error details are traced to the trace file /logs/trace.log.</p>
+<p>Error details are traced to the trace file logs/trace.log.</p>
 
 <div class="code">// force a warning 
 $a = $b;

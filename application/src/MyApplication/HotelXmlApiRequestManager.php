@@ -9,10 +9,6 @@ use SmartFactory\XmlApiRequestManager;
 class HotelXmlApiRequestManager extends XmlApiRequestManager
 {
   //-----------------------------------------------------------------
-  protected static $handler_table = [];
-  //-----------------------------------------------------------------
-  
-  //-----------------------------------------------------------------
   protected function parseXML(&$api_request, &$xmldoc)
   {
     $response_data = [];

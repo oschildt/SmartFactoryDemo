@@ -17,10 +17,14 @@
 
   "require": {
     "php": ">=7.2",
-    "smartfactory/smartfactory": ">=1.1.9"
+    "smartfactory/smartfactory": ">=2.0.0",
+    "smartfactory/oauth2": ">=1.1.1"
   },
   
   "config": {
     "optimize-autoloader": true
-  }  
+  },
+
+  "prefer-stable": true,
+  "minimum-stability": "dev"
 }

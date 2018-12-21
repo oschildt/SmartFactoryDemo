@@ -83,8 +83,8 @@ $params = ["param1" => "value1", "param2" => "value2"];
 
 // the same handlers are NOT called twice. The handler evt1_handler1
 // should be called only one per fireEvent call 
-event()->addHandler("event1", "evt1_handler1");
-event()->addHandler("event1", "evt1_handler1");
+event()->addHandler("event1", "\\MyApplication\\evt1_handler1");
+event()->addHandler("event1", "\\MyApplication\\evt1_handler1");
 
 // the same handlers are NOT called twice. The handler evt1_handler2
 // should be called only one per fireEvent call 
@@ -172,7 +172,7 @@ event()->fireEvent("event2", $params);
 
 <?php
 // It works only with named
-event()->deleteHandler("event1", "evt1_handler1");
+event()->deleteHandler("event1", "\\MyApplication\\evt1_handler1");
 event()->deleteHandler("event1", $evt1_handler2);
 
 event()->fireEvent("event1", $params);

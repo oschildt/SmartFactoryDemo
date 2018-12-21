@@ -31,7 +31,9 @@ function load_data()
   $rsmanager = singleton(IRecordsetManager::class);
 
   $dbw = $rsmanager->getDBWorker();
-  if(!$dbw) return false;
+    if (!$dbw) {
+        return false;
+    }
   
   $rsmanager->defineTableMapping("ROOM_PRICES", 
   

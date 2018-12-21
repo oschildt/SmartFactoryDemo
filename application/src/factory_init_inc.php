@@ -6,6 +6,7 @@ use SmartFactory\Interfaces\ISessionManager;
 use SmartFactory\Interfaces\IDebugProfiler;
 use SmartFactory\Interfaces\IErrorHandler;
 use SmartFactory\Interfaces\ILanguageManager;
+use SmartFactory\Interfaces\IRecordsetManager;
 
 use SmartFactory\FactoryBuilder;
 use SmartFactory\ConfigSettingsManager;
@@ -14,14 +15,35 @@ use SmartFactory\UserSettingsManager;
 use SmartFactory\DebugProfiler;
 use SmartFactory\ErrorHandler;
 use SmartFactory\LanguageManager;
+use SmartFactory\RecordsetManager;
 
 use SmartFactory\DatabaseWorkers\DBWorker;
 
-use function SmartFactory\dbworker;
+use OAuth2\Interfaces\IOAuthManager;
+use OAuth2\Interfaces\ITokenStorage;
+use OAuth2\Interfaces\IUserAuthenticator;
+
+use OAuth2\OAuthManager;
 
 use MyApplication\Interfaces\IUser;
-use MyApplication\HotelXmlApiRequestHandler;
-use MyApplication\MySessionManager;
+
+function app_dbworker()
+{
+    try {
+        $parameters = [];
+    
+        $parameters["db_type"] = \SmartFactory\config_settings()->getParameter("db_type");
+        $parameters["db_server"] = \SmartFactory\config_settings()->getParameter("db_server");
+        $parameters["db_name"] = \SmartFactory\config_settings()->getParameter("db_name");
+        $parameters["db_user"] = \SmartFactory\config_settings()->getParameter("db_user");
+        $parameters["db_password"] = \SmartFactory\config_settings()->getParameter("db_password");
+        $parameters["autoconnect"] = true;
+    
+        return \SmartFactory\dbworker($parameters);
+    } catch (\SmartFactory\SmartException $ex) {
+        throw new \Exception("Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.xml'!");
+    }
+}
 
 //-------------------------------------------------------------------
 // Overriding the default binding
@@ -55,7 +77,7 @@ FactoryBuilder::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::c
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(ApplicationSettingsManager::class, ApplicationSettingsManager::class, function ($instance) {
     $instance->init([
-        "dbworker" => dbworker(),
+        "dbworker" => app_dbworker(),
         "settings_table" => "SETTINGS",
         "settings_column" => "DATA"
     ]);
@@ -66,7 +88,7 @@ FactoryBuilder::bindClass(ApplicationSettingsManager::class, ApplicationSettings
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(UserSettingsManager::class, UserSettingsManager::class, function ($instance) {
     $instance->init([
-        "dbworker" => dbworker(),
+        "dbworker" => app_dbworker(),
         "user_table" => "USERS",
         "settings_fields" => [
             "ID" => DBWorker::DB_NUMBER,
@@ -82,15 +104,25 @@ FactoryBuilder::bindClass(UserSettingsManager::class, UserSettingsManager::class
             return 1;
         }
     ]);
+    
     $instance->loadSettings();
     
     $instance->setValidator(new UserSettingsValidator());
 });
-
+//-------------------------------------------------------------------
+FactoryBuilder::bindClass(IRecordsetManager::class, RecordsetManager::class, function ($instance) {
+    $instance->setDBWorker(app_dbworker());
+});
 //-------------------------------------------------------------------
 // Own binding
+//-------------------------------------------------------------------
 FactoryBuilder::bindClass(IUser::class, User::class);
 //-------------------------------------------------------------------
-// Own binding
 FactoryBuilder::bindClass(HotelXmlApiRequestManager::class, HotelXmlApiRequestManager::class);
+//-------------------------------------------------------------------
+FactoryBuilder::bindClass(IOAuthManager::class, OAuthManager::class);
+//-------------------------------------------------------------------
+FactoryBuilder::bindClass(ITokenStorage::class, DemoTokenStorage::class);
+//-------------------------------------------------------------------
+FactoryBuilder::bindClass(IUserAuthenticator::class, DemoUserAuthenticator::class);
 //-------------------------------------------------------------------

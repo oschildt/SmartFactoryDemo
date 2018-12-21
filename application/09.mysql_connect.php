@@ -4,7 +4,6 @@ namespace MyApplication;
 require "../vendor/autoload.php";
 
 use function SmartFactory\dbworker;
-use function SmartFactory\sql_error;
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +17,18 @@ use function SmartFactory\sql_error;
 <?php
 function connect_mysql()
 {
-  $dbw = dbworker(["db_type" => "MySQL",
-                   "db_server" => "localhost",
-                   "db_name" => "framework_demo", 
-                   "db_user" => "root", 
-                   "db_password" => "",
-                   "autoconnect" => true
-                  ]);
-  if(!$dbw) return false;
+  try {
+      $dbw = dbworker([
+          "db_type" => "MySQL",
+          "db_server" => "localhost",
+          "db_name" => "framework_demo",
+          "db_user" => "root",
+          "db_password" => "",
+          "autoconnect" => true
+      ]);
+  } catch(\SmartFactory\SmartException $ex) {
+      return null;
+  }
   
   echo "<h2>Simple query</h2>";
   
@@ -245,7 +248,7 @@ function connect_mysql()
   return true;
 } // connect_mysql
 
-if(!connect_mysql())
+if(connect_mysql() === null)
 {
   echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in line 21 of this file!</h4>";
 }
