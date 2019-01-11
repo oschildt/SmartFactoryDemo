@@ -149,9 +149,9 @@ class DemoTokenStorage implements ITokenStorage
 
         $exists = false;
         
-        foreach ($this->records as &$record) {
+        foreach ($this->records as $i => $record) {
             if ($record[$key] == $value) {
-                unset($record);
+                unset($this->records[$i]);
                 
                 $exists = true;
             }
