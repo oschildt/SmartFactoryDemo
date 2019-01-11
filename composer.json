@@ -25,6 +25,5 @@
     "optimize-autoloader": true
   },
 
-  "prefer-stable": true,
-  "minimum-stability": "dev"
+  "prefer-stable": true
 }
