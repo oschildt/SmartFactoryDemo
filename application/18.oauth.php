@@ -66,7 +66,10 @@ try {
     $refresh_token = $response["refresh_token"];
     $user_id = $response["user_id"];
     
-    echo "verified:" .  $oam->verifyJwtAccessToken($response["jwt_access_token"]) . "<br>";
+    echo "Verified payload:<br>";
+    echo "<pre>";
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
+    echo "</pre>";
 } catch (\SmartFactory\SmartException $ex) {
     echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
 }
@@ -84,7 +87,10 @@ try {
     print_r($response);
     echo "</pre>";
     
-    echo "verified:" .  $oam->verifyJwtAccessToken($response["jwt_access_token"]) . "<br>";
+    echo "Verified payload:<br>";
+    echo "<pre>";
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
+    echo "</pre>";
 } catch (\SmartFactory\SmartException $ex) {
     echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
 }
@@ -108,8 +114,11 @@ try {
     echo "<pre>";
     print_r($response);
     echo "</pre>";
-
-    echo "verified:" .  $oam->verifyJwtAccessToken($response["jwt_access_token"]) . "<br>";
+    
+    echo "Verified payload:<br>";
+    echo "<pre>";
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
+    echo "</pre>";
 } catch (\SmartFactory\SmartException $ex) {
     echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
 }
@@ -133,7 +142,10 @@ try {
     print_r($response);
     echo "</pre>";
     
-    echo "verified:" .  $oam->verifyJwtAccessToken($response["jwt_access_token"]) . "<br>";
+    echo "Verified payload:<br>";
+    echo "<pre>";
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
+    echo "</pre>";
 } catch (\SmartFactory\SmartException $ex) {
     echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
 }
@@ -156,6 +168,11 @@ try {
     
     echo "<pre>";
     print_r($response);
+    echo "</pre>";
+    
+    echo "Verified payload:<br>";
+    echo "<pre>";
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
     echo "</pre>";
 } catch (\SmartFactory\SmartException $ex) {
     echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
