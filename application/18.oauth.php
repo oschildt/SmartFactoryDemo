@@ -77,12 +77,12 @@ try {
 echo "<h3>Refreshing access token</h3>";
 
 try {
-    $oam->refreshAccessToken($refresh_token, $user_id, $credentials["client_id"], $response);
+    $oam->refreshTokens($refresh_token, $user_id, $credentials["client_id"], $response);
     
     $refresh_token = $response["refresh_token"];
     $user_id = $response["user_id"];
     
-    echo "Response from refreshAccessToken:<br>";
+    echo "Response from refreshTokens:<br>";
     echo "<pre>";
     print_r($response);
     echo "</pre>";
