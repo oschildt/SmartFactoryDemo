@@ -149,15 +149,15 @@ class DemoTokenStorage implements ITokenStorage
 
         $exists = false;
         
-        $cnt = count($this->records);
-        
-        for ($i = $cnt - 1; $i >= 0; $i--) {
-            if ($this->records[$i][$key] == $value) {
-                unset($this->records[$i]);
+        foreach ($this->records as &$record) {
+            if ($record[$key] == $value) {
+                unset($record);
                 
                 $exists = true;
             }
         }
+    
+        $this->records = array_values($this->records);
         
         if (!$exists) {
             throw new \SmartFactory\SmartException("No records found with $key=$value!", $key . "_does_not_exist");
@@ -173,13 +173,11 @@ class DemoTokenStorage implements ITokenStorage
         $this->loadRecords();
         
         $exists = false;
-        
-        $cnt = count($this->records);
-        
-        for ($i = 0; $i < $cnt; $i++) {
-            if ($this->records[$i]["access_token"] == $access_token && $this->records[$i]["user_id"] == $user_id && $this->records[$i]["client_id"] == $client_id) {
+    
+        foreach ($this->records as $record) {
+            if ($record["access_token"] == $access_token && $record["user_id"] == $user_id && $record["client_id"] == $client_id) {
                 
-                if (time() > $this->records[$i]["access_token_expire"]) {
+                if (time() > $record["access_token_expire"]) {
                     throw new \SmartFactory\SmartException("The access token is expired!", "access_token_expired");
                 }
                 
@@ -200,12 +198,10 @@ class DemoTokenStorage implements ITokenStorage
         
         $exists = false;
         
-        $cnt = count($this->records);
-        
-        for ($i = 0; $i < $cnt; $i++) {
-            if ($this->records[$i]["refresh_token"] == $refresh_token && $this->records[$i]["user_id"] == $user_id && $this->records[$i]["client_id"] == $client_id) {
+        foreach ($this->records as $record) {
+            if ($record["refresh_token"] == $refresh_token && $record["user_id"] == $user_id && $record["client_id"] == $client_id) {
                 
-                if (time() > $this->records[$i]["refresh_token_expire"]) {
+                if (time() > $record["refresh_token_expire"]) {
                     throw new \SmartFactory\SmartException("The refresh token is expired!", "refresh_token_expired");
                 }
                 
