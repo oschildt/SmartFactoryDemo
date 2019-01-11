@@ -144,7 +144,9 @@ class DemoTokenStorage implements ITokenStorage
         if (!in_array($key, $this->supported_keys)) {
             throw new \SmartFactory\SmartException(sprintf("The key %s is not supported! The suppoted keys are: %s", $key, implode(", ", $this->supported_keys)), "invalid_data_error");
         }
-        
+    
+        $this->loadRecords();
+
         $exists = false;
         
         $cnt = count($this->records);
@@ -160,6 +162,8 @@ class DemoTokenStorage implements ITokenStorage
         if (!$exists) {
             throw new \SmartFactory\SmartException("No records found with $key=$value!", $key . "_does_not_exist");
         }
+    
+        $this->saveRecords();
         
         return true;
     }
@@ -202,7 +206,7 @@ class DemoTokenStorage implements ITokenStorage
             if ($this->records[$i]["refresh_token"] == $refresh_token && $this->records[$i]["user_id"] == $user_id && $this->records[$i]["client_id"] == $client_id) {
                 
                 if (time() > $this->records[$i]["refresh_token_expire"]) {
-                    throw new \SmartFactory\SmartException("The refresh token is expired!","refresh_token_expired");
+                    throw new \SmartFactory\SmartException("The refresh token is expired!", "refresh_token_expired");
                 }
                 
                 $exists = true;
@@ -210,7 +214,7 @@ class DemoTokenStorage implements ITokenStorage
         }
         
         if (!$exists) {
-            throw new \SmartFactory\SmartException("The refresh token is invalid!","invalid_refresh_token");
+            throw new \SmartFactory\SmartException("The refresh token is invalid!", "invalid_refresh_token");
         }
         
         return true;
