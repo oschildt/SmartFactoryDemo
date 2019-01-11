@@ -28,8 +28,6 @@ $params = [];
 $params["access_token_ttl"] = 600; // 10 min
 $params["refresh_token_ttl"] = 3600; // 1 hours
 
-$params["secret_key"] = "OLEG";
-
 $params["token_storage"] = singleton(ITokenStorage::class);
 $params["token_storage"]->init(["storage_file" => approot() . "../config/auth_tokens.xml"]);
 
