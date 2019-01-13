@@ -26,7 +26,7 @@ function connect_mysql()
           "db_password" => "",
           "autoconnect" => true
       ]);
-  } catch(\SmartFactory\SmartException $ex) {
+  } catch(\Exception $ex) {
       return null;
   }
   

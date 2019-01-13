@@ -70,8 +70,8 @@ try {
     echo "<pre>";
     print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
     echo "</pre>";
-} catch (\SmartFactory\SmartException $ex) {
-    echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
+} catch (\Exception $ex) {
+    echo $ex->getMessage() . "<br>";
 }
 
 echo "<h3>Refreshing access token</h3>";
@@ -91,8 +91,8 @@ try {
     echo "<pre>";
     print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
     echo "</pre>";
-} catch (\SmartFactory\SmartException $ex) {
-    echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
+} catch (\Exception $ex) {
+    echo $ex->getMessage() . "<br>";
 }
 
 echo "<h3>Invalidation of the user</h3>";
@@ -100,8 +100,8 @@ echo "<h3>Invalidation of the user</h3>";
 try {
     echo "result:" . $oam->invalidateUser($user_id, $credentials["client_id"], $refresh_token);
     echo "<br>";
-} catch (\SmartFactory\SmartException $ex) {
-    echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
+} catch (\Exception $ex) {
+    echo $ex->getMessage() . "<br>";
 }
 
 try {
@@ -119,8 +119,8 @@ try {
     echo "<pre>";
     print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
     echo "</pre>";
-} catch (\SmartFactory\SmartException $ex) {
-    echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
+} catch (\Exception $ex) {
+    echo $ex->getMessage() . "<br>";
 }
 
 echo "<h3>Invalidation of the client</h3>";
@@ -128,8 +128,8 @@ echo "<h3>Invalidation of the client</h3>";
 try {
     echo "result:" . $oam->invalidateClient($user_id, $credentials["client_id"], $refresh_token);
     echo "<br>";
-} catch (\SmartFactory\SmartException $ex) {
-    echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
+} catch (\Exception $ex) {
+    echo $ex->getMessage() . "<br>";
 }
 
 try {
@@ -146,8 +146,8 @@ try {
     echo "<pre>";
     print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
     echo "</pre>";
-} catch (\SmartFactory\SmartException $ex) {
-    echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
+} catch (\Exception $ex) {
+    echo $ex->getMessage() . "<br>";
 }
 
 echo "<h3>Invalidation of the access token</h3>";
@@ -155,7 +155,7 @@ echo "<h3>Invalidation of the access token</h3>";
 try {
     echo "result:" . $oam->invalidateJwtAccessToken($response["jwt_access_token"]);
     echo "<br>";
-} catch (\SmartFactory\SmartException $ex) {
+} catch (\Exception $ex) {
     echo $ex->getMessage() . "<br>";
 }
 
@@ -174,8 +174,8 @@ try {
     echo "<pre>";
     print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
     echo "</pre>";
-} catch (\SmartFactory\SmartException $ex) {
-    echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
+} catch (\Exception $ex) {
+    echo $ex->getMessage() . "<br>";
 }
 
 echo "<h3>Invalidation of the refresh token</h3>";
@@ -183,8 +183,8 @@ echo "<h3>Invalidation of the refresh token</h3>";
 try {
     echo "result:" . $oam->invalidateRefreshToken($refresh_token);
     echo "<br>";
-} catch (\SmartFactory\SmartException $ex) {
-    echo "[" . $ex->getErrorCode() . "]: " . $ex->getMessage() . "<br>";
+} catch (\Exception $ex) {
+    echo $ex->getMessage() . "<br>";
 }
 
 ?>

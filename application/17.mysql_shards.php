@@ -35,7 +35,7 @@ function connect_mysql()
 {
     try {
         $dbw = dbshard("myshard");
-    } catch (\SmartFactory\SmartException $ex) {
+    } catch (\Exception $ex) {
         echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in line 21 of this file!</h4>";
         return false;
     }

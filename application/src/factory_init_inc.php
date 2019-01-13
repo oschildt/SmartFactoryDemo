@@ -40,7 +40,7 @@ function app_dbworker()
         $parameters["autoconnect"] = true;
     
         return \SmartFactory\dbworker($parameters);
-    } catch (\SmartFactory\SmartException $ex) {
+    } catch (\Exception $ex) {
         throw new \Exception("Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.xml'!");
     }
 }

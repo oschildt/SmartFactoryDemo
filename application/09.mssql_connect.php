@@ -25,7 +25,7 @@ function connect_mssql()
                    "db_password" => "",
                    "autoconnect" => true
                   ]);
-  } catch(\SmartFactory\SmartException $ex) {
+  } catch(\Exception $ex) {
       return null;
   }
   

@@ -21,7 +21,7 @@ class DemoTokenStorage implements ITokenStorage
         $xmldoc = new \DOMDocument();
         
         if (!@$xmldoc->load($this->storage_file)) {
-            throw new \SmartFactory\SmartException(sprintf("The 'storage_file' is invalid!"), "system_error");
+            throw new \Exception(sprintf("The 'storage_file' is invalid!"));
         }
         
         \SmartFactory\dom_to_array($xmldoc->documentElement, $this->records);
@@ -45,7 +45,7 @@ class DemoTokenStorage implements ITokenStorage
         }
         
         if (!@$xmldoc->save($this->storage_file)) {
-            throw new \SmartFactory\SmartException(sprintf("The storage file '%s' cannot be written!", $this->storage_file), "system_error");
+            throw new \Exception(sprintf("The storage file '%s' cannot be written!", $this->storage_file));
         }
         
         return true;
@@ -54,11 +54,11 @@ class DemoTokenStorage implements ITokenStorage
     protected function validateParameters()
     {
         if (empty($this->storage_file)) {
-            throw new \SmartFactory\SmartException("The 'storage_file' is not specified!", "missing_data_error");
+            throw new \Exception("The 'storage_file' is not specified!");
         }
         
         if (!is_writable(dirname($this->storage_file)) || (file_exists($this->storage_file) && !is_writable($this->storage_file))) {
-            throw new \SmartFactory\SmartException(sprintf("The storage file '%s' is not writable!", $this->storage_file), "system_error");
+            throw new \Exception(sprintf("The storage file '%s' is not writable!", $this->storage_file));
         }
         
         return true;
@@ -76,35 +76,35 @@ class DemoTokenStorage implements ITokenStorage
     public function saveTokenRecord(&$token_record)
     {
         if (empty($token_record["user_id"])) {
-            throw new \SmartFactory\SmartException("The parameter 'user_id' is not specified!", "missing_data_error");
+            throw new \Exception("The parameter 'user_id' is not specified!");
         }
         
         if (empty($token_record["client_id"])) {
-            throw new \SmartFactory\SmartException("The parameter 'client_id' is not specified!", "missing_data_error");
+            throw new \Exception("The parameter 'client_id' is not specified!");
         }
         
         if (empty($token_record["access_token"])) {
-            throw new \SmartFactory\SmartException("The parameter 'access_token' is not specified!", "missing_data_error");
+            throw new \Exception("The parameter 'access_token' is not specified!");
         }
         
         if (empty($token_record["refresh_token"])) {
-            throw new \SmartFactory\SmartException("The parameter 'refresh_token' is not specified!", "missing_data_error");
+            throw new \Exception("The parameter 'refresh_token' is not specified!");
         }
         
         if (empty($token_record["access_token_expire"])) {
-            throw new \SmartFactory\SmartException("The parameter 'access_token_expire' is not specified!", "missing_data_error");
+            throw new \Exception("The parameter 'access_token_expire' is not specified!");
         }
         
         if (!is_numeric($token_record["access_token_expire"]) || $token_record["access_token_expire"] < 0) {
-            throw new \SmartFactory\SmartException("The parameter 'access_token_expire' is not valid!", "invalid_data_error");
+            throw new \Exception("The parameter 'access_token_expire' is not valid!");
         }
         
         if (empty($token_record["refresh_token_expire"])) {
-            throw new \SmartFactory\SmartException("The parameter 'refresh_token_expire' is not valid!", "invalid_data_error");
+            throw new \Exception("The parameter 'refresh_token_expire' is not specified!");
         }
         
         if (!is_numeric($token_record["refresh_token_expire"]) || $token_record["refresh_token_expire"] < 0) {
-            throw new \SmartFactory\SmartException("The parameter 'refresh_token_expire' is not valid!", "invalid_data_error");
+            throw new \Exception("The parameter 'refresh_token_expire' is not valid!");
         }
         
         $this->loadRecords();
@@ -142,7 +142,7 @@ class DemoTokenStorage implements ITokenStorage
     public function deleteTokenRecordByKey($key, $value)
     {
         if (!in_array($key, $this->supported_keys)) {
-            throw new \SmartFactory\SmartException(sprintf("The key %s is not supported! The suppoted keys are: %s", $key, implode(", ", $this->supported_keys)), "invalid_data_error");
+            throw new \Exception(sprintf("The key %s is not supported! The suppoted keys are: %s", $key, implode(", ", $this->supported_keys)));
         }
     
         $this->loadRecords();
@@ -160,7 +160,7 @@ class DemoTokenStorage implements ITokenStorage
         $this->records = array_values($this->records);
         
         if (!$exists) {
-            throw new \SmartFactory\SmartException("No records found with $key=$value!", $key . "_does_not_exist");
+            throw new \Exception("No records found with $key=$value!");
         }
     
         $this->saveRecords();
@@ -178,7 +178,7 @@ class DemoTokenStorage implements ITokenStorage
             if ($record["access_token"] == $access_token && $record["user_id"] == $user_id && $record["client_id"] == $client_id) {
                 
                 if (time() > $record["access_token_expire"]) {
-                    throw new \SmartFactory\SmartException("The access token is expired!", "access_token_expired");
+                    throw new \OAuth2\InvalidTokenException("The access token is expired!");
                 }
                 
                 $exists = true;
@@ -186,7 +186,7 @@ class DemoTokenStorage implements ITokenStorage
         }
         
         if (!$exists) {
-            throw new \SmartFactory\SmartException("The access token is invalid!", "invalid_access_token");
+            throw new \OAuth2\InvalidTokenException("The access token is invalid!");
         }
         
         return true;
@@ -202,7 +202,7 @@ class DemoTokenStorage implements ITokenStorage
             if ($record["refresh_token"] == $refresh_token && $record["user_id"] == $user_id && $record["client_id"] == $client_id) {
                 
                 if (time() > $record["refresh_token_expire"]) {
-                    throw new \SmartFactory\SmartException("The refresh token is expired!", "refresh_token_expired");
+                    throw new \OAuth2\InvalidTokenException("The refresh token is expired!");
                 }
                 
                 $exists = true;
@@ -210,7 +210,7 @@ class DemoTokenStorage implements ITokenStorage
         }
         
         if (!$exists) {
-            throw new \SmartFactory\SmartException("The refresh token is invalid!", "invalid_refresh_token");
+            throw new \OAuth2\InvalidTokenException("The refresh token is invalid!");
         }
         
         return true;
