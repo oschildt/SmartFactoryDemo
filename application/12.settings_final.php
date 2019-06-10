@@ -48,6 +48,10 @@ report_messages();
   <td><?php echo_html(text('ShowProgWarnings')); ?>:</td>
   <td><?php echo(config_settings()->getParameter("show_prog_warning") ? "1" : "0"); ?></td>
 </tr>
+<tr>
+  <td colspan="2"><?php echo_html(text('Domains')); ?>:<br>
+  <?php echo(implode("<br>", config_settings()->getParameter("domains", false, []))); ?></td>
+</tr>
 </table>
 
 <h3>Database settings</h3>

@@ -8,6 +8,7 @@ use function SmartFactory\config_settings;
 use function SmartFactory\checkempty;
 use function SmartFactory\echo_html;
 use function SmartFactory\text;
+use function SmartFactory\textarea;
 use function SmartFactory\input_text;
 use function SmartFactory\input_password;
 use function SmartFactory\checkbox;
@@ -34,6 +35,7 @@ function process_form()
   config_settings()->setParameter("tracing_enabled", checkempty($_REQUEST["settings"]["tracing_enabled"]));
   config_settings()->setParameter("show_message_details", checkempty($_REQUEST["settings"]["show_message_details"]));
   config_settings()->setParameter("show_prog_warning", checkempty($_REQUEST["settings"]["show_prog_warning"]));
+  config_settings()->setParameter("domains", empty($_REQUEST["settings"]["domains"]) ? [] : preg_split("/[\n\r]+/", trim($_REQUEST["settings"]["domains"])));
 
   if(!config_settings()->validateSettings()) return false;
 
@@ -88,6 +90,17 @@ report_messages();
                   "value" => "1",
                   "checked" => config_settings()->getParameter("show_prog_warning", true, 1)
                   ]); ?>
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+  <?php echo_html(text('Domains')); ?>:<br>
+  <?php 
+  textarea(["name" => "settings[domains]",
+                  "style" => "width: 300px;height: 150px",
+                  "value" => implode("\n", config_settings()->getParameter("domains", true, []))
+                  ]); 
+                  ?>
   </td>
 </tr>
 </table>

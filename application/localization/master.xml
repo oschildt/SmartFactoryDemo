@@ -1699,6 +1699,12 @@
 			<de>Fehler bei der SQL Abfrage!</de>
 			<ru>Ошибка в SQL запросе!</ru>
 		</text>
+
+    <text id="Domains">
+			<en>Domains</en>
+			<de>Domains</de>
+			<ru>Домены</ru>
+		</text>
     
   </texts>
 </document>
