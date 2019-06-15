@@ -55,7 +55,7 @@ This is the root directory of the application.
 This directory contains the processor *index.php* of the JSON API requests.
 
 ### application/localization
-This directory contains the translation file texts.json and the editor edit.php for user friendly editing of the translation texts, and the file check.php for checking the localization texts for missing translations.
+This directory contains the translation file *texts.json* and the editor *edit.php* for user friendly editing of the translation texts, and the file *check.php* for checking the localization texts for missing translations.
 
 ### application/src
 This is the root directory for all code sources. 
