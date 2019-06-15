@@ -10,58 +10,54 @@
 //-----------------------------------------------------------------
 function load_language_texts()
 {
-  global $text_entries;
-  global $text_entry_doublicates;
-  global $supported_languages;
-  global $incomplete_translations;
-  
-  $xmldoc = new DOMDocument();
-  
-  if(!@$xmldoc->load("../localization/texts.xml"))
-  {
-    echo("<p style='color:red; font-weight: bold'>Translation file 'localization/texts.xml' cannot be loaded!</p>");
-    return false;
-  }
-  
-  $xsdpath = new DOMXPath($xmldoc);
-  
-  $nodes = $xsdpath->evaluate("/document/interface_languages/language");
-  foreach($nodes as $node)
-  {
-    $lang_code = $node->getAttribute("id");
-    if(!empty($lang_code)) $supported_languages[$lang_code] = $lang_code;
-  }
-  
-  $nodes = $xsdpath->evaluate("/document/texts/text");
-  foreach($nodes as $node)
-  {
-    $text_id = $node->getAttribute("id");
-    if(empty($text_id)) continue;
+    global $messages;
     
-    if(!empty($text_entries[$text_id]))
-    {
-      $text_entry_doublicates[$text_id] = $text_id;
+    global $supported_languages;
+    global $text_entries;
+    global $language_entries;
+    global $country_entries;
+    
+    global $incomplete_translations;
+    
+    $json = file_get_contents("texts.json");
+    if ($json === false) {
+        $messages .= "<p style='color:red; font-weight: bold'>Translation file 'localization/texts.json' cannot be loaded!</p>";
+        return false;
     }
     
-    $text_entries[$text_id] = [];
-
-    foreach($node->childNodes as $child)
-    {
-      if($child->nodeName == '#text') continue;
-      
-      $text_entries[$text_id][$child->nodeName] = trim($child->nodeValue);
+    $json_array = json_decode($json, true);
+    if ($json_array === null) {
+        $messages .= "<p style='color:red; font-weight: bold'>Translation file 'localization/texts.json' cannot be loaded!</p>";
+        return false;
     }
     
-    foreach($supported_languages as $lng)
-    {
-      if(empty($text_entries[$text_id][$lng]))
-      {
-        $incomplete_translations[$text_id][] = $lng;
-      }
-    }    
-  }
-  
-  return true;
+    if (!empty($json_array["interface_languages"])) {
+        foreach ($json_array["interface_languages"] as $lang_code) {
+            $supported_languages[$lang_code] = $lang_code;
+        }
+    }
+    
+    if (!empty($json_array["texts"])) {
+        $text_entries = $json_array["texts"];
+        
+        foreach ($text_entries as $text_id => &$translations) {
+            foreach ($supported_languages as $lng) {
+                if (empty($translations[$lng])) {
+                    $incomplete_translations[$text_id][] = $lng;
+                }
+            }
+        }
+    }
+    
+    if (!empty($json_array["languages"])) {
+        $language_entries = $json_array["languages"];
+    }
+    
+    if (!empty($json_array["countries"])) {
+        $country_entries = $json_array["countries"];
+    }
+    
+    return true;
 } // load_language_texts
 //-----------------------------------------------------------------
 function process_file($file)
@@ -124,7 +120,7 @@ function process_dir($dir)
   $files = scandir($dir);
   foreach($files as $file)
   {
-    if($file == "." || $file == "..") continue;
+    if($file == "." || $file == ".." || $file == "vendor") continue;
 
     if(is_dir($dir . $file))
     {

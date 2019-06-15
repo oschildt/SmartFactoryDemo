@@ -36,8 +36,14 @@ if (empty($id)) {
 
 function load_page_list(&$page_list)
 {
-    $dbw = app_dbworker();
-    if(!$dbw) return false;
+    try {
+        $dbw = app_dbworker();
+        if (!$dbw) {
+            return false;
+        }
+    } catch (\Exception $ex) {
+        return false;
+    }
     
     if (!$dbw->execute_query("SELECT ID, PAGE_NAME, PAGE_TYPE FROM PAGES ORDER BY PAGE_NAME")) {
         return sql_error($dbw);
@@ -162,7 +168,7 @@ if (!empty($_REQUEST["act"])) {
 
 <?php
 if (config_settings()->getParameter("db_password") == "") {
-    echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.xml'!</h4>";
+    echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.cfg'!</h4>";
 } else {
     ?>
     

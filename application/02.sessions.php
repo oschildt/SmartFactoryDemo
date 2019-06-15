@@ -10,9 +10,9 @@ session()->startSession();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Sessions</title>
+    <title>Sessions</title>
 
-<link rel="stylesheet" href="css/examples.css" type="text/css"/>
+    <link rel="stylesheet" href="css/examples.css" type="text/css"/>
 </head>
 <body>
 <h2>Sessions</h2>
@@ -20,11 +20,11 @@ session()->startSession();
 <h3>Starting session</h3>
 
 <div class="code">session() = singleton(ISessionManager::class);
-session()->startSession();
+    session()->startSession();
 
-echo "session name: " . session()->getSessionName();
+    echo "session name: " . session()->getSessionName();
 
-echo "session id: " . session()->getSessionId();
+    echo "session id: " . session()->getSessionId();
 </div>
 
 <?php
@@ -48,18 +48,18 @@ $sessionvars["user"]["sex"] = "M";
 ?>
 
 <div class="code">session()->vars()["user"]["name"] = "Alex";
-session()->vars()["user"]["age"] = "22";
+    session()->vars()["user"]["age"] = "22";
 
-// it works also, &amp; is important
-$sessionvars = &amp;session()->vars();
+    // it works also, &amp; is important
+    $sessionvars = &amp;session()->vars();
 
-$sessionvars["user"]["sex"] = "M";
+    $sessionvars["user"]["sex"] = "M";
 
-echo "user name value: " . session()->vars()["user"]["name"];
+    echo "user name value: " . session()->vars()["user"]["name"];
 
-echo "user age value: " . session()->vars()["user"]["age"];
+    echo "user age value: " . session()->vars()["user"]["age"];
 
-echo "user age sex: " . session()->vars()["user"]["sex"];
+    echo "user age sex: " . session()->vars()["user"]["sex"];
 </div>
 
 <?php
@@ -72,7 +72,7 @@ echo "<p>user age sex: " . session()->vars()["user"]["sex"] . "</p>";
 
 <p><a href="02.sessions_next.php" target="_blank">Next request</a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-<a href="02.sessions_next_readonly.php" target="_blank">Next request with non-blocking readonly session</a></p>
+    <a href="02.sessions_next_readonly.php" target="_blank">Next request with non-blocking readonly session</a></p>
 
 </body>
 </html>

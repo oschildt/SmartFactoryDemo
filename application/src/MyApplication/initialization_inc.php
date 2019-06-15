@@ -10,7 +10,7 @@ use SmartFactory\Interfaces\IRecordsetManager;
 
 use SmartFactory\FactoryBuilder;
 use SmartFactory\ConfigSettingsManager;
-use SmartFactory\ApplicationSettingsManager;
+use SmartFactory\RuntimeSettingsManager;
 use SmartFactory\UserSettingsManager;
 use SmartFactory\DebugProfiler;
 use SmartFactory\ErrorHandler;
@@ -27,21 +27,31 @@ use OAuth2\OAuthManager;
 
 use MyApplication\Interfaces\IUser;
 
+//-------------------------------------------------------------------
+function approot()
+{
+    $aroot = __DIR__;
+    $aroot = str_replace("\\", "/", $aroot);
+    $aroot = str_replace("src/MyApplication", "", $aroot);
+    
+    return $aroot;
+} // approot
+//-------------------------------------------------------------------
 function app_dbworker()
 {
     try {
         $parameters = [];
-    
+        
         $parameters["db_type"] = \SmartFactory\config_settings()->getParameter("db_type");
         $parameters["db_server"] = \SmartFactory\config_settings()->getParameter("db_server");
         $parameters["db_name"] = \SmartFactory\config_settings()->getParameter("db_name");
         $parameters["db_user"] = \SmartFactory\config_settings()->getParameter("db_user");
         $parameters["db_password"] = \SmartFactory\config_settings()->getParameter("db_password");
         $parameters["autoconnect"] = true;
-    
+        
         return \SmartFactory\dbworker($parameters);
     } catch (\Exception $ex) {
-        throw new \Exception("Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.xml'!");
+        throw new \Exception("Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.cfg'!");
     }
 }
 
@@ -58,15 +68,16 @@ FactoryBuilder::bindClass(IErrorHandler::class, ErrorHandler::class, function ($
 });
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(ILanguageManager::class, LanguageManager::class, function ($instance) {
-    $instance->init(["localization_path" => approot() . "localization/"]);
+    $instance->init(["localization_path" => approot() . "localization/", "use_apcu" => false]);
     $instance->loadDictionary();
     $instance->detectLanguage();
 });
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::class, function ($instance) {
     $instance->init([
-        "save_path" => approot() . "../config/settings.xml",
-        "config_file_must_exist" => false
+        "save_path" => approot() . "../config/settings.cfg",
+        "config_file_must_exist" => false,
+        "use_apcu" => false
         //"save_encrypted" => true,
         //"salt_key" => "demotest"
     ]);
@@ -75,7 +86,7 @@ FactoryBuilder::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::c
     $instance->setValidator(new ConfigSettingsValidator());
 });
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(ApplicationSettingsManager::class, ApplicationSettingsManager::class, function ($instance) {
+FactoryBuilder::bindClass(RuntimeSettingsManager::class, RuntimeSettingsManager::class, function ($instance) {
     $instance->init([
         "dbworker" => app_dbworker(),
         "settings_table" => "SETTINGS",
@@ -83,7 +94,7 @@ FactoryBuilder::bindClass(ApplicationSettingsManager::class, ApplicationSettings
     ]);
     $instance->loadSettings();
     
-    $instance->setValidator(new ApplicationSettingsValidator());
+    $instance->setValidator(new RuntimeSettingsValidator());
 });
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(UserSettingsManager::class, UserSettingsManager::class, function ($instance) {

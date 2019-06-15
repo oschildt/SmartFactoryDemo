@@ -147,7 +147,7 @@ INSERT INTO `ROOM_PRICES` (`ROOM`, `DT`, `PRICE`) VALUES
   ('suite_delux','2018-04-06',46.000);
 
 INSERT INTO `SETTINGS` (`DATA`) VALUES
-  ('<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<array>\n  <item name=\"hotel_name\">Sonne</item>\n  <item name=\"hotel_email\">info@sonne.ch</item>\n  <item name=\"show_free_rooms\">1</item>\n  <item name=\"booking_url\">http://spider.com</item>\n  <item name=\"hotel_id\">1000</item>\n  <item name=\"default_rate\">default</item>\n</array>\n');
+  (NULL);
 
 INSERT INTO `users` (`ID`, `EMAIL`, `LAST_NAME`, `FIRST_NAME`, `BIRTH_DATE`, `SALARY`, `DEPARTMENT_ID`, `SIGNATURE`, `STATUS`, `HIDE_PICTURES`, `HIDE_SIGNATURES`, `LANGUAGE`, `TIME_ZONE`) VALUES
   (1,'jsmith@gmail.com','Smith','John','1970-02-02 00:00:00',1000.000,1,'i am here','Guest',1,1,'az','europe'),

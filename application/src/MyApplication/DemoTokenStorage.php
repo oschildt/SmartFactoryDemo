@@ -144,9 +144,9 @@ class DemoTokenStorage implements ITokenStorage
         if (!in_array($key, $this->supported_keys)) {
             throw new \Exception(sprintf("The key %s is not supported! The suppoted keys are: %s", $key, implode(", ", $this->supported_keys)));
         }
-    
+        
         $this->loadRecords();
-
+        
         $exists = false;
         
         foreach ($this->records as $i => $record) {
@@ -156,13 +156,13 @@ class DemoTokenStorage implements ITokenStorage
                 $exists = true;
             }
         }
-    
+        
         $this->records = array_values($this->records);
         
         if (!$exists) {
             throw new \Exception("No records found with $key=$value!");
         }
-    
+        
         $this->saveRecords();
         
         return true;
@@ -173,7 +173,7 @@ class DemoTokenStorage implements ITokenStorage
         $this->loadRecords();
         
         $exists = false;
-    
+        
         foreach ($this->records as $record) {
             if ($record["access_token"] == $access_token && $record["user_id"] == $user_id && $record["client_id"] == $client_id) {
                 

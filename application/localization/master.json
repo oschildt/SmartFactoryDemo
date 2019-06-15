@@ -1,0 +1,1628 @@
+{
+    "interface_languages": [
+        "en",
+        "de",
+        "ru"
+    ],
+    "languages": {
+        "ab": {
+            "en": "Abkhazian",
+            "de": "Abchasisch",
+            "ru": "Абхазкий"
+        },
+        "af": {
+            "en": "Afrikaans",
+            "de": "Afrikanisch",
+            "ru": "Африканский"
+        },
+        "ar": {
+            "en": "Arabic",
+            "de": "Arabisch",
+            "ru": "Арабский"
+        },
+        "az": {
+            "en": "Azerbaijani",
+            "de": "Aserbaidschanisch",
+            "ru": "Азербайджанский"
+        },
+        "ba": {
+            "en": "Bashkir",
+            "de": "Baschkirisch",
+            "ru": "Башкирский"
+        },
+        "be": {
+            "en": "Belarusian",
+            "de": "Weißrussisch",
+            "ru": "Беларусский"
+        },
+        "bg": {
+            "en": "Bulgarian",
+            "de": "Bulgarisch",
+            "ru": "Болгарский"
+        },
+        "bo": {
+            "en": "Tibetan",
+            "de": "Tibetisch",
+            "ru": "Тибетский"
+        },
+        "bs": {
+            "en": "Bosnian",
+            "de": "Bosnisch",
+            "ru": "Боснийский"
+        },
+        "ca": {
+            "en": "Catalan",
+            "de": "Catalan",
+            "ru": "Каталанский"
+        },
+        "ce": {
+            "en": "Chechen",
+            "de": "Tschetschenisch",
+            "ru": "Чеченский"
+        },
+        "cs": {
+            "en": "Czech",
+            "de": "Tschechisch",
+            "ru": "Чешский"
+        },
+        "cv": {
+            "en": "Chuvash",
+            "de": "Tschuwaschisch",
+            "ru": "Чувашский"
+        },
+        "cy": {
+            "en": "Welsh",
+            "de": "Walisisch",
+            "ru": "Уэльский"
+        },
+        "da": {
+            "en": "Danish",
+            "de": "Dänisch",
+            "ru": "Датский"
+        },
+        "de": {
+            "en": "German",
+            "de": "Deutsch",
+            "ru": "Немецкий"
+        },
+        "el": {
+            "en": "Greek",
+            "de": "Greek",
+            "ru": "Греческий"
+        },
+        "en": {
+            "en": "English",
+            "de": "Englisch",
+            "ru": "Английский"
+        },
+        "eo": {
+            "en": "Esperanto",
+            "de": "Esperanto",
+            "ru": "Эсперанто"
+        },
+        "es": {
+            "en": "Spanish",
+            "de": "Spanisch",
+            "ru": "Испанский"
+        },
+        "et": {
+            "en": "Estonian",
+            "de": "Estnisch",
+            "ru": "Эстонский"
+        },
+        "eu": {
+            "en": "Basque",
+            "de": "Baskisch",
+            "ru": "Баскский"
+        },
+        "fa": {
+            "en": "Persian",
+            "de": "Persisch",
+            "ru": "Персидский"
+        },
+        "fi": {
+            "en": "Finnish",
+            "de": "Finnisch",
+            "ru": "Финский"
+        },
+        "fr": {
+            "en": "French",
+            "de": "Französisch",
+            "ru": "Французкий"
+        },
+        "ga": {
+            "en": "Irish",
+            "de": "Irisch",
+            "ru": "Ирландский"
+        },
+        "he": {
+            "en": "Hebrew",
+            "de": "Jüdisch",
+            "ru": "Еврейский"
+        },
+        "hi": {
+            "en": "Hindi",
+            "de": "Hindi",
+            "ru": "Хинди"
+        },
+        "hr": {
+            "en": "Croatian",
+            "de": "Kroatisch",
+            "ru": "Хорватский"
+        },
+        "hu": {
+            "en": "Hungarian",
+            "de": "Ungarisch",
+            "ru": "Венгерский"
+        },
+        "hy": {
+            "en": "Armenian",
+            "de": "Armenisch",
+            "ru": "Армянский"
+        },
+        "ia": {
+            "en": "Interlingua",
+            "de": "Interlingua",
+            "ru": "Интерлингва"
+        },
+        "id": {
+            "en": "Indonesian",
+            "de": "Indonesisch",
+            "ru": "Индонезийский"
+        },
+        "is": {
+            "en": "Icelandic",
+            "de": "Isländisch",
+            "ru": "Исландский"
+        },
+        "it": {
+            "en": "Italian",
+            "de": "Italienisch",
+            "ru": "Итальянский"
+        },
+        "ja": {
+            "en": "Japanese",
+            "de": "Japanisch",
+            "ru": "Японский"
+        },
+        "ka": {
+            "en": "Georgian",
+            "de": "Georgisch",
+            "ru": "Грузинский"
+        },
+        "kg": {
+            "en": "Kongo",
+            "de": "Kongo",
+            "ru": "Конго"
+        },
+        "kk": {
+            "en": "Kazakh",
+            "de": "Kasachisch",
+            "ru": "Казахский"
+        },
+        "ko": {
+            "en": "Korean",
+            "de": "Koreanisch",
+            "ru": "Корейский"
+        },
+        "ku": {
+            "en": "Kurdish",
+            "de": "Kurdisch",
+            "ru": "Курдский"
+        },
+        "kv": {
+            "en": "Komi",
+            "de": "Komi",
+            "ru": "Коми"
+        },
+        "ky": {
+            "en": "Kirghiz",
+            "de": "Kirgisisch",
+            "ru": "Киргизский"
+        },
+        "lb": {
+            "en": "Luxembourgish",
+            "de": "Luxemburgisch",
+            "ru": "Люксембургский"
+        },
+        "lt": {
+            "en": "Lithuanian",
+            "de": "Litauisch",
+            "ru": "Литовский"
+        },
+        "lv": {
+            "en": "Latvian",
+            "de": "Lettisch",
+            "ru": "Латвиский"
+        },
+        "mi": {
+            "en": "Maori",
+            "de": "Maorisch",
+            "ru": "Маори"
+        },
+        "mk": {
+            "en": "Macedonian",
+            "de": "Mazedonisch",
+            "ru": "Македонский"
+        },
+        "mn": {
+            "en": "Mongolian",
+            "de": "Mongolisch",
+            "ru": "Монгольский"
+        },
+        "mo": {
+            "en": "Moldavian",
+            "de": "Moldawisch",
+            "ru": "Молдавский"
+        },
+        "ms": {
+            "en": "Malay",
+            "de": "Malaiisch",
+            "ru": "Малайский"
+        },
+        "mt": {
+            "en": "Maltese",
+            "de": "Maltesisch",
+            "ru": "Мальтийский"
+        },
+        "ne": {
+            "en": "Nepali",
+            "de": "Nepalisch",
+            "ru": "Непальский"
+        },
+        "nl": {
+            "en": "Dutch",
+            "de": "Niederländisch",
+            "ru": "Голландский"
+        },
+        "no": {
+            "en": "Norwegian",
+            "de": "Norwegisch",
+            "ru": "Норвежский"
+        },
+        "os": {
+            "en": "Ossetian",
+            "de": "Ossetisch",
+            "ru": "Осетинский"
+        },
+        "pl": {
+            "en": "Polish",
+            "de": "Polnisch",
+            "ru": "Польский"
+        },
+        "pt": {
+            "en": "Portuguese",
+            "de": "Portugiesisch",
+            "ru": "Португальский"
+        },
+        "ro": {
+            "en": "Romanian",
+            "de": "Rumänisch",
+            "ru": "Румынский"
+        },
+        "ru": {
+            "en": "Russian",
+            "de": "Russisch",
+            "ru": "Русский"
+        },
+        "sk": {
+            "en": "Slovak",
+            "de": "Slowakisch",
+            "ru": "Словацкий"
+        },
+        "sl": {
+            "en": "Slovenian",
+            "de": "Slowenisch",
+            "ru": "Словенский"
+        },
+        "so": {
+            "en": "Somali",
+            "de": "Somali",
+            "ru": "Сомалийский"
+        },
+        "sq": {
+            "en": "Albanian",
+            "de": "Albanisch",
+            "ru": "Албанский"
+        },
+        "sr": {
+            "en": "Serbian",
+            "de": "Serbisch",
+            "ru": "Сербский"
+        },
+        "su": {
+            "en": "Sudanese",
+            "de": "Sudanisch",
+            "ru": "Суданский"
+        },
+        "sv": {
+            "en": "Swedish",
+            "de": "Schwedisch",
+            "ru": "Шведский"
+        },
+        "tg": {
+            "en": "Tajik",
+            "de": "Tadschikisch",
+            "ru": "Таджикский"
+        },
+        "th": {
+            "en": "Thai",
+            "de": "Thai",
+            "ru": "Тайский"
+        },
+        "tk": {
+            "en": "Turkmen",
+            "de": "Turkmenisch",
+            "ru": "Туркменский"
+        },
+        "tr": {
+            "en": "Turkish",
+            "de": "Türkisch",
+            "ru": "Турецкий"
+        },
+        "tt": {
+            "en": "Tatar",
+            "de": "Tatarisch",
+            "ru": "Татарский"
+        },
+        "ty": {
+            "en": "Tahitian",
+            "de": "Tahitisch",
+            "ru": "Таитянский"
+        },
+        "uk": {
+            "en": "Ukrainian",
+            "de": "Ukrainisch",
+            "ru": "Украинский"
+        },
+        "uz": {
+            "en": "Uzbek",
+            "de": "Usbekisch",
+            "ru": "Узбекский"
+        },
+        "vi": {
+            "en": "Vietnamese",
+            "de": "Vietnamesisch",
+            "ru": "Вьетнамский"
+        },
+        "yi": {
+            "en": "Yiddish",
+            "de": "Jiddisch",
+            "ru": "Идиш"
+        },
+        "zh": {
+            "en": "Chinese",
+            "de": "Chinesisch",
+            "ru": "Китайский"
+        },
+        "zu": {
+            "en": "Zulu",
+            "de": "Zulu",
+            "ru": "Зулуский"
+        }
+    },
+    "countries": {
+        "AD": {
+            "en": "Andorra",
+            "de": "Andorra",
+            "ru": "Андорра"
+        },
+        "AE": {
+            "en": "United Arab Emirates",
+            "de": "Vereinigten Arabischen Emirate",
+            "ru": "Объединенные Арабские Эмираты"
+        },
+        "AF": {
+            "en": "Afghanistan",
+            "de": "Afghanistan",
+            "ru": "Афганистан"
+        },
+        "AG": {
+            "en": "Antigua And Barbuda",
+            "de": "Antigua und Barbuda",
+            "ru": "Антигуа и Барбуда"
+        },
+        "AI": {
+            "en": "Anguilla",
+            "de": "Anguilla",
+            "ru": "Ангилла"
+        },
+        "AL": {
+            "en": "Albania",
+            "de": "Albanien",
+            "ru": "Албания"
+        },
+        "AM": {
+            "en": "Armenia",
+            "de": "Armenien",
+            "ru": "Армения"
+        },
+        "AO": {
+            "en": "Angola",
+            "de": "Angola",
+            "ru": "Ангола"
+        },
+        "AR": {
+            "en": "Argentina",
+            "de": "Argentinien",
+            "ru": "Аргентина"
+        },
+        "AS": {
+            "en": "American Samoa",
+            "de": "Amerikanisches Samoa",
+            "ru": "Американское Самоа"
+        },
+        "AT": {
+            "en": "Austria",
+            "de": "Österreich",
+            "ru": "Австрия"
+        },
+        "AU": {
+            "en": "Australia",
+            "de": "Australien",
+            "ru": "Австралия"
+        },
+        "AW": {
+            "en": "Aruba",
+            "de": "Aruba",
+            "ru": "Аруба"
+        },
+        "AZ": {
+            "en": "Azerbaijan",
+            "de": "Aserbaidschan",
+            "ru": "Азербайджан"
+        },
+        "BA": {
+            "en": "Bosnia And Herzegowina",
+            "de": "Bosnien und Herzegowina",
+            "ru": "Босния и Герцеговина"
+        },
+        "BB": {
+            "en": "Barbados",
+            "de": "Barbados",
+            "ru": "Барбадос"
+        },
+        "BD": {
+            "en": "Bangladesh",
+            "de": "Bangladesch",
+            "ru": "Бангладеш"
+        },
+        "BE": {
+            "en": "Belgium",
+            "de": "Belgien",
+            "ru": "Бельгия"
+        },
+        "BF": {
+            "en": "Burkina Faso",
+            "de": "Burkina Faso",
+            "ru": "Буркина-Фасо"
+        },
+        "BG": {
+            "en": "Bulgaria",
+            "de": "Bulgarien",
+            "ru": "Болгария"
+        },
+        "BH": {
+            "en": "Bahrain",
+            "de": "Bahrain",
+            "ru": "Бахрейн"
+        },
+        "BI": {
+            "en": "Burundi",
+            "de": "Burundi",
+            "ru": "Бурунди"
+        },
+        "BJ": {
+            "en": "Benin",
+            "de": "Benin",
+            "ru": "Бенин"
+        },
+        "BM": {
+            "en": "Bermuda",
+            "de": "Bermudas",
+            "ru": "Бермуды"
+        },
+        "BN": {
+            "en": "Brunei",
+            "de": "Brunei",
+            "ru": "Бруней"
+        },
+        "BO": {
+            "en": "Bolivia",
+            "de": "Bolivien",
+            "ru": "Боливия"
+        },
+        "BR": {
+            "en": "Brazil",
+            "de": "Brasilen",
+            "ru": "Бразилия"
+        },
+        "BS": {
+            "en": "Bahamas",
+            "de": "Bahamas",
+            "ru": "Багамы"
+        },
+        "BT": {
+            "en": "Bhutan",
+            "de": "Bhutan",
+            "ru": "Бутан"
+        },
+        "BV": {
+            "en": "Bouvet Island",
+            "de": "Bouvet Island",
+            "ru": "Буветские острова"
+        },
+        "BW": {
+            "en": "Botswana",
+            "de": "Botswana",
+            "ru": "Ботсвана"
+        },
+        "BY": {
+            "en": "Belarus",
+            "de": "Weißrussland",
+            "ru": "Белоруссия"
+        },
+        "BZ": {
+            "en": "Belize",
+            "de": "Belize",
+            "ru": "Белиз"
+        },
+        "CA": {
+            "en": "Canada",
+            "de": "Kanada",
+            "ru": "Канада"
+        },
+        "CC": {
+            "en": "Cocos (Keeling) Islands",
+            "de": "Cocos Keeling Insel",
+            "ru": "Кокосовые острова"
+        },
+        "CF": {
+            "en": "Central African Republic",
+            "de": "Zentralafrikanische Republik",
+            "ru": "Центральноафриканская Республика"
+        },
+        "CG": {
+            "en": "Congo",
+            "de": "Kongo",
+            "ru": "Конго"
+        },
+        "CH": {
+            "en": "Switzerland",
+            "de": "Schweiz",
+            "ru": "Швейцария"
+        },
+        "CI": {
+            "en": "Cote d'Ivoire",
+            "de": "Cote d'Ivoire",
+            "ru": "Кот-Дивуар"
+        },
+        "CK": {
+            "en": "Cook Islands",
+            "de": "Cook-Insel",
+            "ru": "Острова Кука"
+        },
+        "CL": {
+            "en": "Chile",
+            "de": "Chile",
+            "ru": "Чили"
+        },
+        "CM": {
+            "en": "Cameroon",
+            "de": "Kamerun",
+            "ru": "Камерун"
+        },
+        "CN": {
+            "en": "China",
+            "de": "China",
+            "ru": "Китай"
+        },
+        "CO": {
+            "en": "Colombia",
+            "de": "Kolumbien",
+            "ru": "Колумбия"
+        },
+        "CR": {
+            "en": "Costa Rica",
+            "de": "Kostarika",
+            "ru": "Коста-Рика"
+        },
+        "CU": {
+            "en": "Cuba",
+            "de": "Kuba",
+            "ru": "Куба"
+        },
+        "CV": {
+            "en": "Cape Verde",
+            "de": "Kap Verde",
+            "ru": "Кабо-Верде"
+        },
+        "CX": {
+            "en": "Christmas Island",
+            "de": "Christmas-Insel",
+            "ru": "Остров Кристмас"
+        },
+        "CY": {
+            "en": "Cyprus",
+            "de": "Zypern",
+            "ru": "Кипр"
+        },
+        "CZ": {
+            "en": "Czech Republic",
+            "de": "Tschechien",
+            "ru": "Чешская Республика"
+        },
+        "DE": {
+            "en": "Germany",
+            "de": "Deutschland",
+            "ru": "Германия"
+        },
+        "DJ": {
+            "en": "Djibouti",
+            "de": "Dschibuti",
+            "ru": "Джибути"
+        },
+        "DK": {
+            "en": "Denmark",
+            "de": "Dänemark",
+            "ru": "Дания"
+        },
+        "DM": {
+            "en": "Dominica",
+            "de": "Dominica",
+            "ru": "Доминика"
+        },
+        "DO": {
+            "en": "Dominican Republic",
+            "de": "Dominikanische Republik",
+            "ru": "Доминиканская Республика"
+        },
+        "DZ": {
+            "en": "Algeria",
+            "de": "Algerien",
+            "ru": "Алжир"
+        },
+        "EC": {
+            "en": "Ecuador",
+            "de": "Ekuador",
+            "ru": "Эквадор"
+        },
+        "EE": {
+            "en": "Estonia",
+            "de": "Estland",
+            "ru": "Эстония"
+        },
+        "EG": {
+            "en": "Egypt",
+            "de": "Ägypten",
+            "ru": "Египет"
+        },
+        "EH": {
+            "en": "Western Sahara",
+            "de": "Westsahara",
+            "ru": "Западная Сахара"
+        },
+        "ER": {
+            "en": "Eritrea",
+            "de": "Eritrea",
+            "ru": "Эритрея"
+        },
+        "ES": {
+            "en": "Spain",
+            "de": "Spanien",
+            "ru": "Испания"
+        },
+        "ET": {
+            "en": "Ethiopia",
+            "de": "Äthiopien",
+            "ru": "Эфиопия"
+        },
+        "FI": {
+            "en": "Finland",
+            "de": "Finnland",
+            "ru": "Финляндия"
+        },
+        "FJ": {
+            "en": "Fiji",
+            "de": "Fidschi",
+            "ru": "Фиджи"
+        },
+        "FK": {
+            "en": "Falkland Islands (Malvinas)",
+            "de": "Falklandinseln (Malvinen)",
+            "ru": "Фолклендские (Мальвинские) острова"
+        },
+        "FM": {
+            "en": "Micronesia",
+            "de": "Mikronesien",
+            "ru": "Микронезия"
+        },
+        "FO": {
+            "en": "Faroe Islands",
+            "de": "Färöer",
+            "ru": "Фарерские острова"
+        },
+        "FR": {
+            "en": "France",
+            "de": "Frankreich",
+            "ru": "Франция"
+        },
+        "GA": {
+            "en": "Gabon",
+            "de": "Gabun",
+            "ru": "Габон"
+        },
+        "GB": {
+            "en": "United Kingdom (UK)",
+            "de": "Vereinigte Königreich (UK)",
+            "ru": "Соединённое Королевство (UK)"
+        },
+        "GD": {
+            "en": "Grenada",
+            "de": "Grenada",
+            "ru": "Гренада"
+        },
+        "GE": {
+            "en": "Georgia",
+            "de": "Georgien",
+            "ru": "Грузия"
+        },
+        "GF": {
+            "en": "French Guiana",
+            "de": "Französisch-Guyana",
+            "ru": "Французская Гвиана"
+        },
+        "GH": {
+            "en": "Ghana",
+            "de": "Ghana",
+            "ru": "Гана"
+        },
+        "GI": {
+            "en": "Gibraltar",
+            "de": "Gibraltar",
+            "ru": "Гибралтар"
+        },
+        "GL": {
+            "en": "Greenland",
+            "de": "Grönland",
+            "ru": "Гренландия"
+        },
+        "GM": {
+            "en": "Gambia",
+            "de": "Gambia",
+            "ru": "Гамбия"
+        },
+        "GN": {
+            "en": "Guinea",
+            "de": "Guinea",
+            "ru": "Гвинея"
+        },
+        "GP": {
+            "en": "Guadeloupe",
+            "de": "Guadeloupe",
+            "ru": "Гваделупа"
+        },
+        "GQ": {
+            "en": "Äquatorialguinea",
+            "de": "Equatorial Guinea",
+            "ru": "Экваториальная Гвинея"
+        },
+        "GR": {
+            "en": "Greece",
+            "de": "Griechenland",
+            "ru": "Греция"
+        },
+        "GT": {
+            "en": "Guatemala",
+            "de": "Guatemala",
+            "ru": "Гватемала"
+        },
+        "GU": {
+            "en": "Guam",
+            "de": "Guam",
+            "ru": "Гуам"
+        },
+        "GW": {
+            "en": "Guinea-Bissau",
+            "de": "Guinea-Bissau",
+            "ru": "Гвинея-Бисау"
+        },
+        "GY": {
+            "en": "Guyana",
+            "de": "Guyana",
+            "ru": "Гайана"
+        },
+        "HK": {
+            "en": "Hong Kong",
+            "de": "Hongkong",
+            "ru": "Гонконг"
+        },
+        "HN": {
+            "en": "Honduras",
+            "de": "Honduras",
+            "ru": "Гондурас"
+        },
+        "HR": {
+            "en": "Croatia",
+            "de": "Kroatien",
+            "ru": "Хорватия"
+        },
+        "HT": {
+            "en": "Haiti",
+            "de": "Haiti",
+            "ru": "Гаити"
+        },
+        "HU": {
+            "en": "Hungary",
+            "de": "Ungarn",
+            "ru": "Венгрия"
+        },
+        "ID": {
+            "en": "Indonesia",
+            "de": "Indonesien",
+            "ru": "Индонезия"
+        },
+        "IE": {
+            "en": "Ireland",
+            "de": "Irland",
+            "ru": "Ирландия"
+        },
+        "IL": {
+            "en": "Israel",
+            "de": "Israel",
+            "ru": "Израиль"
+        },
+        "IN": {
+            "en": "India",
+            "de": "Indien",
+            "ru": "Индия"
+        },
+        "IQ": {
+            "en": "Iraq",
+            "de": "Irak",
+            "ru": "Ирак"
+        },
+        "IR": {
+            "en": "Iran",
+            "de": "Iran",
+            "ru": "Иран"
+        },
+        "IS": {
+            "en": "Iceland",
+            "de": "Island",
+            "ru": "Исландия"
+        },
+        "IT": {
+            "en": "Italy",
+            "de": "Italien",
+            "ru": "Италия"
+        },
+        "JM": {
+            "en": "Jamaica",
+            "de": "Jamaika",
+            "ru": "Ямайка"
+        },
+        "JO": {
+            "en": "Jordan",
+            "de": "Jordanien",
+            "ru": "Иордания"
+        },
+        "JP": {
+            "en": "Japan",
+            "de": "Japan",
+            "ru": "Япония"
+        },
+        "KE": {
+            "en": "Kenya",
+            "de": "Kenia",
+            "ru": "Кения"
+        },
+        "KG": {
+            "en": "Kyrgyzstan",
+            "de": "Kirgistan",
+            "ru": "Киргизстан"
+        },
+        "KH": {
+            "en": "Cambodia",
+            "de": "Kambodscha",
+            "ru": "Камбоджа"
+        },
+        "KI": {
+            "en": "Kiribati",
+            "de": "Kiribati",
+            "ru": "Кирибати"
+        },
+        "KM": {
+            "en": "Comoros",
+            "de": "Komoren",
+            "ru": "Коморские Острова"
+        },
+        "KN": {
+            "en": "Saint Kitts And Nevis",
+            "de": "St. Kitts und Nevis",
+            "ru": "Сент-Китс и Невис"
+        },
+        "KP": {
+            "en": "North Korea",
+            "de": "Nordkorea",
+            "ru": "Северная Корея"
+        },
+        "KR": {
+            "en": "South Korea",
+            "de": "Südkorea",
+            "ru": "Южная Корея"
+        },
+        "KW": {
+            "en": "Kuwait",
+            "de": "Kuwait",
+            "ru": "Кувейт"
+        },
+        "KY": {
+            "en": "Cayman Islands",
+            "de": "Cayman Insel",
+            "ru": "Каймановы острова"
+        },
+        "KZ": {
+            "en": "Kazakhstan",
+            "de": "Kasachstan",
+            "ru": "Казахстан"
+        },
+        "LA": {
+            "en": "Laos",
+            "de": "Laos",
+            "ru": "Лаос"
+        },
+        "LB": {
+            "en": "Lebanon",
+            "de": "Libanon",
+            "ru": "Лебанон"
+        },
+        "LC": {
+            "en": "Saint Lucia",
+            "de": "Saint Lucia",
+            "ru": "Сент-Люсия"
+        },
+        "LI": {
+            "en": "Liechtenstein",
+            "de": "Liechtenstein",
+            "ru": "Лихтенштейн"
+        },
+        "LK": {
+            "en": "Sri Lanka",
+            "de": "Sri Lanka",
+            "ru": "Шри-Ланка"
+        },
+        "LR": {
+            "en": "Liberia",
+            "de": "Liberia",
+            "ru": "Либерия"
+        },
+        "LS": {
+            "en": "Lesotho",
+            "de": "Lesotho",
+            "ru": "Лесото"
+        },
+        "LT": {
+            "en": "Lithuania",
+            "de": "Litauen",
+            "ru": "Литва"
+        },
+        "LU": {
+            "en": "Luxembourg",
+            "de": "Luxemburg",
+            "ru": "Люксембург"
+        },
+        "LV": {
+            "en": "Latvia",
+            "de": "Lettland",
+            "ru": "Латвия"
+        },
+        "LY": {
+            "en": "Libya",
+            "de": "Libyen",
+            "ru": "Ливия"
+        },
+        "MA": {
+            "en": "Morocco",
+            "de": "Marokko",
+            "ru": "Марокко"
+        },
+        "MC": {
+            "en": "Monaco",
+            "de": "Monaco",
+            "ru": "Монако"
+        },
+        "MD": {
+            "en": "Moldova",
+            "de": "Moldova",
+            "ru": "Молдавия"
+        },
+        "MG": {
+            "en": "Madagascar",
+            "de": "Madagaskar",
+            "ru": "Мадагаскар"
+        },
+        "MH": {
+            "en": "Marshall Islands",
+            "de": "Marshallinseln",
+            "ru": "Маршалловы Острова"
+        },
+        "MK": {
+            "en": "Macedonia",
+            "de": "Mazedonien",
+            "ru": "Македония"
+        },
+        "ML": {
+            "en": "Mali",
+            "de": "Mali",
+            "ru": "Мали"
+        },
+        "MM": {
+            "en": "Myanmar",
+            "de": "Myanmar",
+            "ru": "Мьянма"
+        },
+        "MN": {
+            "en": "Mongolia",
+            "de": "Mongolei",
+            "ru": "Монголия"
+        },
+        "MO": {
+            "en": "Macau",
+            "de": "Macau",
+            "ru": "Макао"
+        },
+        "MP": {
+            "en": "Northern Mariana Islands",
+            "de": "Nördliche Marianen-Inseln",
+            "ru": "Северные Марианские острова"
+        },
+        "MQ": {
+            "en": "Martinique",
+            "de": "Martinique",
+            "ru": "Мартиника"
+        },
+        "MR": {
+            "en": "Mauritania",
+            "de": "Mauretanien",
+            "ru": "Мавритания"
+        },
+        "MS": {
+            "en": "Montserrat",
+            "de": "Montserrat",
+            "ru": "Монсерат"
+        },
+        "MT": {
+            "en": "Malta",
+            "de": "Malta",
+            "ru": "Мальта"
+        },
+        "MU": {
+            "en": "Mauritius",
+            "de": "Mauritius",
+            "ru": "Мавритиус"
+        },
+        "MV": {
+            "en": "Maldives",
+            "de": "Malediven",
+            "ru": "Мальдивы"
+        },
+        "MW": {
+            "en": "Malawi",
+            "de": "Malawi",
+            "ru": "Малави"
+        },
+        "MX": {
+            "en": "Mexico",
+            "de": "Mexiko",
+            "ru": "Мексика"
+        },
+        "MY": {
+            "en": "Malaysia",
+            "de": "Malaysia",
+            "ru": "Малайзия"
+        },
+        "MZ": {
+            "en": "Mozambique",
+            "de": "Mozambick",
+            "ru": "Мозамбик"
+        },
+        "NA": {
+            "en": "Namibia",
+            "de": "Namibia",
+            "ru": "Намибия"
+        },
+        "NC": {
+            "en": "New Caledonia",
+            "de": "Neukaledonien",
+            "ru": "Новая Каледония"
+        },
+        "NE": {
+            "en": "Niger",
+            "de": "Niger",
+            "ru": "Нигер"
+        },
+        "NG": {
+            "en": "Nigeria",
+            "de": "Nigeria",
+            "ru": "Нигерия"
+        },
+        "NI": {
+            "en": "Nicaragua",
+            "de": "Nikaragua",
+            "ru": "Никарагуа"
+        },
+        "NL": {
+            "en": "Netherlands",
+            "de": "Holland",
+            "ru": "Голландия"
+        },
+        "NO": {
+            "en": "Norway",
+            "de": "Norwegen",
+            "ru": "Норвегия"
+        },
+        "NP": {
+            "en": "Nepal",
+            "de": "Nepal",
+            "ru": "Непал"
+        },
+        "NR": {
+            "en": "Nauru",
+            "de": "Nauru",
+            "ru": "Науру"
+        },
+        "NZ": {
+            "en": "New Zealand",
+            "de": "Neuseeland",
+            "ru": "Новая Зеландия"
+        },
+        "OM": {
+            "en": "Oman",
+            "de": "Oman",
+            "ru": "Оман"
+        },
+        "PA": {
+            "en": "Panama",
+            "de": "Panama",
+            "ru": "Панама"
+        },
+        "PE": {
+            "en": "Peru",
+            "de": "Peru",
+            "ru": "Перу"
+        },
+        "PF": {
+            "en": "French Polynesia",
+            "de": "Französisch-Polynesien",
+            "ru": "Французкая Полинезия"
+        },
+        "PG": {
+            "en": "Papua New Guinea",
+            "de": "Papua-Neuguinea",
+            "ru": "Папуа-Новая Гвинея"
+        },
+        "PH": {
+            "en": "Philippines",
+            "de": "Philippinen",
+            "ru": "Филиппины"
+        },
+        "PK": {
+            "en": "Pakistan",
+            "de": "Pakistan",
+            "ru": "Пакистан"
+        },
+        "PL": {
+            "en": "Poland",
+            "de": "Polen",
+            "ru": "Польша"
+        },
+        "PN": {
+            "en": "Pitcairn",
+            "de": "Pitcairn",
+            "ru": "Питкэрн"
+        },
+        "PR": {
+            "en": "Puerto Rico",
+            "de": "Puerto Rico",
+            "ru": "Пуэрто-Рико"
+        },
+        "PT": {
+            "en": "Portugal",
+            "de": "Portugal",
+            "ru": "Португалия"
+        },
+        "PW": {
+            "en": "Palau",
+            "de": "Palau",
+            "ru": "Палау"
+        },
+        "PY": {
+            "en": "Paraguay",
+            "de": "Paraguay",
+            "ru": "Парагвай"
+        },
+        "QA": {
+            "en": "Qatar",
+            "de": "Katar",
+            "ru": "Катар"
+        },
+        "RE": {
+            "en": "Reunion",
+            "de": "Reunion",
+            "ru": "Реюньон"
+        },
+        "RO": {
+            "en": "Romania",
+            "de": "Rumänien",
+            "ru": "Румыния"
+        },
+        "RU": {
+            "en": "Russian Federation",
+            "de": "Russische Föderation",
+            "ru": "Российская Федерация"
+        },
+        "RW": {
+            "en": "Rwanda",
+            "de": "Ruanda",
+            "ru": "Руанда"
+        },
+        "SA": {
+            "en": "Saudi Arabia",
+            "de": "Saudi-Arabien",
+            "ru": "Саудовская Аравия"
+        },
+        "SB": {
+            "en": "Solomon Islands",
+            "de": "Salomoninseln",
+            "ru": "Соломоновы острова"
+        },
+        "SC": {
+            "en": "Seychelles",
+            "de": "Seychellen",
+            "ru": "Сейшельские острова"
+        },
+        "SD": {
+            "en": "Sudan",
+            "de": "Sudan",
+            "ru": "Судан"
+        },
+        "SE": {
+            "en": "Sweden",
+            "de": "Schweden",
+            "ru": "Швеция"
+        },
+        "SG": {
+            "en": "Singapore",
+            "de": "Singapur",
+            "ru": "Сингапур"
+        },
+        "SI": {
+            "en": "Slovenia",
+            "de": "Slowenien",
+            "ru": "Словения"
+        },
+        "SK": {
+            "en": "Slovakia",
+            "de": "Slowakei",
+            "ru": "Словакия"
+        },
+        "SL": {
+            "en": "Sierra Leone",
+            "de": "Sierra Leone",
+            "ru": "Сьерра-Леоне"
+        },
+        "SM": {
+            "en": "San Marino",
+            "de": "San Marino",
+            "ru": "Сан-Марино"
+        },
+        "SN": {
+            "en": "Senegal",
+            "de": "Senegal",
+            "ru": "Сенегал"
+        },
+        "SO": {
+            "en": "Somalia",
+            "de": "Somalia",
+            "ru": "Сомали"
+        },
+        "SR": {
+            "en": "Suriname",
+            "de": "Suriname",
+            "ru": "Суринам"
+        },
+        "SV": {
+            "en": "El Salvador",
+            "de": "El Salvador",
+            "ru": "Сальвадор"
+        },
+        "SY": {
+            "en": "Syrian Arab Republic",
+            "de": "Syrien",
+            "ru": "Сирийская Арабская Республика"
+        },
+        "SZ": {
+            "en": "Swaziland",
+            "de": "Swasiland",
+            "ru": "Свазиленд"
+        },
+        "TD": {
+            "en": "Chad",
+            "de": "Tschad",
+            "ru": "Чад"
+        },
+        "TG": {
+            "en": "Togo",
+            "de": "Togo",
+            "ru": "Того"
+        },
+        "TH": {
+            "en": "Thailand",
+            "de": "Thailand",
+            "ru": "Таиланд"
+        },
+        "TJ": {
+            "en": "Tajikistan",
+            "de": "Tadschikistan",
+            "ru": "Таджикистан"
+        },
+        "TK": {
+            "en": "Tokelau",
+            "de": "Tokelau",
+            "ru": "Токелау"
+        },
+        "TM": {
+            "en": "Turkmenistan",
+            "de": "Turkmenistan",
+            "ru": "Туркменистан"
+        },
+        "TN": {
+            "en": "Tunisia",
+            "de": "Tunesien",
+            "ru": "Тунис"
+        },
+        "TO": {
+            "en": "Tonga",
+            "de": "Tonga",
+            "ru": "Тонга"
+        },
+        "TP": {
+            "en": "East Timor",
+            "de": "Ost Timor",
+            "ru": "Восточный Тимор"
+        },
+        "TR": {
+            "en": "Turkey",
+            "de": "Türkei",
+            "ru": "Турция"
+        },
+        "TT": {
+            "en": "Trinidad And Tobago",
+            "de": "Trinidad und Tobago",
+            "ru": "Тринидад и Тобаго"
+        },
+        "TV": {
+            "en": "Tuvalu",
+            "de": "Tuvalu",
+            "ru": "Тувалу"
+        },
+        "TW": {
+            "en": "Taiwan",
+            "de": "Taiwan",
+            "ru": "Тайвань"
+        },
+        "TZ": {
+            "en": "Tanzania",
+            "de": "Tanzania",
+            "ru": "Танзания"
+        },
+        "UA": {
+            "en": "Ukraine",
+            "de": "Ukraine",
+            "ru": "Украина"
+        },
+        "UG": {
+            "en": "Uganda",
+            "de": "Uganda",
+            "ru": "Уганда"
+        },
+        "US": {
+            "en": "United States",
+            "de": "USA",
+            "ru": "США"
+        },
+        "UY": {
+            "en": "Uruguay",
+            "de": "Uruguay",
+            "ru": "Уругвай"
+        },
+        "UZ": {
+            "en": "Uzbekistan",
+            "de": "Usbekistan",
+            "ru": "Узбекистан"
+        },
+        "VA": {
+            "en": "Vatican",
+            "de": "Vatikan",
+            "ru": "Ватикан"
+        },
+        "VC": {
+            "en": "Saint Vincent And The Grenadines",
+            "de": "St. Vincent und die Grenadinen",
+            "ru": "Сент-Винсент и Гренадины"
+        },
+        "VE": {
+            "en": "Venezuela",
+            "de": "Venezuela",
+            "ru": "Венесуэлла"
+        },
+        "VN": {
+            "en": "Viet Nam",
+            "de": "Vietnam",
+            "ru": "Вьетнам"
+        },
+        "VU": {
+            "en": "Vanuatu",
+            "de": "Vanuatu",
+            "ru": "Вануату"
+        },
+        "WS": {
+            "en": "Samoa",
+            "de": "Samoa",
+            "ru": "Самоа"
+        },
+        "YE": {
+            "en": "Yemen",
+            "de": "Jemen",
+            "ru": "Йемен"
+        },
+        "YT": {
+            "en": "Mayotte",
+            "de": "Mayotte",
+            "ru": "Майот"
+        },
+        "YU": {
+            "en": "Yugoslavia",
+            "de": "Jugoslawien",
+            "ru": "Югославия"
+        },
+        "ZA": {
+            "en": "South Africa",
+            "de": "Südafrika",
+            "ru": "Южно-Африканская Республика"
+        },
+        "ZM": {
+            "en": "Zambia",
+            "de": "Sambia",
+            "ru": "Замбия"
+        },
+        "ZR": {
+            "en": "Zaire",
+            "de": "Zaire",
+            "ru": "Заир"
+        },
+        "ZW": {
+            "en": "Zimbabwe",
+            "de": "Simbabwe",
+            "ru": "Зимбабве"
+        }
+    },
+    "texts": {
+        "DateTimeFormat": {
+            "en": "Y-m-d H:i",
+            "de": "d.m.Y H:i",
+            "ru": "d.m.Y H:i"
+        },
+        "DateFormat": {
+            "en": "Y-m-d",
+            "de": "d.m.Y",
+            "ru": "d.m.Y"
+        },
+        "ErrDateTimeFormat": {
+            "en": "The date '%s' has a wrong format! The format '%s' is expected.",
+            "de": "Das Datum '%s' hat ein falsches Format! Das Format '%s' wird erwartet!",
+            "ru": "Неверный формат даты '%s'! Ожидаемый формат '%s'!"
+        },
+        "SmtpHost": {
+            "en": "SMTP host",
+            "de": "SMTP Host",
+            "ru": "SMTP хост"
+        },
+        "ErrSmtpHostEmpty": {
+            "en": "SMTP host is not specified!",
+            "de": "SMTP Host ist nicht angegeben!",
+            "ru": "Не задан SMTP хост!"
+        },
+        "EnableTracing": {
+            "en": "Enable tracing",
+            "de": "Protokollierung (Trace) einschalten",
+            "ru": "Включить трассировку"
+        },
+        "ShowErrorDetails": {
+            "en": "Show error details",
+            "de": "Fehlerdetails anzeigen",
+            "ru": "Показывать подробные сообщения об ошибках"
+        },
+        "ShowProgWarnings": {
+            "en": "Show program warnings",
+            "de": "Programmierwarnungen anzeigen",
+            "ru": "Показывать программные предупрждения"
+        },
+        "DatabaseType": {
+            "en": "Database type",
+            "de": "Datenbanktyp",
+            "ru": "Тип базы данных"
+        },
+        "ErrDatabaseTypeEmpty": {
+            "en": "Database type is not specified!",
+            "de": "Datenbanktyp ist nicht angegeben!",
+            "ru": "Не задан тип базы данных!"
+        },
+        "DatabaseServer": {
+            "en": "Server address",
+            "de": "Server-Adresse",
+            "ru": "Адрес сервера"
+        },
+        "ErrDatabaseServerEmpty": {
+            "en": "Server address is not specified!",
+            "de": "Server-Adresse ist nicht angegeben!",
+            "ru": "Не задан адрес сервера!"
+        },
+        "DatabaseName": {
+            "en": "Database name",
+            "de": "Datenbankname",
+            "ru": "Имя базы данных"
+        },
+        "ErrDatabaseNameEmpty": {
+            "en": "Database name is not specified!",
+            "de": "Datenbankname ist nicht angegeben!",
+            "ru": "Не задано имя базы данных!"
+        },
+        "DatabaseUser": {
+            "en": "User name",
+            "de": "Benutzername",
+            "ru": "Имя пользователя"
+        },
+        "ErrDatabaseUserEmpty": {
+            "en": "User name is not specified!",
+            "de": "Benutzername ist nicht angegeben!",
+            "ru": "Не задано имя пользователя базы данных!"
+        },
+        "DatabasePassword": {
+            "en": "Password",
+            "de": "Kennwort",
+            "ru": "Пароль"
+        },
+        "ErrDatabasePasswordEmpty": {
+            "en": "The password is not set yet and has to be specified!",
+            "de": "Das Kennwort ist noch nicht gesetzt und muss angegeben werden!",
+            "ru": "Пароль еще не был установлен, поэтому его нужно задать!"
+        },
+        "DatabaseTablePrefix": {
+            "en": "Prefix for tables",
+            "de": "Präfix für Tabellen",
+            "ru": "Префикс для таблиц"
+        },
+        "ErrDatabaseTablePrefixEmpty": {
+            "en": "Prefix for tables is not specified!",
+            "de": "Präfix für Tabellen ist nicht angegeben!",
+            "ru": "Не задан префикс для таблиц!"
+        },
+        "MsgSettingsSaved": {
+            "en": "Settings have been saved!",
+            "de": "Einstellungen wurden gespeichert!",
+            "ru": "Настрйоки сохранены!"
+        },
+        "ErrQueryFailed": {
+            "en": "SQL query error!",
+            "de": "Fehler bei der SQL Abfrage!",
+            "ru": "Ошибка в SQL запросе!"
+        },
+        "Domains": {
+            "en": "Domains",
+            "de": "Domains",
+            "ru": "Домены"
+        }
+    }
+}

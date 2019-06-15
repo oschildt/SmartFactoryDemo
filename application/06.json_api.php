@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>JSON API</title>
+    <title>JSON API</title>
 
-<link rel="stylesheet" href="css/examples.css" type="text/css"/>
+    <link rel="stylesheet" href="css/examples.css" type="text/css"/>
 </head>
 <body>
 <h2>JSON API</h2>

@@ -2,7 +2,7 @@
 
 rem set the path to mysql.exe
  
-set MYSQL_PATH="c:\web\mysql\bin\mysql.exe"
+set MYSQL_PATH="c:\mysql\bin\mysql.exe"
 
 echo *****************************************************
 echo * Creating MySQL database                           *

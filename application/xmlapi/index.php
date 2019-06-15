@@ -1,9 +1,8 @@
 <?php
+
 namespace MyApplication;
 
 require "../../vendor/autoload.php";
-
-use SmartFactory\Interfaces\ISessionManager;
 
 use function SmartFactory\singleton;
 

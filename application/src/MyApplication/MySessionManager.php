@@ -1,4 +1,5 @@
 <?php
+
 namespace MyApplication;
 
 use SmartFactory\SessionManager;

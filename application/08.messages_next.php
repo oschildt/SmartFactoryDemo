@@ -10,9 +10,9 @@ session()->startSession();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Messages</title>
+    <title>Messages</title>
 
-<link rel="stylesheet" href="css/examples.css" type="text/css"/>
+    <link rel="stylesheet" href="css/examples.css" type="text/css"/>
 </head>
 <body>
 <h2>Messages - next step</h2>

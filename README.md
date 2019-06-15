@@ -5,7 +5,7 @@ Demo application to demonstrate how to use the library [SmartFactory](https://gi
 ### To get familiar with the SmartFactory do the following
 
 - Git-clone the demo application and run 'composer update'.
-- Use the script database/create_database_mysql.sql (create_database_mysql.sql) to create a demo database necessary for some examples.
+- Use the script *database/create_database_mysql.sql* (*create_database_mysql.sql*) to create a demo database necessary for some examples.
 - View and study the API documentation in the folder docs or here [API documentation](http://php-smart-factory.org/smartfactory/) and
 [OAuth2 API documentation](http://php-smart-factory.org/oauth2/).
 - Study the core code of the library SmartFactory.
@@ -16,15 +16,15 @@ Demo application to demonstrate how to use the library [SmartFactory](https://gi
 
 2. Study the directory structure of the demo application and the code.
 
-3. Implement your classes and functions. Use the script tests/classtester.php to check your classes for correct syntax.
+3. Implement your classes and functions.
 
-4. Bind you classes to the interfaces in the file factory_init_inc.php to be able to use the IoC approach for creating objects offered by the library SmartFactory.
+4. Bind you classes to the interfaces in the file *initialization_inc.php* to be able to use the IoC approach for creating objects offered by the library SmartFactory.
 
 5. Implement you business logic in the root directory or any subdirectory. 
 
 7. Implement the API request handlers for JSON or XML requests if necessary.
 
-8. Add translation texts for your application over the localization/edit.php or directly into the XML file localization/texts.xml.  Use the script tests/langtester.php to check your translations for duplicates and missing translations.
+8. Add translation texts for your application over the *localization/edit.php* or directly into the XML file *localization/texts.json*. Use the script *localization/check.php* to check your localization texts for missing translations.
 
 ## Directory Structure 
 
@@ -52,10 +52,10 @@ This directory is used for logging, debugging and tracing. This folder is outsid
 This is the root directory of the application.
 
 ### application/api
-This directory contains the processor index.php of the JSON API requests.
+This directory contains the processor *index.php* of the JSON API requests.
 
 ### application/localization
-This directory contains the translation file texts.xml and the editor edit.php for user friendly editing of the translation texts, and the file check.php for checking the localization texts for duplicates and missing translations..
+This directory contains the translation file texts.json and the editor edit.php for user friendly editing of the translation texts, and the file check.php for checking the localization texts for missing translations.
 
 ### application/src
 This is the root directory for all code sources. 
@@ -64,7 +64,7 @@ This is the root directory for all code sources.
 This directory contains the test units.
 
 ### application/xmlapi
-This directory contains the processor index.php of the XML API requests.
+This directory contains the processor *index.php* of the XML API requests.
 
 ### database
 This directory contains the SQL scripts for creation of the database for the demo application.

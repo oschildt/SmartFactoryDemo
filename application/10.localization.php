@@ -10,9 +10,9 @@ use function SmartFactory\text;
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Localization</title>
+    <title>Localization</title>
 
-<link rel="stylesheet" href="css/examples.css" type="text/css"/>
+    <link rel="stylesheet" href="css/examples.css" type="text/css"/>
 </head>
 <body>
 <h2>Localization</h2>

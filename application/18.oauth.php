@@ -107,7 +107,7 @@ try {
 try {
     echo "<h3>Re-authentication</h3>";
     $oam->authenticateUser($credentials, $response);
-
+    
     $refresh_token = $response["refresh_token"];
     $user_id = $response["user_id"];
     
@@ -161,9 +161,9 @@ try {
 
 try {
     echo "<h3>Re-authentication</h3>";
-
+    
     $oam->authenticateUser($credentials, $response);
-
+    
     $refresh_token = $response["refresh_token"];
     
     echo "<pre>";

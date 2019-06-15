@@ -7,9 +7,9 @@ use function SmartFactory\debugger;
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Error handling</title>
+    <title>Error handling</title>
 
-<link rel="stylesheet" href="css/examples.css" type="text/css"/>
+    <link rel="stylesheet" href="css/examples.css" type="text/css"/>
 </head>
 <body>
 <h2>Error handling</h2>
@@ -18,63 +18,62 @@ use function SmartFactory\debugger;
 
 <p>Error details are traced to the trace file logs/trace.log.</p>
 
-<div class="code">// force a warning 
-$a = $b;
+<div class="code">// force a warning
+    $a = $b;
 
-$dummy = function($a, $b)
-{
-  
-};
+    $dummy = function($a, $b)
+    {
 
-function test_function($param1, $param2, callable $param3)
-{
-  $c = $d;
-}
+    };
 
-function do_action($action, $vars, $params, $obj)
-{
-  global $dummy;
-  
-  test_function("100", "test", $dummy);
-}
+    function test_function($param1, $param2, callable $param3)
+    {
+    $c = $d;
+    }
 
-class SomeClass
-{
-  
-}
+    function do_action($action, $vars, $params, $obj)
+    {
+    global $dummy;
 
-$obj = new SomeClass();
+    test_function("100", "test", $dummy);
+    }
 
-// call function with the warning
-do_action("save", array("red", "green", "blue"), array("p1" => "John", "p2" => 2000), $obj);
+    class SomeClass
+    {
+
+    }
+
+    $obj = new SomeClass();
+
+    // call function with the warning
+    do_action("save", array("red", "green", "blue"), array("p1" => "John", "p2" => 2000), $obj);
 </div>
 
 <?php
 debugger()->clearLogFiles();
 
-// force a warning 
+// force a warning
 $a = $b;
 
-$dummy = function($a, $b)
-{
-  
+$dummy = function ($a, $b) {
+
 };
 
 function test_function($param1, $param2, callable $param3)
 {
-  $c = $d;
+    $c = $d;
 }
 
 function do_action($action, $vars, $params, $obj)
 {
-  global $dummy;
-  
-  test_function("100", "test", $dummy);
+    global $dummy;
+    
+    test_function("100", "test", $dummy);
 }
 
 class SomeClass
 {
-  
+
 }
 
 $obj = new SomeClass();
@@ -86,8 +85,8 @@ do_action("save", array("red", "green", "blue"), array("p1" => "John", "p2" => 2
 <p>Listing: logs/trace.log</p>
 
 <div class="code"><?php
-echo file_get_contents(approot() . "../logs/trace.log");
-?></div>
+    echo file_get_contents(approot() . "../logs/trace.log");
+    ?></div>
 
 </body>
 </html>

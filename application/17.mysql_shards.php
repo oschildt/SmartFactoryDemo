@@ -24,36 +24,36 @@ $shardmanager = singleton(IShardManager::class);
 
 
 $shardmanager->registerShard("myshard1", [
-        "db_type" => "MySQL",
-        "db_server" => "localhost",
-        "db_name" => "framework_demo",
-        "db_user" => "root",
-        "db_password" => "root",
-        "autoconnect" => true,
-        "read_only" => true
-    ], "load_balancing_group1"
+    "db_type" => "MySQL",
+    "db_server" => "localhost",
+    "db_name" => "framework_demo",
+    "db_user" => "root",
+    "db_password" => "",
+    "autoconnect" => true,
+    "read_only" => true
+], "load_balancing_group1"
 );
 
 $shardmanager->registerShard("myshard2", [
-        "db_type" => "MySQL",
-        "db_server" => "localhost",
-        "db_name" => "framework_demo",
-        "db_user" => "root",
-        "db_password" => "root",
-        "autoconnect" => true,
-        "read_only" => true
-    ], "load_balancing_group1"
+    "db_type" => "MySQL",
+    "db_server" => "localhost",
+    "db_name" => "framework_demo",
+    "db_user" => "root",
+    "db_password" => "",
+    "autoconnect" => true,
+    "read_only" => true
+], "load_balancing_group1"
 );
 
 $shardmanager->registerShard("myshard3", [
-        "db_type" => "MySQL",
-        "db_server" => "localhost",
-        "db_name" => "framework_demo",
-        "db_user" => "root",
-        "db_password" => "root",
-        "autoconnect" => true,
-        "read_only" => true
-    ], "load_balancing_group1"
+    "db_type" => "MySQL",
+    "db_server" => "localhost",
+    "db_name" => "framework_demo",
+    "db_user" => "root",
+    "db_password" => "",
+    "autoconnect" => true,
+    "read_only" => true
+], "load_balancing_group1"
 );
 
 $shardmanager->registerShard("myshard4", [
@@ -61,7 +61,7 @@ $shardmanager->registerShard("myshard4", [
         "db_server" => "localhost",
         "db_name" => "framework_demo",
         "db_user" => "root",
-        "db_password" => "root",
+        "db_password" => "",
         "autoconnect" => true,
         "read_only" => true
     ]
@@ -73,7 +73,7 @@ function connect_mysql()
         //$dbw = dbshard("myshard2");
         $dbw = randomDBShard("load_balancing_group1");
     } catch (\Exception $ex) {
-        echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in line 21 of this file!</h4>";
+        echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in the lines 31, 42, 53, 64 of this file!</h4>";
         return false;
     }
     
