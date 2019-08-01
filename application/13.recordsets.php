@@ -73,7 +73,8 @@ function load_page_data()
             
             ["ID"]);
         
-        $rsmanager->loadRecord($_REQUEST["page_data"], "WHERE ID = " . $dbw->escape($_REQUEST["page_id"]));
+        //$rsmanager->loadRecord($_REQUEST["page_data"], "WHERE ID = " . $dbw->escape($_REQUEST["page_id"]));
+        $rsmanager->loadRecord($_REQUEST["page_data"], ["ID" => $_REQUEST["page_id"]]);
         
         $rsmanager->defineTableMapping("PAGE_CONTENT",
             
@@ -86,7 +87,8 @@ function load_page_data()
             
             ["PAGE_ID", "LANGUAGE_KEY"]);
         
-        $rsmanager->loadRecordSet($_REQUEST["page_content"], "WHERE PAGE_ID = " . $dbw->escape($_REQUEST["page_id"]));
+        //$rsmanager->loadRecordSet($_REQUEST["page_content"], "WHERE PAGE_ID = " . $dbw->escape($_REQUEST["page_id"]));
+        $rsmanager->loadRecordSet($_REQUEST["page_content"], ["PAGE_ID" => $_REQUEST["page_id"]]);
     }
 }
 
