@@ -5,6 +5,8 @@ require "../vendor/autoload.php";
 
 use SmartFactory\Interfaces\IRecordsetManager;
 
+use SmartFactory\DatabaseWorkers\DBWorker;
+
 use function SmartFactory\config_settings;
 use function SmartFactory\singleton;
 use function SmartFactory\session;
@@ -37,117 +39,116 @@ if (empty($id)) {
 function load_page_list(&$page_list)
 {
     try {
-        $dbw = app_dbworker();
-        if (!$dbw) {
-            return false;
-        }
+        $rsmanager = singleton(IRecordsetManager::class);
+    
+        $rsmanager->defineTableMapping("PAGES",
+        
+            [
+                "ID" => DBWorker::DB_NUMBER,
+                "PAGE_NAME" => DBWorker::DB_STRING,
+                "PAGE_TYPE" => DBWorker::DB_STRING
+            ],
+        
+            ["ID"]);
+    
+        $rsmanager->loadRecordSet($page_list, "", "ORDER BY PAGE_NAME");
     } catch (\Exception $ex) {
-        return false;
+        messenger()->setError($ex->getMessage());
     }
-    
-    if (!$dbw->execute_query("SELECT ID, PAGE_NAME, PAGE_TYPE FROM PAGES ORDER BY PAGE_NAME")) {
-        return sql_error($dbw);
-    }
-    
-    $dbw->fetch_array($page_list);
-    
-    $dbw->free_result();
 }
 
 function load_page_data()
 {
     if (!empty($_REQUEST["page_id"])) {
-        $rsmanager = singleton(IRecordsetManager::class);
+        try {
+            $rsmanager = singleton(IRecordsetManager::class);
+    
+            $rsmanager->defineTableMapping("PAGES",
         
-        $dbw = $rsmanager->getDBWorker();
+                [
+                    "ID" => DBWorker::DB_NUMBER,
+                    "PAGE_NAME" => DBWorker::DB_STRING,
+                    "PAGE_TYPE" => DBWorker::DB_STRING,
+                    "PAGE_ORDER" => DBWorker::DB_NUMBER,
+                    "PAGE_DATE" => DBWorker::DB_DATETIME
+                ],
         
-        $rsmanager->defineTableMapping("PAGES",
-            
-            [
-                "ID" => $dbw::DB_NUMBER,
-                "PAGE_NAME" => $dbw::DB_STRING,
-                "PAGE_TYPE" => $dbw::DB_STRING,
-                "PAGE_ORDER" => $dbw::DB_NUMBER,
-                "PAGE_DATE" => $dbw::DB_DATETIME
-            ],
-            
-            ["ID"]);
+                ["ID"]);
+    
+            //$rsmanager->loadRecord($_REQUEST["page_data"], "WHERE ID = " . $dbw->escape($_REQUEST["page_id"]));
+            $rsmanager->loadRecord($_REQUEST["page_data"], ["ID" => $_REQUEST["page_id"]]);
+    
+            $rsmanager->defineTableMapping("PAGE_CONTENT",
         
-        //$rsmanager->loadRecord($_REQUEST["page_data"], "WHERE ID = " . $dbw->escape($_REQUEST["page_id"]));
-        $rsmanager->loadRecord($_REQUEST["page_data"], ["ID" => $_REQUEST["page_id"]]);
+                [
+                    "PAGE_ID" => DBWorker::DB_NUMBER,
+                    "LANGUAGE_KEY" => DBWorker::DB_STRING,
+                    "TITLE" => DBWorker::DB_STRING,
+                    "CONTENT" => DBWorker::DB_STRING
+                ],
         
-        $rsmanager->defineTableMapping("PAGE_CONTENT",
-            
-            [
-                "PAGE_ID" => $dbw::DB_NUMBER,
-                "LANGUAGE_KEY" => $dbw::DB_STRING,
-                "TITLE" => $dbw::DB_STRING,
-                "CONTENT" => $dbw::DB_STRING
-            ],
-            
-            ["PAGE_ID", "LANGUAGE_KEY"]);
-        
-        //$rsmanager->loadRecordSet($_REQUEST["page_content"], "WHERE PAGE_ID = " . $dbw->escape($_REQUEST["page_id"]));
-        $rsmanager->loadRecordSet($_REQUEST["page_content"], ["PAGE_ID" => $_REQUEST["page_id"]]);
+                ["PAGE_ID", "LANGUAGE_KEY"]);
+    
+            //$rsmanager->loadRecordSet($_REQUEST["page_content"], "WHERE PAGE_ID = " . $dbw->escape($_REQUEST["page_id"]));
+            $rsmanager->loadRecordSet($_REQUEST["page_content"], ["PAGE_ID" => $_REQUEST["page_id"]]);
+        } catch (\Exception $ex) {
+            messenger()->setError($ex->getMessage());
+        }
     }
 }
 
 function save_data()
 {
-    $rsmanager = singleton(IRecordsetManager::class);
+    try {
+        $rsmanager = singleton(IRecordsetManager::class);
     
-    $dbw = $rsmanager->getDBWorker();
-    if (!$dbw) {
-        return false;
-    }
+        $dbw = $rsmanager->getDBWorker();
+        if (!$dbw) {
+            return false;
+        }
     
-    if (!$dbw->start_transaction()) {
-        return sql_error($dbw);
-    }
+        $dbw->start_transaction();
     
-    $tm = timestamp($_REQUEST["page_data"]["PAGE_DATE"], text("DateTimeFormat"));
-    if ($tm == "error") {
-        messenger()->setError(sprintf(text("ErrDateTimeFormat"), $_REQUEST["page_data"]["PAGE_DATE"], date(text("DateTimeFormat"), mktime(20, 44, 30, 11, 27, 2018))));
-        return false;
-    }
+        $tm = timestamp($_REQUEST["page_data"]["PAGE_DATE"], text("DateTimeFormat"));
+        if ($tm == "error") {
+            messenger()->setError(sprintf(text("ErrDateTimeFormat"), $_REQUEST["page_data"]["PAGE_DATE"], date(text("DateTimeFormat"), mktime(20, 44, 30, 11, 27, 2018))));
+            return false;
+        }
     
-    $_REQUEST["page_data"]["PAGE_DATE"] = $tm;
+        $_REQUEST["page_data"]["PAGE_DATE"] = $tm;
     
-    $rsmanager->defineTableMapping("PAGES",
+        $rsmanager->defineTableMapping("PAGES",
         
-        [
-            "ID" => $dbw::DB_NUMBER,
-            "PAGE_NAME" => $dbw::DB_STRING,
-            "PAGE_TYPE" => $dbw::DB_STRING,
-            "PAGE_ORDER" => $dbw::DB_NUMBER,
-            "PAGE_DATE" => $dbw::DB_DATETIME
-        ],
+            [
+                "ID" => DBWorker::DB_NUMBER,
+                "PAGE_NAME" => DBWorker::DB_STRING,
+                "PAGE_TYPE" => DBWorker::DB_STRING,
+                "PAGE_ORDER" => DBWorker::DB_NUMBER,
+                "PAGE_DATE" => DBWorker::DB_DATETIME
+            ],
         
-        ["ID"]);
+            ["ID"]);
     
-    if (!$rsmanager->saveRecord($_REQUEST["page_data"], "ID")) {
+        $rsmanager->saveRecord($_REQUEST["page_data"], "ID");
+    
+        $rsmanager->defineTableMapping("PAGE_CONTENT",
+        
+            [
+                "PAGE_ID" => DBWorker::DB_STRING,
+                "LANGUAGE_KEY" => DBWorker::DB_STRING,
+                "TITLE" => DBWorker::DB_STRING,
+                "CONTENT" => DBWorker::DB_STRING
+            ],
+        
+            ["PAGE_ID", "LANGUAGE_KEY"]);
+    
+        $rsmanager->saveRecordSet($_REQUEST["page_content"], ["PAGE_ID" => checkempty($_REQUEST["page_data"]["ID"])]);
+    
+        $dbw->commit_transaction();
+    } catch (\Exception $ex) {
         $dbw->rollback_transaction();
+        messenger()->setError($ex->getMessage());
         return false;
-    }
-    
-    $rsmanager->defineTableMapping("PAGE_CONTENT",
-        
-        [
-            "PAGE_ID" => $dbw::DB_STRING,
-            "LANGUAGE_KEY" => $dbw::DB_STRING,
-            "TITLE" => $dbw::DB_STRING,
-            "CONTENT" => $dbw::DB_STRING
-        ],
-        
-        ["PAGE_ID", "LANGUAGE_KEY"]);
-    
-    if (!$rsmanager->saveRecordSet($_REQUEST["page_content"], ["PAGE_ID" => $dbw->escape(checkempty($_REQUEST["page_data"]["ID"]))])) {
-        $dbw->rollback_transaction();
-        return false;
-    }
-    
-    if (!$dbw->commit_transaction()) {
-        return sql_error($dbw);
     }
     
     messenger()->setInfo("Data saved successfully!");
@@ -188,12 +189,12 @@ if (config_settings()->getParameter("db_password") == "") {
             <th>&nbsp;</th>
         </tr>
         
-        <?php foreach ($page_list as $page_row): ?>
+        <?php foreach ($page_list as $page_id => $page_row): ?>
             <tr>
-                <td><?php echo_html(checkempty($page_row["ID"])); ?></td>
+                <td><?php echo_html(checkempty($page_id)); ?></td>
                 <td><?php echo_html(checkempty($page_row["PAGE_NAME"])); ?></td>
                 <td><?php echo_html(checkempty($page_row["PAGE_TYPE"])); ?></td>
-                <td><a href="13.recordsets.php?page_id=<?php echo_html(checkempty($page_row["ID"])); ?>">Edit</a></td>
+                <td><a href="13.recordsets.php?page_id=<?php echo_html(checkempty($page_id)); ?>">Edit</a></td>
             </tr>
         <?php endforeach; ?>
 

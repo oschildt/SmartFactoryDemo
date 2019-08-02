@@ -5,6 +5,8 @@ require "../vendor/autoload.php";
 
 use SmartFactory\Interfaces\IRecordsetManager;
 
+use SmartFactory\DatabaseWorkers\DBWorker;
+
 use function SmartFactory\config_settings;
 use function SmartFactory\singleton;
 use function SmartFactory\session;
@@ -32,56 +34,53 @@ function load_data()
         $rsmanager = singleton(IRecordsetManager::class);
         
         $dbw = $rsmanager->getDBWorker();
-        if (!$dbw) {
-            return false;
-        }
+        
+        $rsmanager->defineTableMapping("ROOM_PRICES",
+            
+            [
+                "ROOM" => DBWorker::DB_STRING,
+                "DT" => DBWorker::DB_DATE,
+                "PRICE" => DBWorker::DB_NUMBER
+            ],
+            
+            ["ROOM", "DT"]);
+        
+        $now = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
+        
+        $where = "WHERE ";
+        $where .= "DT BETWEEN '" . $dbw->format_date($now) . "'";
+        $where .= " AND '" . $dbw->format_date($now + 7 * 24 * 3600) . "'";
+        
+        $rsmanager->loadRecordSet($_REQUEST["room_prices"], $where, "ORDER BY ROOM, DT");
     } catch (\Exception $ex) {
-        return false;
+        messenger()->setError($ex->getMessage());
     }
-    
-    $rsmanager->defineTableMapping("ROOM_PRICES",
-        
-        [
-            "ROOM" => $dbw::DB_STRING,
-            "DT" => $dbw::DB_DATE,
-            "PRICE" => $dbw::DB_NUMBER
-        ],
-        
-        ["ROOM", "DT"]);
-    
-    $now = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
-    
-    $where = "WHERE ";
-    $where .= "DT BETWEEN '" . $dbw->format_date($now) . "'";
-    $where .= " AND '" . $dbw->format_date($now + 7 * 24 * 3600) . "'";
-    
-    $rsmanager->loadRecordSet($_REQUEST["room_prices"], $where);
 }
 
 function save_data()
 {
-    $rsmanager = singleton(IRecordsetManager::class);
+    try {
+        $rsmanager = singleton(IRecordsetManager::class);
     
-    $dbw = $rsmanager->getDBWorker();
-    if (!$dbw) {
+        $rsmanager->defineTableMapping("ROOM_PRICES",
+        
+            [
+                "ROOM" => DBWorker::DB_STRING,
+                "DT" => DBWorker::DB_DATE,
+                "PRICE" => DBWorker::DB_NUMBER
+            ],
+        
+            ["ROOM", "DT"]);
+    
+        if (!$rsmanager->saveRecordSet($_REQUEST["room_prices"])) {
+            return false;
+        }
+    
+        messenger()->setInfo("Data saved successfully!");
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
         return false;
     }
-    
-    $rsmanager->defineTableMapping("ROOM_PRICES",
-        
-        [
-            "ROOM" => $dbw::DB_STRING,
-            "DT" => $dbw::DB_DATE,
-            "PRICE" => $dbw::DB_NUMBER
-        ],
-        
-        ["ROOM", "DT"]);
-    
-    if (!$rsmanager->saveRecordSet($_REQUEST["room_prices"])) {
-        return false;
-    }
-    
-    messenger()->setInfo("Data saved successfully!");
     
     return true;
 }

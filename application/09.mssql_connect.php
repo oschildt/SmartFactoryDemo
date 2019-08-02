@@ -4,6 +4,8 @@ namespace MyApplication;
 require "../vendor/autoload.php";
 
 use function SmartFactory\dbworker;
+use function SmartFactory\messenger;
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,13 +29,17 @@ function connect_mssql()
             "autoconnect" => true
         ]);
     } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
         return null;
     }
     
     echo "<h2>Simple query</h2>";
     
-    if (!$dbw->execute_query("SELECT FIRST_NAME, LAST_NAME FROM USERS")) {
-        return sql_error($dbw);
+    try {
+        $dbw->execute_query("SELECT FIRST_NAME, LAST_NAME FROM USERS");
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
     
     while ($dbw->fetch_row()) {
@@ -44,10 +50,13 @@ function connect_mssql()
     
     echo "<h2>Fetch array</h2>";
     
-    if (!$dbw->execute_query("SELECT PAGE_ID, LANGUAGE_KEY, TITLE, CONTENT FROM PAGE_CONTENT")) {
-        return sql_error($dbw);
+    try {
+        $dbw->execute_query("SELECT PAGE_ID, LANGUAGE_KEY, TITLE, CONTENT FROM PAGE_CONTENT");
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
-    
+
     $rows = [];
     if ($dbw->fetch_array($rows)) {
         echo "<pre>";
@@ -59,8 +68,11 @@ function connect_mssql()
     
     echo "<h2>Fetch array with dimensions [PAGE_ID, LANGUAGE_KEY]</h2>";
     
-    if (!$dbw->execute_query("SELECT PAGE_ID, LANGUAGE_KEY, TITLE, CONTENT FROM PAGE_CONTENT")) {
-        return sql_error($dbw);
+    try {
+        $dbw->execute_query("SELECT PAGE_ID, LANGUAGE_KEY, TITLE, CONTENT FROM PAGE_CONTENT");
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
     
     $rows = [];
@@ -74,14 +86,15 @@ function connect_mssql()
     
     echo "<h2>Prepared query (0, 1)</h2>";
     
-    if (!$dbw->prepare_query("SELECT FIRST_NAME, LAST_NAME FROM USERS WHERE SALARY > ? AND DEPARTMENT_ID = ?")) {
-        return sql_error($dbw);
-    }
+    try {
+        $dbw->prepare_query("SELECT FIRST_NAME, LAST_NAME FROM USERS WHERE SALARY > ? AND DEPARTMENT_ID = ?");
     
-    if (!$dbw->execute_prepared_query(0, 1)) {
-        return sql_error($dbw);
+        $dbw->execute_prepared_query(0, 1);
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
-    
+
     while ($dbw->fetch_row()) {
         echo $dbw->field_by_name("FIRST_NAME") . " " . $dbw->field_by_name("LAST_NAME") . "<br>";
     }
@@ -90,8 +103,11 @@ function connect_mssql()
     
     echo "<h2>Prepared query (0, 2)</h2>";
     
-    if (!$dbw->execute_prepared_query(0, 2)) {
-        return sql_error($dbw);
+    try {
+        $dbw->execute_prepared_query(0, 2);
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
     
     while ($dbw->fetch_row()) {
@@ -100,16 +116,22 @@ function connect_mssql()
     
     $dbw->free_result();
     
-    $dbw->free_prepared_query();
+    try {
+        $dbw->free_prepared_query();
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
+    }
     
     echo "<h2>Prepared query to array</h2>";
     
-    if (!$dbw->prepare_query("SELECT PAGE_ID, LANGUAGE_KEY, TITLE, CONTENT FROM PAGE_CONTENT WHERE PAGE_ID > ?")) {
-        return sql_error($dbw);
-    }
+    try {
+        $dbw->prepare_query("SELECT PAGE_ID, LANGUAGE_KEY, TITLE, CONTENT FROM PAGE_CONTENT WHERE PAGE_ID > ?");
     
-    if (!$dbw->execute_prepared_query(0)) {
-        return sql_error($dbw);
+        $dbw->execute_prepared_query(0);
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
     
     $rows = [];
@@ -123,8 +145,11 @@ function connect_mssql()
     
     echo "<h2>Prepared query to array with dimensions [PAGE_ID, LANGUAGE_KEY]</h2>";
     
-    if (!$dbw->execute_prepared_query(0)) {
-        return sql_error($dbw);
+    try {
+        $dbw->execute_prepared_query(0);
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
     
     $rows = [];
@@ -137,27 +162,42 @@ function connect_mssql()
     $dbw->free_result();
     
     $dbw->free_prepared_query();
+    try {
+        $dbw->free_prepared_query();
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
+    }
     
     echo "<h2>Streaming large data</h2>";
     
     $stream = fopen(approot() . "resources/large_binary.jpg", "rb");
     
-    if (!$dbw->stream_long_data("UPDATE LARGE_DATA SET BLOB_DATA = ? WHERE ID = 1", $stream)) {
-        return sql_error($dbw);
+    try {
+        $dbw->stream_long_data("UPDATE LARGE_DATA SET BLOB_DATA = ? WHERE ID = 1", $stream);
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
     
     echo "Binary written.<br>";
     
     $stream = fopen(approot() . "resources/large_text.txt", "rt");
     
-    if (!$dbw->stream_long_data("UPDATE LARGE_DATA SET TEXT_DATA = ? WHERE ID = 1", $stream)) {
-        return sql_error($dbw);
+    try {
+        $dbw->stream_long_data("UPDATE LARGE_DATA SET BLOB_DATA = ? WHERE ID = 1", $stream);
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
-    
+
     echo "Text written.<br>";
     
-    if (!$dbw->execute_query("SELECT DATALENGTH(TEXT_DATA) LTD, DATALENGTH(BLOB_DATA) LBD FROM LARGE_DATA WHERE ID = 1")) {
-        return sql_error($dbw);
+    try {
+        $dbw->execute_query("SELECT DATALENGTH(TEXT_DATA) LTD, DATALENGTH(BLOB_DATA) LBD FROM LARGE_DATA WHERE ID = 1");
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
     
     while ($dbw->fetch_row()) {
@@ -169,52 +209,61 @@ function connect_mssql()
     
     echo "<h2>Analizing of the meta data USERS</h2>";
     
-    if (!$dbw->execute_query("SELECT * FROM USERS")) {
-        return sql_error($dbw);
-    }
+    try {
+        $dbw->execute_query("SELECT * FROM USERS");
     
-    $fcnt = $dbw->field_count();
-    echo "Number of fields: " . $fcnt . "<br><br>";
+        $fcnt = $dbw->field_count();
+        echo "Number of fields: " . $fcnt . "<br><br>";
     
-    for ($i = 0; $i < $fcnt; $i++) {
-        $finfo = $dbw->field_info_by_num($i);
-        if (empty($finfo)) {
-            continue;
-        }
+        for ($i = 0; $i < $fcnt; $i++) {
+            $finfo = $dbw->field_info_by_num($i);
+            if (empty($finfo)) {
+                continue;
+            }
         
-        echo "<pre>";
-        print_r($finfo);
-        echo "</pre>";
+            echo "<pre>";
+            print_r($finfo);
+            echo "</pre>";
+        }
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
     
     $dbw->free_result();
     
     echo "<h2>Analizing of the meta data LARGE_DATA</h2>";
     
-    if (!$dbw->execute_query("SELECT * FROM LARGE_DATA")) {
-        return sql_error($dbw);
-    }
+    try {
+        $dbw->execute_query("SELECT * FROM LARGE_DATA");
     
-    $fcnt = $dbw->field_count();
-    echo "Number of fields: " . $fcnt . "<br><br>";
+        $fcnt = $dbw->field_count();
+        echo "Number of fields: " . $fcnt . "<br><br>";
     
-    for ($i = 0; $i < $fcnt; $i++) {
-        $finfo = $dbw->field_info_by_num($i);
-        if (empty($finfo)) {
-            continue;
-        }
+        for ($i = 0; $i < $fcnt; $i++) {
+            $finfo = $dbw->field_info_by_num($i);
+            if (empty($finfo)) {
+                continue;
+            }
         
-        echo "<pre>";
-        print_r($finfo);
-        echo "</pre>";
+            echo "<pre>";
+            print_r($finfo);
+            echo "</pre>";
+        }
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
     
     $dbw->free_result();
     
     echo "<h2>Getting data from stored procedure</h2>";
     
-    if (!$dbw->execute_procedure("GET_USERS", 100)) {
-        return sql_error($dbw);
+    try {
+        $dbw->execute_procedure("GET_USERS", 100);
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
     }
     
     while ($dbw->fetch_row()) {
