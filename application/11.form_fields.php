@@ -93,7 +93,7 @@ report_messages();
         "blue" => "Blue",
         "red" => "Red",
         "brown" => "Brown",
-        "lack" => "Black",
+        "black" => "Black",
         "white" => "White",
         "green" => "Green"
     ];

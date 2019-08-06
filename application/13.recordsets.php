@@ -41,7 +41,7 @@ function load_page_list(&$page_list)
     try {
         $rsmanager = singleton(IRecordsetManager::class);
     
-        $rsmanager->defineTableMapping("PAGES",
+        $rsmanager->describeTableFields("PAGES",
         
             [
                 "ID" => DBWorker::DB_NUMBER,
@@ -63,7 +63,7 @@ function load_page_data()
         try {
             $rsmanager = singleton(IRecordsetManager::class);
     
-            $rsmanager->defineTableMapping("PAGES",
+            $rsmanager->describeTableFields("PAGES",
         
                 [
                     "ID" => DBWorker::DB_NUMBER,
@@ -78,7 +78,7 @@ function load_page_data()
             //$rsmanager->loadRecord($_REQUEST["page_data"], "WHERE ID = " . $dbw->escape($_REQUEST["page_id"]));
             $rsmanager->loadRecord($_REQUEST["page_data"], ["ID" => $_REQUEST["page_id"]]);
     
-            $rsmanager->defineTableMapping("PAGE_CONTENT",
+            $rsmanager->describeTableFields("PAGE_CONTENT",
         
                 [
                     "PAGE_ID" => DBWorker::DB_NUMBER,
@@ -117,7 +117,7 @@ function save_data()
     
         $_REQUEST["page_data"]["PAGE_DATE"] = $tm;
     
-        $rsmanager->defineTableMapping("PAGES",
+        $rsmanager->describeTableFields("PAGES",
         
             [
                 "ID" => DBWorker::DB_NUMBER,
@@ -131,7 +131,7 @@ function save_data()
     
         $rsmanager->saveRecord($_REQUEST["page_data"], "ID");
     
-        $rsmanager->defineTableMapping("PAGE_CONTENT",
+        $rsmanager->describeTableFields("PAGE_CONTENT",
         
             [
                 "PAGE_ID" => DBWorker::DB_STRING,

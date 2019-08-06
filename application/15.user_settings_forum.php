@@ -13,6 +13,7 @@ use function SmartFactory\input_text;
 use function SmartFactory\checkbox;
 
 session()->startSession();
+user_settings()->setUserID(1);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>

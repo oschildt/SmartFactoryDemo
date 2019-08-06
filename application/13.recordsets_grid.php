@@ -35,7 +35,7 @@ function load_data()
         
         $dbw = $rsmanager->getDBWorker();
         
-        $rsmanager->defineTableMapping("ROOM_PRICES",
+        $rsmanager->describeTableFields("ROOM_PRICES",
             
             [
                 "ROOM" => DBWorker::DB_STRING,
@@ -62,7 +62,7 @@ function save_data()
     try {
         $rsmanager = singleton(IRecordsetManager::class);
     
-        $rsmanager->defineTableMapping("ROOM_PRICES",
+        $rsmanager->describeTableFields("ROOM_PRICES",
         
             [
                 "ROOM" => DBWorker::DB_STRING,

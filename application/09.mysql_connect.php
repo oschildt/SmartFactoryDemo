@@ -185,7 +185,7 @@ function connect_mysql()
     $stream = fopen(approot() . "resources/large_text.txt", "rt");
     
     try {
-        $dbw->stream_long_data("UPDATE LARGE_DATA SET BLOB_DATA = ? WHERE ID = 1", $stream);
+        $dbw->stream_long_data("UPDATE LARGE_DATA SET TEXT_DATA = ? WHERE ID = 1", $stream);
     } catch (\Exception $ex) {
         messenger()->setError($ex->getMessage());
         return false;

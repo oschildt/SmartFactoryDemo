@@ -12,6 +12,7 @@ use function SmartFactory\user_settings;
 use function SmartFactory\echo_html;
 
 session()->startSession();
+user_settings()->setUserID(1);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +43,32 @@ if (config_settings()->getParameter("db_password") == "") {
         <tr>
             <td>Time zone*:</td>
             <td><?php echo_html(user_settings()->getParameter("TIME_ZONE")); ?></td>
+        </tr>
+        <tr>
+            <td>Colors:</td>
+            <td>
+            <?php 
+            $options = [
+                "yellow" => "Yellow",
+                "blue" => "Blue",
+                "red" => "Red",
+                "brown" => "Brown",
+                "black" => "Black",
+                "white" => "White",
+                "green" => "Green"
+            ];
+
+            $colors = user_settings()->getParameter("USER_COLORS", []);
+            $txt = "";
+            foreach($colors as $color)
+            {
+              $txt .= $options[$color] . ", ";
+            }
+            
+            $txt = trim($txt, ", ");
+            echo_html($txt);
+            ?>
+            </td>
         </tr>
     </table>
 

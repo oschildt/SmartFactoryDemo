@@ -81,7 +81,6 @@ FactoryBuilder::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::c
         //"save_encrypted" => true,
         //"salt_key" => "demotest"
     ]);
-    $instance->loadSettings();
     
     $instance->setValidator(new ConfigSettingsValidator());
 });
@@ -92,7 +91,6 @@ FactoryBuilder::bindClass(RuntimeSettingsManager::class, RuntimeSettingsManager:
         "settings_table" => "SETTINGS",
         "settings_column" => "DATA"
     ]);
-    $instance->loadSettings();
     
     $instance->setValidator(new RuntimeSettingsValidator());
 });
@@ -108,15 +106,11 @@ FactoryBuilder::bindClass(UserSettingsManager::class, UserSettingsManager::class
             "HIDE_PICTURES" => DBWorker::DB_NUMBER,
             "HIDE_SIGNATURES" => DBWorker::DB_NUMBER,
             "LANGUAGE" => DBWorker::DB_STRING,
-            "TIME_ZONE" => DBWorker::DB_STRING
+            "TIME_ZONE" => DBWorker::DB_STRING,
+            "USER_COLORS" => ["USER_ID", "COLOR", DBWorker::DB_STRING]
         ],
-        "user_id_field" => "ID",
-        "user_id_getter" => function () {
-            return 1;
-        }
+        "user_id_field" => "ID"
     ]);
-    
-    $instance->loadSettings();
     
     $instance->setValidator(new UserSettingsValidator());
 });

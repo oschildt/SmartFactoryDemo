@@ -44,6 +44,32 @@ if (config_settings()->getParameter("db_password") == "") {
             <td>Show Free Rooms:</td>
             <td><?php echo(runtime_settings()->getParameter("show_free_rooms") ? "1" : "0"); ?></td>
         </tr>
+        <tr>
+            <td>Colors:</td>
+            <td>
+            <?php 
+            $options = [
+                "yellow" => "Yellow",
+                "blue" => "Blue",
+                "red" => "Red",
+                "brown" => "Brown",
+                "black" => "Black",
+                "white" => "White",
+                "green" => "Green"
+            ];
+
+            $colors = runtime_settings()->getParameter("colors", []);
+            $txt = "";
+            foreach($colors as $color)
+            {
+              $txt .= $options[$color] . ", ";
+            }
+            
+            $txt = trim($txt, ", ");
+            echo_html($txt);
+            ?>
+            </td>
+        </tr>
     </table>
 
     <h3>Data Exchange Settings</h3>

@@ -16,6 +16,7 @@ use function SmartFactory\input_text;
 use function SmartFactory\select;
 
 session()->startSession();
+user_settings()->setUserID(1);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +40,7 @@ function process_form()
     
     user_settings()->setParameter("LANGUAGE", checkempty($_REQUEST["user_settings"]["LANGUAGE"]));
     user_settings()->setParameter("TIME_ZONE", checkempty($_REQUEST["user_settings"]["TIME_ZONE"]));
+    user_settings()->setParameter("USER_COLORS", empty($_REQUEST["user_settings"]["USER_COLORS"]) ? [] : $_REQUEST["user_settings"]["USER_COLORS"]);
     
     if (!user_settings()->validateSettings()) {
         return false;
@@ -88,6 +90,30 @@ if (config_settings()->getParameter("db_password") == "") {
                         "autocomplete" => "off",
                         "value" => user_settings()->getParameter("TIME_ZONE")
                     ]); ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Colors:</td>
+                <td>
+                    <?php 
+                    $options = [
+                        "yellow" => "Yellow",
+                        "blue" => "Blue",
+                        "red" => "Red",
+                        "brown" => "Brown",
+                        "black" => "Black",
+                        "white" => "White",
+                        "green" => "Green"
+                    ];
+                    
+                    select([
+                        "name" => "user_settings[USER_COLORS][]",
+                        "multiple" => "multiple",
+                        "value" => user_settings()->getParameter("USER_COLORS", []),
+                        "style" => "width: 180px; height: 120px",
+                        "options" => $options
+                    ]);
+                    ?>
                 </td>
             </tr>
         </table>

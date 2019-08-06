@@ -8,6 +8,7 @@ use function SmartFactory\runtime_settings;
 use function SmartFactory\checkempty;
 use function SmartFactory\input_text;
 use function SmartFactory\checkbox;
+use function SmartFactory\select;
 use function SmartFactory\messenger;
 use function SmartFactory\session;
 use function SmartFactory\text;
@@ -33,6 +34,7 @@ function process_form()
     runtime_settings()->setParameter("hotel_name", checkempty($_REQUEST["booking_settings"]["hotel_name"]));
     runtime_settings()->setParameter("hotel_email", checkempty($_REQUEST["booking_settings"]["hotel_email"]));
     runtime_settings()->setParameter("show_free_rooms", empty($_REQUEST["booking_settings"]["show_free_rooms"]) ? 0 : 1);
+    runtime_settings()->setParameter("colors", empty($_REQUEST["booking_settings"]["colors"]) ? [] : $_REQUEST["booking_settings"]["colors"]);
     
     if (!runtime_settings()->validateSettings()) {
         return false;
@@ -92,6 +94,30 @@ if (config_settings()->getParameter("db_password") == "") {
                         "value" => "1",
                         "checked" => runtime_settings()->getParameter("show_free_rooms", 1)
                     ]); ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Colors:</td>
+                <td>
+                    <?php 
+                    $options = [
+                        "yellow" => "Yellow",
+                        "blue" => "Blue",
+                        "red" => "Red",
+                        "brown" => "Brown",
+                        "black" => "Black",
+                        "white" => "White",
+                        "green" => "Green"
+                    ];
+                    
+                    select([
+                        "name" => "booking_settings[colors][]",
+                        "multiple" => "multiple",
+                        "value" => runtime_settings()->getParameter("colors", []),
+                        "style" => "width: 180px; height: 100px",
+                        "options" => $options
+                    ]);
+                    ?>
                 </td>
             </tr>
         </table>
