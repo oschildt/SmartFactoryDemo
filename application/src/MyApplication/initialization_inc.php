@@ -51,7 +51,7 @@ function app_dbworker()
         
         return \SmartFactory\dbworker($parameters);
     } catch (\Exception $ex) {
-        throw new \Exception("Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.cfg'!");
+        throw new \Exception("Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.json'!");
     }
 }
 
@@ -75,7 +75,7 @@ FactoryBuilder::bindClass(ILanguageManager::class, LanguageManager::class, funct
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::class, function ($instance) {
     $instance->init([
-        "save_path" => approot() . "../config/settings.cfg",
+        "save_path" => approot() . "../config/settings.json",
         "config_file_must_exist" => false,
         "use_apcu" => false
         //"save_encrypted" => true,
@@ -98,18 +98,28 @@ FactoryBuilder::bindClass(RuntimeSettingsManager::class, RuntimeSettingsManager:
 FactoryBuilder::bindClass(UserSettingsManager::class, UserSettingsManager::class, function ($instance) {
     $instance->init([
         "dbworker" => app_dbworker(),
-        "user_table" => "USERS",
-        "settings_fields" => [
-            "ID" => DBWorker::DB_NUMBER,
-            "SIGNATURE" => DBWorker::DB_STRING,
-            "STATUS" => DBWorker::DB_STRING,
-            "HIDE_PICTURES" => DBWorker::DB_NUMBER,
-            "HIDE_SIGNATURES" => DBWorker::DB_NUMBER,
-            "LANGUAGE" => DBWorker::DB_STRING,
-            "TIME_ZONE" => DBWorker::DB_STRING,
-            "USER_COLORS" => ["USER_ID", "COLOR", DBWorker::DB_STRING]
+        
+        "settings_tables" => [
+            "USERS" => [
+                "ID" => DBWorker::DB_NUMBER,
+                "LANGUAGE" => DBWorker::DB_STRING,
+                "TIME_ZONE" => DBWorker::DB_STRING
+            ],
+            "USER_FORUM_SETTINGS" => [
+                "USER_ID" => DBWorker::DB_NUMBER,
+                "SIGNATURE" => DBWorker::DB_STRING,
+                "STATUS" => DBWorker::DB_STRING,
+                "HIDE_PICTURES" => DBWorker::DB_NUMBER,
+                "HIDE_SIGNATURES" => DBWorker::DB_NUMBER
+            ]
         ],
-        "user_id_field" => "ID"
+        
+        "multichoice_tables" => [
+            "USER_COLORS" => [
+                "USER_ID" => DBWorker::DB_NUMBER,
+                "COLOR" => DBWorker::DB_STRING
+            ]
+        ]
     ]);
     
     $instance->setValidator(new UserSettingsValidator());
