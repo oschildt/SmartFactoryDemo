@@ -16,7 +16,7 @@ try {
     $rmanager->registerPostProcessHandler("MyApplication\\Handlers\\PostProcessHandler");
     
     $rmanager->registerApiRequestHandler("login", "MyApplication\\Handlers\\LoginHandler");
-} catch (\Exception $ex) {
+} catch (\Throwable $ex) {
     $rmanager->exitWithException($ex);
 }
 
