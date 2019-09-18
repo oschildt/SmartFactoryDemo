@@ -36,14 +36,14 @@ function connect_mysql()
     echo "<h2>Simple query</h2>";
     
     try {
-        $dbw->execute_query("SELECT FIRST_NAME, LAST_NAME FROM USERS");
+        $dbw->execute_query("SELECT FIRST_NAME, LAST_NAME, SALARY FROM USERS");
     } catch (\Exception $ex) {
         messenger()->setError($ex->getMessage());
         return false;
     }
     
     while ($dbw->fetch_row()) {
-        echo $dbw->field_by_name("FIRST_NAME") . " " . $dbw->field_by_name("LAST_NAME") . "<br>";
+        echo $dbw->field_by_name("FIRST_NAME") . " " . $dbw->field_by_name("LAST_NAME") . " " . $dbw->field_by_name("SALARY") . "<br>";
     }
     
     $dbw->free_result();
@@ -87,7 +87,7 @@ function connect_mysql()
     echo "<h2>Prepared query (0, 1)</h2>";
     
     try {
-        $dbw->prepare_query("SELECT FIRST_NAME, LAST_NAME FROM USERS WHERE SALARY > ? AND DEPARTMENT_ID = ?");
+        $dbw->prepare_query("SELECT FIRST_NAME, LAST_NAME, SALARY FROM USERS WHERE SALARY > ? AND DEPARTMENT_ID = ?");
     
         $dbw->execute_prepared_query(0, 1);
     } catch (\Exception $ex) {
@@ -96,7 +96,7 @@ function connect_mysql()
     }
 
     while ($dbw->fetch_row()) {
-        echo $dbw->field_by_name("FIRST_NAME") . " " . $dbw->field_by_name("LAST_NAME") . "<br>";
+        echo $dbw->field_by_name("FIRST_NAME") . " " . $dbw->field_by_name("LAST_NAME") . " " . $dbw->field_by_name("SALARY") . "<br>";
     }
     
     $dbw->free_result();
@@ -111,7 +111,7 @@ function connect_mysql()
     }
     
     while ($dbw->fetch_row()) {
-        echo $dbw->field_by_name("FIRST_NAME") . " " . $dbw->field_by_name("LAST_NAME") . "<br>";
+        echo $dbw->field_by_name("FIRST_NAME") . " " . $dbw->field_by_name("LAST_NAME") . " " . $dbw->field_by_name("SALARY") . "<br>";
     }
     
     $dbw->free_result();
@@ -122,6 +122,41 @@ function connect_mysql()
         messenger()->setError($ex->getMessage());
         return false;
     }
+    
+    echo "<h2>Prepared DML query</h2>";
+    
+    try {
+        $dbw->prepare_query("UPDATE USERS SET SALARY = SALARY + ? WHERE DEPARTMENT_ID = ?");
+        
+        $dbw->execute_prepared_query(100, 2);
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
+    }
+    
+    try {
+        $dbw->free_prepared_query();
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
+    }
+    
+    echo "Done.";
+    
+    echo "<h2>Checking DML results</h2>";
+    
+    try {
+        $dbw->execute_query("SELECT FIRST_NAME, LAST_NAME, SALARY FROM USERS WHERE DEPARTMENT_ID = 2");
+    } catch (\Exception $ex) {
+        messenger()->setError($ex->getMessage());
+        return false;
+    }
+    
+    while ($dbw->fetch_row()) {
+        echo $dbw->field_by_name("FIRST_NAME") . " " . $dbw->field_by_name("LAST_NAME") . " " . $dbw->field_by_name("SALARY") . "<br>";
+    }
+    
+    $dbw->free_result();
     
     echo "<h2>Prepared query to array</h2>";
     
