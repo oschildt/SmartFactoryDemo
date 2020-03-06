@@ -60,11 +60,11 @@ function app_dbworker()
 FactoryBuilder::bindClass(ISessionManager::class, MySessionManager::class);
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(IDebugProfiler::class, DebugProfiler::class, function ($instance) {
-    $instance->init(["log_path" => approot() . "../logs/"]);
+    $instance->init(["log_path" => approot() . "logs/"]);
 });
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(IErrorHandler::class, ErrorHandler::class, function ($instance) {
-    $instance->init(["app_root" => approot(), "log_path" => approot() . "../logs/"]);
+    $instance->init(["app_root" => approot(), "log_path" => approot() . "logs/"]);
 });
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(ILanguageManager::class, LanguageManager::class, function ($instance) {
@@ -75,7 +75,7 @@ FactoryBuilder::bindClass(ILanguageManager::class, LanguageManager::class, funct
 //-------------------------------------------------------------------
 FactoryBuilder::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::class, function ($instance) {
     $instance->init([
-        "save_path" => approot() . "../config/settings.json",
+        "save_path" => approot() . "config/settings.json",
         "config_file_must_exist" => false,
         "use_apcu" => false
         //"save_encrypted" => true,

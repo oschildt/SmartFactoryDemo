@@ -2,15 +2,17 @@
   "description": "Demo application to demonstrate how to use the library SmartFactory.",
   "keywords": ["factory", "library", "framework"],
   
-  "license": "MIT",   "autoload": {
+  "license": "MIT",   
+  
+  "autoload": {
     "psr-4": {
-      "MyApplication\\": "application/src/MyApplication/"
+      "MyApplication\\": "src/MyApplication/"
     },
     
     "files": [ 
-       "application/src/utf8_functions_inc.php",
-       "application/src/MyApplication/initialization_inc.php",
-       "application/src/MyApplication/message_output_inc.php"
+       "src/utf8_functions_inc.php",
+       "src/MyApplication/initialization_inc.php",
+       "src/MyApplication/message_output_inc.php"
     ]
   },
 
