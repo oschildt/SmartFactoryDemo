@@ -76,24 +76,24 @@ echo "getCountryCode 'Woxxy': " . $lmanager->getCountryCode('Woxxy') . "<br>";
 echo "</p>";
 ?>
 
-<h3>Lanugage list (top 6)</h3>
+<h3>Lanugage list (top 20)</h3>
 
 <?php
 $language_list = [];
-$lmanager->getLanguageList($language_list);
+$lmanager->getLanguageList($language_list, "", ["en", "de", "fr", "ru"]);
 echo "<pre>";
-print_r(array_slice($language_list, 0, 6));
+print_r(array_slice($language_list, 0, 20));
 echo "...";
 echo "</pre>";
 ?>
 
-<h3>Country list (top 6)</h3>
+<h3>Country list (top 20)</h3>
 
 <?php
 $country_list = [];
-$lmanager->getCountryList($country_list);
+$lmanager->getCountryList($country_list, "", ["GB", "DE", "FR", "RU"]);
 echo "<pre>";
-print_r(array_slice($country_list, 0, 6));
+print_r(array_slice($country_list, 0, 20));
 echo "...";
 echo "</pre>";
 ?>
