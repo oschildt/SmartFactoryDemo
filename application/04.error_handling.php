@@ -85,7 +85,7 @@ do_action("save", array("red", "green", "blue"), array("p1" => "John", "p2" => 2
 <p>Listing: logs/trace.log</p>
 
 <div class="code"><?php
-    echo file_get_contents(approot() . "../logs/trace.log");
+    echo file_get_contents(approot() . "logs/trace.log");
     ?></div>
 
 </body>
