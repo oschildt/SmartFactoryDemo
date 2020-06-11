@@ -34,10 +34,10 @@ logs
 localization
 src
 tests
+database
 application
   api
   xmlapi
-database
 ```
 
 ## Detailed description
