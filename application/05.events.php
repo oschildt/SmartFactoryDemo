@@ -17,57 +17,57 @@ use function SmartFactory\event;
 <h3>Initialization</h3>
 
 <div class="code">function evt1_handler1($event, $params)
-    {
+ {
     echo "evt1_handler1 called: $event<br>";
     echo "
     <pre>";
-  print_r($params);
-  echo "</pre>
+    print_r($params);
+    echo "</pre>
     ";
-    }
+}
 
-    $evt1_handler2 = function($event, $params)
-    {
+$evt1_handler2 = function($event, $params)
+{
     echo "evt1_handler2 called: $event<br>";
     echo "
     <pre>";
-  print_r($params);
-  echo "</pre>
+    print_r($params);
+    echo "</pre>
     ";
-    };
+};
 
-    $params = ["param1" => "value1", "param2" => "value2"];
+$params = ["param1" => "value1", "param2" => "value2"];
 
-    // the same handlers are NOT called twice. The handler evt1_handler1
-    // should be called only one per fireEvent call
-    event()->addHandler("event1", "evt1_handler1");
-    event()->addHandler("event1", "evt1_handler1");
+// the same handlers are NOT called twice. The handler evt1_handler1
+// should be called only one per fireEvent call
+event()->addHandler("event1", "evt1_handler1");
+event()->addHandler("event1", "evt1_handler1");
 
-    // the same handlers are NOT called twice. The handler evt1_handler2
-    // should be called only one per fireEvent call
-    event()->addHandler("event1", $evt1_handler2);
-    event()->addHandler("event1", $evt1_handler2);
+// the same handlers are NOT called twice. The handler evt1_handler2
+// should be called only one per fireEvent call
+event()->addHandler("event1", $evt1_handler2);
+event()->addHandler("event1", $evt1_handler2);
 
-    // Closure
-    event()->addHandler("event1", function($event, $params)
-    {
+// Closure
+event()->addHandler("event1", function($event, $params)
+{
     echo "evt1_handler3 called: $event<br>";
     echo "
     <pre>";
-  print_r($params);
-  echo "</pre>
+    print_r($params);
+    echo "</pre>
     ";
-    });
+});
 
-    event()->addHandler("event2", function($event, $params)
-    {
+event()->addHandler("event2", function($event, $params)
+{
     echo "evt2_handler1 called: $event<br>";
     echo "
     <pre>";
-  print_r($params);
-  echo "</pre>
+    print_r($params);
+    echo "</pre>
     ";
-    });
+});
 </div>
 
 <?php
@@ -118,8 +118,8 @@ event()->addHandler("event2", function ($event, $params) {
 
 <div class="code">$params = ["p1" => 100, "p2" => 200];
 
-    event()->fireEvent("event1", $params);
-    event()->fireEvent("event2", $params);
+event()->fireEvent("event1", $params);
+event()->fireEvent("event2", $params);
 </div>
 <br>
 <?php
@@ -131,8 +131,8 @@ event()->fireEvent("event2", $params);
 
 <div class="code">event()->suspendEvent("event1");
 
-    event()->fireEvent("event1", $params);
-    event()->fireEvent("event2", $params);
+event()->fireEvent("event1", $params);
+event()->fireEvent("event2", $params);
 </div>
 <br>
 
@@ -149,8 +149,8 @@ event()->fireEvent("event2", $params);
 
 <div class="code">event()->resumeEvent("event1");
 
-    event()->fireEvent("event1", $params);
-    event()->fireEvent("event2", $params);
+event()->fireEvent("event1", $params);
+event()->fireEvent("event2", $params);
 </div>
 <br>
 
@@ -167,11 +167,11 @@ event()->fireEvent("event2", $params);
 <h3>Deleting handlers evt1_handler1 and evt1_handler2</h3>
 
 <div class="code">// It works only with named
-    event()->deleteHandler("event1", "evt1_handler1");
-    event()->deleteHandler("event1", $evt1_handler2);
+event()->deleteHandler("event1", "evt1_handler1");
+event()->deleteHandler("event1", $evt1_handler2);
 
-    event()->fireEvent("event1", $params);
-    event()->fireEvent("event2", $params);
+event()->fireEvent("event1", $params);
+event()->fireEvent("event2", $params);
 </div>
 <br>
 
@@ -191,8 +191,8 @@ event()->fireEvent("event2", $params);
 
 <div class="code">event()->deleteHandlers("event1");
 
-    event()->fireEvent("event1", $params);
-    event()->fireEvent("event2", $params);
+event()->fireEvent("event1", $params);
+event()->fireEvent("event2", $params);
 </div>
 <br>
 
@@ -210,8 +210,8 @@ event()->fireEvent("event2", $params);
 
 <div class="code">event()->deleteAllHandlers();
 
-    event()->fireEvent("event1", $params);
-    event()->fireEvent("event2", $params);
+event()->fireEvent("event1", $params);
+event()->fireEvent("event2", $params);
 </div>
 <br>
 

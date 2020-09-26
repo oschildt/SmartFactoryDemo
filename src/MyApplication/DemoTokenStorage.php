@@ -107,6 +107,10 @@ class DemoTokenStorage implements ITokenStorage
             throw new \Exception("The parameter 'refresh_token_expire' is not valid!");
         }
         
+        if (!is_numeric($token_record["last_activity"]) || $token_record["last_activity"] <= 0) {
+            throw new \Exception("The parameter 'last_activity' is not valid!");
+        }
+        
         $this->loadRecords();
         
         $new_record = [
@@ -115,7 +119,8 @@ class DemoTokenStorage implements ITokenStorage
             "access_token" => $token_record["access_token"],
             "refresh_token" => $token_record["refresh_token"],
             "access_token_expire" => $token_record["access_token_expire"],
-            "refresh_token_expire" => $token_record["refresh_token_expire"]
+            "refresh_token_expire" => $token_record["refresh_token_expire"],
+            "last_activity" => $token_record["last_activity"]
         ];
         
         $exists = false;
@@ -125,6 +130,7 @@ class DemoTokenStorage implements ITokenStorage
                 $record["refresh_token"] = $new_record["refresh_token"];
                 $record["access_token_expire"] = $new_record["access_token_expire"];
                 $record["refresh_token_expire"] = $new_record["refresh_token_expire"];
+                $record["last_activity"] = $new_record["last_activity"];
                 
                 $exists = true;
             }
@@ -138,6 +144,42 @@ class DemoTokenStorage implements ITokenStorage
         
         return true;
     }
+    
+    public function loadTokenRecord(&$token_record)
+    {
+        $token_type = "";
+        if (!empty($token_record["access_token"])) {
+            $token_type = "access_token";
+        } elseif (!empty($token_record["refresh_token"])) {
+            $token_type = "refresh_token";
+        }
+        
+        if (empty($token_type)) {
+            throw new \OAuth2\InvalidTokenException("The token is invalid!");
+        }
+        
+        $this->loadRecords();
+        
+        foreach ($this->records as $record) {
+            if (!empty($record[$token_type]) && $record[$token_type] == $token_record[$token_type] &&
+                $record["user_id"] == $token_record["user_id"] && $record["client_id"] == $token_record["client_id"]) {
+                
+                $token_record["user_id"] = $record["user_id"];
+                $token_record["client_id"] = $record["client_id"];
+                $token_record["access_token"] = $record["access_token"];
+                $token_record["refresh_token"] = $record["refresh_token"];
+                $token_record["access_token_expire"] = $record["access_token_expire"];
+                $token_record["refresh_token_expire"] = $record["refresh_token_expire"];
+                $token_record["last_activity"] = $record["last_activity"];
+                
+                return true;
+            }
+        }
+        
+        throw new \OAuth2\InvalidTokenException("The access token is invalid!");
+        
+        return false;
+    } // loadTokenRecord
     
     public function deleteTokenRecordByKey($key, $value)
     {
@@ -164,54 +206,6 @@ class DemoTokenStorage implements ITokenStorage
         }
         
         $this->saveRecords();
-        
-        return true;
-    }
-    
-    public function verifyAccessToken($access_token, $user_id, $client_id)
-    {
-        $this->loadRecords();
-        
-        $exists = false;
-        
-        foreach ($this->records as $record) {
-            if ($record["access_token"] == $access_token && $record["user_id"] == $user_id && $record["client_id"] == $client_id) {
-                
-                if (time() > $record["access_token_expire"]) {
-                    throw new \OAuth2\InvalidTokenException("The access token is expired!");
-                }
-                
-                $exists = true;
-            }
-        }
-        
-        if (!$exists) {
-            throw new \OAuth2\InvalidTokenException("The access token is invalid!");
-        }
-        
-        return true;
-    }
-    
-    public function verifyRefreshToken($refresh_token, $user_id, $client_id)
-    {
-        $this->loadRecords();
-        
-        $exists = false;
-        
-        foreach ($this->records as $record) {
-            if ($record["refresh_token"] == $refresh_token && $record["user_id"] == $user_id && $record["client_id"] == $client_id) {
-                
-                if (time() > $record["refresh_token_expire"]) {
-                    throw new \OAuth2\InvalidTokenException("The refresh token is expired!");
-                }
-                
-                $exists = true;
-            }
-        }
-        
-        if (!$exists) {
-            throw new \OAuth2\InvalidTokenException("The refresh token is invalid!");
-        }
         
         return true;
     }

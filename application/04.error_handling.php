@@ -19,34 +19,34 @@ use function SmartFactory\debugger;
 <p>Error details are traced to the trace file logs/trace.log.</p>
 
 <div class="code">// force a warning
-    $a = $b;
+$a = $b;
 
-    $dummy = function($a, $b)
-    {
+$dummy = function($a, $b)
+{
 
-    };
+};
 
-    function test_function($param1, $param2, callable $param3)
-    {
-    $c = $d;
-    }
+function test_function($param1, $param2, callable $param3)
+{
+   $c = $d;
+}
 
-    function do_action($action, $vars, $params, $obj)
-    {
-    global $dummy;
+function do_action($action, $vars, $params, $obj)
+{
+   global $dummy;
 
-    test_function("100", "test", $dummy);
-    }
+   test_function("100", "test", $dummy);
+}
 
-    class SomeClass
-    {
+class SomeClass
+{
 
-    }
+}
 
-    $obj = new SomeClass();
+$obj = new SomeClass();
 
-    // call function with the warning
-    do_action("save", array("red", "green", "blue"), array("p1" => "John", "p2" => 2000), $obj);
+// call function with the warning
+do_action("save", array("red", "green", "blue"), array("p1" => "John", "p2" => 2000), $obj);
 </div>
 
 <?php

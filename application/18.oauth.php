@@ -27,9 +27,10 @@ $params = [];
 
 $params["access_token_ttl"] = 600; // 10 min
 $params["refresh_token_ttl"] = 3600; // 1 hours
+$params["max_token_inactivity_days"] = 7; // 7 days
 
 $params["token_storage"] = singleton(ITokenStorage::class);
-$params["token_storage"]->init(["storage_file" => approot() . "../config/auth_tokens.xml"]);
+$params["token_storage"]->init(["storage_file" => approot() . "config/auth_tokens.xml"]);
 
 $params["user_authenticator"] = singleton(IUserAuthenticator::class);
 
@@ -37,8 +38,8 @@ $params["encryption_algorithm"] = "RS256";
 
 $params["secret_key"] = "OLEG";
 
-$params["public_key"] = approot() . "../config/public_key.pem";
-$params["private_key"] = approot() . "../config/private_key.pem";
+$params["public_key"] = approot() . "config/public_key.pem";
+$params["private_key"] = approot() . "config/private_key.pem";
 $params["pass_phrase"] = "termin";
 
 $oam = singleton(IOAuthManager::class);
@@ -68,7 +69,7 @@ try {
     
     echo "Verified payload:<br>";
     echo "<pre>";
-    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
     echo "</pre>";
 } catch (\Exception $ex) {
     echo $ex->getMessage() . "<br>";
@@ -89,7 +90,7 @@ try {
     
     echo "Verified payload:<br>";
     echo "<pre>";
-    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], false));
     echo "</pre>";
 } catch (\Exception $ex) {
     echo $ex->getMessage() . "<br>";
@@ -117,7 +118,7 @@ try {
     
     echo "Verified payload:<br>";
     echo "<pre>";
-    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
     echo "</pre>";
 } catch (\Exception $ex) {
     echo $ex->getMessage() . "<br>";
@@ -144,7 +145,7 @@ try {
     
     echo "Verified payload:<br>";
     echo "<pre>";
-    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
     echo "</pre>";
 } catch (\Exception $ex) {
     echo $ex->getMessage() . "<br>";
@@ -172,7 +173,7 @@ try {
     
     echo "Verified payload:<br>";
     echo "<pre>";
-    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"]));
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
     echo "</pre>";
 } catch (\Exception $ex) {
     echo $ex->getMessage() . "<br>";
@@ -186,7 +187,6 @@ try {
 } catch (\Exception $ex) {
     echo $ex->getMessage() . "<br>";
 }
-
 ?>
 
 </body>
