@@ -71,6 +71,9 @@ try {
     echo "<pre>";
     print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
     echo "</pre>";
+
+    echo "Verified resefresh token:" . $oam->verifyRefreshToken($refresh_token, $user_id, $credentials["client_id"]);
+    echo "<br>";
 } catch (\Exception $ex) {
     echo $ex->getMessage() . "<br>";
 }
