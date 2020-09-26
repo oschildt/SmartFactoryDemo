@@ -147,6 +147,14 @@ class DemoTokenStorage implements ITokenStorage
     
     public function loadTokenRecord(&$token_record)
     {
+        if (empty($token_record["user_id"])) {
+            throw new \OAuth\MissingParametersException("The user id is not specified!");
+        }
+        
+        if (empty($token_record["client_id"])) {
+            throw new \OAuth\MissingParametersException("The client id is not specified!");
+        }
+        
         $token_type = "";
         if (!empty($token_record["access_token"])) {
             $token_type = "access_token";
@@ -155,14 +163,19 @@ class DemoTokenStorage implements ITokenStorage
         }
         
         if (empty($token_type)) {
-            throw new \OAuth2\InvalidTokenException("The token is invalid!");
+            throw new \OAuth2\MissingParametersException("The token type is not specified!");
+        }
+        
+        if (empty($token_record[$token_type])) {
+            throw new \OAuth\MissingParametersException("The token is not specified!");
         }
         
         $this->loadRecords();
         
         foreach ($this->records as $record) {
-            if (!empty($record[$token_type]) && $record[$token_type] == $token_record[$token_type] &&
-                $record["user_id"] == $token_record["user_id"] && $record["client_id"] == $token_record["client_id"]) {
+            if ($record[$token_type] == $token_record[$token_type] &&
+                $record["user_id"] == $token_record["user_id"] &&
+                $record["client_id"] == $token_record["client_id"]) {
                 
                 $token_record["user_id"] = $record["user_id"];
                 $token_record["client_id"] = $record["client_id"];
@@ -176,7 +189,7 @@ class DemoTokenStorage implements ITokenStorage
             }
         }
         
-        throw new \OAuth2\InvalidTokenException("The access token is invalid!");
+        throw new \OAuth2\InvalidTokenException("The token is invalid, it is not found in the storage!");
         
         return false;
     } // loadTokenRecord
