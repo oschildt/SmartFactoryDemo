@@ -18,10 +18,11 @@ session()->startSession(true);
 <body>
 <h2>Sessions - next step readonly</h2>
 
-<div class="code">echo "session name: " . session()->getSessionName();
+<pre class="code">
+echo "session name: " . session()->getSessionName();
 
-    echo "session id: " . session()->getSessionId();
-</div>
+echo "session id: " . session()->getSessionId();
+</pre>
 
 <?php
 echo "<p>session name: " . session()->getSessionName() . "</p>";
@@ -31,12 +32,13 @@ echo "<p>session id: " . session()->getSessionId() . "</p>";
 
 <h3>Getting session vars</h3>
 
-<div class="code">echo "user name value: " . session()->vars()["user"]["name"];
+<pre class="code">
+echo "user name value: " . session()->vars()["user"]["name"];
 
-    echo "user age value: " . session()->vars()["user"]["age"];
+echo "user age value: " . session()->vars()["user"]["age"];
 
-    echo "user age sex: " . session()->vars()["user"]["sex"];
-</div>
+echo "user age sex: " . session()->vars()["user"]["sex"];
+</pre>
 
 <?php
 echo "<p>user name value: " . session()->vars()["user"]["name"] . "</p>";
@@ -48,9 +50,10 @@ echo "<p>user age sex: " . session()->vars()["user"]["sex"] . "</p>";
 
 <h3>Destroying session has no effect in redonly mode</h3>
 
-<div class="code">// destroySession has no effect in redonly mode
-    session()->destroySession();
-</div>
+<pre class="code">
+// destroySession has no effect in redonly mode
+session()->destroySession();
+</pre>
 
 <?php
 session()->destroySession();
@@ -64,9 +67,9 @@ echo "<p>user age sex: " . checkempty(session()->vars()["user"]["sex"]) . "</p>"
 
 <h3>Unsetting variables in redonly mode is possible</h3>
 
-<div class="code">
-    session()->clearSession();
-</div>
+<pre class="code">
+session()->clearSession();
+</pre>
 
 <?php
 session()->clearSession();

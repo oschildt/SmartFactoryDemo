@@ -3,7 +3,7 @@
     "smtp_port": 25,
     "tracing_enabled": 1,
     "show_message_details": 1,
-    "show_prog_warning": 1,
+    "show_prog_warnings": 1,
     "db_type": "MySQL",
     "db_server": "localhost",
     "db_name": "framework_demo",

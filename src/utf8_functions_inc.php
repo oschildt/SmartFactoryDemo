@@ -41,7 +41,7 @@ function utf8_to_nce($s) {
   $html = '';
   $ByteCount = ByteCount($utf);
   for($str_pos = 0; $str_pos < $ByteCount; $str_pos++) {
-    $old_chr = $utf{$str_pos};
+    $old_chr = $utf[$str_pos];
     $old_val = ord($old_chr);
     $new_val = 0;
 
@@ -61,18 +61,18 @@ function utf8_to_nce($s) {
     }
    
     // marker found: collect following bytes
-    if ($utf8_marker > 1 and isset($utf{$str_pos + 1})) {
+    if ($utf8_marker > 1 and isset($utf[$str_pos + 1])) {
       $str_off = 0;
       $new_val = $old_val & (127 >> $utf8_marker);
       for($byte_ctr = $utf8_marker; $byte_ctr > 1; $byte_ctr--) {
         // check if following chars are UTF8 additional data blocks
         // UTF8 and ord() > 127
-        if( (ord($utf{$str_pos + 1}) & 192) == 128 ) {
+        if( (ord($utf[$str_pos + 1]) & 192) == 128 ) {
           $new_val = $new_val << 6;
           $str_off++;
           // no need for Addition, bitwise OR is sufficient
           // 63: more UTF8-bytes; 0011 1111
-          $new_val = $new_val | ( ord( $utf{$str_pos + $str_off} ) & 63 );
+          $new_val = $new_val | ( ord( $utf[$str_pos + $str_off] ) & 63 );
         }
         // no UTF8, but ord() > 127
         // nevertheless convert first char to NCE
@@ -135,7 +135,7 @@ function utf8_decodeFN($file){
  */
 function utf8_isASCII($str){
   for($i=0; $i<strlen($str); $i++){
-    if(ord($str{$i}) >127) return false;
+    if(ord($str[$i]) >127) return false;
   }
   return true;
 }
@@ -150,8 +150,8 @@ function utf8_isASCII($str){
 function utf8_strip($str){
   $ascii = '';
   for($i=0; $i<strlen($str); $i++){
-    if(ord($str{$i}) <128){
-      $ascii .= $str{$i};
+    if(ord($str[$i]) <128){
+      $ascii .= $str[$i];
     }
   }
   return $ascii;
@@ -536,7 +536,6 @@ function utf8_unhtml($str, $entities=null) {
         return preg_replace_callback('/&(#)?([Xx])?([0-9A-Za-z]+);/m',
                                      array(&$decoder, 'decode'), $str);
 }
-
 function utf8_decode_numeric($ent) {
     switch ($ent[2]) {
       case 'X':
@@ -549,7 +548,6 @@ function utf8_decode_numeric($ent) {
     }
     return unicode_to_utf8(array($cp));
 }
-
 class utf8_entity_decoder {
     public $table;
     function __construct() {
@@ -605,7 +603,7 @@ function utf8_to_unicode($str,$strict=false) {
 
     for($i = 0; $i < $len; $i++) {
 
-        $in = ord($str{$i});
+        $in = ord($str[$i]);
 
         if ( $mState == 0) {
 

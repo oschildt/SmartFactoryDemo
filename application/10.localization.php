@@ -22,10 +22,11 @@ use function SmartFactory\text;
 <a href="10.localization.php?language=ru">ru</a>
 <br><br>
 
-<div class="code">$lmanager = singleton(ILanguageManager::class);
+<pre class="code">
+$lmanager = singleton(ILanguageManager::class);
 
 $langs = $lmanager->getSupportedLanguages();
-</div>
+</pre>
 
 <?php
 $lmanager = singleton(ILanguageManager::class);

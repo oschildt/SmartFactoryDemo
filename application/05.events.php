@@ -16,24 +16,21 @@ use function SmartFactory\event;
 
 <h3>Initialization</h3>
 
-<div class="code">function evt1_handler1($event, $params)
- {
+<pre class="code">
+function evt1_handler1($event, $params)
+{
     echo "evt1_handler1 called: $event<br>";
-    echo "
-    <pre>";
+    echo "<pre>";
     print_r($params);
-    echo "</pre>
-    ";
+    echo "</pre>";
 }
 
 $evt1_handler2 = function($event, $params)
 {
     echo "evt1_handler2 called: $event<br>";
-    echo "
-    <pre>";
+    echo "<pre>";
     print_r($params);
-    echo "</pre>
-    ";
+    echo "</pre>";
 };
 
 $params = ["param1" => "value1", "param2" => "value2"];
@@ -52,23 +49,19 @@ event()->addHandler("event1", $evt1_handler2);
 event()->addHandler("event1", function($event, $params)
 {
     echo "evt1_handler3 called: $event<br>";
-    echo "
-    <pre>";
+    echo "<pre>";
     print_r($params);
-    echo "</pre>
-    ";
+    echo "</pre>";
 });
 
 event()->addHandler("event2", function($event, $params)
 {
     echo "evt2_handler1 called: $event<br>";
-    echo "
-    <pre>";
+    echo "<pre>";
     print_r($params);
-    echo "</pre>
-    ";
+    echo "</pre>";
 });
-</div>
+</pre>
 
 <?php
 function evt1_handler1($event, $params)
@@ -116,11 +109,12 @@ event()->addHandler("event2", function ($event, $params) {
 
 <h3>Firing events</h3>
 
-<div class="code">$params = ["p1" => 100, "p2" => 200];
+<pre class="code">
+$params = ["p1" => 100, "p2" => 200];
 
 event()->fireEvent("event1", $params);
 event()->fireEvent("event2", $params);
-</div>
+</pre>
 <br>
 <?php
 event()->fireEvent("event1", $params);
@@ -129,11 +123,12 @@ event()->fireEvent("event2", $params);
 
 <h3>Suspending event1</h3>
 
-<div class="code">event()->suspendEvent("event1");
+<pre class="code">
+event()->suspendEvent("event1");
 
 event()->fireEvent("event1", $params);
 event()->fireEvent("event2", $params);
-</div>
+</pre>
 <br>
 
 <?php
@@ -147,11 +142,12 @@ event()->fireEvent("event2", $params);
 
 <h3>Resuming event1</h3>
 
-<div class="code">event()->resumeEvent("event1");
+<pre class="code">
+event()->resumeEvent("event1");
 
 event()->fireEvent("event1", $params);
 event()->fireEvent("event2", $params);
-</div>
+</pre>
 <br>
 
 <?php
@@ -163,16 +159,16 @@ event()->fireEvent("event2", $params);
 
 <p>Both events event1 and event2 fire again.</p>
 
-
 <h3>Deleting handlers evt1_handler1 and evt1_handler2</h3>
 
-<div class="code">// It works only with named
+<pre class="code">
+// It works only with named
 event()->deleteHandler("event1", "evt1_handler1");
 event()->deleteHandler("event1", $evt1_handler2);
 
 event()->fireEvent("event1", $params);
 event()->fireEvent("event2", $params);
-</div>
+</pre>
 <br>
 
 <?php
@@ -186,14 +182,14 @@ event()->fireEvent("event2", $params);
 
 <p>evt1_handler1 and evt1_handler2 are not called anymore by firing.</p>
 
-
 <h3>Deleting all handlers for event1</h3>
 
-<div class="code">event()->deleteHandlers("event1");
+<pre class="code">
+event()->deleteHandlers("event1");
 
 event()->fireEvent("event1", $params);
 event()->fireEvent("event2", $params);
-</div>
+</pre>
 <br>
 
 <?php
@@ -205,14 +201,14 @@ event()->fireEvent("event2", $params);
 
 <p>No calls on event1, but event2 still fires.</p>
 
-
 <h3>Deleting all handlers</h3>
 
-<div class="code">event()->deleteAllHandlers();
+<pre class="code">
+event()->deleteAllHandlers();
 
 event()->fireEvent("event1", $params);
 event()->fireEvent("event2", $params);
-</div>
+</pre>
 <br>
 
 <?php

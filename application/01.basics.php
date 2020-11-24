@@ -18,45 +18,45 @@ use MyApplication\Interfaces\IUser;
 
 <p>We define an interface and implement a class of it.</p>
 
-<div class="code">
-    interface IUser
-    {
+<pre class="code">
+interface IUser
+{
     public function getUserFirstName();
     public function getUserLastName();
-    }
+}
 
-    class User implements IUser
-    {
+class User implements IUser
+{
     public $first_name = "John";
 
     public function getUserFirstName()
     {
-    return $this->first_name;
+        return $this->first_name;
     }
 
     public function getUserLastName()
     {
-    return "Smith";
+        return "Smith";
     }
-    }
-</div>
+}
+</pre>
 
 <p>We bind the current implementation to the interface. If we need to change the
     implementation, we just bind another implementation of the interface.</p>
 
-<div class="code">
-    FactoryBuilder::bindClass(IUser::class, User::class);
-</div>
+<pre class="code">
+ObjectFactory::bindClass(IUser::class, User::class);
+</pre>
 
 <p>We request the object over the factory.</p>
 
-<div class="code">
-    $user = singleton(IUser::class);
+<pre class="code">
+$user = singleton(IUser::class);
 
-    echo "First name: " . $user->getUserFirstName();
+echo "First name: " . $user->getUserFirstName();
 
-    echo "Last name: " . $user->getUserLastName();
-</div>
+echo "Last name: " . $user->getUserLastName();
+</pre>
 
 <?php
 $user = singleton(IUser::class);

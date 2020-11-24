@@ -18,10 +18,11 @@ session()->startSession();
 <body>
 <h2>Sessions - next step</h2>
 
-<div class="code">echo "session name: " . session()->getSessionName();
+<pre class="code">
+echo "session name: " . session()->getSessionName();
 
-    echo "session id: " . session()->getSessionId();
-</div>
+echo "session id: " . session()->getSessionId();
+</pre>
 
 <?php
 echo "<p>session name: " . session()->getSessionName() . "</p>";
@@ -31,12 +32,13 @@ echo "<p>session id: " . session()->getSessionId() . "</p>";
 
 <h3>Getting session vars</h3>
 
-<div class="code">echo "user name value: " . session()->vars()["user"]["name"];
+<pre class="code">
+echo "user name value: " . session()->vars()["user"]["name"];
 
-    echo "user age value: " . session()->vars()["user"]["age"];
+echo "user age value: " . session()->vars()["user"]["age"];
 
-    echo "user age sex: " . session()->vars()["user"]["sex"];
-</div>
+echo "user age sex: " . session()->vars()["user"]["sex"];
+</pre>
 
 <?php
 echo "<p>user name value: " . session()->vars()["user"]["name"] . "</p>";
@@ -48,8 +50,9 @@ echo "<p>user age sex: " . session()->vars()["user"]["sex"] . "</p>";
 
 <h3>Unsetting a session variable</h3>
 
-<div class="code">unset(session()->vars()["user"]["name"]);
-</div>
+<pre class="code">
+unset(session()->vars()["user"]["name"]);
+</pre>
 
 <?php
 unset(session()->vars()["user"]["name"]);
@@ -63,8 +66,9 @@ echo "<p>user age sex: " . checkempty(session()->vars()["user"]["sex"]) . "</p>"
 
 <h3>Destroying session</h3>
 
-<div class="code">session()->destroySession();
-</div>
+<pre class="code">
+session()->destroySession();
+</pre>
 
 <?php
 session()->destroySession();

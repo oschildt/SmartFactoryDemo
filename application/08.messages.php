@@ -21,24 +21,25 @@ session()->startSession();
 <p>Setting some warnings, errors etc. then redirecting. Messages are not
     lost even over many requests. They are cleared only after they are retrieved for display.</p>
 
-<div class="code">messenger()->setError("Error message 1");
+<pre class="code">
+messenger()->setError("Error message 1");
 
-    messenger()->setError("Error message 2", "Error 2 details");
+messenger()->setError("Error message 2", "Error 2 details");
 
-    // setting redundantly
-    messenger()->setError("Error message 1");
+// setting redundantly
+messenger()->setError("Error message 1");
 
-    messenger()->setWarning("Warning 1");
+messenger()->setWarning("Warning 1");
 
-    messenger()->setWarning("Warning 1");
+messenger()->setWarning("Warning 1");
 
-    messenger()->setErrorElement("first_name");
-    messenger()->setActiveTab(2);
-    messenger()->setInfo("Data saved successfully!", "", true);
+messenger()->setErrorElement("first_name");
+messenger()->setActiveTab(2);
+messenger()->setInfo("Data saved successfully!", "", true);
 
-    // produce prog warning
-    $a = $b;
-</div>
+// produce prog warning
+$a = $b;
+</pre>
 
 <?php
 messenger()->clearAll();

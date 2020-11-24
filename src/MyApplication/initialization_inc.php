@@ -2,22 +2,26 @@
 
 namespace MyApplication;
 
-use SmartFactory\Interfaces\ISessionManager;
+use SmartFactory\Interfaces\IMessageManager;
 use SmartFactory\Interfaces\IDebugProfiler;
 use SmartFactory\Interfaces\IErrorHandler;
 use SmartFactory\Interfaces\ILanguageManager;
 use SmartFactory\Interfaces\IRecordsetManager;
 
-use SmartFactory\FactoryBuilder;
+use SmartFactory\ObjectFactory;
 use SmartFactory\ConfigSettingsManager;
 use SmartFactory\RuntimeSettingsManager;
 use SmartFactory\UserSettingsManager;
 use SmartFactory\DebugProfiler;
 use SmartFactory\ErrorHandler;
+use SmartFactory\MessageManager;
 use SmartFactory\LanguageManager;
 use SmartFactory\RecordsetManager;
 
 use SmartFactory\DatabaseWorkers\DBWorker;
+
+use function SmartFactory\config_settings;
+use function SmartFactory\singleton;
 
 use OAuth2\Interfaces\IOAuthManager;
 use OAuth2\Interfaces\ITokenStorage;
@@ -42,11 +46,11 @@ function app_dbworker()
     try {
         $parameters = [];
         
-        $parameters["db_type"] = \SmartFactory\config_settings()->getParameter("db_type");
-        $parameters["db_server"] = \SmartFactory\config_settings()->getParameter("db_server");
-        $parameters["db_name"] = \SmartFactory\config_settings()->getParameter("db_name");
-        $parameters["db_user"] = \SmartFactory\config_settings()->getParameter("db_user");
-        $parameters["db_password"] = \SmartFactory\config_settings()->getParameter("db_password");
+        $parameters["db_type"] = config_settings()->getParameter("db_type");
+        $parameters["db_server"] = config_settings()->getParameter("db_server");
+        $parameters["db_name"] = config_settings()->getParameter("db_name");
+        $parameters["db_user"] = config_settings()->getParameter("db_user");
+        $parameters["db_password"] = config_settings()->getParameter("db_password");
         $parameters["autoconnect"] = true;
         
         return \SmartFactory\dbworker($parameters);
@@ -56,24 +60,13 @@ function app_dbworker()
 }
 
 //-------------------------------------------------------------------
-// Overriding the default binding
-FactoryBuilder::bindClass(ISessionManager::class, MySessionManager::class);
+// Defining bindings for the standard SmartFactory classes with own intialization
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(IDebugProfiler::class, DebugProfiler::class, function ($instance) {
-    $instance->init(["log_path" => approot() . "logs/"]);
-});
+// IMPORTANT: The ConfigSettingsManager must be bound first,
+// because other bindings might use the config settings by
+// initialization.
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(IErrorHandler::class, ErrorHandler::class, function ($instance) {
-    $instance->init(["app_root" => approot(), "log_path" => approot() . "logs/"]);
-});
-//-------------------------------------------------------------------
-FactoryBuilder::bindClass(ILanguageManager::class, LanguageManager::class, function ($instance) {
-    $instance->init(["localization_path" => approot() . "localization/", "use_apcu" => false]);
-    $instance->loadDictionary();
-    $instance->detectLanguage();
-});
-//-------------------------------------------------------------------
-FactoryBuilder::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::class, function ($instance) {
+ObjectFactory::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::class, function ($instance) {
     $instance->init([
         "save_path" => approot() . "config/settings.json",
         "config_file_must_exist" => false,
@@ -85,7 +78,7 @@ FactoryBuilder::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::c
     $instance->setValidator(new ConfigSettingsValidator());
 });
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(RuntimeSettingsManager::class, RuntimeSettingsManager::class, function ($instance) {
+ObjectFactory::bindClass(RuntimeSettingsManager::class, RuntimeSettingsManager::class, function ($instance) {
     $instance->init([
         "dbworker" => app_dbworker(),
         "settings_table" => "SETTINGS",
@@ -95,7 +88,7 @@ FactoryBuilder::bindClass(RuntimeSettingsManager::class, RuntimeSettingsManager:
     $instance->setValidator(new RuntimeSettingsValidator());
 });
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(UserSettingsManager::class, UserSettingsManager::class, function ($instance) {
+ObjectFactory::bindClass(UserSettingsManager::class, UserSettingsManager::class, function ($instance) {
     $instance->init([
         "dbworker" => app_dbworker(),
         
@@ -125,19 +118,81 @@ FactoryBuilder::bindClass(UserSettingsManager::class, UserSettingsManager::class
     $instance->setValidator(new UserSettingsValidator());
 });
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(IRecordsetManager::class, RecordsetManager::class, function ($instance) {
+ObjectFactory::bindClass(ILanguageManager::class, LanguageManager::class, function ($instance) {
+    $instance->init(["localization_path" => approot() . "localization/", "use_apcu" => false]);
+    $instance->loadDictionary();
+    $instance->detectLanguage();
+});
+//-------------------------------------------------------------------
+ObjectFactory::bindClass(IRecordsetManager::class, RecordsetManager::class, function ($instance) {
     $instance->setDBWorker(app_dbworker());
 });
 //-------------------------------------------------------------------
-// Own binding
+ObjectFactory::bindClass(IOAuthManager::class, OAuthManager::class, function ($instance) {
+    $params = [];
+    
+    $params["access_token_ttl"] = 600; // 10 min
+    $params["refresh_token_ttl"] = 3600; // 1 hours
+    $params["max_token_inactivity_days"] = 7; // 7 days
+    
+    $params["token_storage"] = singleton(ITokenStorage::class);
+    $params["token_storage"]->init(["storage_file" => approot() . "config/auth_tokens.xml"]);
+    
+    $params["user_authenticator"] = singleton(IUserAuthenticator::class);
+    
+    // $supported_algorithms = ['HS256', 'HS384', 'HS512', 'RS256', 'RS384', 'RS512'];
+    $params["encryption_algorithm"] = "RS256";
+    
+    $params["secret_key"] = "OLEG";
+    
+    $params["public_key"] = approot() . "config/public_key.pem";
+    $params["private_key"] = approot() . "config/private_key.pem";
+    $params["pass_phrase"] = "termin";
+
+    $instance->init($params);
+});
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(IUser::class, User::class);
+// Overriding the default bindings of the standard SmartFactory classes with own intialization
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(HotelXmlApiRequestManager::class, HotelXmlApiRequestManager::class);
+ObjectFactory::bindClass(IErrorHandler::class, ErrorHandler::class, function ($instance) {
+    $instance->init(["log_path" => approot() . "logs/"]);
+    
+    if (config_settings()->getParameter("tracing_enabled", 0)) {
+        $instance->enableTrace();
+    } else {
+        $instance->disableTrace();
+    }
+});
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(IOAuthManager::class, OAuthManager::class);
+ObjectFactory::bindClass(IDebugProfiler::class, DebugProfiler::class, function ($instance) {
+    $instance->init(["log_path" => approot() . "logs/"]);
+});
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(ITokenStorage::class, DemoTokenStorage::class);
+ObjectFactory::bindClass(IMessageManager::class, MessageManager::class, function ($instance) {
+    $instance->init(["auto_hide_time" => 3]);
+    
+    if (config_settings()->getParameter("show_message_details", 0)) {
+        $instance->enableDetails();
+    } else {
+        $instance->disableDetails();
+    }
+    
+    if (config_settings()->getParameter("show_prog_warnings", 0)) {
+        $instance->enableProgWarnings();
+    } else {
+        $instance->disableProgWarnings();
+    }
+});
 //-------------------------------------------------------------------
-FactoryBuilder::bindClass(IUserAuthenticator::class, DemoUserAuthenticator::class);
+// Binding of own class implementations to SmartFactory interfaces
+//-------------------------------------------------------------------
+ObjectFactory::bindClass(HotelXmlApiRequestManager::class, HotelXmlApiRequestManager::class);
+//-------------------------------------------------------------------
+ObjectFactory::bindClass(ITokenStorage::class, DemoTokenStorage::class);
+//-------------------------------------------------------------------
+ObjectFactory::bindClass(IUserAuthenticator::class, DemoUserAuthenticator::class);
+//-------------------------------------------------------------------
+// Binding of own class implementations to own interfaces
+//-------------------------------------------------------------------
+ObjectFactory::bindClass(IUser::class, User::class);
 //-------------------------------------------------------------------

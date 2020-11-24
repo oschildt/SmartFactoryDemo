@@ -18,7 +18,8 @@ use function SmartFactory\debugger;
 
 <p>Error details are traced to the trace file logs/trace.log.</p>
 
-<div class="code">// force a warning
+<pre class="code">
+// force a warning
 $a = $b;
 
 $dummy = function($a, $b)
@@ -47,7 +48,7 @@ $obj = new SomeClass();
 
 // call function with the warning
 do_action("save", array("red", "green", "blue"), array("p1" => "John", "p2" => 2000), $obj);
-</div>
+</pre>
 
 <?php
 debugger()->clearLogFiles();
@@ -84,9 +85,11 @@ do_action("save", array("red", "green", "blue"), array("p1" => "John", "p2" => 2
 
 <p>Listing: logs/trace.log</p>
 
-<div class="code"><?php
-    echo file_get_contents(approot() . "logs/trace.log");
-    ?></div>
+<pre class="code">
+<?php
+echo file_get_contents(approot() . "logs/trace.log");
+?>
+</pre>
 
 </body>
 </html>

@@ -19,13 +19,14 @@ session()->startSession();
 
 <h3>Starting session</h3>
 
-<div class="code">session() = singleton(ISessionManager::class);
-    session()->startSession();
+<pre class="code">
+session() = singleton(ISessionManager::class);
+session()->startSession();
 
-    echo "session name: " . session()->getSessionName();
+echo "session name: " . session()->getSessionName();
 
-    echo "session id: " . session()->getSessionId();
-</div>
+echo "session id: " . session()->getSessionId();
+</pre>
 
 <?php
 echo "<p>session name: " . session()->getSessionName() . "</p>";
@@ -47,20 +48,21 @@ $sessionvars = &session()->vars();
 $sessionvars["user"]["sex"] = "M";
 ?>
 
-<div class="code">session()->vars()["user"]["name"] = "Alex";
-    session()->vars()["user"]["age"] = "22";
+<pre class="code">
+session()->vars()["user"]["name"] = "Alex";
+session()->vars()["user"]["age"] = "22";
 
-    // it works also, &amp; is important
-    $sessionvars = &amp;session()->vars();
+// it works also, &amp; is important
+$sessionvars = &amp;session()->vars();
 
-    $sessionvars["user"]["sex"] = "M";
+$sessionvars["user"]["sex"] = "M";
 
-    echo "user name value: " . session()->vars()["user"]["name"];
+echo "user name value: " . session()->vars()["user"]["name"];
 
-    echo "user age value: " . session()->vars()["user"]["age"];
+echo "user age value: " . session()->vars()["user"]["age"];
 
-    echo "user age sex: " . session()->vars()["user"]["sex"];
-</div>
+echo "user age sex: " . session()->vars()["user"]["sex"];
+</pre>
 
 <?php
 echo "<p>user name value: " . session()->vars()["user"]["name"] . "</p>";
