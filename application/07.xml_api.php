@@ -26,7 +26,7 @@ if (empty($_REQUEST["xmldata"])) {
 <body>
 <h2>XML API</h2>
 
-<form action="../xmlapi/" method="post" target="_blank">
+<form action="../xmlapi/get_rooms/" method="post" target="_blank">
     
     <?php textarea([
         "name" => "xmldata",

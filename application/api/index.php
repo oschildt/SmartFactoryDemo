@@ -4,20 +4,6 @@ namespace MyApplication;
 
 require "../../vendor/autoload.php";
 
-use SmartFactory\JsonApiRequestManager;
+use MyApplication\Handlers\MyTestJsonHandler;
 
-use function SmartFactory\singleton;
-
-try {
-    $rmanager = singleton(JsonApiRequestManager::class);
-    
-    $rmanager->registerDefaultHandler("MyApplication\\Handlers\\DefaultHandler");
-    $rmanager->registerPreProcessHandler("MyApplication\\Handlers\\PreProcessHandler");
-    $rmanager->registerPostProcessHandler("MyApplication\\Handlers\\PostProcessHandler");
-    
-    $rmanager->registerApiRequestHandler("login", "MyApplication\\Handlers\\LoginHandler");
-
-    $rmanager->handleApiRequest();
-} catch (\Throwable $ex) {
-    $rmanager->exitWithException($ex);
-}
+(new MyTestJsonHandler())->handleRequest();

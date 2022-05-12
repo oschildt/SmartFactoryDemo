@@ -186,8 +186,6 @@ ObjectFactory::bindClass(IMessageManager::class, MessageManager::class, function
 //-------------------------------------------------------------------
 // Binding of own class implementations to SmartFactory interfaces
 //-------------------------------------------------------------------
-ObjectFactory::bindClass(HotelXmlApiRequestManager::class, HotelXmlApiRequestManager::class);
-//-------------------------------------------------------------------
 ObjectFactory::bindClass(ITokenStorage::class, DemoTokenStorage::class);
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(IUserAuthenticator::class, DemoUserAuthenticator::class);

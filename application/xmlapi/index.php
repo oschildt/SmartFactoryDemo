@@ -4,13 +4,7 @@ namespace MyApplication;
 
 require "../../vendor/autoload.php";
 
-use function SmartFactory\singleton;
+use MyApplication\Handlers\MyTestXmlHandler;
 
-$rmanager = singleton(HotelXmlApiRequestManager::class);
-
-//-----------------------------------------------------------------
-$rmanager->registerApiRequestHandler("GetRooms", "MyApplication\\Hotel\\RoomHandler");
-//-----------------------------------------------------------------
-
-$rmanager->handleApiRequest();
+(new MyTestXmlHandler())->handleRequest();
 ?>

@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php
+namespace MyApplication;
+
+require "../vendor/autoload.php";
+
+use function SmartFactory\textarea;
+
+if (empty($_REQUEST["jsondata"])) {
+    $_REQUEST["jsondata"] = '{
+    "login": "admin",
+    "password": "qwerty"
+}';
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <title>JSON API</title>
@@ -8,13 +21,23 @@
 <body>
 <h2>JSON API</h2>
 
-<p><a href="../api/login" target="_blank">Login with error</a></p>
+<form action="../api/login/" method="post" target="_blank">
 
-<p><a href="../api/login?user=alex&password=123" target="_blank">Login with success</a></p>
+    <?php textarea([
+        "name" => "jsondata",
+        "style" => "border:1px solid gray",
+        "cols" => "60",
+        "rows" => "12"
+    ]); ?>
+    <br>
+    <br>
 
-<p><a href="../api/delete" target="_blank">Call an end point without mapping</a></p>
+    <input type="submit" name="act" value="Submit">
+
+</form>
 
 </body>
 </html>
+
 
 
