@@ -4,11 +4,11 @@ Demo application to demonstrate how to use the library [SmartFactory](https://gi
 
 ### To get familiar with the SmartFactory do the following
 
-- Git-clone the demo application and run 'composer update'.
-- Use the script *database/create_database_mysql.sql* (*create_database_mysql.sql*) to create a demo database necessary for some examples.
-- View and study the API documentation in the folder docs or here [API documentation](http://php-smart-factory.org/smartfactory/) and
+1. Git-clone the demo application and run 'composer update'.
+2. Use the script *database/create_database_mysql.sql* (*create_database_mysql.sql*) to create a demo database necessary for some examples.
+3. View and study the API documentation in the folder docs or here [API documentation](http://php-smart-factory.org/smartfactory/) and
 [OAuth2 API documentation](http://php-smart-factory.org/oauth2/).
-- Study the core code of the library SmartFactory.
+4. Study the core code of the library SmartFactory.
 
 ### To start writing own application using SmartFactory
 
