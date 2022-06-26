@@ -1,1 +1,3 @@
 /logs/*.log
+/resources/large_binary_out.jpg
+/resources/large_text_out.txt

@@ -11,21 +11,21 @@ use function SmartFactory\messenger;
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MySQL connection</title>
+    <title>PostgreSQL connection</title>
 
     <link rel="stylesheet" href="css/examples.css" type="text/css"/>
 </head>
 <body>
-<h2>MySQL connection</h2>
+<h2>PostgreSQL connection</h2>
 
 <?php
 function test_database()
 {
     $connection_parameters = [
-        "db_type" => "MySQL",
+        "db_type" => "PostgreSQL",
         "db_server" => "localhost",
         "db_name" => "framework_demo",
-        "db_user" => "root",
+        "db_user" => "postgres",
         "db_password" => "",
         "autoconnect" => true
     ];
@@ -74,6 +74,8 @@ function test_database()
 
     echo "<h2>Prepared query (0, 1)</h2>";
 
+    // PostgreSQL's syntax is: select first_name, last_name, salary from users where salary > $1 and department_id = $2.
+    // Classic syntax is also supported.
     $dbw->prepare_query("select first_name, last_name, salary from users where salary > ? and department_id = ?");
 
     $dbw->execute_prepared_query(0, 1);
@@ -98,7 +100,7 @@ function test_database()
 
     echo "<h2>Prepared DML query</h2>";
 
-    $dbw->prepare_query("update users set salary = salary + ? where department_id = ?");
+    $dbw->prepare_query("update users set salary = salary + $1 where department_id = $2");
 
     $dbw->execute_prepared_query(100, 2);
 
@@ -142,7 +144,7 @@ function test_database()
 
     echo "<h2>Prepared query to array</h2>";
 
-    $dbw->prepare_query("select page_id, language_key, title, content from page_content where page_id > ?");
+    $dbw->prepare_query("select page_id, language_key, title, content from page_content where page_id > $1");
 
     $dbw->execute_prepared_query(0);
 
@@ -170,21 +172,25 @@ function test_database()
 
     $dbw->free_prepared_query();
 
-    echo "<h2>Streaming large data to DB</h2>";
+    echo "<h2>Streaming large data</h2>";
+
+    // large object operations must be done in a transaction
+    //
+    $dbw->start_transaction();
 
     $stream = fopen(approot() . "resources/large_binary.jpg", "rb");
 
-    $dbw->stream_long_data("update large_data set blob_data = ? where id = 1", $stream);
+    $dbw->stream_long_data("update large_data set blob_data = $1 where id = 1", $stream);
 
     echo "Binary written.<br>";
 
     $stream = fopen(approot() . "resources/large_text.txt", "rt");
 
-    $dbw->stream_long_data("update large_data set text_data = ? where id = 1", $stream);
+    $dbw->stream_long_data("update large_data set text_data = $1 where id = 1", $stream);
 
     echo "Text written.<br>";
 
-    $dbw->execute_query("select length(text_data) tds, length(blob_data) bds from large_data where id = 1");
+    $dbw->execute_query("select length(lo_get(text_data)) tds, length(lo_get(blob_data)) bds from large_data where id = 1");
 
     while ($dbw->fetch_row()) {
         echo "text_data size: " . $dbw->field_by_name("tds") . "<br>";
@@ -203,6 +209,8 @@ function test_database()
     }
 
     $dbw->free_result();
+
+    $dbw->commit_transaction();
 
     echo "Date read and placed to files.<br>";
     echo "Text file size: " . filesize(approot() . "resources/large_text_out.txt") . "<br>";
@@ -266,7 +274,7 @@ function test_database()
 
     echo "<h2>Executing stored procedure</h2>";
 
-    $dbw->execute_query("create temporary table if not exists temp (email varchar(255) default null, last_name varchar(500) not null, first_name varchar(500) default null)");
+    $dbw->execute_query("create temporary table temp (email varchar(255) default null, last_name varchar(500) not null, first_name varchar(500) default null)");
 
     $dbw->execute_procedure("collect_users", 100);
 
@@ -288,7 +296,7 @@ try {
     test_database();
 } catch (\Exception $ex) {
     if ($ex->getCode() == 100) {
-        echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in the line 29 of this file!</h4>";
+        echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_postgres.sql' and adjust the DB password and other connection data in the line 29 of this file!</h4>";
     } else {
         messenger()->setError($ex->getMessage());
         report_messages();

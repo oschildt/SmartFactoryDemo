@@ -93,175 +93,167 @@ GO
 USE [framework_demo]
 GO
 
-CREATE TABLE DEPARTMENT (
-  ID INTEGER IDENTITY,
-  NAME VARCHAR(250) NOT NULL,
-  constraint DEPARTMENT_PK primary key nonclustered (ID)
+create table department (
+  id integer identity,
+  name varchar(250) not null,
+  constraint department_pk primary key nonclustered (id)
 )
 go
 
-create unique index DEPARTMENT_NAME_UNQ on DEPARTMENT (
-NAME ASC
+create unique index department_name_unq on department (
+name asc
 )
 go
 
-CREATE TABLE LARGE_DATA (
-  ID INTEGER NOT NULL,
-  BLOB_DATA IMAGE,
-  TEXT_DATA TEXT 
+create table large_data (
+  id integer not null,
+  blob_data image,
+  text_data text 
 ) 
 go
 
-CREATE TABLE PAGE_CONTENT (
-  LANGUAGE_KEY VARCHAR(3) DEFAULT NULL,
-  PAGE_ID INTEGER DEFAULT NULL,
-  TITLE VARCHAR(250) DEFAULT NULL,
-  CONTENT VARCHAR(250) DEFAULT NULL
+create table page_content (
+  language_key varchar(3) default null,
+  page_id integer default null,
+  title varchar(250) default null,
+  content varchar(250) default null
 ) 
 go
 
-create unique index PAGE_CONTENT_UNQ on PAGE_CONTENT (
-LANGUAGE_KEY ASC,
-PAGE_ID ASC
+create unique index page_content_unq on page_content (
+language_key asc,
+page_id asc
 )
 go
 
-CREATE TABLE USERS (
-  ID INTEGER IDENTITY,
-  EMAIL VARCHAR(255) DEFAULT NULL,
-  LAST_NAME VARCHAR(500) NOT NULL,
-  FIRST_NAME VARCHAR(500) DEFAULT NULL,
-  BIRTH_DATE DATETIME DEFAULT NULL,
-  SALARY FLOAT DEFAULT NULL,
-  DEPARTMENT_ID INTEGER NOT NULL,
-  LANGUAGE VARCHAR(20) DEFAULT NULL,
-  TIME_ZONE VARCHAR(20) DEFAULT NULL,
-  constraint USERS_PK primary key nonclustered (ID)
+create table users (
+  id integer identity,
+  email varchar(255) default null,
+  last_name varchar(500) not null,
+  first_name varchar(500) default null,
+  birth_date datetime default null,
+  salary float default null,
+  department_id integer not null,
+  language varchar(20) default null,
+  time_zone varchar(20) default null,
+  constraint users_pk primary key nonclustered (id)
 ) 
 go
 
-CREATE TABLE USER_FORUM_SETTINGS (
-  USER_ID INTEGER,
-  SIGNATURE VARCHAR(250) DEFAULT NULL,
-  STATUS VARCHAR(250) DEFAULT NULL,
-  HIDE_PICTURES INTEGER NOT NULL DEFAULT 0,
-  HIDE_SIGNATURES INTEGER NOT NULL DEFAULT 0
+create table user_forum_settings (
+  user_id integer,
+  signature varchar(250) default null,
+  status varchar(250) default null,
+  hide_pictures integer not null default 0,
+  hide_signatures integer not null default 0
 )
 go
 
-CREATE TABLE USER_COLORS (
-  USER_ID INTEGER,
-  COLOR VARCHAR(255) DEFAULT NULL   
+create table user_colors (
+  user_id integer,
+  color varchar(255) default null   
 )
 go
 
-SET IDENTITY_INSERT DEPARTMENT ON
+set identity_insert department on
 go
 
-INSERT INTO DEPARTMENT (ID, NAME) VALUES
-  (1,'Management')
+insert into department (id, name) values
+  (1,'management')
 go
-INSERT INTO DEPARTMENT (ID, NAME) VALUES
-  (2,'Marketing')
+insert into department (id, name) values
+  (2,'marketing')
 go
-INSERT INTO DEPARTMENT (ID, NAME) VALUES
-  (3,'Development')
+insert into department (id, name) values
+  (3,'development')
 go
-INSERT INTO DEPARTMENT (ID, NAME) VALUES
-  (4,'PR')
-go
-
-SET IDENTITY_INSERT DEPARTMENT OFF
+insert into department (id, name) values
+  (4,'pr')
 go
 
-INSERT INTO LARGE_DATA (ID, BLOB_DATA, TEXT_DATA) VALUES
-  (1,NULL,NULL)
+set identity_insert department off
 go
 
-INSERT INTO PAGE_CONTENT (LANGUAGE_KEY, PAGE_ID, TITLE, CONTENT) VALUES
+insert into large_data (id, blob_data, text_data) values
+  (1,null,null)
+go
+
+insert into page_content (language_key, page_id, title, content) values
   ('en',1,'page 1 title en','page 1 content en')
 go
-INSERT INTO PAGE_CONTENT (LANGUAGE_KEY, PAGE_ID, TITLE, CONTENT) VALUES
+insert into page_content (language_key, page_id, title, content) values
   ('de',1,'page 1 title de','page 1 content de')
 go
-INSERT INTO PAGE_CONTENT (LANGUAGE_KEY, PAGE_ID, TITLE, CONTENT) VALUES
+insert into page_content (language_key, page_id, title, content) values
   ('ru',1,'page 1 title ru','page 1 content ru')
 go
-INSERT INTO PAGE_CONTENT (LANGUAGE_KEY, PAGE_ID, TITLE, CONTENT) VALUES
+insert into page_content (language_key, page_id, title, content) values
   ('en',2,'page 2 title en','page 2 content en')
 go
-INSERT INTO PAGE_CONTENT (LANGUAGE_KEY, PAGE_ID, TITLE, CONTENT) VALUES
+insert into page_content (language_key, page_id, title, content) values
   ('de',2,'page 2 title de','page 2 content de')
 go
-INSERT INTO PAGE_CONTENT (LANGUAGE_KEY, PAGE_ID, TITLE, CONTENT) VALUES
+insert into page_content (language_key, page_id, title, content) values
   ('ru',2,'page 2 title ru','page 2 content ru')
 go
 
-SET IDENTITY_INSERT USERS ON
+set identity_insert users on
 go
 
-INSERT INTO USERS (ID, EMAIL, LAST_NAME, FIRST_NAME, BIRTH_DATE, SALARY, DEPARTMENT_ID) VALUES
+insert into users (id, email, last_name, first_name, birth_date, salary, department_id) values
   (1,'jsmith@gmail.com','Smith','John','1970-02-02 00:00:00',1000.000,1)
 go
-INSERT INTO USERS (ID, EMAIL, LAST_NAME, FIRST_NAME, BIRTH_DATE, SALARY, DEPARTMENT_ID) VALUES
+insert into users (id, email, last_name, first_name, birth_date, salary, department_id) values
   (2,'sparker@gmail.com','Parker','Sarah','1976-02-04 00:00:00',2000.000,1)
 go
-INSERT INTO USERS (ID, EMAIL, LAST_NAME, FIRST_NAME, BIRTH_DATE, SALARY, DEPARTMENT_ID) VALUES
+insert into users (id, email, last_name, first_name, birth_date, salary, department_id) values
   (3,'apetrov@gmail.com','Petrov','Alexei','1980-12-03 00:00:00',1500.000,1)
 go
-INSERT INTO USERS (ID, EMAIL, LAST_NAME, FIRST_NAME, BIRTH_DATE, SALARY, DEPARTMENT_ID) VALUES
+insert into users (id, email, last_name, first_name, birth_date, salary, department_id) values
   (4,'lsmirnova@gmail.com','Smirnova','Lena','1981-03-12 00:00:00',1200.000,1)
 go
-INSERT INTO USERS (ID, EMAIL, LAST_NAME, FIRST_NAME, BIRTH_DATE, SALARY, DEPARTMENT_ID) VALUES
+insert into users (id, email, last_name, first_name, birth_date, salary, department_id) values
   (5,'rschneider@gmail.com','Schnieder','Rolf','1960-09-08 00:00:00',3000.000,2)
 go
-INSERT INTO USERS (ID, EMAIL, LAST_NAME, FIRST_NAME, BIRTH_DATE, SALARY, DEPARTMENT_ID) VALUES
+insert into users (id, email, last_name, first_name, birth_date, salary, department_id) values
   (6,'uweinrich@gmail.com','Weinrich','Ulla','1979-01-05 00:00:00',2000.000,2)
 go
-INSERT INTO USERS (ID, EMAIL, LAST_NAME, FIRST_NAME, BIRTH_DATE, SALARY, DEPARTMENT_ID) VALUES
+insert into users (id, email, last_name, first_name, birth_date, salary, department_id) values
   (7,'aivanov@gmail.com','Ivanov','Alexander','1983-08-09 00:00:00',2300.000,2)
 go
-INSERT INTO USERS (ID, EMAIL, LAST_NAME, FIRST_NAME, BIRTH_DATE, SALARY, DEPARTMENT_ID) VALUES
+insert into users (id, email, last_name, first_name, birth_date, salary, department_id) values
   (8,'rschmidt@gmail.com','Schmidt','Ralf','1974-09-08 00:00:00',3400.000,3)
 go
-INSERT INTO USERS (ID, EMAIL, LAST_NAME, FIRST_NAME, BIRTH_DATE, SALARY, DEPARTMENT_ID) VALUES
+insert into users (id, email, last_name, first_name, birth_date, salary, department_id) values
   (9,'esinneger@gmail.com','Sinnegger','Elmar','1968-09-04 00:00:00',1800.000,3)
 go
-INSERT INTO USERS (ID, EMAIL, LAST_NAME, FIRST_NAME, BIRTH_DATE, SALARY, DEPARTMENT_ID) VALUES
+insert into users (id, email, last_name, first_name, birth_date, salary, department_id) values
   (10,'ahummel@gmail.com','Hummel','Angelika','1970-04-05 00:00:00',2800.000,3)
 go
 
-SET IDENTITY_INSERT USERS OFF
+set identity_insert users off
 go
 
-INSERT INTO USER_FORUM_SETTINGS (USER_ID, SIGNATURE, STATUS, HIDE_PICTURES, HIDE_SIGNATURES) VALUES
-  (1,'i am here','Guest',1,1)
+insert into user_forum_settings (user_id, signature, status, hide_pictures, hide_signatures) values
+  (1,'i am here','guest',1,1)
 go
 
-INSERT INTO USER_COLORS (USER_ID, COLOR) VALUES
+insert into user_colors (user_id, color) values
   (1,'yellow')
 go
-INSERT INTO USER_COLORS (USER_ID, COLOR) VALUES
+insert into user_colors (user_id, color) values
   (1,'red')
 go
-INSERT INTO USER_COLORS (USER_ID, COLOR) VALUES
+insert into user_colors (user_id, color) values
   (1,'green')
 go
 
-CREATE PROCEDURE GET_USERS @MIN_SALARY AS FLOAT
-AS
-BEGIN
-  CREATE TABLE #TEMP (
-    EMAIL VARCHAR(255) DEFAULT NULL,
-    LAST_NAME VARCHAR(500) NOT NULL,
-    FIRST_NAME VARCHAR(500) DEFAULT NULL
-  ) 
-  
-  INSERT INTO #TEMP (EMAIL, LAST_NAME, FIRST_NAME)
-  SELECT EMAIL, LAST_NAME, FIRST_NAME FROM USERS WHERE SALARY >= @MIN_SALARY
-  
-  SELECT * FROM #TEMP
-  
-  DROP TABLE #TEMP
-END
+create procedure collect_users @min_salary as float
+as
+begin
+  delete from #temp
+
+  insert into #temp (email, last_name, first_name)
+  select email, last_name, first_name from users where salary >= @min_salary
+end
 go

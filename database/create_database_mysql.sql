@@ -2,134 +2,134 @@ drop database if exists framework_demo;
 
 create database if not exists framework_demo;
 
-alter database framework_demo CHARACTER SET utf8 collate utf8_general_ci;
+alter database framework_demo character set utf8 collate utf8_general_ci;
 
 use framework_demo;
 
-CREATE TABLE `DEPARTMENT` (
-  `ID` INTEGER(11) NOT NULL AUTO_INCREMENT,
-  `NAME` VARCHAR(250) COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`ID`) USING BTREE,
-  UNIQUE KEY `ID` (`ID`) USING BTREE,
-  UNIQUE KEY `NAME` (`NAME`) USING BTREE
-) ENGINE=InnoDB
-AUTO_INCREMENT=5 AVG_ROW_LENGTH=4096 ROW_FORMAT=DYNAMIC CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+create table `department` (
+  `id` integer(11) not null auto_increment,
+  `name` varchar(250) collate utf8_general_ci not null,
+  primary key (`id`) using btree,
+  unique key `id` (`id`) using btree,
+  unique key `name` (`name`) using btree
+) engine=innodb
+auto_increment=5 avg_row_length=4096 row_format=dynamic character set 'utf8' collate 'utf8_general_ci'
 ;
 
-CREATE TABLE `LARGE_DATA` (
-  `ID` INTEGER(11) NOT NULL,
-  `BLOB_DATA` LONGBLOB,
-  `TEXT_DATA` LONGTEXT COLLATE utf8_general_ci
-) ENGINE=InnoDB
-ROW_FORMAT=DYNAMIC CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+create table `large_data` (
+  `id` integer(11) not null,
+  `blob_data` longblob,
+  `text_data` longtext collate utf8_general_ci
+) engine=innodb
+row_format=dynamic character set 'utf8' collate 'utf8_general_ci'
 ;
 
-CREATE TABLE `PAGE_CONTENT` (
-  `LANGUAGE_KEY` VARCHAR(3) COLLATE utf8_general_ci NOT NULL,
-  `PAGE_ID` INTEGER(11) NOT NULL,
-  `TITLE` VARCHAR(250) COLLATE utf8_general_ci DEFAULT NULL,
-  `CONTENT` VARCHAR(250) COLLATE utf8_general_ci DEFAULT NULL,
-  UNIQUE KEY `PAGE_CONTENT_UNQ` (`LANGUAGE_KEY`, `PAGE_ID`) USING BTREE
-) ENGINE=InnoDB
-ROW_FORMAT=DYNAMIC CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+create table `page_content` (
+  `language_key` varchar(3) collate utf8_general_ci not null,
+  `page_id` integer(11) not null,
+  `title` varchar(250) collate utf8_general_ci default null,
+  `content` varchar(250) collate utf8_general_ci default null,
+  unique key `page_content_unq` (`language_key`, `page_id`) using btree
+) engine=innodb
+row_format=dynamic character set 'utf8' collate 'utf8_general_ci'
 ;
 
-CREATE TABLE `PAGES` (
-  `ID` INTEGER(11) NOT NULL AUTO_INCREMENT,
-  `PAGE_NAME` VARCHAR(250) COLLATE utf8_general_ci NOT NULL,
-  `PAGE_TYPE` VARCHAR(20) COLLATE utf8_general_ci NOT NULL,
-  `PAGE_ORDER` INTEGER(11) DEFAULT NULL,
-  `PAGE_DATE` DATETIME(6) DEFAULT NULL,
-  PRIMARY KEY (`ID`) USING BTREE,
-  UNIQUE KEY `PAGE_NAME_UNQ` (`PAGE_NAME`) USING BTREE
-) ENGINE=InnoDB
-AUTO_INCREMENT=7 ROW_FORMAT=DYNAMIC CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+create table `pages` (
+  `id` integer(11) not null auto_increment,
+  `page_name` varchar(250) collate utf8_general_ci not null,
+  `page_type` varchar(20) collate utf8_general_ci not null,
+  `page_order` integer(11) default null,
+  `page_date` datetime(6) default null,
+  primary key (`id`) using btree,
+  unique key `page_name_unq` (`page_name`) using btree
+) engine=innodb
+auto_increment=7 row_format=dynamic character set 'utf8' collate 'utf8_general_ci'
 ;
 
-CREATE TABLE `ROOM_PRICES` (
-  `ROOM` VARCHAR(250) COLLATE utf8_general_ci NOT NULL,
-  `DT` DATE NOT NULL,
-  `PRICE` FLOAT(9,3) DEFAULT NULL
-) ENGINE=InnoDB
-ROW_FORMAT=DYNAMIC CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+create table `room_prices` (
+  `room` varchar(250) collate utf8_general_ci not null,
+  `dt` date not null,
+  `price` float(9,3) default null
+) engine=innodb
+row_format=dynamic character set 'utf8' collate 'utf8_general_ci'
 ;
 
-CREATE TABLE `SETTINGS` (
-  `DATA` TEXT COLLATE utf8_general_ci
-) ENGINE=InnoDB
-ROW_FORMAT=DYNAMIC CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+create table `settings` (
+  `data` text collate utf8_general_ci
+) engine=innodb
+row_format=dynamic character set 'utf8' collate 'utf8_general_ci'
 ;
 
-CREATE TABLE `USERS` (
-  `ID` INTEGER(11) NOT NULL AUTO_INCREMENT,
-  `EMAIL` VARCHAR(255) COLLATE latin1_swedish_ci DEFAULT NULL,
-  `LAST_NAME` VARCHAR(500) COLLATE latin1_swedish_ci NOT NULL,
-  `FIRST_NAME` VARCHAR(500) COLLATE latin1_swedish_ci DEFAULT NULL,
-  `BIRTH_DATE` DATETIME DEFAULT NULL,
-  `SALARY` DOUBLE(15,3) DEFAULT NULL,
-  `DEPARTMENT_ID` INTEGER(11) NOT NULL,
-  `LANGUAGE` VARCHAR(20) COLLATE latin1_swedish_ci DEFAULT NULL,
-  `TIME_ZONE` VARCHAR(20) COLLATE latin1_swedish_ci DEFAULT NULL,
-  PRIMARY KEY (`ID`) USING BTREE,
-  UNIQUE KEY `ID` (`ID`) USING BTREE
-) ENGINE=InnoDB
-AUTO_INCREMENT=11 AVG_ROW_LENGTH=1638 ROW_FORMAT=DYNAMIC CHARACTER SET 'latin1' COLLATE 'latin1_swedish_ci'
+create table `users` (
+  `id` integer(11) not null auto_increment,
+  `email` varchar(255) collate latin1_swedish_ci default null,
+  `last_name` varchar(500) collate latin1_swedish_ci not null,
+  `first_name` varchar(500) collate latin1_swedish_ci default null,
+  `birth_date` datetime default null,
+  `salary` double(15,3) default null,
+  `department_id` integer(11) not null,
+  `language` varchar(20) collate latin1_swedish_ci default null,
+  `time_zone` varchar(20) collate latin1_swedish_ci default null,
+  primary key (`id`) using btree,
+  unique key `id` (`id`) using btree
+) engine=innodb
+auto_increment=11 avg_row_length=1638 row_format=dynamic character set 'latin1' collate 'latin1_swedish_ci'
 ;
 
-CREATE TABLE `USER_FORUM_SETTINGS` (
-  `USER_ID` INTEGER(11) NOT NULL,
-  `SIGNATURE` VARCHAR(250) COLLATE latin1_swedish_ci DEFAULT NULL,
-  `STATUS` VARCHAR(250) COLLATE latin1_swedish_ci DEFAULT NULL,
-  `HIDE_PICTURES` INTEGER(11) NOT NULL DEFAULT 0,
-  `HIDE_SIGNATURES` INTEGER(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB
-ROW_FORMAT=DYNAMIC CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+create table `user_forum_settings` (
+  `user_id` integer(11) not null,
+  `signature` varchar(250) collate latin1_swedish_ci default null,
+  `status` varchar(250) collate latin1_swedish_ci default null,
+  `hide_pictures` integer(11) not null default 0,
+  `hide_signatures` integer(11) not null default 0
+) engine=innodb
+row_format=dynamic character set 'utf8' collate 'utf8_general_ci'
 ;
 
-CREATE TABLE `USER_COLORS` (
-  `USER_ID` INTEGER(11) NOT NULL,
-  `COLOR` VARCHAR(255) COLLATE latin1_swedish_ci DEFAULT NULL   
-) ENGINE=InnoDB
-ROW_FORMAT=DYNAMIC CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+create table `user_colors` (
+  `user_id` integer(11) not null,
+  `color` varchar(255) collate latin1_swedish_ci default null   
+) engine=innodb
+row_format=dynamic character set 'utf8' collate 'utf8_general_ci'
 ;
 
-INSERT INTO `DEPARTMENT` (`ID`, `NAME`) VALUES
-  (1,'Management'),
-  (2,'Marketing'),
-  (3,'Development'),
-  (4,'PR');
+insert into `department` (`id`, `name`) values
+  (1,'management'),
+  (2,'marketing'),
+  (3,'development'),
+  (4,'pr');
 
-INSERT INTO `LARGE_DATA` (`ID`, `BLOB_DATA`, `TEXT_DATA`) VALUES
-  (1,NULL,NULL);
+insert into `large_data` (`id`, `blob_data`, `text_data`) values
+  (1,null,null);
 
-INSERT INTO `PAGE_CONTENT` (`LANGUAGE_KEY`, `PAGE_ID`, `TITLE`, `CONTENT`) VALUES
+insert into `page_content` (`language_key`, `page_id`, `title`, `content`) values
   ('de',1,'page 1 title de22','page 1 content de22'),
   ('de',2,'page 2 title de','page 2 content de'),
   ('de',3,'at de11','ac de11'),
   ('de',4,'333','444'),
   ('de',5,'33','44'),
-  ('de',6,NULL,NULL),
+  ('de',6,null,null),
   ('en',1,'page 1 title en2211','page 1 content en2211'),
   ('en',2,'page 2 title en','page 2 content en'),
   ('en',3,'at en11','ac en11'),
   ('en',4,'111','222'),
   ('en',5,'11','22'),
-  ('en',6,NULL,NULL),
+  ('en',6,null,null),
   ('ru',1,'page 1 title ru22','page 1 content ru22'),
   ('ru',2,'page 2 title ru','page 2 content ru'),
   ('ru',3,'at ru11','ac ru11'),
   ('ru',4,'555','666'),
   ('ru',5,'55','66'),
-  ('ru',6,NULL,NULL);
+  ('ru',6,null,null);
 
-INSERT INTO `PAGES` (`ID`, `PAGE_NAME`, `PAGE_TYPE`, `PAGE_ORDER`, `PAGE_DATE`) VALUES
+insert into `pages` (`id`, `page_name`, `page_type`, `page_order`, `page_date`) values
   (1,'home','page',11,'1975-06-08 11:20:00.000000'),
   (3,'about','page',12,'1978-02-12 12:00:00.000000'),
   (4,'oleg','page',4,'1980-02-02 12:45:00.000000'),
-  (5,'alex','page',12,NULL),
-  (6,'lena','page',12,NULL);
+  (5,'alex','page',12,null),
+  (6,'lena','page',12,null);
 
-INSERT INTO `ROOM_PRICES` (`ROOM`, `DT`, `PRICE`) VALUES
+insert into `room_prices` (`room`, `dt`, `price`) values
   ('single_room','2018-04-01',333.000),
   ('single_room','2018-04-02',12.000),
   ('single_room','2018-04-03',13.000),
@@ -159,10 +159,10 @@ INSERT INTO `ROOM_PRICES` (`ROOM`, `DT`, `PRICE`) VALUES
   ('suite_delux','2018-04-05',45.000),
   ('suite_delux','2018-04-06',46.000);
 
-INSERT INTO `SETTINGS` (`DATA`) VALUES
-  (NULL);
+insert into `settings` (`data`) values
+  (null);
 
-INSERT INTO `USERS` (`ID`, `EMAIL`, `LAST_NAME`, `FIRST_NAME`, `BIRTH_DATE`, `SALARY`, `DEPARTMENT_ID`, `LANGUAGE`, `TIME_ZONE`) VALUES
+insert into `users` (`id`, `email`, `last_name`, `first_name`, `birth_date`, `salary`, `department_id`, `language`, `time_zone`) values
   (1,'jsmith@gmail.com','Smith','John','1970-02-02 00:00:00',1000.000,1,'az','europe'),
   (2,'sparker@gmail.com','Parker','Sarah','1976-02-04 00:00:00',2000.000,1,NULL,NULL),
   (3,'apetrov@gmail.com','Petrov','Alexei','1980-12-03 00:00:00',1500.000,1,NULL,NULL),
@@ -174,37 +174,27 @@ INSERT INTO `USERS` (`ID`, `EMAIL`, `LAST_NAME`, `FIRST_NAME`, `BIRTH_DATE`, `SA
   (9,'esinneger@gmail.com','Sinnegger','Elmar','1968-09-04 00:00:00',1800.000,3,NULL,NULL),
   (10,'ahummel@gmail.com','Hummel','Angelika','1970-04-05 00:00:00',2800.000,3,NULL,NULL);
 
-INSERT INTO `USER_FORUM_SETTINGS` (`USER_ID`, `SIGNATURE`, `STATUS`, `HIDE_PICTURES`, `HIDE_SIGNATURES`) VALUES
-  (1,'i am here','Guest',1,1);
+insert into `user_forum_settings` (`user_id`, `signature`, `status`, `hide_pictures`, `hide_signatures`) values
+  (1,'i am here','guest',1,1);
 
-INSERT INTO `USER_COLORS` (`USER_ID`, `COLOR`) VALUES
+insert into `user_colors` (`user_id`, `color`) values
   (1,'yellow'),
   (1,'red'),
   (1,'green');
 
-DELIMITER //
+delimiter //
    
-CREATE PROCEDURE GET_USERS(P_MIN_SALARY FLOAT)
-    DETERMINISTIC
-    SQL SECURITY INVOKER
-    COMMENT ''
-BEGIN
-  CREATE TEMPORARY TABLE IF NOT EXISTS TEMP(
-    EMAIL VARCHAR(255) DEFAULT NULL,
-    LAST_NAME VARCHAR(500) NOT NULL,
-    FIRST_NAME VARCHAR(500) DEFAULT NULL
-  );
+create procedure collect_users(p_min_salary float)
+    deterministic
+    sql security invoker
+    comment ''
+begin
+  delete from temp;
   
-  DELETE FROM TEMP;
-
-  INSERT INTO TEMP (EMAIL, LAST_NAME, FIRST_NAME)
-  SELECT EMAIL, LAST_NAME, FIRST_NAME FROM USERS WHERE SALARY >= P_MIN_SALARY;
-  
-  SELECT * FROM TEMP;
-  
-  DROP TABLE TEMP;
-END;
+  insert into temp (email, last_name, first_name)
+  select email, last_name, first_name from users where salary >= p_min_salary;
+end;
   
 //
 
-DELIMITER ;
+delimiter ;
