@@ -17,7 +17,9 @@ use function SmartFactory\singleton;
     <link rel="stylesheet" href="css/examples.css" type="text/css"/>
 </head>
 <body>
-<h2>Auth Test</h2>
+<h2>Authentication Test</h2>
+
+<pre>
 
 <?php
 
@@ -48,149 +50,191 @@ $oam->init($params);
 $response = [];
 $credentials = [];
 
-$credentials["client_id"] = "client_1000";
+$credentials["client_id"] = $_SERVER['HTTP_USER_AGENT'];
 $credentials["user_login"] = "john";
-$credentials["user_password"] = "smith";
+$credentials["user_password"] = "qwerty";
 
 $user_id = null;
 $refresh_token = "";
 
-echo "<h3>Authentication</h3>";
+echo "<h2>Authentication</h2>";
 
 try {
+    echo "<h3>Response from authenticateUser</h3>";
     $oam->authenticateUser($credentials, $response);
-    
-    echo "<pre>";
     print_r($response);
-    echo "</pre>";
-    
+
     $refresh_token = $response["refresh_token"];
     $user_id = $response["user_id"];
-    
-    echo "Verified payload:<br>";
-    echo "<pre>";
-    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
-    echo "</pre>";
 
-    echo "Verified resefresh token:" . $oam->verifyRefreshToken($refresh_token, $user_id, $credentials["client_id"]);
-    echo "<br>";
+    echo "<h3>Verifying access token</h3>";
+
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
+
+    echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
+
+    echo "<h3>Verifying resefresh token</h3>";
+    $oam->verifyRefreshToken($refresh_token, $user_id, $credentials["client_id"]);
+
+    echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
 } catch (\Exception $ex) {
-    echo $ex->getMessage() . "<br>";
+    echo "<p style='color: red; font-weight: bold'>" . $ex->getMessage() . "</p>";
 }
 
-echo "<h3>Refreshing access token</h3>";
+echo "<h2>Refreshing tokens</h2>";
 
 try {
     $oam->refreshTokens($refresh_token, $user_id, $credentials["client_id"], $response);
     
+    echo "<h3>Response from refreshTokens</h3>";
+    print_r($response);
+
     $refresh_token = $response["refresh_token"];
     $user_id = $response["user_id"];
-    
-    echo "Response from refreshTokens:<br>";
-    echo "<pre>";
-    print_r($response);
-    echo "</pre>";
-    
-    echo "Verified payload:<br>";
-    echo "<pre>";
-    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], false));
-    echo "</pre>";
+
+    echo "<h3>Verifying access token</h3>";
+
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
+
+    echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
+
+    echo "<h3>Verifying resefresh token</h3>";
+    $oam->verifyRefreshToken($refresh_token, $user_id, $credentials["client_id"]);
+
+    echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
 } catch (\Exception $ex) {
-    echo $ex->getMessage() . "<br>";
+    echo "<p style='color: red; font-weight: bold'>" . $ex->getMessage() . "</p>";
 }
 
-echo "<h3>Invalidation of the user</h3>";
+echo "<h2>Invalidation of the user</h2>";
 
 try {
-    echo "result:" . $oam->invalidateUser($user_id, $credentials["client_id"], $refresh_token);
-    echo "<br>";
+    $oam->invalidateUser($user_id, $credentials["client_id"], $refresh_token);
+    echo "<p style='color: green; font-weight: bold'>Invalidation succeeded.</p>";
+
+    echo "<h3>Verifying access token (must fail)</h3>";
+
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
 } catch (\Exception $ex) {
-    echo $ex->getMessage() . "<br>";
+    echo "<p style='color: red; font-weight: bold'>" . $ex->getMessage() . "</p>";
 }
 
+echo "<h2>Re-authentication</h2>";
+
 try {
-    echo "<h3>Re-authentication</h3>";
+    echo "<h3>Response from authenticateUser</h3>";
     $oam->authenticateUser($credentials, $response);
-    
+    print_r($response);
+
     $refresh_token = $response["refresh_token"];
     $user_id = $response["user_id"];
-    
-    echo "<pre>";
-    print_r($response);
-    echo "</pre>";
-    
-    echo "Verified payload:<br>";
-    echo "<pre>";
+
+    echo "<h3>Verifying access token</h3>";
+
     print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
-    echo "</pre>";
+
+    echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
+
+    echo "<h3>Verifying resefresh token</h3>";
+    $oam->verifyRefreshToken($refresh_token, $user_id, $credentials["client_id"]);
+
+    echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
 } catch (\Exception $ex) {
-    echo $ex->getMessage() . "<br>";
+    echo "<p style='color: red; font-weight: bold'>" . $ex->getMessage() . "</p>";
 }
 
-echo "<h3>Invalidation of the client</h3>";
+echo "<h2>Invalidation of the client</h2>";
 
 try {
-    echo "result:" . $oam->invalidateClient($user_id, $credentials["client_id"], $refresh_token);
-    echo "<br>";
+    $oam->invalidateClient($user_id, $credentials["client_id"], $refresh_token);
+    echo "<p style='color: green; font-weight: bold'>Invalidation succeeded.</p>";
+
+    echo "<h3>Verifying access token (must fail)</h3>";
+
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
 } catch (\Exception $ex) {
-    echo $ex->getMessage() . "<br>";
+    echo "<p style='color: red; font-weight: bold'>" . $ex->getMessage() . "</p>";
 }
 
+echo "<h2>Re-authentication</h2>";
+
 try {
-    echo "<h3>Re-authentication</h3>";
+    echo "<h3>Response from authenticateUser</h3>";
     $oam->authenticateUser($credentials, $response);
-    
-    $refresh_token = $response["refresh_token"];
-    
-    echo "<pre>";
     print_r($response);
-    echo "</pre>";
-    
-    echo "Verified payload:<br>";
-    echo "<pre>";
+
+    $refresh_token = $response["refresh_token"];
+    $user_id = $response["user_id"];
+
+    echo "<h3>Verifying access token</h3>";
+
     print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
-    echo "</pre>";
+
+    echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
+
+    echo "<h3>Verifying resefresh token</h3>";
+    $oam->verifyRefreshToken($refresh_token, $user_id, $credentials["client_id"]);
+
+    echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
 } catch (\Exception $ex) {
-    echo $ex->getMessage() . "<br>";
+    echo "<p style='color: red; font-weight: bold'>" . $ex->getMessage() . "</p>";
 }
 
-echo "<h3>Invalidation of the access token</h3>";
+echo "<h2>Invalidation of the access token</h2>";
 
 try {
-    echo "result:" . $oam->invalidateJwtAccessToken($response["jwt_access_token"]);
-    echo "<br>";
+    $oam->invalidateJwtAccessToken($response["jwt_access_token"]);
+    echo "<p style='color: green; font-weight: bold'>Invalidation succeeded.</p>";
+
+    echo "<h3>Verifying access token (must fail)</h3>";
+
+    print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
 } catch (\Exception $ex) {
-    echo $ex->getMessage() . "<br>";
+    echo "<p style='color: red; font-weight: bold'>" . $ex->getMessage() . "</p>";
 }
 
+echo "<h2>Re-authentication</h2>";
+
 try {
-    echo "<h3>Re-authentication</h3>";
-    
+    echo "<h3>Response from authenticateUser</h3>";
     $oam->authenticateUser($credentials, $response);
-    
-    $refresh_token = $response["refresh_token"];
-    
-    echo "<pre>";
     print_r($response);
-    echo "</pre>";
-    
-    echo "Verified payload:<br>";
-    echo "<pre>";
+
+    $refresh_token = $response["refresh_token"];
+    $user_id = $response["user_id"];
+
+    echo "<h3>Verifying access token</h3>";
+
     print_r($oam->verifyJwtAccessToken($response["jwt_access_token"], true));
-    echo "</pre>";
+
+    echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
+
+    echo "<h3>Verifying resefresh token</h3>";
+    $oam->verifyRefreshToken($refresh_token, $user_id, $credentials["client_id"]);
+
+    echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
 } catch (\Exception $ex) {
-    echo $ex->getMessage() . "<br>";
+    echo "<p style='color: red; font-weight: bold'>" . $ex->getMessage() . "</p>";
 }
 
-echo "<h3>Invalidation of the refresh token</h3>";
+echo "<h2>Invalidation of the refresh token</h2>";
 
 try {
-    echo "result:" . $oam->invalidateRefreshToken($refresh_token);
-    echo "<br>";
+    $oam->invalidateRefreshToken($refresh_token);
+    echo "<p style='color: green; font-weight: bold'>Invalidation succeeded.</p>";
+
+    $refresh_token = $response["refresh_token"];
+    $user_id = $response["user_id"];
+
+    echo "<h3>Verifying refrech token (must fail)</h3>";
+
+    $oam->verifyRefreshToken($refresh_token, $user_id, $credentials["client_id"]);
 } catch (\Exception $ex) {
-    echo $ex->getMessage() . "<br>";
+    echo "<p style='color: red; font-weight: bold'>" . $ex->getMessage() . "</p>";
 }
 ?>
+
+</pre>
 
 </body>
 </html>

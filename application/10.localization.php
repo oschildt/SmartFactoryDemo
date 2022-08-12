@@ -47,8 +47,13 @@ echo "hasTranslation 'DatabaseName': " . $lmanager->hasTranslation('DatabaseName
 echo "</p>";
 
 echo "<p>";
-// $dummy = 'wrox_pox' to avoid warning in langtester.php
-echo "Translation 'wrox_pox': " . $lmanager->text($dummy = 'wrox_pox') . "<br>";
+echo "Translation 'Forms': " . $lmanager->text('Forms') . "<br>";
+echo "Translation 'Forms (short function)': " . text('Forms') . "<br>";
+echo "hasTranslation 'Forms': " . $lmanager->hasTranslation('Forms') . "<br>";
+echo "</p>";
+
+echo "<p>";
+echo "Translation 'wrox_pox': " . $lmanager->text('wrox_pox') . "<br>";
 echo "hasTranslation 'wrox_pox': " . $lmanager->hasTranslation('wrox_pox') . "<br>";
 echo "</p>";
 

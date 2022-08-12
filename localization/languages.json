@@ -1,0 +1,397 @@
+{
+    "ab": {
+        "en": "Abkhazian",
+        "de": "Abchasisch",
+        "ru": "Абхазкий"
+    },
+    "af": {
+        "en": "Afrikaans",
+        "de": "Afrikanisch",
+        "ru": "Африканский"
+    },
+    "ar": {
+        "en": "Arabic",
+        "de": "Arabisch",
+        "ru": "Арабский"
+    },
+    "az": {
+        "en": "Azerbaijani",
+        "de": "Aserbaidschanisch",
+        "ru": "Азербайджанский"
+    },
+    "ba": {
+        "en": "Bashkir",
+        "de": "Baschkirisch",
+        "ru": "Башкирский"
+    },
+    "be": {
+        "en": "Belarusian",
+        "de": "Weißrussisch",
+        "ru": "Беларусский"
+    },
+    "bg": {
+        "en": "Bulgarian",
+        "de": "Bulgarisch",
+        "ru": "Болгарский"
+    },
+    "bo": {
+        "en": "Tibetan",
+        "de": "Tibetisch",
+        "ru": "Тибетский"
+    },
+    "bs": {
+        "en": "Bosnian",
+        "de": "Bosnisch",
+        "ru": "Боснийский"
+    },
+    "ca": {
+        "en": "Catalan",
+        "de": "Catalan",
+        "ru": "Каталанский"
+    },
+    "ce": {
+        "en": "Chechen",
+        "de": "Tschetschenisch",
+        "ru": "Чеченский"
+    },
+    "cs": {
+        "en": "Czech",
+        "de": "Tschechisch",
+        "ru": "Чешский"
+    },
+    "cv": {
+        "en": "Chuvash",
+        "de": "Tschuwaschisch",
+        "ru": "Чувашский"
+    },
+    "cy": {
+        "en": "Welsh",
+        "de": "Walisisch",
+        "ru": "Уэльский"
+    },
+    "da": {
+        "en": "Danish",
+        "de": "Dänisch",
+        "ru": "Датский"
+    },
+    "de": {
+        "en": "German",
+        "de": "Deutsch",
+        "ru": "Немецкий"
+    },
+    "el": {
+        "en": "Greek",
+        "de": "Greek",
+        "ru": "Греческий"
+    },
+    "en": {
+        "en": "English",
+        "de": "Englisch",
+        "ru": "Английский"
+    },
+    "eo": {
+        "en": "Esperanto",
+        "de": "Esperanto",
+        "ru": "Эсперанто"
+    },
+    "es": {
+        "en": "Spanish",
+        "de": "Spanisch",
+        "ru": "Испанский"
+    },
+    "et": {
+        "en": "Estonian",
+        "de": "Estnisch",
+        "ru": "Эстонский"
+    },
+    "eu": {
+        "en": "Basque",
+        "de": "Baskisch",
+        "ru": "Баскский"
+    },
+    "fa": {
+        "en": "Persian",
+        "de": "Persisch",
+        "ru": "Персидский"
+    },
+    "fi": {
+        "en": "Finnish",
+        "de": "Finnisch",
+        "ru": "Финский"
+    },
+    "fr": {
+        "en": "French",
+        "de": "Französisch",
+        "ru": "Французкий"
+    },
+    "ga": {
+        "en": "Irish",
+        "de": "Irisch",
+        "ru": "Ирландский"
+    },
+    "he": {
+        "en": "Hebrew",
+        "de": "Jüdisch",
+        "ru": "Еврейский"
+    },
+    "hi": {
+        "en": "Hindi",
+        "de": "Hindi",
+        "ru": "Хинди"
+    },
+    "hr": {
+        "en": "Croatian",
+        "de": "Kroatisch",
+        "ru": "Хорватский"
+    },
+    "hu": {
+        "en": "Hungarian",
+        "de": "Ungarisch",
+        "ru": "Венгерский"
+    },
+    "hy": {
+        "en": "Armenian",
+        "de": "Armenisch",
+        "ru": "Армянский"
+    },
+    "ia": {
+        "en": "Interlingua",
+        "de": "Interlingua",
+        "ru": "Интерлингва"
+    },
+    "id": {
+        "en": "Indonesian",
+        "de": "Indonesisch",
+        "ru": "Индонезийский"
+    },
+    "is": {
+        "en": "Icelandic",
+        "de": "Isländisch",
+        "ru": "Исландский"
+    },
+    "it": {
+        "en": "Italian",
+        "de": "Italienisch",
+        "ru": "Итальянский"
+    },
+    "ja": {
+        "en": "Japanese",
+        "de": "Japanisch",
+        "ru": "Японский"
+    },
+    "ka": {
+        "en": "Georgian",
+        "de": "Georgisch",
+        "ru": "Грузинский"
+    },
+    "kg": {
+        "en": "Kongo",
+        "de": "Kongo",
+        "ru": "Конго"
+    },
+    "kk": {
+        "en": "Kazakh",
+        "de": "Kasachisch",
+        "ru": "Казахский"
+    },
+    "ko": {
+        "en": "Korean",
+        "de": "Koreanisch",
+        "ru": "Корейский"
+    },
+    "ku": {
+        "en": "Kurdish",
+        "de": "Kurdisch",
+        "ru": "Курдский"
+    },
+    "kv": {
+        "en": "Komi",
+        "de": "Komi",
+        "ru": "Коми"
+    },
+    "ky": {
+        "en": "Kirghiz",
+        "de": "Kirgisisch",
+        "ru": "Киргизский"
+    },
+    "lb": {
+        "en": "Luxembourgish",
+        "de": "Luxemburgisch",
+        "ru": "Люксембургский"
+    },
+    "lt": {
+        "en": "Lithuanian",
+        "de": "Litauisch",
+        "ru": "Литовский"
+    },
+    "lv": {
+        "en": "Latvian",
+        "de": "Lettisch",
+        "ru": "Латвиский"
+    },
+    "mi": {
+        "en": "Maori",
+        "de": "Maorisch",
+        "ru": "Маори"
+    },
+    "mk": {
+        "en": "Macedonian",
+        "de": "Mazedonisch",
+        "ru": "Македонский"
+    },
+    "mn": {
+        "en": "Mongolian",
+        "de": "Mongolisch",
+        "ru": "Монгольский"
+    },
+    "mo": {
+        "en": "Moldavian",
+        "de": "Moldawisch",
+        "ru": "Молдавский"
+    },
+    "ms": {
+        "en": "Malay",
+        "de": "Malaiisch",
+        "ru": "Малайский"
+    },
+    "mt": {
+        "en": "Maltese",
+        "de": "Maltesisch",
+        "ru": "Мальтийский"
+    },
+    "ne": {
+        "en": "Nepali",
+        "de": "Nepalisch",
+        "ru": "Непальский"
+    },
+    "nl": {
+        "en": "Dutch",
+        "de": "Niederländisch",
+        "ru": "Голландский"
+    },
+    "no": {
+        "en": "Norwegian",
+        "de": "Norwegisch",
+        "ru": "Норвежский"
+    },
+    "os": {
+        "en": "Ossetian",
+        "de": "Ossetisch",
+        "ru": "Осетинский"
+    },
+    "pl": {
+        "en": "Polish",
+        "de": "Polnisch",
+        "ru": "Польский"
+    },
+    "pt": {
+        "en": "Portuguese",
+        "de": "Portugiesisch",
+        "ru": "Португальский"
+    },
+    "ro": {
+        "en": "Romanian",
+        "de": "Rumänisch",
+        "ru": "Румынский"
+    },
+    "ru": {
+        "en": "Russian",
+        "de": "Russisch",
+        "ru": "Русский"
+    },
+    "sk": {
+        "en": "Slovak",
+        "de": "Slowakisch",
+        "ru": "Словацкий"
+    },
+    "sl": {
+        "en": "Slovenian",
+        "de": "Slowenisch",
+        "ru": "Словенский"
+    },
+    "so": {
+        "en": "Somali",
+        "de": "Somali",
+        "ru": "Сомалийский"
+    },
+    "sq": {
+        "en": "Albanian",
+        "de": "Albanisch",
+        "ru": "Албанский"
+    },
+    "sr": {
+        "en": "Serbian",
+        "de": "Serbisch",
+        "ru": "Сербский"
+    },
+    "su": {
+        "en": "Sudanese",
+        "de": "Sudanisch",
+        "ru": "Суданский"
+    },
+    "sv": {
+        "en": "Swedish",
+        "de": "Schwedisch",
+        "ru": "Шведский"
+    },
+    "tg": {
+        "en": "Tajik",
+        "de": "Tadschikisch",
+        "ru": "Таджикский"
+    },
+    "th": {
+        "en": "Thai",
+        "de": "Thai",
+        "ru": "Тайский"
+    },
+    "tk": {
+        "en": "Turkmen",
+        "de": "Turkmenisch",
+        "ru": "Туркменский"
+    },
+    "tr": {
+        "en": "Turkish",
+        "de": "Türkisch",
+        "ru": "Турецкий"
+    },
+    "tt": {
+        "en": "Tatar",
+        "de": "Tatarisch",
+        "ru": "Татарский"
+    },
+    "ty": {
+        "en": "Tahitian",
+        "de": "Tahitisch",
+        "ru": "Таитянский"
+    },
+    "uk": {
+        "en": "Ukrainian",
+        "de": "Ukrainisch",
+        "ru": "Украинский"
+    },
+    "uz": {
+        "en": "Uzbek",
+        "de": "Usbekisch",
+        "ru": "Узбекский"
+    },
+    "vi": {
+        "en": "Vietnamese",
+        "de": "Vietnamesisch",
+        "ru": "Вьетнамский"
+    },
+    "yi": {
+        "en": "Yiddish",
+        "de": "Jiddisch",
+        "ru": "Идиш"
+    },
+    "zh": {
+        "en": "Chinese",
+        "de": "Chinesisch",
+        "ru": "Китайский"
+    },
+    "zu": {
+        "en": "Zulu",
+        "de": "Zulu",
+        "ru": "Зулуский"
+    }
+}

@@ -3,12 +3,6 @@ namespace MyApplication;
 
 use function SmartFactory\messenger;
 
-function sql_error($dbw)
-{
-    messenger()->setError(\SmartFactory\text("ErrQueryFailed", "", false, "SQL query error!"), $dbw->get_last_error() . "\n\n" . $dbw->get_last_query());
-    return false;
-}
-
 function report_messages()
 {
     $response = [];

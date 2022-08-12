@@ -15,18 +15,16 @@ class DemoTokenStorage implements ITokenStorage
         $this->validateParameters();
         
         if (!file_exists($this->storage_file)) {
-            return true;
+            throw new \Exception(sprintf("The stirage file '" . $this->storage_file . "' does not exist!"));
         }
         
         $xmldoc = new \DOMDocument();
         
         if (!@$xmldoc->load($this->storage_file)) {
-            throw new \Exception(sprintf("The 'storage_file' is invalid!"));
+            throw new \Exception(sprintf("The stirage file '" . $this->storage_file . "' is invalid!"));
         }
         
         \SmartFactory\dom_to_array($xmldoc->documentElement, $this->records);
-        
-        return true;
     }
     
     protected function saveRecords()
@@ -47,8 +45,6 @@ class DemoTokenStorage implements ITokenStorage
         if (!@$xmldoc->save($this->storage_file)) {
             throw new \Exception(sprintf("The storage file '%s' cannot be written!", $this->storage_file));
         }
-        
-        return true;
     }
     
     protected function validateParameters()
@@ -60,8 +56,6 @@ class DemoTokenStorage implements ITokenStorage
         if (!is_writable(dirname($this->storage_file)) || (file_exists($this->storage_file) && !is_writable($this->storage_file))) {
             throw new \Exception(sprintf("The storage file '%s' is not writable!", $this->storage_file));
         }
-        
-        return true;
     }
     
     public function init($params)
@@ -141,8 +135,6 @@ class DemoTokenStorage implements ITokenStorage
         }
         
         $this->saveRecords();
-        
-        return true;
     }
     
     public function loadTokenRecord(&$token_record)
@@ -185,13 +177,11 @@ class DemoTokenStorage implements ITokenStorage
                 $token_record["refresh_token_expire"] = $record["refresh_token_expire"];
                 $token_record["last_activity"] = $record["last_activity"];
                 
-                return true;
+                return;
             }
         }
         
         throw new \OAuth2\InvalidTokenException("The token is invalid, it is not found in the storage!");
-        
-        return false;
     } // loadTokenRecord
     
     public function deleteTokenRecordByKey($key, $value)
@@ -219,7 +209,5 @@ class DemoTokenStorage implements ITokenStorage
         }
         
         $this->saveRecords();
-        
-        return true;
     }
 }

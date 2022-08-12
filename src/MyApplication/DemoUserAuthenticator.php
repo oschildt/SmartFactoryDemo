@@ -21,7 +21,7 @@ class DemoUserAuthenticator implements IUserAuthenticator
             throw new \OAuth2\InvalidCredentialsException("The user password is not specified");
         }
         
-        if ($credentials["user_login"] != "john" || $credentials["user_password"] != "smith") {
+        if ($credentials["user_login"] != "john" || $credentials["user_password"] != "qwerty") {
             throw new \OAuth2\InvalidCredentialsException("User login or password are invalid!");
         }
         

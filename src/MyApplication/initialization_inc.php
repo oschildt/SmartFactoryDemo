@@ -119,7 +119,12 @@ ObjectFactory::bindClass(UserSettingsManager::class, UserSettingsManager::class,
 });
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(ILanguageManager::class, LanguageManager::class, function ($instance) {
-    $instance->init(["localization_path" => approot() . "localization/", "use_apcu" => false]);
+    $instance->init([
+        "localization_path" => approot() . "localization/",
+        "module_localization_path" => approot() . "modules/",
+        "use_apcu" => false,
+        "warn_missing" => true
+    ]);
     $instance->loadDictionary();
     $instance->detectLanguage();
 });
