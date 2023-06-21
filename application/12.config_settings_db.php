@@ -29,7 +29,7 @@ config_settings()->setContext("database_settings");
 function process_form()
 {
     if (empty($_REQUEST["act"])) {
-        return true;
+        return;
     }
     
     config_settings()->setParameter("db_type", checkempty($_REQUEST["settings"]["db_type"]));
@@ -42,20 +42,22 @@ function process_form()
     config_settings()->setParameter("db_prefix", checkempty($_REQUEST["settings"]["db_prefix"]));
     
     if (!config_settings()->validateSettings()) {
-        return false;
+        return;
     }
     
-    if (!config_settings()->saveSettings()) {
-        return false;
-    }
+    config_settings()->saveSettings();
     
-    messenger()->setInfo(text("MsgSettingsSaved"));
+    messenger()->addInfoMessage(text("MsgSettingsSaved"));
     
     header("location: 12.config_settings_summary.php");
     exit();
 } // process_form
 
-process_form();
+try {
+    process_form();
+} catch (\Exception $ex) {
+    messenger()->addError($ex->getMessage());
+}
 ?>
 
 <?php

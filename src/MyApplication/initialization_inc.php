@@ -37,7 +37,7 @@ function approot()
     $aroot = __DIR__;
     $aroot = str_replace("\\", "/", $aroot);
     $aroot = str_replace("src/MyApplication", "", $aroot);
-    
+
     return $aroot;
 } // approot
 //-------------------------------------------------------------------
@@ -45,14 +45,14 @@ function app_dbworker()
 {
     try {
         $parameters = [];
-        
+
         $parameters["db_type"] = config_settings()->getParameter("db_type");
         $parameters["db_server"] = config_settings()->getParameter("db_server");
         $parameters["db_name"] = config_settings()->getParameter("db_name");
         $parameters["db_user"] = config_settings()->getParameter("db_user");
         $parameters["db_password"] = config_settings()->getParameter("db_password");
         $parameters["autoconnect"] = true;
-        
+
         return \SmartFactory\dbworker($parameters);
     } catch (\Exception $ex) {
         throw new \Exception("Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.json'!");
@@ -74,47 +74,47 @@ ObjectFactory::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::cl
         //"save_encrypted" => true,
         //"salt_key" => "demotest"
     ]);
-    
+
     $instance->setValidator(new ConfigSettingsValidator());
 });
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(RuntimeSettingsManager::class, RuntimeSettingsManager::class, function ($instance) {
     $instance->init([
         "dbworker" => app_dbworker(),
-        "settings_table" => "SETTINGS",
-        "settings_column" => "DATA"
+        "settings_table" => "settings",
+        "settings_column" => "data"
     ]);
-    
+
     $instance->setValidator(new RuntimeSettingsValidator());
 });
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(UserSettingsManager::class, UserSettingsManager::class, function ($instance) {
     $instance->init([
         "dbworker" => app_dbworker(),
-        
+
         "settings_tables" => [
-            "USERS" => [
-                "ID" => DBWorker::DB_NUMBER,
-                "LANGUAGE" => DBWorker::DB_STRING,
-                "TIME_ZONE" => DBWorker::DB_STRING
+            "users" => [
+                "id" => DBWorker::DB_NUMBER,
+                "language" => DBWorker::DB_STRING,
+                "time_zone" => DBWorker::DB_STRING
             ],
-            "USER_FORUM_SETTINGS" => [
-                "USER_ID" => DBWorker::DB_NUMBER,
-                "SIGNATURE" => DBWorker::DB_STRING,
-                "STATUS" => DBWorker::DB_STRING,
-                "HIDE_PICTURES" => DBWorker::DB_NUMBER,
-                "HIDE_SIGNATURES" => DBWorker::DB_NUMBER
+            "user_forum_settings" => [
+                "user_id" => DBWorker::DB_NUMBER,
+                "signature" => DBWorker::DB_STRING,
+                "status" => DBWorker::DB_STRING,
+                "hide_pictures" => DBWorker::DB_NUMBER,
+                "hide_signatures" => DBWorker::DB_NUMBER
             ]
         ],
-        
+
         "multichoice_tables" => [
-            "USER_COLORS" => [
-                "USER_ID" => DBWorker::DB_NUMBER,
-                "COLOR" => DBWorker::DB_STRING
+            "user_colors" => [
+                "user_id" => DBWorker::DB_NUMBER,
+                "color" => DBWorker::DB_STRING
             ]
         ]
     ]);
-    
+
     $instance->setValidator(new UserSettingsValidator());
 });
 //-------------------------------------------------------------------
@@ -135,21 +135,20 @@ ObjectFactory::bindClass(IRecordsetManager::class, RecordsetManager::class, func
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(IOAuthManager::class, OAuthManager::class, function ($instance) {
     $params = [];
-    
-    $params["access_token_ttl"] = 600; // 10 min
-    $params["refresh_token_ttl"] = 3600; // 1 hours
-    $params["max_token_inactivity_days"] = 7; // 7 days
-    
+
+    $params["access_token_ttl_minutes"] = 10;
+    $params["refresh_token_ttl_days"] = 14;
+
     $params["token_storage"] = singleton(ITokenStorage::class);
     $params["token_storage"]->init(["storage_file" => approot() . "config/auth_tokens.xml"]);
-    
+
     $params["user_authenticator"] = singleton(IUserAuthenticator::class);
-    
+
     // $supported_algorithms = ['HS256', 'HS384', 'HS512', 'RS256', 'RS384', 'RS512'];
     $params["encryption_algorithm"] = "RS256";
-    
+
     $params["secret_key"] = "OLEG";
-    
+
     $params["public_key"] = approot() . "config/public_key.pem";
     $params["private_key"] = approot() . "config/private_key.pem";
     $params["pass_phrase"] = "termin";
@@ -161,8 +160,8 @@ ObjectFactory::bindClass(IOAuthManager::class, OAuthManager::class, function ($i
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(IErrorHandler::class, ErrorHandler::class, function ($instance) {
     $instance->init(["log_path" => approot() . "logs/"]);
-    
-    if (config_settings()->getParameter("tracing_enabled", 0)) {
+
+    if (config_settings()->getParameter("trace_programming_warnings")) {
         $instance->enableTrace();
     } else {
         $instance->disableTrace();
@@ -170,23 +169,14 @@ ObjectFactory::bindClass(IErrorHandler::class, ErrorHandler::class, function ($i
 });
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(IDebugProfiler::class, DebugProfiler::class, function ($instance) {
-    $instance->init(["log_path" => approot() . "logs/"]);
+    $instance->init([
+        "log_path" => approot() . "logs/",
+        "write_source_file_and_line_by_debug" => config_settings()->getParameter("write_source_file_and_line_by_debug")
+    ]);
 });
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(IMessageManager::class, MessageManager::class, function ($instance) {
-    $instance->init(["auto_hide_time" => 3]);
-    
-    if (config_settings()->getParameter("show_message_details", 0)) {
-        $instance->enableDetails();
-    } else {
-        $instance->disableDetails();
-    }
-    
-    if (config_settings()->getParameter("show_prog_warnings", 0)) {
-        $instance->enableProgWarnings();
-    } else {
-        $instance->disableProgWarnings();
-    }
+    $instance->init(["debug_mode" => config_settings()->getParameter("debug_mode")]);
 });
 //-------------------------------------------------------------------
 // Binding of own class implementations to SmartFactory interfaces

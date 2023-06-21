@@ -79,10 +79,10 @@ function connect_mysql()
 
     echo "<h2>Simple query</h2>";
 
-    $dbw->execute_query("SELECT FIRST_NAME, LAST_NAME FROM USERS");
+    $dbw->execute_query("select first_name, last_name from users");
 
     while ($dbw->fetch_row()) {
-        echo $dbw->field_by_name("FIRST_NAME") . " " . $dbw->field_by_name("LAST_NAME") . "<br>";
+        echo $dbw->field_by_name("first_name") . " " . $dbw->field_by_name("last_name") . "<br>";
     }
 
     $dbw->free_result();
@@ -91,7 +91,7 @@ function connect_mysql()
 
     echo "<p>Update should fail because of the read only mode.</p>";
 
-    if (!$dbw->execute_query("UPDATE USERS SET FIRST_NAME = 'Alex'")) {
+    if (!$dbw->execute_query("update users set first_name = 'Alex'")) {
         return sql_error($dbw);
     }
 
@@ -103,7 +103,7 @@ function connect_mysql()
 try {
     connect_mysql();
 } catch (\Exception $ex) {
-    messenger()->setError($ex->getMessage());
+    messenger()->addError($ex->getMessage());
     report_messages();
 }
 ?>

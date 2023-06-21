@@ -5,14 +5,16 @@ require "../vendor/autoload.php";
 
 use function SmartFactory\config_settings;
 use function SmartFactory\messenger;
-use function SmartFactory\session;
 use function SmartFactory\user_settings;
 use function SmartFactory\checkempty;
 use function SmartFactory\text;
 use function SmartFactory\input_text;
 use function SmartFactory\checkbox;
+use function SmartFactory\session;
 
 session()->startSession();
+
+user_settings()->setContext("forum_settings");
 user_settings()->setUserID(1);
 ?><!DOCTYPE html>
 <html lang="en">
@@ -30,22 +32,20 @@ function process_form()
     if (empty($_REQUEST["act"])) {
         return true;
     }
+
+    user_settings()->setParameter("status", checkempty($_REQUEST["user_settings"]["status"]));
+    user_settings()->setParameter("signature", checkempty($_REQUEST["user_settings"]["signature"]));
     
-    user_settings()->setParameter("STATUS", checkempty($_REQUEST["user_settings"]["STATUS"]));
-    user_settings()->setParameter("SIGNATURE", checkempty($_REQUEST["user_settings"]["SIGNATURE"]));
+    user_settings()->setParameter("hide_pictures", empty($_REQUEST["user_settings"]["hide_pictures"]) ? 0 : 1);
+    user_settings()->setParameter("hide_signatures", empty($_REQUEST["user_settings"]["hide_signatures"]) ? 0 : 1);
     
-    user_settings()->setParameter("HIDE_PICTURES", empty($_REQUEST["user_settings"]["HIDE_PICTURES"]) ? 0 : 1);
-    user_settings()->setParameter("HIDE_SIGNATURES", empty($_REQUEST["user_settings"]["HIDE_SIGNATURES"]) ? 0 : 1);
-    
-    if (!user_settings()->validateSettings("forum_settings")) {
+    if (!user_settings()->validateSettings()) {
         return false;
     }
+
+    user_settings()->saveSettings();
     
-    if (!user_settings()->saveSettings()) {
-        return false;
-    }
-    
-    messenger()->setInfo(text("MsgSettingsSaved"));
+    messenger()->addInfoMessage(text("MsgSettingsSaved"));
     
     header("location: 15.user_settings_summary.php");
     exit();
@@ -56,8 +56,11 @@ function process_form()
 if (config_settings()->getParameter("db_password") == "") {
     echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.json'!</h4>";
 } else {
-    user_settings()->setContext("forum_settings");
-    process_form();
+    try {
+        process_form();
+    } catch (\Exception $ex) {
+        messenger()->addError($ex->getMessage());
+    }
     ?>
     
     <?php
@@ -71,9 +74,9 @@ if (config_settings()->getParameter("db_password") == "") {
                 <td>Status*:</td>
                 <td>
                     <?php input_text([
-                        "name" => "user_settings[STATUS]",
+                        "name" => "user_settings[status]",
                         "autocomplete" => "off",
-                        "value" => user_settings()->getParameter("STATUS", true)
+                        "value" => user_settings()->getParameter("status", true)
                     ]); ?>
                 </td>
             </tr>
@@ -81,9 +84,9 @@ if (config_settings()->getParameter("db_password") == "") {
                 <td>Signature:</td>
                 <td>
                     <?php input_text([
-                        "name" => "user_settings[SIGNATURE]",
+                        "name" => "user_settings[signature]",
                         "autocomplete" => "off",
-                        "value" => user_settings()->getParameter("SIGNATURE", true)
+                        "value" => user_settings()->getParameter("signature", true)
                     ]); ?>
                 </td>
             </tr>
@@ -91,9 +94,9 @@ if (config_settings()->getParameter("db_password") == "") {
                 <td>Hide pictures:</td>
                 <td>
                     <?php checkbox([
-                        "name" => "user_settings[HIDE_PICTURES]",
+                        "name" => "user_settings[hide_pictures]",
                         "value" => "1",
-                        "checked" => user_settings()->getParameter("HIDE_PICTURES", true, 0)
+                        "checked" => user_settings()->getParameter("hide_pictures", true)
                     ]); ?>
                 </td>
             </tr>
@@ -101,9 +104,9 @@ if (config_settings()->getParameter("db_password") == "") {
                 <td>Hide signatures:</td>
                 <td>
                     <?php checkbox([
-                        "name" => "user_settings[HIDE_SIGNATURES]",
+                        "name" => "user_settings[hide_signatures]",
                         "value" => "1",
-                        "checked" => user_settings()->getParameter("HIDE_SIGNATURES", true, 0)
+                        "checked" => user_settings()->getParameter("hide_signatures", true)
                     ]); ?>
                 </td>
             </tr>

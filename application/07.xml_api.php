@@ -26,6 +26,8 @@ if (empty($_REQUEST["xmldata"])) {
 <body>
 <h2>XML API</h2>
 
+<p>Remove the tag City to see how the errors are displayed.</p>
+
 <form action="../xmlapi/get_rooms/" method="post" target="_blank">
     
     <?php textarea([

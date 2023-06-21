@@ -3,8 +3,8 @@ namespace MyApplication;
 
 require "../vendor/autoload.php";
 
-use function SmartFactory\singleton;
 use function SmartFactory\session;
+use function SmartFactory\session_vars;
 
 session()->startSession();
 ?><!DOCTYPE html>
@@ -40,7 +40,7 @@ session()->clearSession();
 
 <?php
 session()->vars()["user"]["name"] = "Alex";
-session()->vars()["user"]["age"] = "22";
+session_vars()["user"]["age"] = "22";
 
 // it works also, & is important
 $sessionvars = &session()->vars();
@@ -61,7 +61,7 @@ echo "user name value: " . session()->vars()["user"]["name"];
 
 echo "user age value: " . session()->vars()["user"]["age"];
 
-echo "user age sex: " . session()->vars()["user"]["sex"];
+echo "user age sex: " . session_vars()["user"]["sex"];
 </pre>
 
 <?php
@@ -69,7 +69,7 @@ echo "<p>user name value: " . session()->vars()["user"]["name"] . "</p>";
 
 echo "<p>user age value: " . session()->vars()["user"]["age"] . "</p>";
 
-echo "<p>user age sex: " . session()->vars()["user"]["sex"] . "</p>";
+echo "<p>user age sex: " . session_vars()["user"]["sex"] . "</p>";
 ?>
 
 <p><a href="02.sessions_next.php" target="_blank">Next request</a>&nbsp;&nbsp;&nbsp;&nbsp;

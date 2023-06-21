@@ -6,12 +6,12 @@ require "../vendor/autoload.php";
 use function SmartFactory\config_settings;
 use function SmartFactory\checkempty;
 use function SmartFactory\echo_html;
-use function SmartFactory\session;
 use function SmartFactory\text;
 use function SmartFactory\textarea;
 use function SmartFactory\input_text;
 use function SmartFactory\checkbox;
 use function SmartFactory\messenger;
+use function SmartFactory\session;
 
 session()->startSession();
 
@@ -35,26 +35,27 @@ function process_form()
     
     config_settings()->setParameter("smtp_server", checkempty($_REQUEST["settings"]["smtp_server"]));
     config_settings()->setParameter("smtp_port", checkempty($_REQUEST["settings"]["smtp_port"]));
-    config_settings()->setParameter("tracing_enabled", empty($_REQUEST["settings"]["tracing_enabled"]) ? 0 : 1);
-    config_settings()->setParameter("show_message_details", empty($_REQUEST["settings"]["show_message_details"]) ? 0 : 1);
-    config_settings()->setParameter("show_prog_warning", empty($_REQUEST["settings"]["show_prog_warning"]) ? 0 : 1);
+    config_settings()->setParameter("trace_programming_warnings", empty($_REQUEST["settings"]["trace_programming_warnings"]) ? 0 : 1);
+    config_settings()->setParameter("debug_mode", empty($_REQUEST["settings"]["debug_mode"]) ? 0 : 1);
     config_settings()->setParameter("domains", empty($_REQUEST["settings"]["domains"]) ? [] : preg_split("/[\n\r]+/", trim($_REQUEST["settings"]["domains"])));
     
     if (!config_settings()->validateSettings()) {
         return false;
     }
     
-    if (!config_settings()->saveSettings()) {
-        return false;
-    }
+    config_settings()->saveSettings();
     
-    messenger()->setInfo(text("MsgSettingsSaved"));
+    messenger()->addInfoMessage(text("MsgSettingsSaved"));
     
     header("location: 12.config_settings_summary.php");
     exit();
 } // process_form
 
-process_form();
+try {
+    process_form();
+} catch (\Exception $ex) {
+    messenger()->addError($ex->getMessage());
+}
 ?>
 
 <?php
@@ -88,29 +89,19 @@ report_messages();
             <td><?php echo_html(text('EnableTracing')); ?>:</td>
             <td>
                 <?php checkbox([
-                    "name" => "settings[tracing_enabled]",
+                    "name" => "settings[trace_programming_warnings]",
                     "value" => "1",
-                    "checked" => config_settings()->getParameter("tracing_enabled", 1)
+                    "checked" => config_settings()->getParameter("trace_programming_warnings", 0)
                 ]); ?>
             </td>
         </tr>
         <tr>
-            <td><?php echo_html(text('ShowErrorDetails')); ?>:</td>
+            <td><?php echo_html(text('DebugMode')); ?>:</td>
             <td>
                 <?php checkbox([
-                    "name" => "settings[show_message_details]",
+                    "name" => "settings[debug_mode]",
                     "value" => "1",
-                    "checked" => config_settings()->getParameter("show_message_details", 1)
-                ]); ?>
-            </td>
-        </tr>
-        <tr>
-            <td><?php echo_html(text('ShowProgWarnings')); ?>:</td>
-            <td>
-                <?php checkbox([
-                    "name" => "settings[show_prog_warning]",
-                    "value" => "1",
-                    "checked" => config_settings()->getParameter("show_prog_warning", 1)
+                    "checked" => config_settings()->getParameter("debug_mode", 0)
                 ]); ?>
             </td>
         </tr>

@@ -25,8 +25,8 @@ ObjectFactory::bindClass(IDebugProfiler::class, DebugProfiler::class, function (
 <h3>Logging a message to a user defined file logs/mylog.log</h3>
 
 <pre class="code">
-debugger()->logMessageToFile("some data 1 ...", "mylog.log");
-debugger()->logMessageToFile("some data 2 ...", "mylog.log");
+debugger()->debugMessage("some data 1 ...", "mylog.log");
+debugger()->debugMessage("some data 2 ...", "mylog.log");
 </pre>
 
 <p>Listing: logs/mylog.log</p>
@@ -35,8 +35,8 @@ debugger()->logMessageToFile("some data 2 ...", "mylog.log");
 <?php
 debugger()->clearLogFiles();
 
-debugger()->logMessageToFile("some data 1 ...", "mylog.log");
-debugger()->logMessageToFile("some data 2 ...", "mylog.log");
+debugger()->debugMessage("some data 1 ...", "mylog.log");
+debugger()->debugMessage("some data 2 ...", "mylog.log");
 
 echo file_get_contents(approot() . "logs/mylog.log");
 ?>

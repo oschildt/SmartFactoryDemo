@@ -7,11 +7,12 @@ use SmartFactory\Interfaces\ILanguageManager;
 
 use function SmartFactory\config_settings;
 use function SmartFactory\singleton;
-use function SmartFactory\session;
 use function SmartFactory\user_settings;
 use function SmartFactory\echo_html;
+use function SmartFactory\session;
 
 session()->startSession();
+
 user_settings()->setUserID(1);
 ?><!DOCTYPE html>
 <html lang="en">
@@ -38,11 +39,11 @@ if (config_settings()->getParameter("db_password") == "") {
     <table>
         <tr>
             <td>Language*:</td>
-            <td><?php echo_html(singleton(ILanguageManager::class)->getLanguageName(user_settings()->getParameter("LANGUAGE"))); ?></td>
+            <td><?php echo_html(singleton(ILanguageManager::class)->getLanguageName(user_settings()->getParameter("language"))); ?></td>
         </tr>
         <tr>
             <td>Time zone*:</td>
-            <td><?php echo_html(user_settings()->getParameter("TIME_ZONE")); ?></td>
+            <td><?php echo_html(user_settings()->getParameter("time_zone")); ?></td>
         </tr>
         <tr>
             <td>Colors:</td>
@@ -58,7 +59,7 @@ if (config_settings()->getParameter("db_password") == "") {
                 "green" => "Green"
             ];
 
-            $colors = user_settings()->getParameter("USER_COLORS", []);
+            $colors = user_settings()->getParameter("user_colors", []);
             $txt = "";
             foreach($colors as $color)
             {
@@ -77,19 +78,19 @@ if (config_settings()->getParameter("db_password") == "") {
     <table>
         <tr>
             <td>Status*:</td>
-            <td><?php echo_html(user_settings()->getParameter("STATUS")); ?></td>
+            <td><?php echo_html(user_settings()->getParameter("status")); ?></td>
         </tr>
         <tr>
             <td>Signature:</td>
-            <td><?php echo_html(user_settings()->getParameter("SIGNATURE")); ?></td>
+            <td><?php echo_html(user_settings()->getParameter("signature")); ?></td>
         </tr>
         <tr>
             <td>Hide pictures:</td>
-            <td><?php echo(user_settings()->getParameter("HIDE_PICTURES") ? "1" : "0"); ?></td>
+            <td><?php echo(user_settings()->getParameter("hide_pictures") ? "1" : "0"); ?></td>
         </tr>
         <tr>
             <td>Hide signatures:</td>
-            <td><?php echo(user_settings()->getParameter("HIDE_SIGNATURES") ? "1" : "0"); ?></td>
+            <td><?php echo(user_settings()->getParameter("hide_signatures") ? "1" : "0"); ?></td>
         </tr>
     </table>
 

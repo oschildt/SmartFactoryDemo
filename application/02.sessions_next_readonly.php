@@ -3,8 +3,8 @@ namespace MyApplication;
 
 require "../vendor/autoload.php";
 
-use function SmartFactory\singleton;
 use function SmartFactory\session;
+use function SmartFactory\session_vars;
 use function SmartFactory\checkempty;
 
 session()->startSession(true);
@@ -37,7 +37,7 @@ echo "user name value: " . session()->vars()["user"]["name"];
 
 echo "user age value: " . session()->vars()["user"]["age"];
 
-echo "user age sex: " . session()->vars()["user"]["sex"];
+echo "user age sex: " . session_vars()["user"]["sex"];
 </pre>
 
 <?php
@@ -45,27 +45,28 @@ echo "<p>user name value: " . session()->vars()["user"]["name"] . "</p>";
 
 echo "<p>user age value: " . session()->vars()["user"]["age"] . "</p>";
 
-echo "<p>user age sex: " . session()->vars()["user"]["sex"] . "</p>";
+echo "<p>user age sex: " . session_vars()["user"]["sex"] . "</p>";
 ?>
 
-<h3>Destroying session has no effect in redonly mode</h3>
+<h3>Unsetting a session variable</h3>
 
 <pre class="code">
-// destroySession has no effect in redonly mode
-session()->destroySession();
+unset(session()->vars()["user"]["name"]);
+unset(session_vars()["user"]["sex"]);
 </pre>
 
 <?php
-session()->destroySession();
+unset(session()->vars()["user"]["name"]);
+unset(session_vars()["user"]["sex"]);
 
 echo "<p>user name value: " . checkempty(session()->vars()["user"]["name"]) . "</p>";
 
 echo "<p>user age value: " . checkempty(session()->vars()["user"]["age"]) . "</p>";
 
-echo "<p>user age sex: " . checkempty(session()->vars()["user"]["sex"]) . "</p>";
+echo "<p>user age sex: " . checkempty(session_vars()["user"]["sex"]) . "</p>";
 ?>
 
-<h3>Unsetting variables in redonly mode is possible</h3>
+<h3>Clearing session variables</h3>
 
 <pre class="code">
 session()->clearSession();
@@ -78,7 +79,7 @@ echo "<p>user name value: " . checkempty(session()->vars()["user"]["name"]) . "<
 
 echo "<p>user age value: " . checkempty(session()->vars()["user"]["age"]) . "</p>";
 
-echo "<p>user age sex: " . checkempty(session()->vars()["user"]["sex"]) . "</p>";
+echo "<p>user age sex: " . checkempty(session_vars()["user"]["sex"]) . "</p>";
 ?>
 
 </body>

@@ -8,14 +8,16 @@ use SmartFactory\Interfaces\ILanguageManager;
 use function SmartFactory\config_settings;
 use function SmartFactory\messenger;
 use function SmartFactory\singleton;
-use function SmartFactory\session;
 use function SmartFactory\text;
 use function SmartFactory\user_settings;
 use function SmartFactory\checkempty;
 use function SmartFactory\input_text;
 use function SmartFactory\select;
+use function SmartFactory\session;
 
 session()->startSession();
+
+user_settings()->setContext("general_settings");
 user_settings()->setUserID(1);
 ?><!DOCTYPE html>
 <html lang="en">
@@ -38,19 +40,17 @@ function process_form()
         return true;
     }
     
-    user_settings()->setParameter("LANGUAGE", checkempty($_REQUEST["user_settings"]["LANGUAGE"]));
-    user_settings()->setParameter("TIME_ZONE", checkempty($_REQUEST["user_settings"]["TIME_ZONE"]));
-    user_settings()->setParameter("USER_COLORS", empty($_REQUEST["user_settings"]["USER_COLORS"]) ? [] : $_REQUEST["user_settings"]["USER_COLORS"]);
+    user_settings()->setParameter("language", checkempty($_REQUEST["user_settings"]["language"]));
+    user_settings()->setParameter("time_zone", checkempty($_REQUEST["user_settings"]["time_zone"]));
+    user_settings()->setParameter("user_colors", empty($_REQUEST["user_settings"]["user_colors"]) ? [] : $_REQUEST["user_settings"]["user_colors"]);
     
     if (!user_settings()->validateSettings()) {
         return false;
     }
     
-    if (!user_settings()->saveSettings()) {
-        return false;
-    }
-    
-    messenger()->setInfo(text("MsgSettingsSaved"));
+    user_settings()->saveSettings();
+
+    messenger()->addInfoMessage(text("MsgSettingsSaved"));
     
     header("location: 15.user_settings_summary.php");
     exit();
@@ -61,8 +61,11 @@ function process_form()
 if (config_settings()->getParameter("db_password") == "") {
     echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.json'!</h4>";
 } else {
-    user_settings()->setContext("general_settings");
-    process_form();
+    try {
+        process_form();
+    } catch (\Exception $ex) {
+        messenger()->addError($ex->getMessage());
+    }
     ?>
     
     <?php
@@ -76,9 +79,9 @@ if (config_settings()->getParameter("db_password") == "") {
                 <td>Language*:</td>
                 <td>
                     <?php select([
-                        "name" => "user_settings[LANGUAGE]",
+                        "name" => "user_settings[language]",
                         "options" => $language_list,
-                        "value" => user_settings()->getParameter("LANGUAGE")
+                        "value" => user_settings()->getParameter("language")
                     ]); ?>
                 </td>
             </tr>
@@ -86,9 +89,9 @@ if (config_settings()->getParameter("db_password") == "") {
                 <td>Time zone*:</td>
                 <td>
                     <?php input_text([
-                        "name" => "user_settings[TIME_ZONE]",
+                        "name" => "user_settings[time_zone]",
                         "autocomplete" => "off",
-                        "value" => user_settings()->getParameter("TIME_ZONE")
+                        "value" => user_settings()->getParameter("time_zone")
                     ]); ?>
                 </td>
             </tr>
@@ -107,9 +110,9 @@ if (config_settings()->getParameter("db_password") == "") {
                     ];
                     
                     select([
-                        "name" => "user_settings[USER_COLORS][]",
+                        "name" => "user_settings[user_colors][]",
                         "multiple" => "multiple",
-                        "value" => user_settings()->getParameter("USER_COLORS", []),
+                        "value" => user_settings()->getParameter("user_colors", []),
                         "style" => "width: 180px; height: 120px",
                         "options" => $options
                     ]);

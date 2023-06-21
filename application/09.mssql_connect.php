@@ -290,7 +290,7 @@ try {
     if ($ex->getCode() == 100) {
         echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mssql.sql' and adjust the DB password and other connection data in the line 29 of this file!</h4>";
     } else {
-        messenger()->setError($ex->getMessage());
+        messenger()->addError($ex->getMessage());
         report_messages();
     }
 }

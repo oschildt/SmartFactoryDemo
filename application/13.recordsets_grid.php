@@ -9,14 +9,11 @@ use SmartFactory\DatabaseWorkers\DBWorker;
 
 use function SmartFactory\config_settings;
 use function SmartFactory\singleton;
-use function SmartFactory\session;
 use function SmartFactory\echo_html;
 use function SmartFactory\input_text;
 use function SmartFactory\format_number;
 use function SmartFactory\text;
 use function SmartFactory\messenger;
-
-session()->startSession();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,32 +25,32 @@ session()->startSession();
 <h2>Recordsets - Grid</h2>
 
 <?php
-function load_data()
+function load_data(&$cnt)
 {
     try {
         $rsmanager = singleton(IRecordsetManager::class);
         
-        $dbw = $rsmanager->getDBWorker();
-        
-        $rsmanager->describeTableFields("ROOM_PRICES",
+        $rsmanager->describeTableFields("room_prices",
             
             [
-                "ROOM" => DBWorker::DB_STRING,
-                "DT" => DBWorker::DB_DATE,
-                "PRICE" => DBWorker::DB_NUMBER
+                "room" => DBWorker::DB_STRING,
+                "dt" => DBWorker::DB_DATE,
+                "price" => DBWorker::DB_NUMBER
             ],
             
-            ["ROOM", "DT"]);
+            ["room", "dt"]);
         
         $now = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
         
-        $where = "WHERE ";
-        $where .= "DT BETWEEN '" . $dbw->format_date($now) . "'";
-        $where .= " AND '" . $dbw->format_date($now + 7 * 24 * 3600) . "'";
+        $where = "where ";
+        $where .= "dt between " . $rsmanager->format_date($now) . " ";
+        $where .= "and " . $rsmanager->format_date($now + 7 * 24 * 3600);
+
+        $cnt = $rsmanager->countRecords($where);
         
-        $rsmanager->loadRecordSet($_REQUEST["room_prices"], $where, "ORDER BY ROOM, DT");
+        $rsmanager->loadRecordSet($_REQUEST["room_prices"], $where, "order by room, dt");
     } catch (\Exception $ex) {
-        messenger()->setError($ex->getMessage());
+        messenger()->addError($ex->getMessage());
     }
 }
 
@@ -62,36 +59,36 @@ function save_data()
     try {
         $rsmanager = singleton(IRecordsetManager::class);
     
-        $rsmanager->describeTableFields("ROOM_PRICES",
+        $rsmanager->describeTableFields("room_prices",
         
             [
-                "ROOM" => DBWorker::DB_STRING,
-                "DT" => DBWorker::DB_DATE,
-                "PRICE" => DBWorker::DB_NUMBER
+                "room" => DBWorker::DB_STRING,
+                "dt" => DBWorker::DB_DATE,
+                "price" => DBWorker::DB_NUMBER
             ],
         
-            ["ROOM", "DT"]);
+            ["room", "dt"]);
     
-        if (!$rsmanager->saveRecordSet($_REQUEST["room_prices"])) {
-            return false;
-        }
+        $rsmanager->saveRecordSet($_REQUEST["room_prices"]);
     
-        messenger()->setInfo("Data saved successfully!");
+        messenger()->addInfoMessage("Data saved successfully!");
     } catch (\Exception $ex) {
-        messenger()->setError($ex->getMessage());
+        messenger()->addError($ex->getMessage());
         return false;
     }
     
     return true;
 }
 
+$cnt = 0;
+
 if (!empty($_REQUEST["act"])) {
     if (save_data()) {
         header("Location: 13.recordsets_grid.php");
-        exit;
+        exit();
     }
 } else {
-    load_data();
+    load_data($cnt);
 }
 ?>
 
@@ -108,6 +105,8 @@ if (config_settings()->getParameter("db_password") == "") {
     <form action="13.recordsets_grid.php" method="post">
 
         <h3>Rooms prices</h3>
+        
+        <p>Actual count: <?php echo($cnt); ?></p>
         
         <?php
         $now = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
@@ -129,7 +128,7 @@ if (config_settings()->getParameter("db_password") == "") {
                     <?php for ($i = 0; $i < 7; $i++): ?>
                         <td>
                             <?php input_text([
-                                "name" => "room_prices[$room][" . ($now + $i * 24 * 3600) . "][PRICE]",
+                                "name" => "room_prices[$room][" . ($now + $i * 24 * 3600) . "][price]",
                                 "style" => "width: 70px",
                                 "formatter" => function ($val) {
                                     return format_number($val, 2);

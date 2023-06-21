@@ -12,7 +12,7 @@ use function SmartFactory\singleton;
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Auth Test</title>
+    <title>Authentication Test</title>
 
     <link rel="stylesheet" href="css/examples.css" type="text/css"/>
 </head>

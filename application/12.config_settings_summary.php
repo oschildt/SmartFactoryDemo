@@ -5,8 +5,8 @@ require "../vendor/autoload.php";
 
 use function SmartFactory\config_settings;
 use function SmartFactory\echo_html;
-use function SmartFactory\session;
 use function SmartFactory\text;
+use function SmartFactory\session;
 
 session()->startSession();
 ?><!DOCTYPE html>
@@ -36,15 +36,11 @@ report_messages();
     </tr>
     <tr>
         <td><?php echo_html(text('EnableTracing')); ?>:</td>
-        <td><?php echo(config_settings()->getParameter("tracing_enabled") ? "1" : "0"); ?></td>
+        <td><?php echo(config_settings()->getParameter("trace_programming_warnings") ? "1" : "0"); ?></td>
     </tr>
     <tr>
-        <td><?php echo_html(text('ShowErrorDetails')); ?>:</td>
-        <td><?php echo(config_settings()->getParameter("show_message_details") ? "1" : "0"); ?></td>
-    </tr>
-    <tr>
-        <td><?php echo_html(text('ShowProgWarnings')); ?>:</td>
-        <td><?php echo(config_settings()->getParameter("show_prog_warning") ? "1" : "0"); ?></td>
+        <td><?php echo_html(text('DebugMode')); ?>:</td>
+        <td><?php echo(config_settings()->getParameter("debug_mode") ? "1" : "0"); ?></td>
     </tr>
     <tr>
         <td colspan="2"><?php echo_html(text('Domains')); ?>:<br>

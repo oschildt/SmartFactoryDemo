@@ -10,10 +10,12 @@ use function SmartFactory\input_text;
 use function SmartFactory\checkbox;
 use function SmartFactory\select;
 use function SmartFactory\messenger;
-use function SmartFactory\session;
 use function SmartFactory\text;
+use function SmartFactory\session;
 
 session()->startSession();
+
+runtime_settings()->setContext("general_settings");
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,16 +37,14 @@ function process_form()
     runtime_settings()->setParameter("hotel_email", checkempty($_REQUEST["booking_settings"]["hotel_email"]));
     runtime_settings()->setParameter("show_free_rooms", empty($_REQUEST["booking_settings"]["show_free_rooms"]) ? 0 : 1);
     runtime_settings()->setParameter("colors", empty($_REQUEST["booking_settings"]["colors"]) ? [] : $_REQUEST["booking_settings"]["colors"]);
-    
+
     if (!runtime_settings()->validateSettings()) {
         return false;
     }
     
-    if (!runtime_settings()->saveSettings()) {
-        return false;
-    }
+    runtime_settings()->saveSettings();
     
-    messenger()->setInfo(text("MsgSettingsSaved"));
+    messenger()->addInfoMessage(text("MsgSettingsSaved"));
     
     header("location: 14.runtime_settings_summary.php");
     exit();
@@ -55,8 +55,11 @@ function process_form()
 if (config_settings()->getParameter("db_password") == "") {
     echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.json'!</h4>";
 } else {
-    runtime_settings()->setContext("general_settings");
-    process_form();
+    try {
+        process_form();
+    } catch (\Exception $ex) {
+        messenger()->addError($ex->getMessage());
+    }
     ?>
     
     <?php

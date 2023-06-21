@@ -21,7 +21,9 @@ if (empty($_REQUEST["jsondata"])) {
 <body>
 <h2>JSON API</h2>
 
-<form action="../api/login/" method="post" target="_blank">
+<p>Change password to see how the errors are displayed.</p>
+
+<form action="../api/authenticate/" method="post" target="_blank">
 
     <?php textarea([
         "name" => "jsondata",

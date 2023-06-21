@@ -3,9 +3,8 @@ namespace MyApplication;
 
 require "../vendor/autoload.php";
 
-use function SmartFactory\singleton;
-use function SmartFactory\session;
 use function SmartFactory\messenger;
+use function SmartFactory\session;
 
 session()->startSession();
 ?><!DOCTYPE html>
@@ -22,20 +21,18 @@ session()->startSession();
     lost even over many requests. They are cleared only after they are retrieved for display.</p>
 
 <pre class="code">
-messenger()->setError("Error message 1");
+messenger()->addError("Error message 1");
 
-messenger()->setError("Error message 2", "Error 2 details");
+messenger()->addError("Error message 2", "last_name", "err_msg2", "Error 2 details");
 
 // setting redundantly
-messenger()->setError("Error message 1");
+messenger()->addError("Error message 1");
 
-messenger()->setWarning("Warning 1");
+messenger()->addWarning("Warning 1");
 
-messenger()->setWarning("Warning 1");
+messenger()->addWarning("Warning 2");
 
-messenger()->setErrorElement("first_name");
-messenger()->setActiveTab(2);
-messenger()->setInfo("Data saved successfully!", "", true);
+messenger()->addInfoMessage("Data saved successfully!", true);
 
 // produce prog warning
 $a = $b;
@@ -44,26 +41,26 @@ $a = $b;
 <?php
 messenger()->clearAll();
 
-messenger()->setError("Error message 1");
+messenger()->addError("Error message 1");
 
-messenger()->setError("Error message 2", "Error 2 details");
+messenger()->addError("Error message 2", ["max_count" => 4], "last_name", "err_msg2", "Error 2 details");
 
 // setting redundantly 
-messenger()->setError("Error message 1");
+messenger()->addError("Error message 1");
 
-messenger()->setWarning("Warning 1");
+messenger()->addWarning("Warning 1");
 
-messenger()->setWarning("Warning 1");
+messenger()->addWarning("Warning 2");
 
-messenger()->setErrorElement("first_name");
-messenger()->setActiveTab(2);
-messenger()->setInfo("Data saved successfully!", "", true);
+messenger()->addInfoMessage("Data imported successfully!", ["records_imported" => 120], true);
 
 // produce prog warning
 $a = $b;
 ?>
 
-<p><a href="08.messages_next.php" target="_blank">Next request</a></p>
+<?php
+report_messages();
+?>
 
 </body>
 </html>

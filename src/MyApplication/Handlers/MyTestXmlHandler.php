@@ -5,6 +5,7 @@ namespace MyApplication\Handlers;
 use SmartFactory\XmlRequestHandler;
 use SmartFactory\SmartException;
 
+use function SmartFactory\messenger;
 use function SmartFactory\reqvar_value;
 
 //-------------------------------------------------------------------
@@ -12,34 +13,12 @@ use function SmartFactory\reqvar_value;
 //-------------------------------------------------------------------
 class MyTestXmlHandler extends XmlRequestHandler
 {
-    protected function exitWithErrors()
-    {
-        $errors = $this->response_xmldoc->createElement("Errors");
-        $this->response_xmldoc->appendChild($errors);
-
-        if (!empty($this->errors)) {
-            foreach ($this->errors as $error) {
-                $node = $this->response_xmldoc->createElement("Error");
-
-                $node->setAttribute("Code", $error["error_code"]);
-                $node->setAttribute("Type", $error["error_type"]);
-                $text = $this->response_xmldoc->createTextNode($error["error_text"]);
-                $node->appendChild($text);
-
-                $errors->appendChild($node);
-            }
-        }
-
-        $this->sendXmlResponse();
-        exit;
-    } // exitWithErrors
-
-    protected function parseXmlInput()
+    protected function parseInput()
     {
         try {
             //$content_type = empty($this->request_headers["Content-Type"]) ? "" : $this->request_headers["Content-Type"];
             //if (!preg_match("/application\/xml.*/", $content_type)) {
-            //    throw new SmartException(sprintf("Content type 'application/xml' is expected, got '%s'!", $content_type), SmartException::ERR_CODE_INVALID_CONTENT_TYPE, SmartException::ERR_TYPE_PROGRAMMING_ERROR);
+            //    throw new SmartException(sprintf("Content type 'application/xml' is expected, got '%s'!", $content_type), SmartException::ERR_CODE_INVALID_CONTENT_TYPE);
             //}
 
             //$xmldata = trim(file_get_contents("php://input"));
@@ -49,20 +28,41 @@ class MyTestXmlHandler extends XmlRequestHandler
             $xmldata = reqvar_value("xmldata");
 
             if (empty($xmldata)) {
-                throw new SmartException("The request XML is empty!", SmartException::ERR_CODE_MISSING_REQUEST_DATA, SmartException::ERR_TYPE_PROGRAMMING_ERROR);
+                throw new SmartException("The request XML is empty!", SmartException::ERR_CODE_MISSING_REQUEST_DATA);
             }
 
             $this->request_xmldoc = new \DOMDocument("1.0", "UTF-8");
             $this->request_xmldoc->formatOutput = true;
             if (!@$this->request_xmldoc->loadXML($xmldata)) {
-                throw new SmartException("Error by XML parsing!", SmartException::ERR_CODE_XML_PARSE_ERROR, SmartException::ERR_TYPE_PROGRAMMING_ERROR);
+                throw new SmartException("Error by XML parsing!", SmartException::ERR_CODE_XML_PARSE_ERROR);
             }
         } catch (SmartException $ex) {
             throw $ex;
         } catch (\Throwable $ex) {
-            throw new SmartException($ex->getMessage(), SmartException::ERR_CODE_XML_PARSE_ERROR, SmartException::ERR_TYPE_PROGRAMMING_ERROR);
+            throw new SmartException($ex->getMessage(), SmartException::ERR_CODE_XML_PARSE_ERROR);
         }
-    } // parseXmlInput
+    } // parseInput
+
+    function addMessagesToResponse()
+    {
+        if(messenger()->hasErrors()) {
+            $xmlerrors = $this->response_xmldoc->createElement("Errors");
+            $this->response_xmldoc->appendChild($xmlerrors);
+
+            $errors = messenger()->getErrors();
+
+            foreach ($errors as $error) {
+                $node = $this->response_xmldoc->createElement("Error");
+
+                $node->setAttribute("Code", $error["code"]);
+                $node->setAttribute("Type", $error["type"]);
+                $text = $this->response_xmldoc->createTextNode($error["message"]);
+                $node->appendChild($text);
+
+                $xmlerrors->appendChild($node);
+            }
+        }
+    }
 
     function get_rooms()
     {
@@ -70,8 +70,13 @@ class MyTestXmlHandler extends XmlRequestHandler
 
         $nodes = $xsdpath->evaluate("/Request/City");
         if ($nodes->length == 0) {
-            throw new SmartException("City is undefined!", "no_city", SmartException::ERR_TYPE_USER_ERROR);
+            messenger()->addError("City is undefined!", [], "", "no_city");
+
+            messenger()->addError("Price preferences is undefined!", [], "", "no_price_preferences");
+
+            return;
         }
+
         $city = $nodes->item(0)->nodeValue;
 
         $response = $this->response_xmldoc->createElement("Response");
