@@ -30,7 +30,7 @@ function process_form()
         return true;
     }
     
-    messenger()->setInfo(text("MsgSettingsSaved"));
+    messenger()->addInfoMessage(text("MsgSettingsSaved"));
 } // process_form
 
 process_form();

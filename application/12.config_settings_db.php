@@ -4,7 +4,6 @@ namespace MyApplication;
 require "../vendor/autoload.php";
 
 use function SmartFactory\config_settings;
-use function SmartFactory\checkempty;
 use function SmartFactory\echo_html;
 use function SmartFactory\session;
 use function SmartFactory\text;
@@ -32,15 +31,15 @@ function process_form()
         return;
     }
     
-    config_settings()->setParameter("db_type", checkempty($_REQUEST["settings"]["db_type"]));
-    config_settings()->setParameter("db_server", checkempty($_REQUEST["settings"]["db_server"]));
-    config_settings()->setParameter("db_name", checkempty($_REQUEST["settings"]["db_name"]));
-    config_settings()->setParameter("db_user", checkempty($_REQUEST["settings"]["db_user"]));
+    config_settings()->setParameter("db_type", $_REQUEST["settings"]["db_type"] ?? "");
+    config_settings()->setParameter("db_server", $_REQUEST["settings"]["db_server"] ?? "");
+    config_settings()->setParameter("db_name", $_REQUEST["settings"]["db_name"] ?? "");
+    config_settings()->setParameter("db_user", $_REQUEST["settings"]["db_user"] ?? "");
     if (!empty($_REQUEST["settings"]["db_password"])) {
-        config_settings()->setParameter("db_password", checkempty($_REQUEST["settings"]["db_password"]));
+        config_settings()->setParameter("db_password", $_REQUEST["settings"]["db_password"] ?? "");
     }
-    config_settings()->setParameter("db_prefix", checkempty($_REQUEST["settings"]["db_prefix"]));
-    
+    config_settings()->setParameter("db_prefix", $_REQUEST["settings"]["db_prefix"] ?? "");
+
     if (!config_settings()->validateSettings()) {
         return;
     }

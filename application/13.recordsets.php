@@ -9,7 +9,6 @@ use SmartFactory\DatabaseWorkers\DBWorker;
 
 use function SmartFactory\config_settings;
 use function SmartFactory\singleton;
-use function SmartFactory\checkempty;
 use function SmartFactory\echo_html;
 use function SmartFactory\input_hidden;
 use function SmartFactory\input_text;
@@ -28,10 +27,7 @@ use function SmartFactory\messenger;
 <h2>Recordsets</h2>
 
 <?php
-$id = checkempty($_REQUEST["page_id"]);
-if (empty($id)) {
-    $id = "-1";
-}
+$id = $_REQUEST["page_id"] ?? "-1";
 
 function load_page_list(&$page_list)
 {
@@ -121,7 +117,7 @@ function save_data()
         
             ["id"]);
     
-        $rsmanager->saveRecord($_REQUEST["page_data"], ["id" => checkempty($_REQUEST["page_data"]["id"])], "id");
+        $rsmanager->saveRecord($_REQUEST["page_data"], ["id" => $_REQUEST["page_data"]["id"] ?? ""], "id");
     
         $rsmanager->describeTableFields("page_content",
         
@@ -134,8 +130,8 @@ function save_data()
         
             ["page_id", "language_key"]);
     
-        $rsmanager->saveRecordSet($_REQUEST["page_content"], ["page_id" => checkempty($_REQUEST["page_data"]["id"])]);
-    
+        $rsmanager->saveRecordSet($_REQUEST["page_content"], ["page_id" => $_REQUEST["page_data"]["id"] ?? ""]);
+
         $rsmanager->commit_transaction();
     } catch (\Exception $ex) {
         $rsmanager->rollback_transaction();
@@ -183,10 +179,10 @@ if (config_settings()->getParameter("db_password") == "") {
         
         <?php foreach ($page_list as $page_id => $page_row): ?>
             <tr>
-                <td><?php echo_html(checkempty($page_id)); ?></td>
-                <td><?php echo_html(checkempty($page_row["page_name"])); ?></td>
-                <td><?php echo_html(checkempty($page_row["page_type"])); ?></td>
-                <td><a href="13.recordsets.php?page_id=<?php echo_html(checkempty($page_id)); ?>">Edit</a></td>
+                <td><?php echo_html($page_id ?? ""); ?></td>
+                <td><?php echo_html($page_row["page_name"] ?? ""); ?></td>
+                <td><?php echo_html($page_row["page_type"] ?? ""); ?></td>
+                <td><a href="13.recordsets.php?page_id=<?php echo_html($page_id ?? ""); ?>">Edit</a></td>
             </tr>
         <?php endforeach; ?>
 

@@ -10,7 +10,6 @@ use function SmartFactory\messenger;
 use function SmartFactory\singleton;
 use function SmartFactory\text;
 use function SmartFactory\user_settings;
-use function SmartFactory\checkempty;
 use function SmartFactory\input_text;
 use function SmartFactory\select;
 use function SmartFactory\session;
@@ -40,8 +39,8 @@ function process_form()
         return true;
     }
     
-    user_settings()->setParameter("language", checkempty($_REQUEST["user_settings"]["language"]));
-    user_settings()->setParameter("time_zone", checkempty($_REQUEST["user_settings"]["time_zone"]));
+    user_settings()->setParameter("language", $_REQUEST["user_settings"]["language"] ?? "");
+    user_settings()->setParameter("time_zone", $_REQUEST["user_settings"]["time_zone"] ?? "");
     user_settings()->setParameter("user_colors", empty($_REQUEST["user_settings"]["user_colors"]) ? [] : $_REQUEST["user_settings"]["user_colors"]);
     
     if (!user_settings()->validateSettings()) {

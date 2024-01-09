@@ -6,7 +6,6 @@ require "../vendor/autoload.php";
 use function SmartFactory\config_settings;
 use function SmartFactory\messenger;
 use function SmartFactory\user_settings;
-use function SmartFactory\checkempty;
 use function SmartFactory\text;
 use function SmartFactory\input_text;
 use function SmartFactory\checkbox;
@@ -33,8 +32,8 @@ function process_form()
         return true;
     }
 
-    user_settings()->setParameter("status", checkempty($_REQUEST["user_settings"]["status"]));
-    user_settings()->setParameter("signature", checkempty($_REQUEST["user_settings"]["signature"]));
+    user_settings()->setParameter("status", $_REQUEST["user_settings"]["status"] ?? "");
+    user_settings()->setParameter("signature", $_REQUEST["user_settings"]["signature"] ?? "");
     
     user_settings()->setParameter("hide_pictures", empty($_REQUEST["user_settings"]["hide_pictures"]) ? 0 : 1);
     user_settings()->setParameter("hide_signatures", empty($_REQUEST["user_settings"]["hide_signatures"]) ? 0 : 1);

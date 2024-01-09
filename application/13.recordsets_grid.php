@@ -12,6 +12,7 @@ use function SmartFactory\singleton;
 use function SmartFactory\echo_html;
 use function SmartFactory\input_text;
 use function SmartFactory\format_number;
+use function SmartFactory\string_to_number;
 use function SmartFactory\text;
 use function SmartFactory\messenger;
 ?><!DOCTYPE html>
@@ -47,7 +48,7 @@ function load_data(&$cnt)
         $where .= "and " . $rsmanager->format_date($now + 7 * 24 * 3600);
 
         $cnt = $rsmanager->countRecords($where);
-        
+
         $rsmanager->loadRecordSet($_REQUEST["room_prices"], $where, "order by room, dt");
     } catch (\Exception $ex) {
         messenger()->addError($ex->getMessage());
@@ -68,9 +69,9 @@ function save_data()
             ],
         
             ["room", "dt"]);
-    
+
         $rsmanager->saveRecordSet($_REQUEST["room_prices"]);
-    
+
         messenger()->addInfoMessage("Data saved successfully!");
     } catch (\Exception $ex) {
         messenger()->addError($ex->getMessage());
@@ -105,7 +106,7 @@ if (config_settings()->getParameter("db_password") == "") {
     <form action="13.recordsets_grid.php" method="post">
 
         <h3>Rooms prices</h3>
-        
+
         <p>Actual count: <?php echo($cnt); ?></p>
         
         <?php
@@ -131,7 +132,7 @@ if (config_settings()->getParameter("db_password") == "") {
                                 "name" => "room_prices[$room][" . ($now + $i * 24 * 3600) . "][price]",
                                 "style" => "width: 70px",
                                 "formatter" => function ($val) {
-                                    return format_number($val, 2);
+                                    return format_number(string_to_number($val), 2);
                                 }
                             ]); ?>
                         </td>
