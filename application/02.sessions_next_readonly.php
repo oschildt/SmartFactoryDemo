@@ -5,7 +5,6 @@ require "../vendor/autoload.php";
 
 use function SmartFactory\session;
 use function SmartFactory\session_vars;
-use function SmartFactory\checkempty;
 
 session()->startSession(true);
 ?><!DOCTYPE html>
@@ -59,11 +58,11 @@ unset(session_vars()["user"]["sex"]);
 unset(session()->vars()["user"]["name"]);
 unset(session_vars()["user"]["sex"]);
 
-echo "<p>user name value: " . checkempty(session()->vars()["user"]["name"]) . "</p>";
+echo "<p>user name value: " . session()->vars()["user"]["name"] . "</p>";
 
-echo "<p>user age value: " . checkempty(session()->vars()["user"]["age"]) . "</p>";
+echo "<p>user age value: " . session()->vars()["user"]["age"] . "</p>";
 
-echo "<p>user age sex: " . checkempty(session_vars()["user"]["sex"]) . "</p>";
+echo "<p>user age sex: " . session_vars()["user"]["sex"] . "</p>";
 ?>
 
 <h3>Clearing session variables</h3>
@@ -75,11 +74,11 @@ session()->clearSession();
 <?php
 session()->clearSession();
 
-echo "<p>user name value: " . checkempty(session()->vars()["user"]["name"]) . "</p>";
+echo "<p>user name value: " . session()->vars()["user"]["name"] . "</p>";
 
-echo "<p>user age value: " . checkempty(session()->vars()["user"]["age"]) . "</p>";
+echo "<p>user age value: " . session()->vars()["user"]["age"] . "</p>";
 
-echo "<p>user age sex: " . checkempty(session_vars()["user"]["sex"]) . "</p>";
+echo "<p>user age sex: " . session_vars()["user"]["sex"] . "</p>";
 ?>
 
 </body>

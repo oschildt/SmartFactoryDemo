@@ -2,8 +2,7 @@
 
 rem set the path to sqlcmd.exe
 
-set OSQL_PATH="c:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\"
-set OSQL_PATH="C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\"
+set OSQL_PATH="c:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\"
 
 rem set the instance name
 

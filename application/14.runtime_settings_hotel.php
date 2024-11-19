@@ -5,7 +5,6 @@ require "../vendor/autoload.php";
 
 use function SmartFactory\config_settings;
 use function SmartFactory\runtime_settings;
-use function SmartFactory\checkempty;
 use function SmartFactory\text;
 use function SmartFactory\input_text;
 use function SmartFactory\messenger;
@@ -31,9 +30,9 @@ function process_form()
         return true;
     }
     
-    runtime_settings()->setParameter("booking_url", checkempty($_REQUEST["booking_settings"]["booking_url"]));
-    runtime_settings()->setParameter("hotel_id", checkempty($_REQUEST["booking_settings"]["hotel_id"]));
-    runtime_settings()->setParameter("default_rate", checkempty($_REQUEST["booking_settings"]["default_rate"]));
+    runtime_settings()->setParameter("booking_url", $_REQUEST["booking_settings"]["booking_url"] ?? "");
+    runtime_settings()->setParameter("hotel_id", $_REQUEST["booking_settings"]["hotel_id"] ?? "");
+    runtime_settings()->setParameter("default_rate", $_REQUEST["booking_settings"]["default_rate"] ?? "");
 
     if (!runtime_settings()->validateSettings()) {
         return false;

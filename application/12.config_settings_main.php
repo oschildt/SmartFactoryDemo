@@ -4,7 +4,6 @@ namespace MyApplication;
 require "../vendor/autoload.php";
 
 use function SmartFactory\config_settings;
-use function SmartFactory\checkempty;
 use function SmartFactory\echo_html;
 use function SmartFactory\text;
 use function SmartFactory\textarea;
@@ -33,8 +32,8 @@ function process_form()
         return true;
     }
     
-    config_settings()->setParameter("smtp_server", checkempty($_REQUEST["settings"]["smtp_server"]));
-    config_settings()->setParameter("smtp_port", checkempty($_REQUEST["settings"]["smtp_port"]));
+    config_settings()->setParameter("smtp_server", $_REQUEST["settings"]["smtp_server"] ?? "");
+    config_settings()->setParameter("smtp_port", $_REQUEST["settings"]["smtp_port"] ?? "");
     config_settings()->setParameter("trace_programming_warnings", empty($_REQUEST["settings"]["trace_programming_warnings"]) ? 0 : 1);
     config_settings()->setParameter("debug_mode", empty($_REQUEST["settings"]["debug_mode"]) ? 0 : 1);
     config_settings()->setParameter("domains", empty($_REQUEST["settings"]["domains"]) ? [] : preg_split("/[\n\r]+/", trim($_REQUEST["settings"]["domains"])));

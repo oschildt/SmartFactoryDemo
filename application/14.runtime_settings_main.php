@@ -5,7 +5,6 @@ require "../vendor/autoload.php";
 
 use function SmartFactory\config_settings;
 use function SmartFactory\runtime_settings;
-use function SmartFactory\checkempty;
 use function SmartFactory\input_text;
 use function SmartFactory\checkbox;
 use function SmartFactory\select;
@@ -33,8 +32,8 @@ function process_form()
         return true;
     }
     
-    runtime_settings()->setParameter("hotel_name", checkempty($_REQUEST["booking_settings"]["hotel_name"]));
-    runtime_settings()->setParameter("hotel_email", checkempty($_REQUEST["booking_settings"]["hotel_email"]));
+    runtime_settings()->setParameter("hotel_name", $_REQUEST["booking_settings"]["hotel_name"] ?? "");
+    runtime_settings()->setParameter("hotel_email", $_REQUEST["booking_settings"]["hotel_email"] ?? "");
     runtime_settings()->setParameter("show_free_rooms", empty($_REQUEST["booking_settings"]["show_free_rooms"]) ? 0 : 1);
     runtime_settings()->setParameter("colors", empty($_REQUEST["booking_settings"]["colors"]) ? [] : $_REQUEST["booking_settings"]["colors"]);
 

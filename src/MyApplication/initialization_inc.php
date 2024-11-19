@@ -62,9 +62,26 @@ function app_dbworker()
 //-------------------------------------------------------------------
 // Defining bindings for the standard SmartFactory classes with own intialization
 //-------------------------------------------------------------------
-// IMPORTANT: The ConfigSettingsManager must be bound first,
-// because other bindings might use the config settings by
-// initialization.
+// Overriding the default bindings of the standard SmartFactory classes with own intialization
+//-------------------------------------------------------------------
+ObjectFactory::bindClass(IErrorHandler::class, ErrorHandler::class, function ($instance) {
+    $instance->init(["log_path" => approot() . "logs/"]);
+
+    if (config_settings()->getParameter("trace_programming_warnings")) {
+        $instance->enableTrace();
+    } else {
+        $instance->disableTrace();
+    }
+});
+//-------------------------------------------------------------------
+ObjectFactory::bindClass(IDebugProfiler::class, DebugProfiler::class, function ($instance) {
+    $instance->init([
+        "log_path" => approot() . "logs/"
+    ]);
+
+    // we do it in the second step to be able to use debugging also in the ConfigSettingsManager methods
+    $instance->enableFileAndLineDetails(config_settings()->getParameter("write_source_file_and_line_by_debug", 0));
+});
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(ConfigSettingsManager::class, ConfigSettingsManager::class, function ($instance) {
     $instance->init([
@@ -154,25 +171,6 @@ ObjectFactory::bindClass(IOAuthManager::class, OAuthManager::class, function ($i
     $params["pass_phrase"] = "termin";
 
     $instance->init($params);
-});
-//-------------------------------------------------------------------
-// Overriding the default bindings of the standard SmartFactory classes with own intialization
-//-------------------------------------------------------------------
-ObjectFactory::bindClass(IErrorHandler::class, ErrorHandler::class, function ($instance) {
-    $instance->init(["log_path" => approot() . "logs/"]);
-
-    if (config_settings()->getParameter("trace_programming_warnings")) {
-        $instance->enableTrace();
-    } else {
-        $instance->disableTrace();
-    }
-});
-//-------------------------------------------------------------------
-ObjectFactory::bindClass(IDebugProfiler::class, DebugProfiler::class, function ($instance) {
-    $instance->init([
-        "log_path" => approot() . "logs/",
-        "write_source_file_and_line_by_debug" => config_settings()->getParameter("write_source_file_and_line_by_debug")
-    ]);
 });
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(IMessageManager::class, MessageManager::class, function ($instance) {
