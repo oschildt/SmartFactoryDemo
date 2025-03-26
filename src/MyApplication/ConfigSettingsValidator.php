@@ -14,53 +14,48 @@ class ConfigSettingsValidator implements ISettingsValidator
     //-----------------------------------------------------------------
     public function validate($settingsmanager, $context)
     {
+        $result = true;
+
         if ($context == "server_settings") {
             if ($settingsmanager->getParameter("smtp_server", true) == "") {
-                messenger()->setError(text("ErrSmtpHostEmpty"));
-                messenger()->setErrorElement("smtp_server");
-                return false;
+                messenger()->addError(text("ErrSmtpHostEmpty"), [], "smtp_server");
+                $result = false;
             }
         }
         
         if ($context == "database_settings") {
             if ($settingsmanager->getParameter("db_type", true) == "") {
-                messenger()->setError(text("ErrDatabaseTypeEmpty"));
-                messenger()->setErrorElement("db_type");
-                return false;
+                messenger()->addError(text("ErrDatabaseTypeEmpty"), [], "db_type");
+                $result = false;
             }
             
             if ($settingsmanager->getParameter("db_server", true) == "") {
-                messenger()->setError(text("ErrDatabaseServerEmpty"));
-                messenger()->setErrorElement("db_server");
-                return false;
+                messenger()->addError(text("ErrDatabaseServerEmpty"), [], "db_server");
+                $result = false;
             }
             
             if ($settingsmanager->getParameter("db_name", true) == "") {
-                messenger()->setError(text("ErrDatabaseNameEmpty"));
-                messenger()->setErrorElement("db_name");
-                return false;
+                messenger()->addError(text("ErrDatabaseNameEmpty"), [], "db_name");
+                $result = false;
             }
             
             if ($settingsmanager->getParameter("db_user", true) == "") {
-                messenger()->setError(text("ErrDatabaseUserEmpty"));
-                messenger()->setErrorElement("db_user");
-                return false;
+                messenger()->addError(text("ErrDatabaseUserEmpty"), [], "db_user");
+                $result = false;
             }
             
             if ($settingsmanager->getParameter("db_password", true) == "") {
-                messenger()->setError(text("ErrDatabasePasswordEmpty"));
-                messenger()->setErrorElement("db_password");
-                return false;
+                messenger()->addError(text("ErrDatabasePasswordEmpty"), [], "db_password");
+                $result = false;
             }
             
             if ($settingsmanager->getParameter("db_prefix", true) == "") {
-                messenger()->setError(text("ErrDatabaseTablePrefixEmpty"));
-                messenger()->setErrorElement("db_prefix");
-                return false;
+                messenger()->addError(text("ErrDatabaseTablePrefixEmpty"), [], "db_prefix");
+                $result = false;
             }
         }
         
-        return true;
+        return $result;
     } // validate
     //-----------------------------------------------------------------
 } // ConfigSettingsValidator

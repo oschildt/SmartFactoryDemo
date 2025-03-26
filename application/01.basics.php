@@ -64,6 +64,9 @@ $user = singleton(IUser::class);
 echo "<p>First name: " . $user->getUserFirstName() . "</p>";
 
 echo "<p>Last name: " . $user->getUserLastName() . "</p>";
+
+$pattern = preg_pattern_quote("pattern");
+$replacement = preg_replacement_quote("replacement");
 ?>
 
 </body>

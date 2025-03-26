@@ -11,10 +11,10 @@ use SmartFactory\Interfaces\IRecordsetManager;
 use SmartFactory\ObjectFactory;
 use SmartFactory\ConfigSettingsManager;
 use SmartFactory\RuntimeSettingsManager;
+use SmartFactory\SessionMessageManager;
 use SmartFactory\UserSettingsManager;
 use SmartFactory\DebugProfiler;
 use SmartFactory\ErrorHandler;
-use SmartFactory\MessageManager;
 use SmartFactory\LanguageManager;
 use SmartFactory\RecordsetManager;
 
@@ -136,9 +136,26 @@ ObjectFactory::bindClass(UserSettingsManager::class, UserSettingsManager::class,
 });
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(ILanguageManager::class, LanguageManager::class, function ($instance) {
+    $additional_localization_files = [];
+
+    $modules_path = approot() . "modules/";
+    $modules = scandir($modules_path);
+
+    foreach ($modules as $module) {
+        if ($module == "." || $module == ".." || !is_dir($modules_path . $module)) {
+            continue;
+        }
+
+        $module_dir = $modules_path . $module . "/";
+
+        if (file_exists($module_dir . "localization/texts.json")) {
+            $additional_localization_files[] = $module_dir . "localization/texts.json";
+        }
+    }
+
     $instance->init([
         "localization_path" => approot() . "localization/",
-        "module_localization_path" => approot() . "modules/",
+        "additional_localization_files" => $additional_localization_files,
         "use_apcu" => false,
         "warn_missing" => true
     ]);
@@ -173,7 +190,7 @@ ObjectFactory::bindClass(IOAuthManager::class, OAuthManager::class, function ($i
     $instance->init($params);
 });
 //-------------------------------------------------------------------
-ObjectFactory::bindClass(IMessageManager::class, MessageManager::class, function ($instance) {
+ObjectFactory::bindClass(IMessageManager::class, SessionMessageManager::class, function ($instance) {
     $instance->init(["debug_mode" => config_settings()->getParameter("debug_mode")]);
 });
 //-------------------------------------------------------------------

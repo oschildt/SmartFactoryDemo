@@ -13,41 +13,38 @@ class RuntimeSettingsValidator implements ISettingsValidator
     //-----------------------------------------------------------------
     public function validate($settingsmanager, $context)
     {
+        $result = true;
+
         if ($context == "general_settings") {
             if ($settingsmanager->getParameter("hotel_name", true) == "") {
-                messenger()->setError("Hotel name cannot be empty!");
-                messenger()->setErrorElement("hotel_name");
-                return false;
+                messenger()->addError("Hotel name cannot be empty!", [], "hotel_name");
+                $result = false;
             }
             
             if ($settingsmanager->getParameter("hotel_email", true) == "") {
-                messenger()->setError("Hotel email cannot be empty!");
-                messenger()->setErrorElement("hotel_email");
-                return false;
+                messenger()->addError("Hotel email cannot be empty!", [], "hotel_email");
+                $result = false;
             }
         }
         
         if ($context == "data_exchange_settings") {
             if ($settingsmanager->getParameter("booking_url", true) == "") {
-                messenger()->setError("Booking url cannot be empty!");
-                messenger()->setErrorElement("booking_url");
-                return false;
+                messenger()->addError("Booking url cannot be empty!", [], "booking_url");
+                $result = false;
             }
             
             if ($settingsmanager->getParameter("hotel_id", true) == "") {
-                messenger()->setError("Hotel ID url cannot be empty!");
-                messenger()->setErrorElement("hotel_id");
-                return false;
+                messenger()->addError("Hotel ID url cannot be empty!", [], "hotel_id");
+                $result = false;
             }
             
             if ($settingsmanager->getParameter("default_rate", true) == "") {
-                messenger()->setError("Default rate cannot be empty!");
-                messenger()->setErrorElement("default_rate");
-                return false;
+                messenger()->addError("Default rate cannot be empty!", [], "default_rate");
+                $result = false;
             }
         }
         
-        return true;
+        return $result;
     } // validate
     //-----------------------------------------------------------------
 } // RuntimeSettingsValidator

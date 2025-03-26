@@ -10,7 +10,6 @@
     },
     
     "files": [ 
-       "src/utf8_functions_inc.php",
        "src/MyApplication/initialization_inc.php",
        "src/MyApplication/message_output_inc.php"
     ]
@@ -19,8 +18,8 @@
   "require": {
     "php": ">=8.0",
     "ext-dom": "*",
-    "smartfactory/smartfactory": ">=2.1.22",
-    "smartfactory/oauth2": ">=1.2.22"
+    "smartfactory/smartfactory": ">=2.1.23",
+    "smartfactory/oauth2": ">=1.2.23"
   },
   
   "config": {
