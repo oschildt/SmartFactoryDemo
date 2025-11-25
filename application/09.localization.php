@@ -59,25 +59,25 @@ echo "</p>";
 
 echo "<p>";
 echo "Language name 'fr': " . $lmanager->getLanguageName('fr') . "<br>";
-echo "validateLanguageCode 'fr': " . $lmanager->validateLanguageCode('fr') . "<br>";
+echo "validateLanguageCode 'fr': " . $lmanager->hasLanguageName('fr') . "<br>";
 echo "getLanguageCode 'Russian': " . $lmanager->getLanguageCode('Russian') . "<br>";
 echo "</p>";
 
 echo "<p>";
 echo "Language name 'wx': " . $lmanager->getLanguageName('wx') . "<br>";
-echo "validateLanguageCode 'wx': " . $lmanager->validateLanguageCode('wx') . "<br>";
+echo "validateLanguageCode 'wx': " . $lmanager->hasLanguageName('wx') . "<br>";
 echo "getLanguageCode 'Woxxy': " . $lmanager->getLanguageCode('Woxxy') . "<br>";
 echo "</p>";
 
 echo "<p>";
 echo "Country name 'DE': " . $lmanager->getCountryName('DE') . "<br>";
-echo "validateCountryCode 'DE': " . $lmanager->validateCountryCode('DE') . "<br>";
+echo "validateCountryCode 'DE': " . $lmanager->hasCountryName('DE') . "<br>";
 echo "getCountryCode 'Deutschland': " . $lmanager->getCountryCode('Deutschland') . "<br>";
 echo "</p>";
 
 echo "<p>";
 echo "Country name 'WX': " . $lmanager->getCountryName('WX') . "<br>";
-echo "validateCountryCode 'WX': " . $lmanager->validateCountryCode('WX') . "<br>";
+echo "validateCountryCode 'WX': " . $lmanager->hasCountryName('WX') . "<br>";
 echo "getCountryCode 'Woxxy': " . $lmanager->getCountryCode('Woxxy') . "<br>";
 echo "</p>";
 ?>
