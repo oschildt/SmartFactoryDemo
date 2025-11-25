@@ -9,5 +9,8 @@
     "db_name": "framework_demo",
     "db_user": "root",
     "db_password": "",
-    "db_prefix": "V1"
+    "db_prefix": "V1",
+    "trace_programming_warnings": 0,
+    "debug_mode": 0,
+    "domains": []
 }

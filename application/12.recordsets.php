@@ -9,7 +9,7 @@ use SmartFactory\DatabaseWorkers\DBWorker;
 
 use function SmartFactory\config_settings;
 use function SmartFactory\singleton;
-use function SmartFactory\echo_html;
+use function SmartFactory\escape_html;
 use function SmartFactory\input_hidden;
 use function SmartFactory\input_text;
 use function SmartFactory\textarea;
@@ -67,7 +67,8 @@ function load_page_data()
                 ],
         
                 ["id"]);
-    
+
+            $_REQUEST["page_data"] = [];
             $rsmanager->loadRecord($_REQUEST["page_data"], ["id" => $_REQUEST["page_id"]]);
     
             $rsmanager->describeTableFields("page_content",
@@ -80,7 +81,8 @@ function load_page_data()
                 ],
         
                 ["page_id", "language_key"]);
-    
+
+            $_REQUEST["page_content"] = [];
             $rsmanager->loadRecordSet($_REQUEST["page_content"], ["page_id" => $_REQUEST["page_id"]]);
         } catch (\Exception $ex) {
             messenger()->addError($ex->getMessage());
@@ -149,7 +151,7 @@ load_page_list($page_list);
 
 if (!empty($_REQUEST["act"])) {
     if (save_data()) {
-        header("Location: 13.recordsets.php?page_id=" . $_REQUEST["page_data"]["id"]);
+        header("Location: 12.recordsets.php?page_id=" . $_REQUEST["page_data"]["id"]);
         exit;
     }
 } else {
@@ -179,22 +181,22 @@ if (config_settings()->getParameter("db_password") == "") {
         
         <?php foreach ($page_list as $page_id => $page_row): ?>
             <tr>
-                <td><?php echo_html($page_id ?? ""); ?></td>
-                <td><?php echo_html($page_row["page_name"] ?? ""); ?></td>
-                <td><?php echo_html($page_row["page_type"] ?? ""); ?></td>
-                <td><a href="13.recordsets.php?page_id=<?php echo_html($page_id ?? ""); ?>">Edit</a></td>
+                <td><?php echo(escape_html($page_id ?? "")); ?></td>
+                <td><?php echo(escape_html($page_row["page_name"] ?? "")); ?></td>
+                <td><?php echo(escape_html($page_row["page_type"] ?? "")); ?></td>
+                <td><a href="12.recordsets.php?page_id=<?php echo(escape_html($page_id ?? "")); ?>">Edit</a></td>
             </tr>
         <?php endforeach; ?>
 
     </table>
 
-    <br><a href="13.recordsets.php">New page</a><br>
+    <br><a href="12.recordsets.php">New page</a><br>
 
-    <form action="13.recordsets.php" method="post">
+    <form action="12.recordsets.php" method="post">
 
         <h3>Basic properites</h3>
 
-        id: <?php echo_html($id); ?>
+        id: <?php echo(escape_html($id)); ?>
         
         <?php input_hidden(["name" => "page_id", "value" => $id]); ?>
         <?php input_hidden(["name" => "page_data[id]", "value" => $id]); ?>

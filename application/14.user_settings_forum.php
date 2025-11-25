@@ -3,18 +3,15 @@ namespace MyApplication;
 
 require "../vendor/autoload.php";
 
+use SmartFactory\SmartException;
+use SmartFactory\SmartExceptionCollection;
+
 use function SmartFactory\config_settings;
 use function SmartFactory\messenger;
 use function SmartFactory\user_settings;
 use function SmartFactory\text;
 use function SmartFactory\input_text;
 use function SmartFactory\checkbox;
-use function SmartFactory\session;
-
-session()->startSession();
-
-user_settings()->setContext("forum_settings");
-user_settings()->setUserID(1);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +26,7 @@ user_settings()->setUserID(1);
 function process_form()
 {
     if (empty($_REQUEST["act"])) {
-        return true;
+        return;
     }
 
     user_settings()->setParameter("status", $_REQUEST["user_settings"]["status"] ?? "");
@@ -37,16 +34,14 @@ function process_form()
     
     user_settings()->setParameter("hide_pictures", empty($_REQUEST["user_settings"]["hide_pictures"]) ? 0 : 1);
     user_settings()->setParameter("hide_signatures", empty($_REQUEST["user_settings"]["hide_signatures"]) ? 0 : 1);
-    
-    if (!user_settings()->validateSettings()) {
-        return false;
-    }
+
+    user_settings()->validateSettings();
 
     user_settings()->saveSettings();
     
     messenger()->addInfoMessage(text("MsgSettingsSaved"));
     
-    header("location: 15.user_settings_summary.php");
+    header("location: 14.user_settings_summary.php");
     exit();
 } // process_form
 ?>
@@ -56,7 +51,14 @@ if (config_settings()->getParameter("db_password") == "") {
     echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in 'config/settings.json'!</h4>";
 } else {
     try {
+        user_settings()->setContext("forum_settings");
+        user_settings()->setUserID(1);
+
         process_form();
+    } catch (SmartExceptionCollection $ex) {
+        messenger()->addErrorFromSmartException($ex);
+    } catch (SmartException $ex) {
+        messenger()->addErrorFromSmartException($ex);
     } catch (\Exception $ex) {
         messenger()->addError($ex->getMessage());
     }
@@ -66,7 +68,7 @@ if (config_settings()->getParameter("db_password") == "") {
     report_messages();
     ?>
 
-    <form action="15.user_settings_forum.php" method="post">
+    <form action="14.user_settings_forum.php" method="post">
 
         <table>
             <tr>

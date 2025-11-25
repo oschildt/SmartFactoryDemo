@@ -16,10 +16,10 @@
   },
 
   "require": {
-    "php": ">=8.0",
+    "php": ">=8.4",
     "ext-dom": "*",
-    "smartfactory/smartfactory": ">=2.1.23",
-    "smartfactory/oauth2": ">=1.2.23"
+    "smartfactory/smartfactory": ">=2.1.24",
+    "smartfactory/oauth2": ">=1.2.24"
   },
   
   "config": {

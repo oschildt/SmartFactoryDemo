@@ -3,15 +3,15 @@ namespace MyApplication;
 
 require "../vendor/autoload.php";
 
+use SmartFactory\SmartException;
+use SmartFactory\SmartExceptionCollection;
+
 use function SmartFactory\config_settings;
-use function SmartFactory\echo_html;
-use function SmartFactory\session;
 use function SmartFactory\text;
 use function SmartFactory\input_text;
 use function SmartFactory\input_password;
 use function SmartFactory\messenger;
-
-session()->startSession();
+use function SmartFactory\escape_html;
 
 config_settings()->setContext("database_settings");
 ?><!DOCTYPE html>
@@ -36,24 +36,26 @@ function process_form()
     config_settings()->setParameter("db_name", $_REQUEST["settings"]["db_name"] ?? "");
     config_settings()->setParameter("db_user", $_REQUEST["settings"]["db_user"] ?? "");
     if (!empty($_REQUEST["settings"]["db_password"])) {
-        config_settings()->setParameter("db_password", $_REQUEST["settings"]["db_password"] ?? "");
+        config_settings()->setParameter("db_password", $_REQUEST["settings"]["db_password"]);
     }
     config_settings()->setParameter("db_prefix", $_REQUEST["settings"]["db_prefix"] ?? "");
 
-    if (!config_settings()->validateSettings()) {
-        return;
-    }
+    config_settings()->validateSettings();
     
     config_settings()->saveSettings();
     
     messenger()->addInfoMessage(text("MsgSettingsSaved"));
     
-    header("location: 12.config_settings_summary.php");
+    header("location: 10.config_settings_summary.php");
     exit();
 } // process_form
 
 try {
     process_form();
+} catch (SmartExceptionCollection $ex) {
+    messenger()->addErrorFromSmartException($ex);
+} catch (SmartException $ex) {
+    messenger()->addErrorFromSmartException($ex);
 } catch (\Exception $ex) {
     messenger()->addError($ex->getMessage());
 }
@@ -63,11 +65,11 @@ try {
 report_messages();
 ?>
 
-<form action="12.config_settings_db.php" method="post">
+<form action="10.config_settings_db.php" method="post">
 
     <table>
         <tr>
-            <td><?php echo_html(text('DatabaseType')); ?>*:</td>
+            <td><?php echo(escape_html(text('DatabaseType'))); ?>*:</td>
             <td>
                 <?php input_text([
                     "name" => "settings[db_type]",
@@ -77,7 +79,7 @@ report_messages();
             </td>
         </tr>
         <tr>
-            <td><?php echo_html(text('DatabaseServer')); ?>*:</td>
+            <td><?php echo(escape_html(text('DatabaseServer'))); ?>*:</td>
             <td>
                 <?php input_text([
                     "name" => "settings[db_server]",
@@ -87,7 +89,7 @@ report_messages();
             </td>
         </tr>
         <tr>
-            <td><?php echo_html(text('DatabaseName')); ?>*:</td>
+            <td><?php echo(escape_html(text('DatabaseName'))); ?>*:</td>
             <td>
                 <?php input_text([
                     "name" => "settings[db_name]",
@@ -97,7 +99,7 @@ report_messages();
             </td>
         </tr>
         <tr>
-            <td><?php echo_html(text('DatabaseUser')); ?>*:</td>
+            <td><?php echo(escape_html(text('DatabaseUser'))); ?>*:</td>
             <td>
                 <?php input_text([
                     "name" => "settings[db_user]",
@@ -107,7 +109,7 @@ report_messages();
             </td>
         </tr>
         <tr>
-            <td><?php echo_html(text('DatabasePassword')); ?>*:</td>
+            <td><?php echo(escape_html(text('DatabasePassword'))); ?>*:</td>
             <td>
                 <?php input_password([
                     "name" => "settings[db_password]",
@@ -116,7 +118,7 @@ report_messages();
             </td>
         </tr>
         <tr>
-            <td><?php echo_html(text('DatabaseTablePrefix')); ?>*:</td>
+            <td><?php echo(escape_html(text('DatabaseTablePrefix'))); ?>*:</td>
             <td>
                 <?php input_text([
                     "name" => "settings[db_prefix]",

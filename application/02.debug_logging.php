@@ -35,8 +35,8 @@ debugger()->debugMessage("some data 2 ...", "mylog.log");
 <?php
 debugger()->clearLogFiles();
 
-debugger()->debugMessage("some data 1 ...", "mylog.log");
-debugger()->debugMessage("some data 2 ...", "mylog.log");
+debugger()->debugMessage("some data 1 ...", false,"mylog.log");
+debugger()->debugMessage("some data 2 with call stack ...", true,"mylog.log");
 
 echo file_get_contents(approot() . "logs/mylog.log");
 ?>
@@ -54,7 +54,7 @@ debugger()->debugMessage("some debug data 2 ...");
 <pre class="code">
 <?php
 debugger()->debugMessage("some debug data 1 ...");
-debugger()->debugMessage("some debug data 2 ...");
+debugger()->debugMessage("some debug data 2 with call stack ...", true);
 
 echo file_get_contents(approot() . "logs/debug.log");
 ?>

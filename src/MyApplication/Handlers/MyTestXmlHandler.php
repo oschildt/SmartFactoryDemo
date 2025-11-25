@@ -6,14 +6,13 @@ use SmartFactory\XmlRequestHandler;
 use SmartFactory\SmartException;
 
 use function SmartFactory\messenger;
-use function SmartFactory\reqvar_value;
 
 //-------------------------------------------------------------------
 // class MyTestXmlHandler
 //-------------------------------------------------------------------
 class MyTestXmlHandler extends XmlRequestHandler
 {
-    protected function parseInput()
+    protected function parseInput(): void
     {
         try {
             //$content_type = empty($this->request_headers["Content-Type"]) ? "" : $this->request_headers["Content-Type"];
@@ -25,7 +24,7 @@ class MyTestXmlHandler extends XmlRequestHandler
 
             // For demo we take not frow rawdata.
 
-            $xmldata = reqvar_value("xmldata");
+            $xmldata = $_REQUEST["xmldata"] ?? "";
 
             if (empty($xmldata)) {
                 throw new SmartException("The request XML is empty!", SmartException::ERR_CODE_MISSING_REQUEST_DATA);
@@ -43,7 +42,7 @@ class MyTestXmlHandler extends XmlRequestHandler
         }
     } // parseInput
 
-    function addMessagesToResponse()
+    function addMessagesToResponse(): void
     {
         if(messenger()->hasErrors()) {
             $xmlerrors = $this->response_xmldoc->createElement("Errors");
@@ -64,7 +63,7 @@ class MyTestXmlHandler extends XmlRequestHandler
         }
     }
 
-    function get_rooms()
+    function get_rooms(): void
     {
         $xsdpath = new \DOMXPath($this->request_xmldoc);
 

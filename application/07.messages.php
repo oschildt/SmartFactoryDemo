@@ -4,9 +4,6 @@ namespace MyApplication;
 require "../vendor/autoload.php";
 
 use function SmartFactory\messenger;
-use function SmartFactory\session;
-
-session()->startSession();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>

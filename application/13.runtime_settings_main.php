@@ -3,18 +3,13 @@ namespace MyApplication;
 
 require "../vendor/autoload.php";
 
-use function SmartFactory\config_settings;
+use SmartFactory\SmartException;use SmartFactory\SmartExceptionCollection;use function SmartFactory\config_settings;
 use function SmartFactory\runtime_settings;
 use function SmartFactory\input_text;
 use function SmartFactory\checkbox;
 use function SmartFactory\select;
 use function SmartFactory\messenger;
 use function SmartFactory\text;
-use function SmartFactory\session;
-
-session()->startSession();
-
-runtime_settings()->setContext("general_settings");
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +24,7 @@ runtime_settings()->setContext("general_settings");
 function process_form()
 {
     if (empty($_REQUEST["act"])) {
-        return true;
+        return;
     }
     
     runtime_settings()->setParameter("hotel_name", $_REQUEST["booking_settings"]["hotel_name"] ?? "");
@@ -37,15 +32,15 @@ function process_form()
     runtime_settings()->setParameter("show_free_rooms", empty($_REQUEST["booking_settings"]["show_free_rooms"]) ? 0 : 1);
     runtime_settings()->setParameter("colors", empty($_REQUEST["booking_settings"]["colors"]) ? [] : $_REQUEST["booking_settings"]["colors"]);
 
-    if (!runtime_settings()->validateSettings()) {
-        return false;
-    }
+    runtime_settings()->setContext("general_settings");
+
+    runtime_settings()->validateSettings();
     
     runtime_settings()->saveSettings();
     
     messenger()->addInfoMessage(text("MsgSettingsSaved"));
     
-    header("location: 14.runtime_settings_summary.php");
+    header("location: 13.runtime_settings_summary.php");
     exit();
 } // process_form
 ?>
@@ -56,6 +51,10 @@ if (config_settings()->getParameter("db_password") == "") {
 } else {
     try {
         process_form();
+    } catch (SmartExceptionCollection $ex) {
+        messenger()->addErrorFromSmartException($ex);
+    } catch (SmartException $ex) {
+        messenger()->addErrorFromSmartException($ex);
     } catch (\Exception $ex) {
         messenger()->addError($ex->getMessage());
     }
@@ -65,7 +64,7 @@ if (config_settings()->getParameter("db_password") == "") {
     report_messages();
     ?>
 
-    <form action="14.runtime_settings_main.php" method="post">
+    <form action="13.runtime_settings_main.php" method="post">
 
         <table>
             <tr>

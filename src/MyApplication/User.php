@@ -9,16 +9,16 @@ use MyApplication\Interfaces\IUser;
 //-------------------------------------------------------------------
 class User implements IUser
 {
-    public $first_name = "John";
+    public string $first_name = "John";
     
     //-----------------------------------------------------------------
-    public function getUserFirstName()
+    public function getUserFirstName(): string
     {
         return $this->first_name;
     } // getUserFirstName
     
     //-----------------------------------------------------------------
-    public function getUserLastName()
+    public function getUserLastName(): string
     {
         return "Smith";
     } // getUserLastName

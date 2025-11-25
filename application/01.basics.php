@@ -39,6 +39,21 @@ class User implements IUser
         return "Smith";
     }
 }
+
+class UserExtended implements IUser
+{
+    public $first_name = "John!";
+
+    public function getUserFirstName()
+    {
+        return $this->first_name;
+    }
+
+    public function getUserLastName()
+    {
+        return "Smith!";
+    }
+}
 </pre>
 
 <p>We bind the current implementation to the interface. If we need to change the
@@ -46,15 +61,16 @@ class User implements IUser
 
 <pre class="code">
 ObjectFactory::bindClass(IUser::class, User::class);
+ObjectFactory::bindClassContext("extended", IUser::class, UserExtended::class);
 </pre>
 
 <p>We request the object over the factory.</p>
 
 <pre class="code">
 $user = singleton(IUser::class);
+$ext_user = singleton(IUser::class, "extended");
 
 echo "First name: " . $user->getUserFirstName();
-
 echo "Last name: " . $user->getUserLastName();
 </pre>
 
@@ -62,11 +78,12 @@ echo "Last name: " . $user->getUserLastName();
 $user = singleton(IUser::class);
 
 echo "<p>First name: " . $user->getUserFirstName() . "</p>";
-
 echo "<p>Last name: " . $user->getUserLastName() . "</p>";
 
-$pattern = preg_pattern_quote("pattern");
-$replacement = preg_replacement_quote("replacement");
+$ext_user = singleton(IUser::class, "extended");
+
+echo "<p>First name (ext): " . $ext_user->getUserFirstName() . "</p>";
+echo "<p>Last name (ext): " . $ext_user->getUserLastName() . "</p>";
 ?>
 
 </body>

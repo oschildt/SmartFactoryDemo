@@ -6,12 +6,12 @@ use OAuth2\Interfaces\IUserAuthenticator;
 
 class DemoUserAuthenticator implements IUserAuthenticator
 {
-    public function init($parameters)
+    public function init(array $parameters): void
     {
     
     }
     
-    public function authenticateUser($credentials)
+    public function authenticateUser(array $credentials): int
     {
         if (empty($credentials["user_login"])) {
             throw new \OAuth2\InvalidCredentialsException("The user login is not specified!");

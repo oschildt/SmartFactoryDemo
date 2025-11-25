@@ -75,6 +75,7 @@ function connect_mysql()
         $dbw = randomDBShard("load_balancing_group1");
     } catch (\Exception $ex) {
         echo "<h4 style='color: maroon'>Please ensure that you have created the demo database with the script 'database/create_database_mysql.sql' and adjust the DB password and other connection data in the lines 31, 42, 53, 64 of this file!</h4>";
+        return;
     }
 
     echo "<h2>Simple query</h2>";
@@ -91,13 +92,9 @@ function connect_mysql()
 
     echo "<p>Update should fail because of the read only mode.</p>";
 
-    if (!$dbw->execute_query("update users set first_name = 'Alex'")) {
-        return sql_error($dbw);
-    }
+    $dbw->execute_query("update users set first_name = 'Alex'");
 
     echo "Update done.<br>";
-
-    return true;
 } // connect_mysql
 
 try {

@@ -3,7 +3,7 @@ namespace MyApplication;
 
 use function SmartFactory\messenger;
 
-function report_messages()
+function report_messages(): void
 {
     if (messenger()->hasProgWarnings()) {
         echo "<div class='message_block'>";

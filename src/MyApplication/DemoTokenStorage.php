@@ -14,11 +14,11 @@ use function SmartFactory\dom_to_array;
 
 class DemoTokenStorage implements ITokenStorage
 {
-    protected $supported_keys = ['user_id', 'client_id', 'access_token', 'refresh_token'];
-    protected $records = [];
-    protected $storage_file = null;
+    protected array $supported_keys = ['user_id', 'client_id', 'access_token', 'refresh_token'];
+    protected array $records = [];
+    protected string $storage_file;
     
-    protected function loadRecords()
+    protected function loadRecords(): void
     {
         $this->validateParameters();
         
@@ -35,7 +35,7 @@ class DemoTokenStorage implements ITokenStorage
         dom_to_array($xmldoc->documentElement, $this->records);
     }
     
-    protected function saveRecords()
+    protected function saveRecords(): void
     {
         $this->validateParameters();
         
@@ -55,7 +55,7 @@ class DemoTokenStorage implements ITokenStorage
         }
     }
     
-    protected function validateParameters()
+    protected function validateParameters(): void
     {
         if (empty($this->storage_file)) {
             throw new SmartException("The 'storage_file' is not specified!", SmartException::ERR_CODE_SYSTEM_ERROR);
@@ -66,7 +66,7 @@ class DemoTokenStorage implements ITokenStorage
         }
     }
     
-    public function init($params)
+    public function init($params): void
     {
         if (!empty($params["storage_file"])) {
             $this->storage_file = $params["storage_file"];
@@ -75,7 +75,7 @@ class DemoTokenStorage implements ITokenStorage
         $this->validateParameters();
     }
     
-    public function saveTokenRecord(&$token_record)
+    public function saveTokenRecord(array &$token_record): void
     {
         if (empty($token_record["user_id"])) {
             throw new MissingParametersException("The parameter 'user_id' is not specified!", SmartException::ERR_CODE_MISSING_REQUEST_DATA);
@@ -145,7 +145,7 @@ class DemoTokenStorage implements ITokenStorage
         $this->saveRecords();
     }
     
-    public function loadTokenRecord(&$token_record)
+    public function loadTokenRecord(array &$token_record): void
     {
         if (empty($token_record["user_id"])) {
             throw new MissingParametersException("The user id is not specified!", SmartException::ERR_CODE_MISSING_REQUEST_DATA);
@@ -192,7 +192,7 @@ class DemoTokenStorage implements ITokenStorage
         throw new InvalidTokenException("The token is invalid, it is not found in the storage!", SmartException::ERR_CODE_NOT_FOUND);
     } // loadTokenRecord
     
-    public function deleteTokenRecordByKey($key, $value)
+    public function deleteTokenRecordByKey(string $key, string $value): void
     {
         if (!in_array($key, $this->supported_keys)) {
             throw new SmartException(sprintf("The key %s is not supported! The suppoted keys are: %s", $key, implode(", ", $this->supported_keys)), SmartException::ERR_CODE_SYSTEM_ERROR);
@@ -219,7 +219,7 @@ class DemoTokenStorage implements ITokenStorage
         $this->saveRecords();
     }
 
-    public function verifyAccessToken($access_token, $user_id, $client_id)
+    public function verifyAccessToken(string $access_token, string $user_id, string $client_id): void
     {
         $token_record["access_token"] = $access_token;
         $token_record["user_id"] = $user_id;
@@ -236,7 +236,7 @@ class DemoTokenStorage implements ITokenStorage
         $this->saveTokenRecord($token_record);
     }
 
-    public function verifyRefreshToken($refresh_token, $user_id, $client_id)
+    public function verifyRefreshToken(string $refresh_token, string $user_id, string $client_id): void
     {
         $token_record["refresh_token"] = $refresh_token;
         $token_record["user_id"] = $user_id;

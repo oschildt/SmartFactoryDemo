@@ -9,7 +9,7 @@ use SmartFactory\DatabaseWorkers\DBWorker;
 
 use function SmartFactory\config_settings;
 use function SmartFactory\singleton;
-use function SmartFactory\echo_html;
+use function SmartFactory\escape_html;
 use function SmartFactory\input_text;
 use function SmartFactory\format_number;
 use function SmartFactory\string_to_number;
@@ -49,6 +49,7 @@ function load_data(&$cnt)
 
         $cnt = $rsmanager->countRecords($where);
 
+        $_REQUEST["room_prices"] = [];
         $rsmanager->loadRecordSet($_REQUEST["room_prices"], $where, "order by room, dt");
     } catch (\Exception $ex) {
         messenger()->addError($ex->getMessage());
@@ -85,7 +86,7 @@ $cnt = 0;
 
 if (!empty($_REQUEST["act"])) {
     if (save_data()) {
-        header("Location: 13.recordsets_grid.php");
+        header("Location: 12.recordsets_grid.php");
         exit();
     }
 } else {
@@ -103,7 +104,7 @@ if (config_settings()->getParameter("db_password") == "") {
     report_messages();
     ?>
 
-    <form action="13.recordsets_grid.php" method="post">
+    <form action="12.recordsets_grid.php" method="post">
 
         <h3>Rooms prices</h3>
 
@@ -118,13 +119,13 @@ if (config_settings()->getParameter("db_password") == "") {
             <tr>
                 <th>Room</th>
                 <?php for ($i = 0; $i < 7; $i++): ?>
-                    <th><?php echo_html(date(text("DateFormat"), $now + $i * 24 * 3600)); ?></th>
+                    <th><?php echo(escape_html(date(text("DateFormat"), $now + $i * 24 * 3600))); ?></th>
                 <?php endfor; ?>
             </tr>
             
             <?php foreach ($rooms as $room): ?>
                 <tr>
-                    <td><?php echo_html($room); ?></td>
+                    <td><?php echo(escape_html($room)); ?></td>
                     
                     <?php for ($i = 0; $i < 7; $i++): ?>
                         <td>

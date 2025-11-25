@@ -4,7 +4,6 @@ namespace MyApplication;
 require "../vendor/autoload.php";
 
 use function SmartFactory\messenger;
-use function SmartFactory\session;
 use function SmartFactory\input_text;
 use function SmartFactory\input_password;
 use function SmartFactory\text;
@@ -12,7 +11,7 @@ use function SmartFactory\textarea;
 use function SmartFactory\select;
 use function SmartFactory\checkbox;
 use function SmartFactory\radiobutton;
-use function SmartFactory\echo_html;
+use function SmartFactory\escape_html;
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -184,7 +183,7 @@ report_messages();
         //"checked" => true,
         "title" => "select checkbox",
         "data-prop" => "some-prop"
-    ]); ?> <label for="data_ckbxcolor_<?php echo_html($val); ?>"><?php echo_html($text); ?></label>
+    ]); ?> <label for="data_ckbxcolor_<?php echo(escape_html($val)); ?>"><?php echo(escape_html($text)); ?></label>
 
         <br>
     
@@ -217,7 +216,7 @@ report_messages();
         //"checked" => true,
         "title" => "select radiobutton",
         "data-prop" => "some-prop"
-    ]); ?> <label for="data_radiocolor_<?php echo_html($val); ?>"><?php echo_html($text); ?></label>
+    ]); ?> <label for="data_radiocolor_<?php echo(escape_html($val)); ?>"><?php echo(escape_html($text)); ?></label>
 
         <br>
     

@@ -2,7 +2,6 @@
 
 namespace MyApplication;
 
-use SmartFactory\Interfaces\IMessageManager;
 use SmartFactory\Interfaces\IDebugProfiler;
 use SmartFactory\Interfaces\IErrorHandler;
 use SmartFactory\Interfaces\ILanguageManager;
@@ -11,7 +10,6 @@ use SmartFactory\Interfaces\IRecordsetManager;
 use SmartFactory\ObjectFactory;
 use SmartFactory\ConfigSettingsManager;
 use SmartFactory\RuntimeSettingsManager;
-use SmartFactory\SessionMessageManager;
 use SmartFactory\UserSettingsManager;
 use SmartFactory\DebugProfiler;
 use SmartFactory\ErrorHandler;
@@ -60,9 +58,9 @@ function app_dbworker()
 }
 
 //-------------------------------------------------------------------
-// Defining bindings for the standard SmartFactory classes with own intialization
+// Defining bindings for the standard SmartFactory classes with own initialization
 //-------------------------------------------------------------------
-// Overriding the default bindings of the standard SmartFactory classes with own intialization
+// Overriding the default bindings of the standard SmartFactory classes with own initialization
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(IErrorHandler::class, ErrorHandler::class, function ($instance) {
     $instance->init(["log_path" => approot() . "logs/"]);
@@ -190,10 +188,6 @@ ObjectFactory::bindClass(IOAuthManager::class, OAuthManager::class, function ($i
     $instance->init($params);
 });
 //-------------------------------------------------------------------
-ObjectFactory::bindClass(IMessageManager::class, SessionMessageManager::class, function ($instance) {
-    $instance->init(["debug_mode" => config_settings()->getParameter("debug_mode")]);
-});
-//-------------------------------------------------------------------
 // Binding of own class implementations to SmartFactory interfaces
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(ITokenStorage::class, DemoTokenStorage::class);
@@ -203,4 +197,5 @@ ObjectFactory::bindClass(IUserAuthenticator::class, DemoUserAuthenticator::class
 // Binding of own class implementations to own interfaces
 //-------------------------------------------------------------------
 ObjectFactory::bindClass(IUser::class, User::class);
+ObjectFactory::bindClassContext("extended", IUser::class, UserExtended::class);
 //-------------------------------------------------------------------

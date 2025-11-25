@@ -3,16 +3,11 @@ namespace MyApplication;
 
 require "../vendor/autoload.php";
 
-use function SmartFactory\config_settings;
+use SmartFactory\SmartException;use SmartFactory\SmartExceptionCollection;use function SmartFactory\config_settings;
 use function SmartFactory\runtime_settings;
 use function SmartFactory\text;
 use function SmartFactory\input_text;
 use function SmartFactory\messenger;
-use function SmartFactory\session;
-
-session()->startSession();
-
-runtime_settings()->setContext("data_exchange_settings");
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,22 +22,22 @@ runtime_settings()->setContext("data_exchange_settings");
 function process_form()
 {
     if (empty($_REQUEST["act"])) {
-        return true;
+        return;
     }
     
     runtime_settings()->setParameter("booking_url", $_REQUEST["booking_settings"]["booking_url"] ?? "");
     runtime_settings()->setParameter("hotel_id", $_REQUEST["booking_settings"]["hotel_id"] ?? "");
     runtime_settings()->setParameter("default_rate", $_REQUEST["booking_settings"]["default_rate"] ?? "");
 
-    if (!runtime_settings()->validateSettings()) {
-        return false;
-    }
+    runtime_settings()->setContext("data_exchange_settings");
+
+    runtime_settings()->validateSettings();
     
     runtime_settings()->saveSettings();
     
     messenger()->addInfoMessage(text("MsgSettingsSaved"));
     
-    header("location: 14.runtime_settings_summary.php");
+    header("location: 13.runtime_settings_summary.php");
     exit();
 } // process_form
 ?>
@@ -53,6 +48,10 @@ if (config_settings()->getParameter("db_password") == "") {
 } else {
     try {
         process_form();
+    } catch (SmartExceptionCollection $ex) {
+        messenger()->addErrorFromSmartException($ex);
+    } catch (SmartException $ex) {
+        messenger()->addErrorFromSmartException($ex);
     } catch (\Exception $ex) {
         messenger()->addError($ex->getMessage());
     }
@@ -62,7 +61,7 @@ if (config_settings()->getParameter("db_password") == "") {
     report_messages();
     ?>
 
-    <form action="14.runtime_settings_hotel.php" method="post">
+    <form action="13.runtime_settings_hotel.php" method="post">
 
         <table>
             <tr>

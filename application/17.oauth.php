@@ -28,7 +28,7 @@ use function SmartFactory\singleton;
 $params = [];
 
 $params["access_token_ttl"] = 600; // 10 min
-$params["refresh_token_ttl"] = 3600; // 1 hours
+$params["refresh_token_ttl"] = 3600; // 1 hour
 $params["max_token_inactivity_days"] = 7; // 7 days
 
 $params["token_storage"] = singleton(ITokenStorage::class);
@@ -73,7 +73,7 @@ try {
 
     echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";
 
-    echo "<h3>Verifying resefresh token</h3>";
+    echo "<h3>Verifying refresh token</h3>";
     $oam->verifyRefreshToken($refresh_token, $user_id, $credentials["client_id"]);
 
     echo "<p style='color: green; font-weight: bold'>Verifying successful.</p>";

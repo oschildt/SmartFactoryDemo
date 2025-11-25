@@ -6,14 +6,13 @@ use SmartFactory\JsonRequestHandler;
 use SmartFactory\SmartException;
 
 use function SmartFactory\messenger;
-use function SmartFactory\reqvar_value;
 
 //-------------------------------------------------------------------
 // class MyTestJsonHandler
 //-------------------------------------------------------------------
 class MyTestJsonHandler extends JsonRequestHandler
 {
-    protected function parseInput()
+    protected function parseInput(): void
     {
         try {
             //$content_type = empty($this->request_headers["Content-Type"]) ? "" : $this->request_headers["Content-Type"];
@@ -25,7 +24,7 @@ class MyTestJsonHandler extends JsonRequestHandler
 
             // For demo we take not frow rawdata.
 
-            $json = reqvar_value("jsondata");
+            $json = $_REQUEST["jsondata"] ?? "";
 
             if (empty($json)) {
                 throw new SmartException("The request JSON is empty!", SmartException::ERR_CODE_MISSING_REQUEST_DATA);
@@ -45,17 +44,17 @@ class MyTestJsonHandler extends JsonRequestHandler
         }
     } // parseInput
 
-    protected function preprocessRequest()
+    protected function preprocessRequest(): void
     {
         $this->response_data["preprocess_message"] = "This message is added to every response by the PreProcessHandler!";
     } // preprocessRequest
 
-    protected function postprocessRequest()
+    protected function postprocessRequest(): void
     {
         $this->response_data["postprocess_message"] = "This message is added to every response by the PostProcessHandler!";
     } // postprocessRequest
 
-    function addMessagesToResponse()
+    function addMessagesToResponse(): void
     {
         if(messenger()->hasErrors()) {
             $this->response_data = [];
@@ -87,7 +86,7 @@ class MyTestJsonHandler extends JsonRequestHandler
         }
     }
 
-    function authenticate()
+    function authenticate(): void
     {
         if (empty($this->request_data["login"]) || empty($this->request_data["password"]) ||
             $this->request_data["login"] != "admin" || $this->request_data["password"] != "qwerty") {

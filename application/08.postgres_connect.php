@@ -100,6 +100,8 @@ function test_database()
 
     echo "<h2>Prepared DML query</h2>";
 
+    echo "<p>Increase salary by 100</p>";
+
     $dbw->prepare_query("update users set salary = salary + $1 where department_id = $2");
 
     $dbw->execute_prepared_query(100, 2);

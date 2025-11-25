@@ -5,10 +5,8 @@ require "../vendor/autoload.php";
 
 use function SmartFactory\config_settings;
 use function SmartFactory\runtime_settings;
-use function SmartFactory\echo_html;
-use function SmartFactory\session;
+use function SmartFactory\escape_html;
 
-session()->startSession();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,11 +32,11 @@ if (config_settings()->getParameter("db_password") == "") {
     <table>
         <tr>
             <td>Hotel Name*:</td>
-            <td><?php echo_html(runtime_settings()->getParameter("hotel_name")); ?></td>
+            <td><?php echo(escape_html(runtime_settings()->getParameter("hotel_name"))); ?></td>
         </tr>
         <tr>
             <td>Hotel Email*:</td>
-            <td><?php echo_html(runtime_settings()->getParameter("hotel_email")); ?></td>
+            <td><?php echo(escape_html(runtime_settings()->getParameter("hotel_email"))); ?></td>
         </tr>
         <tr>
             <td>Show Free Rooms:</td>
@@ -66,7 +64,7 @@ if (config_settings()->getParameter("db_password") == "") {
             }
             
             $txt = trim($txt, ", ");
-            echo_html($txt);
+            echo(escape_html($txt));
             ?>
             </td>
         </tr>
@@ -77,24 +75,24 @@ if (config_settings()->getParameter("db_password") == "") {
     <table>
         <tr>
             <td>Booking Service URL*:</td>
-            <td><?php echo_html(runtime_settings()->getParameter("booking_url")); ?></td>
+            <td><?php echo(escape_html(runtime_settings()->getParameter("booking_url"))); ?></td>
         </tr>
         <tr>
             <td>Hotel-ID*:</td>
-            <td><?php echo_html(runtime_settings()->getParameter("hotel_id")); ?></td>
+            <td><?php echo(escape_html(runtime_settings()->getParameter("hotel_id"))); ?></td>
         </tr>
         <tr>
             <td>Default Rate*:</td>
-            <td><?php echo_html(runtime_settings()->getParameter("default_rate")); ?></td>
+            <td><?php echo(escape_html(runtime_settings()->getParameter("default_rate"))); ?></td>
         </tr>
     </table>
 
     <br>
     <br>
 
-    <a href="14.runtime_settings_main.php">Main Settings</a><br>
+    <a href="13.runtime_settings_main.php">Main Settings</a><br>
     <br>
-    <a href="14.runtime_settings_hotel.php">Hotel Settings</a>
+    <a href="13.runtime_settings_hotel.php">Hotel Settings</a>
     
     <?php
 }
