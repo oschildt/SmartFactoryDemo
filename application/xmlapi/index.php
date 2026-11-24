@@ -2,9 +2,15 @@
 
 namespace MyApplication;
 
+use MyApplication\Handlers\MyTestXmlHandler;
+use SmartFactory\Interfaces\IRequestThrottlingManager;
+
+use function SmartFactory\singleton;
+
 require "../../vendor/autoload.php";
 
-use MyApplication\Handlers\MyTestXmlHandler;
+$handler = new MyTestXmlHandler();
 
-(new MyTestXmlHandler())->handleRequest();
-?>
+$handler->init(["throttling_manager" => singleton(IRequestThrottlingManager::class)]);
+
+$handler->handleRequest();

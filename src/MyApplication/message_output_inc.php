@@ -1,8 +1,20 @@
 <?php
+
 namespace MyApplication;
 
 use function SmartFactory\messenger;
 
+/**
+ * Renders queued programming warnings, errors, warnings, and informational messages as HTML blocks.
+ *
+ * @return void
+ * Writes one block per nonempty category and clears that category as its messages are fetched.
+ *
+ * @throws \Throwable
+ * If resolving the message manager or accessing a message category fails.
+ *
+ * @author Oleg Schildt
+ */
 function report_messages(): void
 {
     if (messenger()->hasProgWarnings()) {
@@ -42,3 +54,4 @@ function report_messages(): void
     }
 } // report_messages
 ?>
+

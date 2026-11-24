@@ -1,18 +1,20 @@
 @echo off
 
-rem set the path to mysql.exe
+rem set the path to postgre.exe
  
-set MYSQL_PATH="c:\mysql\bin\mysql.exe"
+set PGSQL_PATH="c:\PostgreSQL\bin\psql.exe"
+
+rem set the root password
 
 echo *****************************************************
-echo * Creating MySQL database                           *
+echo * Creating PostgreSQL database                      *
 echo *****************************************************
 
 echo -----------------------------------------------------
-echo Creating database                                  
+echo Step 1: creating the database                                  
 echo -----------------------------------------------------
 
-%MYSQL_PATH% --user=root --password < create_database_mysql.sql 
+%PGSQL_PATH% -U postgres < create_database.sql
 if not %errorlevel%==0 goto err
 
 echo -----------------------------------------------------

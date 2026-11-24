@@ -20,8 +20,8 @@
         "ru": "SMTP хост"
     },
     "SmtpPort": {
-        "en": "SMTP Port",
-        "de": "SMTP Port",
+        "en": "SMTP port",
+        "de": "SMTP port",
         "ru": "SMTP порт"
     },
     "ErrSmtpHostEmpty": {
@@ -34,15 +34,10 @@
         "de": "Protokollierung (Trace) einschalten",
         "ru": "Включить трассировку"
     },
-    "ShowErrorDetails": {
-        "en": "Show error details",
-        "de": "Fehlerdetails anzeigen",
-        "ru": "Показывать подробные сообщения об ошибках"
-    },
-    "ShowProgWarnings": {
-        "en": "Show program warnings",
-        "de": "Programmierwarnungen anzeigen",
-        "ru": "Показывать программные предупрждения"
+    "DebugMode": {
+        "en": "Debug mode",
+        "de": "Debug modus",
+        "ru": "Режим отладки"
     },
     "DatabaseType": {
         "en": "Database type",

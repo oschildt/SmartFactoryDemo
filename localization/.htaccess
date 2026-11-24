@@ -1,5 +1,5 @@
-Deny From All
+Require all denied
 
-<FilesMatch "^(edit|check)\.php$">
-Allow From All
+<FilesMatch "^(edit\.php|favicon\.ico)$">
+    Require all granted
 </FilesMatch>

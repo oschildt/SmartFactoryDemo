@@ -1,27 +1,18 @@
-# Force charset utf-8 for all files of the CMS
+# Use UTF-8 for application responses.
 
 AddDefaultCharset UTF-8
 AddCharset UTF-8 .html
 
 AddType 'text/html; charset=UTF-8' html
 
+# Prevent content negotiation from resolving API routes to similarly named files.
+Options -MultiViews
+
 <IfModule rewrite_module>
+    RewriteEngine On
 
-RewriteEngine on
-
-# If the application resides in the root like http://my_app/
-# RewriteBase /
-#
-# If the application resides in a subfolder like http://server/my_app/
-# RewriteBase /my_app/
-#
-# If the application resides in a subfolder like http://server/apps/my_app/
-# RewriteBase /apps/my_app/
-
-RewriteBase /
-
-RewriteRule ^api/([^\\/]*)/?  api/index.php   [L,QSA]
-
-RewriteRule ^xmlapi/([^\\/]*)/?  xmlapi/index.php   [L,QSA]
-
+    # Derive the URL prefix from the requested route, including any Alias prefix.
+    # This also supports a directory served both at the domain root and via Alias.
+    RewriteCond $0#%{REQUEST_URI} ^(.+)#(.*)\1$
+    RewriteRule ^(api|xmlapi)/.*$ %2$1/index.php [END]
 </IfModule>

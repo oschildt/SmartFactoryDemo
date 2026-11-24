@@ -2,8 +2,15 @@
 
 namespace MyApplication;
 
+use MyApplication\Handlers\MyTestJsonHandler;
+use SmartFactory\Interfaces\IRequestThrottlingManager;
+
+use function SmartFactory\singleton;
+
 require "../../vendor/autoload.php";
 
-use MyApplication\Handlers\MyTestJsonHandler;
+$handler = new MyTestJsonHandler();
 
-(new MyTestJsonHandler())->handleRequest();
+$handler->init(["throttling_manager" => singleton(IRequestThrottlingManager::class)]);
+
+$handler->handleRequest();

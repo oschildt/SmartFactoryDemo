@@ -26,7 +26,7 @@ echo -----------------------------------------------------
 echo Creating database                                  
 echo -----------------------------------------------------
 
-%OSQL_PATH%sqlcmd -S %HOST% -E -b -i create_database_mssql.sql
+%OSQL_PATH%sqlcmd -S %HOST% -E -b -i create_database.sql
 if not %errorlevel%==0 goto err
 
 echo -----------------------------------------------------

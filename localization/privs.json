@@ -1,0 +1,1017 @@
+{
+    "priv_customer": {
+        "en": "Customer",
+        "de": "Kunde",
+        "ru": "Клиент"
+    },
+    "priv_block_system": {
+        "en": "System",
+        "de": "System",
+        "ru": "Система"
+    },
+    "priv_block_user_management": {
+        "en": "User management",
+        "de": "Benutzerverwaltung",
+        "ru": "Управление пользователями"
+    },
+    "priv_block_content_management": {
+        "en": "Content management",
+        "de": "Content-Verwaltung",
+        "ru": "Управление контентом"
+    },
+    "priv_administrator": {
+        "en": "Administrator",
+        "de": "Administrator",
+        "ru": "Администратор"
+    },
+    "priv_content_editor": {
+        "en": "Content editor",
+        "de": "Content-Redakteur",
+        "ru": "Контент-Редактор"
+    },
+    "priv_content_publisher": {
+        "en": "Content publisher",
+        "de": "Content-Publikator",
+        "ru": "Контент-Публикатор"
+    },
+    "priv_content_manager": {
+        "en": "Content manager",
+        "de": "Content-Manager",
+        "ru": "Контент-Менеджер"
+    },
+    "priv_user_operator": {
+        "en": "User operator",
+        "de": "Benutzer-Operator",
+        "ru": "Оператор пользователей"
+    },
+    "priv_affiliate_partner": {
+        "en": "Affiliate partner",
+        "de": "Affiliate-Partner",
+        "ru": "Аффилированный партнер"
+    },
+    "priv_view_affiliate_reports": {
+        "en": "Viewing of the affiliate reports",
+        "de": "Einsehen der Affiliate-Reports",
+        "ru": "Просмотр аффилированных отчетов"
+    },
+    "priv_view_own_affiliate_reports": {
+        "en": "Viewing of own affiliate reports",
+        "de": "Einsehen eigener Affiliate-Reports",
+        "ru": "Просмотр собственных аффилированных отчетов"
+    },
+    "priv_login_to_admin_console": {
+        "en": "Login to administration console",
+        "de": "Einloggen in die Administrationskonsole",
+        "ru": "Вход в административную консоль"
+    },
+    "priv_access_to_any_interface": {
+        "en": "Access to any interface of the administration console",
+        "de": "Zugang zu einer Schnittstelle der Administrationskonsole",
+        "ru": "Доступ к какому-либо интерфейсу административной консоли"
+    },
+    "priv_master_administrator": {
+        "en": "Master administrator",
+        "de": "Master-Administrator",
+        "ru": "Мастер-администратор"
+    },
+    "priv_change_master_admin_password": {
+        "en": "Changing of the credentials of the master administrator",
+        "de": "Änderung der Zugangsdaten des Master-Administrators",
+        "ru": "Изменение данных для аутентификации мастер-администратора"
+    },
+    "priv_change_database_settings": {
+        "en": "Changing of the database connection settings",
+        "de": "Änderung der Einstellungen der Datenbankverbindung",
+        "ru": "Изменение настроек соединения с базой данных"
+    },
+    "priv_view_maintenance_settings": {
+        "en": "Viewing of the maintenance settings",
+        "de": "Einsehen der Wartungseinstellungen",
+        "ru": "Просмотр настроек режима обслуживания"
+    },
+    "priv_view_maintenance_settings_events": {
+        "en": "Viewing of the maintenance settings events",
+        "de": "Einsehen der Eregnisse der Wartungseinstellungen",
+        "ru": "Просмотр событий настроек режима обслуживания"
+    },
+    "priv_change_maintenance_settings": {
+        "en": "Changing of the maintenance settings",
+        "de": "Änderung der Wartungseinstellungen",
+        "ru": "Изменение настроек режима обслуживания"
+    },
+    "priv_view_system_settings": {
+        "en": "Viewing of the system settings",
+        "de": "Einsehen der Systemeinstellungen",
+        "ru": "Просмотр системных настроек"
+    },
+    "priv_view_system_settings_events": {
+        "en": "Viewing of the system settings events",
+        "de": "Einsehen der Ereignisse der Systemeinstellungen",
+        "ru": "Просмотр событий системных настроек"
+    },
+    "priv_change_system_settings": {
+        "en": "Changing of the system settings",
+        "de": "Änderung der Systemeinstellungen",
+        "ru": "Изменение системных настроек"
+    },
+    "priv_test_system_email": {
+        "en": "Testing of e-mail sending",
+        "de": "Testen des E-mail-Versands.",
+        "ru": "Проверка отправки эл. сообщений"
+    },
+    "priv_view_system_events": {
+        "en": "Viewing of the event log",
+        "de": "Einsehen der Ereignisanzeige",
+        "ru": "Просмотр журнала событий"
+    },
+    "priv_view_log_file": {
+        "en": "Viewing of the log file",
+        "de": "Einsehen der Log-Datei",
+        "ru": "Просмотр файла трассировки"
+    },
+    "priv_download_log_file": {
+        "en": "Downloading of the log file",
+        "de": "Herunterladen der Log-Datei",
+        "ru": "Скачивание файла трассировки"
+    },
+    "priv_delete_log_file": {
+        "en": "Deleting of the log file",
+        "de": "Löschen der Log-Datei",
+        "ru": "Удаление файла трассировки"
+    },
+    "priv_view_export_events": {
+        "en": "Viewing of the export\/import events",
+        "de": "Einsehen der Export- und Import-Ereignissse",
+        "ru": "Просмотр событий экспорта\/импорта"
+    },
+    "priv_export_data": {
+        "en": "Export of the application data",
+        "de": "Export der Anwendungsdaten",
+        "ru": "Экспорт данных приложения"
+    },
+    "priv_import_data": {
+        "en": "Import of the application data",
+        "de": "Import der Anwendungsdaten",
+        "ru": "Импорт данных приложения"
+    },
+    "priv_download_export_file": {
+        "en": "Downloading of the export file",
+        "de": "Herunterladen der Export-Datei",
+        "ru": "Скачивание файла экспорта"
+    },
+    "priv_view_modules": {
+        "en": "Viewing of the installed modules",
+        "de": "Einsehen der installierten Module",
+        "ru": "Просмотр установленных модулей"
+    },
+    "priv_install_update_modules": {
+        "en": "Installation or update of the modules",
+        "de": "Installation oder Update der Module",
+        "ru": "Установка или обновление модулей"
+    },
+    "priv_disable_modules": {
+        "en": "Disabling of the installed modules",
+        "de": "Deaktivierung der installierten Module",
+        "ru": "Деактивация установленных модулей"
+    },
+    "priv_deinstall_modules": {
+        "en": "Deinstalling of the installed modules",
+        "de": "Deinstallation der installierten Module",
+        "ru": "Деинсталляция установленных модулей"
+    },
+    "priv_view_user_data": {
+        "en": "Viewing of the user data",
+        "de": "Einsehen der Benutzerdaten",
+        "ru": "Просмотр данных пользователей"
+    },
+    "priv_view_user_events": {
+        "en": "Viewing of the user events",
+        "de": "Einsehen der Benutzerereignisse",
+        "ru": "Просмотр событий пользователей"
+    },
+    "priv_manage_users": {
+        "en": "Managing of the users",
+        "de": "Verwaltung der Benutzer",
+        "ru": "Управление пользователями"
+    },
+    "priv_change_user_data": {
+        "en": "Changing of the user data",
+        "de": "Änderung der Benutzerdaten",
+        "ru": "Изменение данных пользователей"
+    },
+    "priv_assign_user_roles": {
+        "en": "Assigning roles to users",
+        "de": "Zuweisung der Benutzerrollen den Benutzern",
+        "ru": "Назначение ролей пользователям"
+    },
+    "priv_assign_user_operators": {
+        "en": "Assigning user operators",
+        "de": "Zuweisung der Operatoren den Benutzern",
+        "ru": "Назначение операторов пользователям"
+    },
+    "priv_assign_content_editors": {
+        "en": "Assigning content editors for materials or sections",
+        "de": "Zuweisung der Content-Redakteure für Materialien oder Sektionen",
+        "ru": "Назначение контент-редакторов для материалов или секций"
+    },
+    "priv_add_users": {
+        "en": "Adding of the users",
+        "de": "Hinzufügen der Benutzer",
+        "ru": "Добавление пользователей"
+    },
+    "priv_delete_users": {
+        "en": "Deleting of the users",
+        "de": "Löschen der Benutzer",
+        "ru": "Удаление пользователей"
+    },
+    "priv_delete_user_workflow_items": {
+        "en": "Deleting of the user workflow items",
+        "de": "Löschen der Benutzer-Workflow-Einträge",
+        "ru": "Удаление заметок процессинга пользователей"
+    },
+    "priv_view_user_role_data": {
+        "en": "Viewing of the user role data",
+        "de": "Einsehen der Daten der Benutzerrollen",
+        "ru": "Просмотр данных ролей пользователей"
+    },
+    "priv_view_user_role_events": {
+        "en": "Viewing of the user role events",
+        "de": "Einsehen der Ereignisse der Benutzerrollen",
+        "ru": "Просмотр данных ролей пользователей"
+    },
+    "priv_manage_user_roles": {
+        "en": "Managing of the user roles",
+        "de": "Verwaltung der Benutzerrollen",
+        "ru": "Управление ролями пользователей"
+    },
+    "priv_change_user_role_data": {
+        "en": "Changing of the user role data",
+        "de": "Änderung der Daten der Benutzerrollen",
+        "ru": "Изменение данных ролей пользователей"
+    },
+    "priv_add_user_roles": {
+        "en": "Adding of the user roles",
+        "de": "Hinzufügen der Benutzerrollen",
+        "ru": "Добавление ролей пользователей"
+    },
+    "priv_delete_user_roles": {
+        "en": "Deleting of the user roles",
+        "de": "Löschen der Benutzerrollen",
+        "ru": "Удаление ролей пользователей"
+    },
+    "priv_view_own_profile": {
+        "en": "Viewing of the own profile",
+        "de": "Einsehen des eigenen Profils",
+        "ru": "Просмотр своего профиля"
+    },
+    "priv_view_own_events": {
+        "en": "Viewing of the own events",
+        "de": "Einsehen des eigenen Ereignisse",
+        "ru": "Просмотр своих событий"
+    },
+    "priv_change_own_profile_data": {
+        "en": "Changing of the own personal data",
+        "de": "Änderung der eigenen Personendaten",
+        "ru": "Изменение своих персональных данных"
+    },
+    "priv_change_own_profile_settings": {
+        "en": "Changing of the own profile settings",
+        "de": "Änderung der eigenen Profileinstellungen",
+        "ru": "Изменение настроек своего профиля"
+    },
+    "priv_change_own_credentials": {
+        "en": "Changing of the own credentials",
+        "de": "Änderung der eigenen Zugangsdaten",
+        "ru": "Изменение своих данных для аутентификации"
+    },
+    "priv_view_company_data": {
+        "en": "Viewing of the company data",
+        "de": "Einsehen der Unternehmensdaten",
+        "ru": "Просмотр данных компаний"
+    },
+    "priv_view_company_events": {
+        "en": "Viewing of the company events",
+        "de": "Einsehen der Unternehmensereignisse",
+        "ru": "Просмотр событий компаний"
+    },
+    "priv_manage_companies": {
+        "en": "Managing of the companies",
+        "de": "Verwaltung der Unternehmen",
+        "ru": "Управление компаниями"
+    },
+    "priv_change_company_data": {
+        "en": "Changing of the company data",
+        "de": "Änderung der Unternehmensdaten",
+        "ru": "Изменение данных компаний"
+    },
+    "priv_add_companies": {
+        "en": "Adding of the companies",
+        "de": "Hinzufügen der Unternehmensdaten",
+        "ru": "Добавление компаний"
+    },
+    "priv_delete_companies": {
+        "en": "Deleting of the companies",
+        "de": "Löschen der Unternehmensdaten",
+        "ru": "Удаление компаний"
+    },
+    "priv_view_website_language_data": {
+        "en": "Viewing of the website language data",
+        "de": "Einsehen der Daten der Website-Sprachen",
+        "ru": "Просмотр данных языков веб-сайта"
+    },
+    "priv_view_website_language_events": {
+        "en": "Viewing of the website language events",
+        "de": "Einsehen der Ereignisse der Website-Sprachen",
+        "ru": "Просмотр событий языков веб-сайта"
+    },
+    "priv_manage_website_languages": {
+        "en": "Managing of the website languages",
+        "de": "Verwaltung der Website-Sprachen",
+        "ru": "Управление языками веб-сайта"
+    },
+    "priv_change_website_language_data": {
+        "en": "Changing of the website language data",
+        "de": "Änderung der Daten der Website-Sprachen",
+        "ru": "Изменение данных языков веб-сайта"
+    },
+    "priv_add_website_languages": {
+        "en": "Adding of the website languages",
+        "de": "Hinzufügen der Website-Sprachen",
+        "ru": "Добавление языков веб-сайта"
+    },
+    "priv_delete_website_languages": {
+        "en": "Deleting of the website languages",
+        "de": "Löschen der Website-Sprachen",
+        "ru": "Удаление языков веб-сайта"
+    },
+    "priv_view_feature_category_data": {
+        "en": "Viewing of the feature category data",
+        "de": "Einsehen der Daten der Merkmal-Kategorien",
+        "ru": "Просмотр данных категорий характеристик"
+    },
+    "priv_view_feature_category_events": {
+        "en": "Viewing of the feature category events",
+        "de": "Einsehen der Ereignisse der Merkmal-Kategorien",
+        "ru": "Просмотр событий категорий характеристик"
+    },
+    "priv_manage_feature_categories": {
+        "en": "Managing of the feature categories",
+        "de": "Verwaltung der Merkmal-Kategorien",
+        "ru": "Управление категориями характеристик"
+    },
+    "priv_change_feature_category_data": {
+        "en": "Changing of the feature category data",
+        "de": "Änderung der Daten der Merkmal-Kategorien",
+        "ru": "Изменение данных категорий характеристик"
+    },
+    "priv_add_feature_categories": {
+        "en": "Adding of the feature categories",
+        "de": "Hinzufügen der Merkmal-Kategorien",
+        "ru": "Добавление категорий характеристик"
+    },
+    "priv_delete_feature_categories": {
+        "en": "Deleting of the feature categories",
+        "de": "Löschen der Merkmal-Kategorien",
+        "ru": "Удаление категорий характеристик"
+    },
+    "priv_view_feature_data": {
+        "en": "Viewing of the feature data",
+        "de": "Einsehen der Daten der Merkmale",
+        "ru": "Просмотр данных характеристик"
+    },
+    "priv_view_feature_events": {
+        "en": "Viewing of the feature events",
+        "de": "Einsehen der Ereignisse der Merkmale",
+        "ru": "Просмотр событий характеристик"
+    },
+    "priv_manage_features": {
+        "en": "Managing of the features",
+        "de": "Verwaltung der Merkmale",
+        "ru": "Управление характеристиками"
+    },
+    "priv_change_feature_data": {
+        "en": "Changing of the feature data",
+        "de": "Änderung der Daten der Merkmale",
+        "ru": "Изменение данных характеристик"
+    },
+    "priv_add_features": {
+        "en": "Adding of the features",
+        "de": "Hinzufügen der Merkmale",
+        "ru": "Добавление характеристик"
+    },
+    "priv_delete_features": {
+        "en": "Deleting of the features",
+        "de": "Löschen der Merkmale",
+        "ru": "Удаление характеристик"
+    },
+    "priv_view_material_group_data": {
+        "en": "Viewing of the material group data",
+        "de": "Einsehen der Daten der Materialgruppen",
+        "ru": "Просмотр данных групп материалов"
+    },
+    "priv_view_material_group_events": {
+        "en": "Viewing of the material group events",
+        "de": "Einsehen der Ereignisse der Materialgruppen",
+        "ru": "Просмотр событий групп материалов"
+    },
+    "priv_manage_material_groups": {
+        "en": "Managing of the material groups",
+        "de": "Verwaltung der Materialgruppen",
+        "ru": "Управление группами материалов"
+    },
+    "priv_change_material_group_data": {
+        "en": "Changing of the material group data",
+        "de": "Änderung der Daten der Materialgruppen",
+        "ru": "Изменение данных групп материалов"
+    },
+    "priv_add_material_groups": {
+        "en": "Adding of the material groups",
+        "de": "Hinzufügen der Materialgruppen",
+        "ru": "Добавление групп материалов"
+    },
+    "priv_delete_material_groups": {
+        "en": "Deleting of the material groups",
+        "de": "Löschen der Materialgruppen",
+        "ru": "Удаление групп материалов"
+    },
+    "priv_view_material_type_data": {
+        "en": "Viewing of the material type data",
+        "de": "Einsehen der Daten der Materialtypen",
+        "ru": "Просмотр данных типов материалов"
+    },
+    "priv_view_material_type_events": {
+        "en": "Viewing of the material type events",
+        "de": "Einsehen der Ereignisse der Materialtypen",
+        "ru": "Просмотр событий типов материалов"
+    },
+    "priv_manage_material_types": {
+        "en": "Managing of the material types",
+        "de": "Verwaltung der Materialtypen",
+        "ru": "Управление типами материалов"
+    },
+    "priv_change_material_type_data": {
+        "en": "Changing of the material type data",
+        "de": "Änderung der Daten der Materialtypen",
+        "ru": "Изменение данных типов материалов"
+    },
+    "priv_add_material_types": {
+        "en": "Adding of the material types",
+        "de": "Hinzufügen der Materialtypen",
+        "ru": "Добавление типов материалов"
+    },
+    "priv_delete_material_types": {
+        "en": "Deleting of the material types",
+        "de": "Löschen der Materialtypen",
+        "ru": "Удаление типов материалов"
+    },
+    "priv_view_blacklisted_ip_data": {
+        "en": "Viewing of the blacklisted IP data",
+        "de": "Einsehen der Daten der schwarz gelisteten IP Adressen",
+        "ru": "Просмотр данных IP адресов из черного списка"
+    },
+    "priv_view_blacklisted_ip_events": {
+        "en": "Viewing of the blacklisted IP events",
+        "de": "Einsehen der Ereignisse der schwarz gelisteten IP Adressen",
+        "ru": "Просмотр событий IP адресов из черного списка"
+    },
+    "priv_manage_blacklisted_ips": {
+        "en": "Managing of the blacklisted IPs",
+        "de": "Verwaltung der schwarz gelisteten IP Adressen",
+        "ru": "Управление IP адресами из черного списка"
+    },
+    "priv_change_blacklisted_ip_data": {
+        "en": "Changing of the blacklisted IP data",
+        "de": "Änderung der Daten der schwarz gelisteten IP Adressen",
+        "ru": "Изменение данных IP адресов из черного списка"
+    },
+    "priv_add_blacklisted_ips": {
+        "en": "Adding of IPs to the blacklist",
+        "de": "Hinzufügen der IP Adressen in die Schwarzliste",
+        "ru": "Добавление IP адресов в черный список"
+    },
+    "priv_delete_blacklisted_ips": {
+        "en": "Removing of the IPs from the blacklist",
+        "de": "Entfernen der IP Adressen aus der Schwarzliste",
+        "ru": "Удаление IP адресов из черного списка"
+    },
+    "priv_view_php_info": {
+        "en": "Viewing of the PHP parameter information",
+        "de": "Einsehen der Informationen über PHP-Parameter",
+        "ru": "Просмотр информации о параметрах PHP"
+    },
+    "priv_execute_sql_queries": {
+        "en": "Executing SQL queries",
+        "de": "Ausführung der SQL",
+        "ru": "Выполнение SQL запросов"
+    },
+    "priv_block_resource_management": {
+        "en": "Resource management",
+        "de": "Ressourcen-Verwaltung",
+        "ru": "Управление ресурсами"
+    },
+    "priv_download_resources": {
+        "en": "Download resources",
+        "de": "Herunterladen der Ressourcen",
+        "ru": "Скачивание ресурсов"
+    },
+    "priv_manage_open_resources": {
+        "en": "Managing of the open resources",
+        "de": "Verwaltung der offenen Ressourcen",
+        "ru": "Управление открытыми ресурсами"
+    },
+    "priv_view_open_resources": {
+        "en": "Viewing of the open resources",
+        "de": "Einsehen der offenen Ressourcen",
+        "ru": "Просмотр открытых ресурсов"
+    },
+    "priv_change_open_resources": {
+        "en": "Changing of the open resources",
+        "de": "Änderung der offenen Ressourcen",
+        "ru": "Изменение открытых ресурсов"
+    },
+    "priv_add_open_resources": {
+        "en": "Adding of the open resources",
+        "de": "Hinzufügen der offenen Ressourcen",
+        "ru": "Добавление открытых ресурсов"
+    },
+    "priv_delete_open_resources": {
+        "en": "Deleting of the open resources",
+        "de": "Löschen der offenen Ressourcen",
+        "ru": "Удаление открытых ресурсов"
+    },
+    "priv_manage_protected_resources": {
+        "en": "Managing of the protected resources",
+        "de": "Verwaltung der geschützten Ressourcen",
+        "ru": "Управление защищенными ресурсами"
+    },
+    "priv_view_protected_resources": {
+        "en": "Viewing of the protected resources",
+        "de": "Einsehen der geschützten Ressourcen",
+        "ru": "Просмотр защищенных ресурсов"
+    },
+    "priv_change_protected_resources": {
+        "en": "Changing of the protected resources",
+        "de": "Änderung der geschützten Ressourcen",
+        "ru": "Изменение защищенных ресурсов"
+    },
+    "priv_add_protected_resources": {
+        "en": "Adding of the protected resources",
+        "de": "Hinzufügen der geschützten Ressourcen",
+        "ru": "Добавление защищенных ресурсов"
+    },
+    "priv_delete_protected_resources": {
+        "en": "Deleting of the protected resources",
+        "de": "Löschen der geschützten Ressourcen",
+        "ru": "Удаление защищенных ресурсов"
+    },
+    "priv_manage_design_template_resources": {
+        "en": "Managing of the design template resources",
+        "de": "Verwaltung der Design-Template-Ressourcen",
+        "ru": "Управление ресурсами дизайн-шаблонов"
+    },
+    "priv_view_design_template_resources": {
+        "en": "Viewing of the design template resources",
+        "de": "Einsehen der Design-Template-Ressourcen",
+        "ru": "Просмотр ресурсов дизайн-шаблонов"
+    },
+    "priv_change_design_template_resources": {
+        "en": "Changing of the design template resources",
+        "de": "Änderung der Design-Template-Ressourcen",
+        "ru": "Изменение ресурсов дизайн-шаблонов"
+    },
+    "priv_add_design_template_resources": {
+        "en": "Adding of the design template resources",
+        "de": "Hinzufügen der Design-Template-Ressourcen",
+        "ru": "Добавление ресурсов дизайн-шаблонов"
+    },
+    "priv_delete_design_template_resources": {
+        "en": "Deleting of the design template resources",
+        "de": "Löschen der Design-Template-Ressourcen",
+        "ru": "Удаление ресурсов дизайн-шаблонов"
+    },
+    "priv_view_design_template_data": {
+        "en": "Viewing of the design template data",
+        "de": "Einsehen der Daten der Design-Templates",
+        "ru": "Просмотр данных дизайн-шаблонов"
+    },
+    "priv_view_design_template_events": {
+        "en": "Viewing of the design template events",
+        "de": "Einsehen der Ereignisse der Design-Templates",
+        "ru": "Просмотр событий дизайн-шаблонов"
+    },
+    "priv_manage_design_templates": {
+        "en": "Managing of the design templates",
+        "de": "Verwaltung der Design-Templates",
+        "ru": "Управление дизайн-шаблонами"
+    },
+    "priv_change_design_template_data": {
+        "en": "Changing of the design template data",
+        "de": "Änderung der Daten der Design-Templates",
+        "ru": "Изменение данных дизайн-шаблонов"
+    },
+    "priv_add_design_templates": {
+        "en": "Adding of the design templates",
+        "de": "Hinzufügen der Design-Templates",
+        "ru": "Добавление дизайн-шаблонов"
+    },
+    "priv_delete_design_templates": {
+        "en": "Deleting of the design templates",
+        "de": "Löschen der Design-Templates",
+        "ru": "Удаление дизайн-шаблонов"
+    },
+    "priv_block_advertising_promotion": {
+        "en": "Advertising & Promotion",
+        "de": "Werbung & Promotion",
+        "ru": "Реклама и продвижение"
+    },
+    "priv_view_affiliate_partner_data": {
+        "en": "Viewing of the affiliate partner data",
+        "de": "Einsehen der Daten der Affiliate-Partner",
+        "ru": "Просмотр данных аффилированных партнеров"
+    },
+    "priv_manage_affiliate_partners": {
+        "en": "Managing of the affiliate partners",
+        "de": "Verwaltung der Affiliate-Partner",
+        "ru": "Управление аффилированными партнерами"
+    },
+    "priv_change_affiliate_partner_data": {
+        "en": "Changing of the affiliate partner data",
+        "de": "Änderung der Daten der Affiliate-Partner",
+        "ru": "Изменение данных аффилированных партнеров"
+    },
+    "priv_add_affiliate_partners": {
+        "en": "Adding of the affiliate partners",
+        "de": "Hinzufügen der Affiliate-Partner",
+        "ru": "Добавление аффилированных партнеров"
+    },
+    "priv_delete_affiliate_partners": {
+        "en": "Deleting of the affiliate partners",
+        "de": "Löschen der Affiliate-Partner",
+        "ru": "Удаление аффилированных партнеров"
+    },
+    "priv_view_advertising_campaign_data": {
+        "en": "Viewing of the advertising campaign data",
+        "de": "Einsehen der Daten der Werbekampagnen",
+        "ru": "Просмотр данных рекламных кампаний"
+    },
+    "priv_view_advertising_campaign_events": {
+        "en": "Viewing of the advertising campaign events",
+        "de": "Einsehen der Ereignisse der Werbekampagnen",
+        "ru": "Просмотр событий рекламных кампаний"
+    },
+    "priv_manage_advertising_campaigns": {
+        "en": "Managing of the advertising campaigns",
+        "de": "Verwaltung der Werbekampagnen",
+        "ru": "Управление рекламными кампаниями"
+    },
+    "priv_change_advertising_campaign_data": {
+        "en": "Changing of the advertising campaign data",
+        "de": "Änderung der Daten der Werbekampagnen",
+        "ru": "Изменение данных рекламных кампаний"
+    },
+    "priv_add_advertising_campaigns": {
+        "en": "Adding of the advertising campaigns",
+        "de": "Hinzufügen der Werbekampagnen",
+        "ru": "Добавление рекламных кампаний"
+    },
+    "priv_delete_advertising_campaigns": {
+        "en": "Deleting of the advertising campaigns",
+        "de": "Löschen der Werbekampagnen",
+        "ru": "Удаление рекламных кампаний"
+    },
+    "priv_view_tracked_action_data": {
+        "en": "Viewing of the tracked action data",
+        "de": "Einsehen der Daten der verfolgten Aktionen",
+        "ru": "Просмотр данных отслеживаемых действий"
+    },
+    "priv_view_tracked_action_events": {
+        "en": "Viewing of the tracked action events",
+        "de": "Einsehen der Ereignisse der verfolgten Aktionen",
+        "ru": "Просмотр событий отслеживаемых действий"
+    },
+    "priv_manage_tracked_actions": {
+        "en": "Managing of the tracked actions",
+        "de": "Verwaltung der verfolgten Aktionen",
+        "ru": "Управление отслеживаемыми действиями"
+    },
+    "priv_change_tracked_action_data": {
+        "en": "Changing of the tracked action data",
+        "de": "Änderung der Daten der verfolgten Aktionen",
+        "ru": "Изменение данных отслеживаемых действий"
+    },
+    "priv_add_tracked_actions": {
+        "en": "Adding of the tracked actions",
+        "de": "Hinzufügen der verfolgten Aktionen",
+        "ru": "Добавление отслеживаемых действий"
+    },
+    "priv_delete_tracked_actions": {
+        "en": "Deleting of the tracked actions",
+        "de": "Löschen der verfolgten Aktionen",
+        "ru": "Удаление отслеживаемых действий"
+    },
+    "priv_block_email_management": {
+        "en": "E-mail management",
+        "de": "E-Mail-Verwaltung",
+        "ru": "Управление эл. сообщениями"
+    },
+    "priv_view_newsletter_topic_data": {
+        "en": "Viewing of the newsletter topic data",
+        "de": "Einsehen der Daten der Newsletter-Themen",
+        "ru": "Просмотр данных тем новостных рассылок"
+    },
+    "priv_view_newsletter_topic_events": {
+        "en": "Viewing of the newsletter topic events",
+        "de": "Einsehen der Ereignisse der Newsletter-Themen",
+        "ru": "Просмотр событий тем новостных рассылок"
+    },
+    "priv_manage_newsletter_topics": {
+        "en": "Managing of the newsletter topics",
+        "de": "Verwaltung der Newsletter-Themen",
+        "ru": "Управление темами новостных рассылок"
+    },
+    "priv_change_newsletter_topic_data": {
+        "en": "Changing of the newsletter topic data",
+        "de": "Änderung der Daten der Newsletter-Themen",
+        "ru": "Изменение данных тем новостных рассылок"
+    },
+    "priv_add_newsletter_topics": {
+        "en": "Adding of the newsletter topics",
+        "de": "Hinzufügen der Newsletter-Themen",
+        "ru": "Добавление тем новостных рассылок"
+    },
+    "priv_delete_newsletter_topics": {
+        "en": "Deleting of the newsletter topics",
+        "de": "Löschen der Newsletter-Themen",
+        "ru": "Удаление тем новостных рассылок"
+    },
+    "priv_view_user_notification_data": {
+        "en": "Viewing of the user notification data",
+        "de": "Einsehen der Daten der Benutzerbenachrichtigungen",
+        "ru": "Просмотр данных уведомления пользователей"
+    },
+    "priv_view_user_notification_events": {
+        "en": "Viewing of the user notification events",
+        "de": "Einsehen der Ereignisse der Benutzerbenachrichtigungen",
+        "ru": "Просмотр событий уведомления пользователей"
+    },
+    "priv_manage_user_notifications": {
+        "en": "Managing of the user notifications",
+        "de": "Verwaltung der Benutzerbenachrichtigungen",
+        "ru": "Управление уведомлениями пользователей"
+    },
+    "priv_change_user_notification_data": {
+        "en": "Changing of the user notification data",
+        "de": "Änderung der Daten der Benutzerbenachrichtigungen",
+        "ru": "Изменение данных уведомлений пользователей"
+    },
+    "priv_add_user_notifications": {
+        "en": "Adding of the user notifications",
+        "de": "Hinzufügen der Benutzerbenachrichtigungen",
+        "ru": "Добавление уведомлений пользователей"
+    },
+    "priv_delete_user_notifications": {
+        "en": "Deleting of the user notifications",
+        "de": "Löschen der Benutzerbenachrichtigungen",
+        "ru": "Удаление уведомлений пользователей"
+    },
+    "priv_view_email_template_data": {
+        "en": "Viewing of the email template data",
+        "de": "Einsehen der Daten der E-Mail-Templates",
+        "ru": "Просмотр данных шаблонов эл. сообщений"
+    },
+    "priv_view_email_template_events": {
+        "en": "Viewing of the email template events",
+        "de": "Einsehen der Ereignisse der E-Mail-Templates",
+        "ru": "Просмотр событий шаблонов эл. сообщений"
+    },
+    "priv_manage_email_templates": {
+        "en": "Managing of the email templates",
+        "de": "Verwaltung der E-Mail-Templates",
+        "ru": "Управление шаблонами эл. сообщений"
+    },
+    "priv_change_email_template_data": {
+        "en": "Changing of the email template data",
+        "de": "Änderung der Daten der E-Mail-Templates",
+        "ru": "Изменение данных шаблонов эл. сообщений"
+    },
+    "priv_add_email_templates": {
+        "en": "Adding of the email templates",
+        "de": "Hinzufügen der E-Mail-Templates",
+        "ru": "Добавление шаблонов эл. сообщений"
+    },
+    "priv_delete_email_templates": {
+        "en": "Deleting of the email templates",
+        "de": "Löschen der E-Mail-Templates",
+        "ru": "Удаление шаблонов эл. сообщений"
+    },
+    "priv_test_email_templates": {
+        "en": "Testing of e-mail template sending",
+        "de": "Testen des E-mail-Vorlage-Versands.",
+        "ru": "Проверка отправки шаблонов эл. сообщений"
+    },
+    "priv_view_website_configuration_data": {
+        "en": "Viewing of the website configuration data",
+        "de": "Einsehen der Daten der Website-Konfigurationen",
+        "ru": "Просмотр данных конфигураций веб-сайта"
+    },
+    "priv_view_website_configuration_events": {
+        "en": "Viewing of the website configuration events",
+        "de": "Einsehen der Ereignisse der Website-Konfigurationen",
+        "ru": "Просмотр событий конфигураций веб-сайта"
+    },
+    "priv_manage_website_configurations": {
+        "en": "Managing of the website configurations",
+        "de": "Verwaltung der Website-Konfigurationen",
+        "ru": "Управление конфигурациями веб-сайта"
+    },
+    "priv_change_website_configuration_data": {
+        "en": "Changing of the website configuration data",
+        "de": "Änderung der Daten der Website-Konfigurationen",
+        "ru": "Изменение данных конфигураций веб-сайта"
+    },
+    "priv_add_website_configurations": {
+        "en": "Adding of the website configurations",
+        "de": "Hinzufügen der Website-Konfigurationen",
+        "ru": "Добавление конфигураций веб-сайта"
+    },
+    "priv_delete_website_configurations": {
+        "en": "Deleting of the website configurations",
+        "de": "Löschen der Website-Konfigurationen",
+        "ru": "Удаление конфигураций веб-сайта"
+    },
+    "priv_view_material_data": {
+        "en": "Viewing of the material data",
+        "de": "Einsehen der Daten der Materialien",
+        "ru": "Просмотр данных материалов"
+    },
+    "priv_view_material_events": {
+        "en": "Viewing of the material events",
+        "de": "Einsehen der Ereignisse der Materialien",
+        "ru": "Просмотр событий материалов"
+    },
+    "priv_manage_materials": {
+        "en": "Managing of the materials",
+        "de": "Verwaltung der Materialien",
+        "ru": "Управление материалами"
+    },
+    "priv_change_material_data": {
+        "en": "Changing of the material data",
+        "de": "Änderung der Daten der Materialien",
+        "ru": "Изменение данных материалов"
+    },
+    "priv_add_materials": {
+        "en": "Adding of the materials",
+        "de": "Hinzufügen der Materialien",
+        "ru": "Добавление материалов"
+    },
+    "priv_delete_materials": {
+        "en": "Deleting of the materials",
+        "de": "Löschen der Materialien",
+        "ru": "Удаление материалов"
+    },
+    "priv_delete_material_versions": {
+        "en": "Deleting of the material versions",
+        "de": "Löschen der Materialien-Versionen",
+        "ru": "Удаление версий материалов"
+    },
+    "priv_delete_material_workflow_items": {
+        "en": "Deleting of the material workflow items",
+        "de": "Löschen der Materialien-Workflow-Einträge",
+        "ru": "Удаление заметок процессинга материалов"
+    },
+    "priv_publish_materials": {
+        "en": "Publishing of the materials",
+        "de": "Publizierung der Materialien",
+        "ru": "Публикация материалов"
+    },
+    "priv_view_section_data": {
+        "en": "Viewing of the section data",
+        "de": "Einsehen der Daten der Sektionen",
+        "ru": "Просмотр данных секций"
+    },
+    "priv_view_section_events": {
+        "en": "Viewing of the section events",
+        "de": "Einsehen der Ereignisse der Sektionen",
+        "ru": "Просмотр событий секций"
+    },
+    "priv_manage_sections": {
+        "en": "Managing of the sections",
+        "de": "Verwaltung der Sektionen",
+        "ru": "Управление секциями"
+    },
+    "priv_change_section_data": {
+        "en": "Changing of the section data",
+        "de": "Änderung der Daten der Sektionen",
+        "ru": "Изменение данных секций"
+    },
+    "priv_add_sections": {
+        "en": "Adding of the sections",
+        "de": "Hinzufügen der Sektionen",
+        "ru": "Добавление секций"
+    },
+    "priv_delete_sections": {
+        "en": "Deleting of the sections",
+        "de": "Löschen der Sektionen",
+        "ru": "Удаление секций"
+    },
+    "priv_delete_section_versions": {
+        "en": "Deleting of the section versions",
+        "de": "Löschen der Sektion-Versionen",
+        "ru": "Удаление версий секций"
+    },
+    "priv_delete_section_workflow_items": {
+        "en": "Deleting of the section workflow items",
+        "de": "Löschen der Sektion-Workflow-Einträge",
+        "ru": "Удаление заметок процессинга секций"
+    },
+    "priv_publish_sections": {
+        "en": "Publishing of the sections",
+        "de": "Publizierung der Sektionen",
+        "ru": "Публикация секций"
+    },
+    "priv_view_translation_texts": {
+        "en": "Viewing of the translation texts",
+        "de": "Einsehen der Wörterbuchtexte",
+        "ru": "Просмотр текстов словаря"
+    },
+    "priv_manage_translation_texts": {
+        "en": "Managing of the translation texts",
+        "de": "Verwaltung der Wörterbuchtexte",
+        "ru": "Управление текстами словаря"
+    },
+    "priv_change_translation_texts": {
+        "en": "Changing of the translation texts",
+        "de": "Änderung der Wörterbuchtexte",
+        "ru": "Изменение текстов словаря"
+    },
+    "priv_add_translation_texts": {
+        "en": "Adding of the translation texts",
+        "de": "Hinzufügen der Wörterbuchtexte",
+        "ru": "Добавление текстов словаря"
+    },
+    "priv_delete_translation_texts": {
+        "en": "Deleting of the translation texts",
+        "de": "Löschen der Wörterbuchtexte",
+        "ru": "Удаление текстов словаря"
+    },
+    "priv_view_crm_status_data": {
+        "en": "Viewing of the CRM status data",
+        "de": "Einsehen der Daten der CRM-Stati",
+        "ru": "Просмотр данных CRM статусов"
+    },
+    "priv_view_crm_status_events": {
+        "en": "Viewing of the CRM status events",
+        "de": "Einsehen der Ereignisse der CRM-Stati",
+        "ru": "Просмотр событий CRM статусов"
+    },
+    "priv_manage_crm_statuses": {
+        "en": "Managing of the CRM statuses",
+        "de": "Verwaltung der CRM-Stati",
+        "ru": "Управление CRM статусами"
+    },
+    "priv_change_crm_status_data": {
+        "en": "Changing of the CRM status data",
+        "de": "Änderung der Daten der CRM-Stati",
+        "ru": "Изменение данных CRM статусов"
+    },
+    "priv_add_crm_statuses": {
+        "en": "Adding of the CRM statuses",
+        "de": "Hinzufügen der CRM-Stati",
+        "ru": "Добавление CRM статусов"
+    },
+    "priv_delete_crm_statuses": {
+        "en": "Deleting of the CRM statuses",
+        "de": "Löschen der CRM-Stati",
+        "ru": "Удаление CRM статусов"
+    },
+    "priv_view_notification_type_data": {
+        "en": "Viewing of the notification type data",
+        "de": "Einsehen der Daten der Benachrichtigungstypen",
+        "ru": "Просмотр данных событий уведомлений"
+    },
+    "priv_view_notification_type_events": {
+        "en": "Viewing of the notification type events",
+        "de": "Einsehen der Ereignisse der Benachrichtigungstypen",
+        "ru": "Просмотр событий типов уведомлений"
+    },
+    "priv_manage_notification_types": {
+        "en": "Managing of the notification types",
+        "de": "Verwaltung der Benachrichtigungstypen",
+        "ru": "Управление типами уведомлений"
+    },
+    "priv_change_notification_type_data": {
+        "en": "Changing of the notification type data",
+        "de": "Änderung der Daten der Benachrichtigungstypen",
+        "ru": "Изменение данных типов уведомлений"
+    },
+    "priv_add_notification_types": {
+        "en": "Adding of the notification types",
+        "de": "Hinzufügen der Benachrichtigungstypen",
+        "ru": "Добавление типов уведомлений"
+    },
+    "priv_delete_notification_types": {
+        "en": "Deleting of the notification types",
+        "de": "Löschen der Benachrichtigungstypen",
+        "ru": "Удаление типов уведомлений"
+    }
+}

@@ -1,6 +1,6 @@
 {
     "smtp_server": "127.0.0.1",
-    "smtp_port": 25,
+    "smtp_port": "25",
     "tracing_enabled": 1,
     "show_message_details": 1,
     "show_prog_warnings": 1,
@@ -10,7 +10,7 @@
     "db_user": "root",
     "db_password": "",
     "db_prefix": "V1",
-    "trace_programming_warnings": 0,
+    "trace_programming_warnings": 1,
     "debug_mode": 0,
-    "domains": []
+    "domains": ["nosql.ru"]
 }
